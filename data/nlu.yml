@@ -1,0 +1,2631 @@
+version: "3.1"
+
+nlu:
+- intent: xin_chao
+  examples: |
+    - chào bạn
+    - alo
+    - hello
+    - hi
+    - hey
+    - mình có vài câu hỏi
+    - có ai giúp mình không
+    - bạn ơi
+    - anh ơi
+    - chị ơi
+    - cháu ơi
+    - hello 
+    - chào 
+    - hi 
+    - có ai ở đây không?
+- intent: đồng_ý_là_khách_hàng
+  examples: |
+    - Được chứ, mày cứ nói đi.
+    - Đúng rồi, đây là tôi. Muốn nói gì thì nói.
+    - Ừ, tao ở đây mà. Cứ nói.
+    - Đúng rồi, đây là mình. Mày cứ nói.
+    - Ok, tớ ở đây nghe này.
+    - Đúng rồi, đây là tao. Mày lảm nhảm gì thì lảm nhảm.
+    - Vâng, em Nghe đây.
+    - Đúng rồi, đây là chị. Mày cứ nói.
+    - Ừ, chị lắng nghe nhé.
+    - Tao ở đây, mày nói gì tao nghe này.
+    - Đúng rồi, đây là tui. Muốn nói gì thì nói.
+    - Ok, mình ở đây nghe này.
+    - Anh đang nghe đây, nói đi.
+    - Đúng, tại tao đây. Có gì thì đừng ngần ngại.
+    - Phải, đây là chị. Mày muốn chia sẻ gì?
+    - Anh có thể nghe em đấy.
+    - Đúng, tại tớ đây. Cứ nói đi.
+    - Ừ, tôi ngồi ngay đây. Nào, nói xem?
+    - Ừ, mình ngồi ngay đây. Nào, nói xem?
+    - Phải, đây là tao. Có gì hay ho không?
+    - Ừ, tao đang nghe mày đấy.
+    - Tớ đang nghe đây. Mày nói đi.
+    - Phải, đây là tao. Mày cứ nói.
+    - Đúng, tại mình đây. Chuyện gì vậy?
+    - Tui ở đây, mày nói gì tui nghe này.
+    - Đúng, tại tui đây. Chuyện gì vậy?
+    - Phải, đây là tôi. Có chuyện gì à?
+    - Ừ, tôi đang nghe mày đấy.
+    - Tôi có thể nghe em đấy.
+- intent: không_phải_là_khách_hàng
+  examples: |
+    - Mình không có vụ nợ nào cả, bạn kiểm tra lại thông tin nhé.
+    - Chú là ai vậy? Tôi không có món nợ nào với Finance.
+    - Chị nói nhầm người rồi, em không có vụ nợ nào.
+    - Tao không hề có món nợ nào, kiểm tra lại đi.
+    - Tớ không có nợ bạn ấy cả, bạn nhầm người rồi.
+    - Sao bác lại gọi cho tôi với cái tên này?
+    - Trên đời này không có món nợ nào thuộc về tài chính Finance mà chúng ta nghĩ đến, bạn ạ.
+    - Tui không hề mượn tiền từ bất cứ công ty tài chính nào cả.
+    - Cô gái, anh không có nợ bạn. Có lẽ đã có sự nhầm lẫn.
+    - Tụi mày đừng gọi cho thiếu gia, thiếu gia không có nợ bất kỳ ai.
+    - Tui không biết công ty tài chính Finance là gì cả, hình như bạn nhầm rồi.
+    - Trời ơi, lại nhầm người rồi! Mình không phải là khách hàng của Finance.
+    - Tao không có nợ bất cứ ai. Bạn nên rõ ràng hơn khi gọi nhầm.
+    - Chị ta đang nói với ai vậy? Tôi không thể nbh là người này.
+    - Cô à, em không hề mượn tiền từ bất kỳ công ty nào cả.
+    - Tớ không hề có món nợ nào từ Finance.
+    - Tao không mượn tiền từ công ty nào cả!
+    - Mày đừng nhắc nha, tao không phải khách của Finance đâu!
+    - Anh ta nên kiểm tra lại nơi nợ, tôi không có vụ nợ nào.
+    - Anh không phải là người bạn đang tìm, chị ta nên kiểm tra lại.
+    - Kim Thanh ah, dường như tao không phải là người bạn đang tìm.
+    - Anh không có vụ nợ nào cả! Hãy kiểm tra lại.
+    - Tôi không có món nợ nào! Hãy kiểm tra lại.
+    - Đừng gọi cho tôi nữa! Mày nhắc nhầm người rồi!
+    - Anh chưa hề mượn tiền từ bất cứ công ty tài chính nào.
+    - Kim Thanh ah, em nhầm người rồi.
+    - Nếu tôi là người mà bạn đang tìm thì bạn đã nhầm rồi.
+    - Anh không hẹn hò với Finance, sao họ lại gọi cho tôi vậy?
+    - Đừng mất thời gian của chúng tôi nữa! Tao không nợ ai cả!
+- intent: chưa_thanh_toán
+  examples: |
+    - Tao biết rồi, mày đừng nhắc nữa, tao không có tiền đó.
+    - Bữa này khó khăn quá, mình chưa thanh toán được.
+    - Tôi vẫn chưa thanh toán nợ được nha, tha lỗi cho tôi.
+    - Chưa đóng nữa, không có tiền mà đóng.
+    - Anh chưa có kịp đóng nợ đâu, em thông cảm nha.
+    - Chưa trả được, em thông cảm giúp chị nha.
+    - Tớ chưa trả được, bạn thông cảm nha.
+    - Ôi, tôi còn chưa trả được nợ. Ra sao đây?
+    - Tao chưa trả được, mày thông cảm tao đi.
+    - Tui chưa trả được, em thông cảm giúp tui với.
+    - Dạ, anh xin lỗi em, anh vẫn chưa thanh toán được.
+    - Chị cũng rất muốn trả, nhưng chưa thanh toán được.
+    - Rất tiếc, tôi vẫn chưa thanh toán được nợ.
+    - Dạo này tui khó khăn quá, chưa trả được nợ.
+    - Chưa đó, phải chờ không biết khi nào mới đóng được nữa.
+    - Chưa đó, anh không thể thanh toán không bỏ qua ngay được.
+    - Chưa trả nợ, chị thông cảm giùm tôi nhé.
+    - Chưa trả được tôi sẽ cố gắng đóng sau.
+    - Chưa trả, tớ sẽ thanh toán trong thời gian tới, em thông cảm nhé.
+    - Anh không có tiền, chưa thanh toán được, em nhắc sau nha.
+    - Chưa trả được, bạn nhắc sau cho tao nha.
+    - Còn chưa trả được. Chắc phải đợi lâu nữa quá.
+    - Dạ chưa trả nợ được nha. Có gì em nhắc sau.
+    - Khó quá, tớ chưa thanh toán được nợ.
+    - Mình biết mình đang nợ nhưng chưa có tiền trả nha.
+    - Chưa trả nợ, em thông cảm giúp tôi với.
+    - Chưa đóng được, có gì anh hứa sẽ trả sau nhé.
+    - Thật không may, tôi vẫn chưa thanh toán được khoản nợ.
+    - Chưa trả được, em nhắc sau ngày hạn cho chị nha.
+    - Tôi biết rồi, tôi cố gắng trả sớm nhất có thể.
+    - Tui chưa có tiền đó, đợi tui xíu nha.
+    - Mình chưa có tiền trả, đợi mình chút đã.
+    - Chị xin lỗi, chị đang gặp khó khăn tài chính, xin cho thêm thời gian để chị thanh toán.
+    - Tớ chưa có tiền nha, thanh toán sau.
+    - Chưa có xiền, đợi tao tí đã.
+    - Rõ rồi, anh đang cố gắng thu xếp.
+    - Tôi biết rồi, cứ từ từ, tôi đang cố gắng trả.
+    - Tiền đâu mà trả, tui đang cố gắng kiếm.
+    - Mình chưa có tiền, đừng ngại mặt mình mà đòi nữa.
+    - Chị biết rồi, chị sẽ trả mà, chỉ là chưa có tiền thôi.
+    - Tớ biết rồi, đừng nhắc tớ nữa, tớ chưa có tiền trả.
+    - Chưa có tiền, tao sẽ trả sau khi có.
+    - Anh cũng muốn trả mà, không phải anh không muốn.
+    - Tôi đang kiếm tiền, khi nào có tôi sẽ trả.
+    - Tui chưa có tiền, đợi tui tí đã.
+    - Mình biết rồi, mình đang cố gắng trả mà.
+    - Chị đang trong hoàn cảnh khó khăn, xin hãy thông cảm.
+    - Tớ còn nợ nhưng cũng chưa có tiền trả.
+    - Tao hết xiền, tao sẽ trả sau cùng.
+    - Dạ, anh chưa trả được, cho anh xíu nữa.
+    - Tôi không có tiền trả ngay bây giờ, cho tôi thêm thời gian.
+    - Tui đang gặp khó khăn nên chưa trả được, mong được thêm thời gian.
+    - Mình đang trong tình huống khó khăn, xin cho mình thêm chút thời gian để trả nợ.
+    - Chị cũng đang cố gắng mà, xin hãy thông cảm cho chị.
+    - Tớ cũng muốn trả nợ mà, nhưng hiện tại tớ đang không có tiền.
+    - Tao bị nợ, tao biết chứ, nhưng tiền đâu mà trả, đợi tao sau cùng.
+    - Tiền tôi đâu, tôi thấy nó đâu đây không, đợi tôi thu xếp.
+    - Công nhận tui đang nợ nhưng tui nói là chưa có tiền mà.
+    - Tôi chưa có tiền, không biết phải làm sao đây.
+    - Không có tiền đâu, đừng gọi nữa.
+    - Tui chưa có điều kiện thanh toán.
+    - Chưa có tiền, nợ vẫn chưa trả được.
+    - Chưa trả nợ được, mong công ty thông cảm.
+    - Tao yêu cầu công ty đừng gọi nữa, tao không có tiền trả nợ.
+    - Tui đang gặp khó khăn lớn, không thể trả nợ ngay được.
+    - Không biết lúc nào mới có thể trả được, đang khó khăn lắm.
+    - Chưa có khả năng trả nợ, đừng gọi nữa nhé.
+    - Tớ đang gặp chuyện, không thể trả được.
+    - Mình sẽ trả khi có tiền, đừng gọi nữa.
+    - Công ty dung hỏi nữa, tao chưa có tiền đâu.
+    - Chị chưa có tiền trả nợ, thông cảm nhé.
+    - Lần sau đừng gọi nữa, tao chưa có tiền trả nợ.
+    - Chưa trả được, cũng không biết khi nào mới trả được.
+    - Chưa có tiền, thanh toán không được.
+    - Tôi không biết phải làm sao, không có tiền để trả nợ.
+    - Chắc chắn là mình chưa trả được, thông cảm nhé.
+    - Đừng có mồi chốt tôi nữa, tôi đang khó khăn lắm rồi.
+    - Như tao nói, tao chưa trả được.
+    - Mình không chừa được, đừng gọi nữa.
+    - Tôi đang trong tình cảnh khó khăn, không thể trả nợ.
+    - Đừng có rình rập tôi nữa, chưa có tiền đâu.
+    - Chưa trả được, cũng chẳng biết khi nào mới trả được.
+    - Tôi chưa thanh toán được, cảm phiền công ty đừng gọi nữa.
+    - Chưa có điều kiện trả nợ, đừng hỏi nữa.
+    - Tao không biết phải trả như thế nào, tao chưa có tiền.
+    - Công ty hãy đừng gọi nữa, tôi chưa có tiền trả nợ.
+    - Tui không trả được, đừng nắn nót tui nữa.
+    - Tôi hiểu, nhưng bạn cũng thông cảm tôi phải xoay sở với cuộc sống, chưa có tiền trả nợ.
+    - Thôi mày, tao đã nói bao nhiêu lần rồi, nếu có tiền tao trả chứ tao còn nợ mày mấy chục triệu là ít ư?
+    - Chắc tôi phải bán nốt cái đồng cỏ trong vườn nhà tôi để trả nợ cho bị anh.
+    - Tui biết rồi, cần gì mày tận tung cái đó, tui đang tìm cách kiếm tiền đây mày biết không?
+    - Hello, tớ đang gặp khó khăn trong việc tài chính, xin cho tớ thêm một chút thời gian.
+    - Hiện tại chị đang không có khả năng thanh toán, chị sẽ cố gắng sắp xếp ở thời gian sau.
+    - Mình biết mình đang nợ mày. Bỏ qua cho một thời gian, mình sẽ trả.
+    - Tao đang khó khăn quá, nếu có tiền,tao đã trả cho mày rồi.
+    - Chị đã hiểu, nhưng lương chị tháng này chưa về, chị cần thêm một chút thời gian để thanh toán.
+    - Tôi quá khó khăn, tôi chưa thể trả ngay được.
+    - Hiện tại tao đang nợ cả thế gian, vậy mà mày còn đòi tao giữa trời mưa gió này à.
+    - Tôi đang cố gắng kiếm tiền để trả cho bạn, mong bạn thông cảm.
+    -  Tui chưa kịp thanh toán, vụ virus corona này làm ảnh hưởng tới công việc của tui . Mong bạn hiểu.
+    - Tao biết tao đang nợ mày, mà tao cũng không còn cách nào khác ngoài việc xin mày cho tao thêm thời gian.
+    - Mình đang kiếm tiền để trả nợ, mong bạn thông cảm.
+    - Lương tớ chưa về nên chưa thanh toán được.
+    - Tớ đang cố gắng giải quyết trường hợp này, mong bạn thông cảm.
+    - Hiện giờ tui chưa trả được, mong bạn thông cảm.
+    - Tớ biết nhưng công việc tớ không thuận lợi nên chưa thanh toán được, tớ đang cố gắng.
+    - Tao biết rồi, cứ đòi hoài. Tao đang cố gắng nhưng không may mắn lắm.
+    - Anh chưa thanh toán được, anh xin lỗi.
+    - Tui biết rồi, không cần nhắc nữa, nếu có tiền tui đã trả thẳng rồi.
+    - Chị nợ ngân hàng này thì chị lại nợ ngân hàng kia, chị không biết phải trả ngân hàng nào trước đây.
+    - Ngân hàng đừng đòi tôi nữa, tôi cố gắng trả cho tất cả mọi người rồi nhưng vẫn không trả xong.
+    - Mày thông cảm nhé, tao chưa trả nợ được vì tao bị mất việc.
+    - Tôi là người đáng tin cậy, tôi sẽ thanh toán nợ sớm thôi.
+    - Tui thật sự không có khả năng trả nợ lúc này, mong bạn thông cảm.
+    - Tôi hiểu nhưng có chút vấn đề sau khi bị mất việc, tôi sẽ thanh toán sớm nhất có thể.
+    - Tao biết rồi, tao đang cố gắng tìm cách trả nợ thôi đừng đòi nữa.
+    - Ham chưa có tiền, thứ sau xem được không?
+    - Không biết chụp, ca này làm ăn thế nào, chưa có tiền mà lúc nào cũng đòi.
+    - Tôi sẽ trả vào ngày mai, bảo bên kia đợi nhé.
+    - Tôi đang kiếm tiền, khó khăn lắm, mong bên bạn thông cảm.
+    - Bao giờ mình có tiền mình mới thanh toán được chứ.
+    - Mình không biết đó, hãy để mình xử lý.
+    - Tôi sẽ thanh toán khi có đủ tiền, nhưng hiện tại thì không thể. 
+    - Hôm nay không thể trả, mong bên bạn thông cảm.
+    - Tôi sẽ trả khi có thể, bạn đừng gọi nhắc nữa.
+    - Chưa có tiền để trả, khi nào có tôi sẽ liên lạc.
+    - Mình không nhớ nợ ai mà liên tục nhắc, chán quá.
+    - Cái nợ này tớ khi nào có tiền tớ mới trả.
+    - Chưa có tiền mà, sao đòi hoài vậy bạn.
+    - Tui không biết, tui chưa có tiền trả.
+    - Chưa thanh toán được, đang cố gắng tìm nguồn vay đây.
+    - Tao sẽ trả khi có tiền, bây giờ không thể trả được.
+    - Anh chưa trả được, anh đang vay mượn người thân đây.
+    - Tui đang trong tình hình khó khăn, không thanh toán được lúc này.
+    - Tớ chưa trả được, đang tìm cách vay vốn nơi khác nè.
+    - Quá khó cho tôi để trả ngay, vẫn đang chờ tiền từ phía khác.
+    - Chưa thanh toán được, nhọc quá chờ mình một chút.
+    - Còn lâu mình mới có tiền đưa cho bên cậu.
+    - Mình còn nợ nhiều người lắm, chưa trả được đâu.
+    - Hãy nhớ rằng tôi vẫn đang nợ, chỉ là chưa trả được thôi.
+    - Tao sẽ thanh toán trong ngày mai, nếu như tao có tiền.
+    - Tôi chưa có tiền trả, khi nào có tôi sẽ liên hệ.
+    - Anh chưa thanh toán, các bạn đợi thêm một chút nữa.
+    - Tôi chưa trả được, hơi khó khăn chút, mong các bạn thông cảm.
+    - Hôm nay tôi không trả nổi, tôi sẽ thông báo khi có tiền.
+    - Ôi trời, mình đang cố gắng sắp xếp mà. Khó quá!
+    - Tôi đang nỗ lực làm việc để thanh toán nợ này, xin hãy kiên nhẫn chút.
+    - Dạ, tui hiểu. Tui sẽ cố gắng đóng tiền trong hôm nay.
+    - Tôi biết rồi, đừng nhắc nữa! Tôi sẽ thanh toán khi có tiền.
+    - Anh đang tìm cách thanh toán, em chờ tẹo nhé!
+    - Hazz, dạ tớ hiểu rồi, tớ sẽ thanh toán sớm thôi.
+    - Dạ, mình đang cố gắng xin tiền mượn nè, hãy kiên nhẫn chút.
+    - Ồ, khó quá. Nhưng tôi sẽ cố gắng thanh toán nợ trong ngày hôm nay.
+    - Ừm, thế ah, tớ đang sắp xếp nè, rồi tớ sẽ chuyển tiền cho cậu.
+    - Con biết rồi má, con đang cố gắng làm lần lượt, má đợi nhé!
+    - Cô biết rồi, đợi chút, cô đang tìm cách mà.
+    - Ukm, tớ biết mà, tớ sẽ cố gắng thanh toán trong hôm nay, cậu đợi nhé!
+    - Nhưng mình không có tiền để thanh toán ngay bây giờ.
+    - Dạ, tui hiểu. Tui sẽ cố gắng thanh toán nợ trong hôm nay nếu được.
+    - Dạ, tui biết mà, tui đang cố gắng sắp xếp đây.
+    - Được rồi, tôi sẽ cố gắng thanh toán sớm nhất tôi có thể
+    - Dạ, tao biết mày cần tao thanh toán nhưng tao đang trong cảnh khó khăn lắm mày à.
+    - Có thể chị cần thêm chút thời gian để sắp xếp. Chị hi vọng bạn có thể hiểu.
+    - Được rồi, anh biết, anh sẽ cố gắng giải quyết ngay khi có thể.
+    - Rồi, tao sẽ làm ngay khi tao có tiền.
+    - Tôi đang trong tình cảnh rất khó khăn, bạn có thể cho tôi một chút thời gian không?
+    - Tôi hiểu rằng tôi cần thanh toán nợ, nhưng tôi cần thêm thời gian để sắp xếp.
+    - Ọ, chi đợi tẹo đi, chi đang cố sắp xếp đây.
+    - Dạ, thua rồi, để mình sắp xếp cái đã!
+    - Anh hiểu rồi em ạ, anh đang tìm cách giải quyết đây.
+    - Anh biết ạ, cho anh chút thời gian tổ chức nha.
+    - Có lẽ bạn nên kiên nhẫn chút, tôi đang cố gắng sắp xếp.
+    - Để mình xem mình có thể sắp xếp thế nào nhé, xin lỗi bạn nhiều.
+    - Dạ, mama ơi, đợi con chút đã, con đang cố thanh toán nợ đây ạ.
+- intent: đã_thanh_toán
+  examples: |
+    - Mình đã thanh toán đúng ngày rồi, kiểm tra lại đi!
+    - Đã nộp xong con số tiền đó rồi, làm ơn kiểm tra kỹ hơn.
+    - Tui xin bảo, tui đã thanh toán món nợ đó rồi.
+    - Tôi đã thanh toán tiền nợ tôi rồi, bạn kiểm tra lại được không?
+    - Tớ đã trả tiền đúng hạn rồi, sao còn nhắn nhủ thế?
+    - Tao đã đóng hết số nợ này rồi, sao còn nhắn nhủ thế?.
+    - Thân chào, tôi đã hoàn tất việc thanh toán hợp đồng thẻ tín dụng này.
+    - Tôi đã chuyển số tiền tối thiểu [ne_emi] đồng tôi nợ rồi.
+    - Tôi đã trả hết nợ. Bạn kiểm tra lại giùm.
+    - Tao đã thanh toán nợ này rồi, đừng nhắc nữa nhé!
+    - Anh vừa thanh toán xong cái số nợ này.
+    - Rồi rồi, tôi đã trả nợ rồi. Bạn đừng nhắc nữa.
+    - Rồi, mình đã nộp vào hôm kia rồi đó.
+    - Thanh toán xong từ hôm qua rồi, kiểm tra kỹ lại đi!
+    - Em vừa mới trả cái nợ này xong, kiểm tra lại đi.
+    - Alo, tớ đã trả cái nợ này rồi. Lại nhắc nữa à?
+    - Tôi đã trả tiền tôi nợ vào hôm trước rồi, xác nhận lại dùm tôi.
+    - Tôi đã trả xong món nợ này, vui lòng xác minh lại!
+    - Tôi đã thanh toán! Bạn vui lòng kiểm tra lại!
+    - Uhm, tao đã trả nợ rồi đấy!
+    - Tao đã thanh toán nhé, đừng nhắn nháy nữa!
+    - Tớ đã đóng tiền nợ rồi nha, check lại đi nha!
+    - Tao đóng rồi, kiểm tra lại đi rồi đừng có nhắn nữa nha!
+    - Tối qua tớ đã chuyển tiền rồi nhé, check lại đi.
+    - Tao just thanh toán xong, kiểm tra lại đi.
+    - Rồi, tao đã trả rồi đấy, kiểm tra lại đi nha.
+    - Ừ, tao đã trả tiền rồi đó. Kiểm tra lại thử xem chúng mày đã nhận chưa nha.
+    - Tao đã trả nợ rồi đấy, đừng nhắn nháy nữa mệt ghê!
+    - Rồi rồi, tôi đã trả tiền rồi, đừng nhắc nữa. Kiểm tra lại cho hết mệt nhé!
+- intent: yêu_cầu_từ_khách_hàng
+  examples: |
+    - Tôi không có tiền, làm sao để trả bây giờ?
+    - Tao sẽ trả sau, bây giờ tao đang bận.
+    - Nhỡ hôm nay tui không có tiền thì sao?
+    - Mình sắp có lương rồi, để rồi trả sau được không?
+    - Chị còn nợ bao nhiêu thế? Trả hôm sau có sao không?
+    - Tao sẽ trả vậy, nhưng tao cần thêm thời gian.
+    - Anh chưa có tiền, có thể đợi vài ngày không?
+    - Tui sẽ trả sau nha, bây giờ tui không tiện.
+    - Tớ chưa có lương, cho tớ trả sau được không?
+    - Còn nợ bao nhiêu? Mình trả sau được không?
+    - Tôi chưa nhận được lương, làm ơn cho tôi vài ngày nữa.
+    - Tao sẽ trả, nhưng đợi tao nhận lương đã.
+    - Anh cá đang ra tiền, được không nếu trả sau?
+    - Tui đang gặp khó khăn, cho tui vài ngày nữa để trả nha.
+    - Chị ôm đống nợ rồi, cho chị thêm thời gian để trả nợ được không?
+    - Tớ không nhớ mình còn nợ bao nhiêu nữa, cho tớ xem hợp đồng đã.
+    - Anh đang chờ tiền về, anh hứa trả sau.
+    - Vẫn còn nợ sao? Để tớ kiểm tra đã nha.
+    - Chị phải trả bao nhiêu nữa? Có thể để hôm sau được không?
+    - Tui chưa có tiền nên chắc trả sau mới được.
+    - Tao không có tiền, tao mới mất việc, cần thêm thời gian.
+    - Anh sẽ thanh toán sau nha, hôm nay anh còn phải tiền mua hàng.
+    - Mình không muốn trả hôm nay. Mình sẽ trả sau.
+    - Tao không tiện nói đến chuyện tiền bây giờ, để vài ngày sau tao sẽ trả.
+    - Anh vẫn còn công nợ nhiều quá, anh trả sau nhé.
+    - Tui ở nước ngoài, để tui về đã rồi tui sẽ trả nợ.
+    - Tớ chưa có tiền, để tớ trả sau nha.
+    - Tao sẽ chuyển sau khi tao nhận được lương.
+    - Mình đang gù lơ vì nợ, mình cần thêm thời gian.
+    - Tôi nhận được lời nhắc rồi, cảm ơn bạn nhé!
+    - Tui biết rồi! Hãy chớp mắt và tỉnh dậy từ giấc mơ ấy đi bạn.
+    - Tớ sẽ làm ngay khi có thể, đừng lo lắng.
+    - Được, tớ sẽ gửi tiền cho bạn trước ngày hạn.
+    - Anh sẽ chuyển ngay khi có khả năng. Đừng làm phiền anh nữa.
+    - Cám ơn lời nhắc của bạn! Mình sẽ chuyển tiền sớm trước ngày đó.
+    - Tớ biết, không cần nhắc nữa đâu, mệt quá!
+    - Tao đã nghe rõ rồi đó, không cần bạn nhắc nữa!
+    - Mình sẽ thanh toán đúng hẹn, yên tâm!
+    - Tôi hiểu rồi! Tôi sẽ chuyển tiền sớm trước ngày hạn.
+    - Tui lắng nghe rồi, cám ơn bạn nha!
+    - Ok, tớ sẽ gửi tiền trên thời gian!
+    - Cảm ơn nhắc nhở, tôi sẽ trả trước hạn.
+    - Tao sẽ gửi cho mày trước ngày hạn, đừng lo!
+    - Chị biết rồi! Chị sẽ chuyển tiền ngay bây giờ.
+    - Tao biết, tao sẽ chuyển tiền cho mày trước ngày hạn.
+    - Tui nhớ như in mà, đừng nhắc chuyện phiền phức này nữa!
+    - Tôi sẽ cố gắng chuyển tiền trước ngày hạn, bạn nhé!
+    - Tớ đã nhận thông tin rồi, tớ sẽ trợ lý làm ngay!
+    - Tui đang cố gắng xoay sở đây, bạn đừng bám đuôi tui!
+    - Ừ, tao đang xoay sở đây. Bạn cứ yên tâm nhé!
+    - Ok, mình sẽ kiểm tra và chuyển tiền ngay thôi!
+    - Tôi đã nhớ lời nhắc của anh rồi, đừng lo!
+    - Tôi sẽ thanh toán trước hạn, đừng lo lắng!
+    - Chuẩn bị tinh thần đợi tiền của tao đi nào!
+    - Cám ơn nhắc nhở, anh sẽ làm ngay khi có thể.
+    - Anh sẽ chuyển tiền cho em, đừng gọi nữa!
+    - Dạ, tôi sẽ chuyển trước ngày đó! Cám ơn em đã nhắc.
+    - Tao sẽ thanh toán trước hạn, nhưng đừng gọi điện hỏi tao nữa!
+    - Được rồi, tui biết rồi. Tui sẽ trả hôm đó thôi.
+    - Tôi cũng không muốn chậm đâu, nhưng thế mới trả được. Cứ kệ tôi đi.
+    - Tớ đang gặp khó khăn, đừng cứ ép tớ trả tiền thế.
+    - Tao không thể trả sớm hơn, chỉ có thể trả vào hôm đó. Tao đã nói đi nói lại bao nhiêu lần rồi.
+    - Tôi đã nói với cô rất nhiều lần, tôi sẽ trả vào hôm đó. Nếu cô cứ nhắc hoài như vậy tôi sẽ bực mình đấy.
+    - Tình hình kinh tế khó khăn, cứ để tôi trả vào ngày đó. Cái gì cũng ép sếp chịu không nổi.
+    - Mình sẽ trả hết vào hôm đó, cứ yên tâm đi. Mình không muốn ai đến nhắc nợ nữa.
+    - Ôi trời, sao cứ phải nhắc đi đâu? Tôi đã hứa là sẽ trả hết vào ngày đó rồi mà.
+    - Tui biết tui đang tiếp xúc với ai mà. Đừng cứ nhắc miết, tui sờ mệt lắm rồi đó.
+    - Anh sẽ trả tiền vào ngày đó, đừng nhắc mãi thế.
+    - Tôi không thể trả sớm hơn, hãy kiên nhẫn chút nha.
+    - Okay, bạn cứ nhắc miết, tôi sẽ trả hôm đó tôi đã nói rồi mà.
+    - Tôi biết tôi phải trả tiền, tôi không cần bạn nhắc đi nhắc lại.
+    - Sao cứ phải nhắc mãi thế, tôi đã nói là tôi sẽ trả hết vào ngày đó mà.
+    - Tôi đã lên lịch và sẽ trả tiền vào ngày đó, đừng cứ nhắc mãi mệt quá.
+    - Mình đã lên lịch trả nợ, bạn không cần nhắc nữa.
+    - Chị biết, chị sẽ trả đúng hẹn mà, đừng nhắc mãi đi.
+    - Chắc anh không thể trả sớm hơn, vào ngày đó anh mới có thể trả.
+    - Tớ sẽ cố gắng trả đúng hẹn nhé, đừng cứ nhắc mãi.
+    - Tao đang nợ nhưng tao cũng muốn trả, cứ để tao trả vào ngày đó.
+    - Tôi rất muốn trả tiền của tôi, đừng ép tôi trả sớm.
+    - Tớ sẽ trả nợ vào ngày đó, đừng lo lắng.
+    - Tao đã nói là tao sẽ trả, vậy tại sao cứ phải nhắc đi nhắc lại?
+    - Chị hiểu, chị sẽ trả tiền vào ngày đó.
+    - Đừng ép tôi, tôi sẽ trả một cách đúng hẹn.
+    - Chị biết chị phải trả tiền, nhưng chị chỉ có thể trả vào ngày đó.
+    - Anh biết mình phải trả tiền, nhưng anh chỉ có thể trả vào ngày đó.
+    - Đợi tôi, tôi chắc chắn sẽ trả tiền vào ngày đó.
+    - Cô ơi, tớ chỉ có thể trả tiền vào ngày đó thôi, đừng cứ nhắc miết như vậy.
+    - Anh còn nợ tiền kia, chưa trả xong, hãy kiên nhẫn chút.
+    - Thế tôi mới gặp nạn không lâu, lương cũng chưa nhận. Làm ơn đợi thêm một chút nữa nhé!
+    - Anh đang đi công tác xa, không tiện gửi tiền. Em có thể đợi anh trở về được không?
+    - Tôi sẽ cố gắng sắp xếp sớm nhất có thể.
+    - Ngập đầu công việc, chắc tui quên mất. Tui sẽ đóng trong hôm nay.
+    - Chắc do dịch bệnh suốt ngày kiếm tiền khó như kiếm... Vậy bạn có thể đợi tui một chút không?
+    - Tớ cũng muốn trả cho bạn sớm thôi, nhưng tớ đang gặp khó khăn về tài chính. Bạn có thể đợi thêm chút không?
+    - Không có tiền mà trả, nha bạn. Đợi tôi được không?
+    - Á à, tớ quên mất rồi. Cứ nhắc tớ thì tốt.
+    - Tao đóng tiền sớm nhưng cái dịch này làm ăn thua lỗ, tao chưa có tiền trả. Bạn chờ tao tí nhé!
+    - Tớ đang gặp khó khăn nên chưa thanh toán được. Bạn nhắc tớ vào ngày mai nhé, thử xem thế nào.
+    - Đã có tiền tớ trả sớm rồi, cứ yên tâm nhé.
+    - Mình đang vướng chút việc, mình sẽ đóng khoản nợ sớm nhất tớ có thể.
+    - Uh, tôi sẽ đặt lịch nhắc để đóng tiền sớm hôm nay.
+    - Đợt dịch này mình không có thu nhập đều, chắc phải nhờ bạn chờ thêm chút.
+    - Anh ấy mới chuyển công việc, chưa có thời gian để đóng tiền. Mong bạn thông cảm.
+    - Tao biết tao nợ mà, tại cái dịch bệnh này làm ăn thua lỗ, tao chưa có tiền trả. Cho tao xin thêm thời gian nhé!
+    - Tôi đang bận lắm, không rảnh để thanh toán ngay lúc này. Tôi sẽ thanh toán sớm nhất khi có thể.
+    - Uh, mình hiểu rồi. Mình sẽ đóng tiền ngay hôm nay.
+    - Tao biết tao nợ đấy. Nhưng mày phải hiểu tao đang gặp khó khăn. Cho tao thêm chút thời gian nhé!
+    - Vâng, mình sẽ thanh toán sớm trong ngày hôm nay.
+    - Chị có chút việc cần giải quyết, xin hãy đợi chị một chút.
+    - Anh ấy mới mất việc do dịch bệnh, mong bạn thông cảm. Anh ấy sẽ thanh toán ngay khi có thể.
+    - Tiền của tôi đang gửi ngân hàng, phải đợi thêm một chút để rút ra. Bạn có thể đợi tôi không?
+    - Tôi đang trong quá trình thu xếp tiền để trả nợ, mong bạn kiên nhẫn.
+    - Không thể trả nợ ngay lúc này, xin hãy thông cảm.
+    - Tôi đã trả tiền vào sáng nay rồi, bạn kiểm tra lại thử xem.
+    - Vâng, chị sẽ trả tiền sớm trong hôm nay.
+    - Tôi quên mất, xin lỗi. Tôi sẽ sắp xếp việc thanh toán nợ sớm nhất.
+    - Ừ, tao sẽ thanh toán.
+    - Mình sẽ cố gắng đi thanh toán thôi.
+    - Chị biết, chị sẽ thanh toán.
+    - Anh hiểu rồi, chuẩn bị tiền ngay.
+    - Tui sẽ qua ngân hàng thanh toán.
+    - Tao sẽ chuyển khoản.
+    - Rõ, tớ sẽ đi thanh toán.
+    - Ờ, mình sẽ chuyển khoản sớm.
+    - Tớ hiểu rồi, sẽ thanh toán.
+    - Được, tui hiểu rồi. Cảm ơn.
+    - Mình sẽ thanh toán hết nợ.
+    - Anh sẽ cố gắng trả nợ sớm.
+    - Tui sẽ chuyển khoản nhanh nhất có thể.
+    - Chuyện này chị sẽ lo.
+    - Anh sẽ chuyển khoản thanh toán
+    - Ừm, chị sẽ thanh toán sau.
+    - Anh biết rồi, cảm ơn!
+    - Uh, tại hạ sẽ thanh toán.
+    - Tui thì cũng đang chuẩn bị tiền để trả nợ rồi.
+    - Được, cậu thông báo tớ hiểu rồi, tớ sẽ trả.
+    - Qua thẳng ngân hàng thanh toán hết cho xong.
+    - Mình hiểu rồi, cảm ơn nhé.
+    - Tao biết mà, để tao chuẩn bị tiền.
+    - Cảm ơn, tớ sẽ thanh toán.
+    - Được, để mình chuẩn bị tiền, mình sẽ thanh toán đầy đủ.
+    - Chị hiểu rồi. Chị sẽ trả nợ sớm thôi.
+    - Tao sẽ chuyển khoản sớm nhé.
+    - Tớ sẽ trả sau, cảm ơn!
+    - Anh sẽ lo chuyện này.
+    - Chị biết rồi, không cần nhắc nữa.
+    - Tao không có thời gian gọi cho mày.
+    - Anh chả có nhu cầu gọi đâu.
+    - Mình biết rồi, không cần nhắc đâu.
+    - Đừng nhắc tôi liên tục như thế.
+    - Chả cần gọi, tụi mày sẽ không giúp gì đâu.
+    - Đầu tư vào công việc chứ không có thời gian gọi tổng đài.
+    - Mày thể nào cũng không đáp ứng được yêu cầu của tao.
+    - Tớ đã rõ rồi, không cần nhắc nữa.
+    - Bọn mày chỉ biết nói suông.
+    - Đừng có làm phiền tui nữa.
+    - Anh không muốn nghe điện thoại từ tụi mày.
+    - Mày nói mãi nhưng chả giúp đỡ gì cả.
+    - Tui không cần hỗ trợ của mày.
+    - Chị xin lỗi nhưng chị không cần hỗ trợ.
+    - Đừng có nhắc tôi liên tục như thế.
+    - Mình sẽ không gọi cho tổng đài đâu.
+    - Tao không thich cách mày làm việc.
+    - Các bạn làm việc không tốt gì cả.
+    - Dịch vụ của bọn mày chả ra gì.
+    - Chả muốn gặp mặt tụi mày nữa.
+    - Dịch vụ hỗ trợ của mày thật sự rất tệ.
+    - Mấy cái tổng đài đều không hữu ích gì cả.
+    - Tao đã nói rõ rồi, đừng nhắc lại nữa.
+    - Tao không có thời gian để gọi đâu, mày biết không?
+    - Tôi không muốn liên lạc với bọn mày nữa.
+    - Tao chả muốn nghe mấy cái lời thoại hỗ trợ của mày.
+    - Mấy cái lời thoại hỗ trợ của mày chỉ tốn thời gian của tao thôi.
+    - Các bạn hỗ trợ chả ăn nhập gì với tôi cả.
+    - Tui biết rồi, đang làm đấy, đừng nóng.
+    - Ừ, tui hiểu rồi. Tui sẽ chuyển tiền.
+    - Anh quên quá, hôm nay anh sẽ chuyển tiền liền.
+    - Đồng ý, tôi sẽ thanh toán ngay khi nhận được thông báo này.
+    - Chị biết ấy, không cần nhắc nữa. Chị đang chuyển tiền đây này.
+    - Mình biết rồi, đừng gọi điên cuồng như thế.
+    - Tớ quên mất tiêu, hôm nay tớ sẽ thanh toán ngay.
+    - Tao hiểu, đừng có nhắc nữa. Tao sẽ trả đấy.
+    - Tao biết mà, tối nay tao sẽ chuyển tiền.
+    - Chắc, chắc, cứ từ từ đã. Mình sẽ thanh toán mà.
+    - Anh sẽ thanh toán ngay khi có thể, không cần phiền.
+    - Ừm, tớ biết rồi. Còn vài ngày nữa mà, lo gì.
+    - Thế ạ? Tôi chắc chắn sẽ thanh toán ngay bây giờ.
+    - Ừm, tôi hiểu rồi, cảm ơn đã nhắc nhở.
+    - Được, chị sẽ chuẩn bị số tiền cần thiết để thanh toán.
+    - Tôi hiểu, tôi sẽ chuyển ngay khi có thể.
+    - Anh sẽ trả tiền, đừng lo lắng.
+    - Mình biết mà, mình sẽ chuyển trong tuần này.
+    - Chắc chắn anh sẽ thanh toán, không cần gọi làm phiền.
+    - Chị đang chuẩn bị số tiền, chỉ vài ngày nữa thôi.
+    - Được, mình hiểu rồi. Mình sẽ trả ngay bây giờ.
+    - Tôi sẽ thanh toán ngay sau khi kết thúc cuộc gọi này.
+    - Tớ sẽ trả, đừng hối thúc.
+    - Tao biết, tao đang chuyển tiền đây.
+    - Mình hiểu rồi, mình sẽ trả ngay.
+    - Anh quên mất, hôm nay anh sẽ trả money ngay.
+    - Hì, trời ạ, chị quên mất. Lát chị chuyển ngay.
+    - Tao biết rồi, đừng có nhắc nữa. Tao đang chuẩn bị tiền đây.
+    - Tớ sẽ chuyển tiền sau khi tớ tắt máy.
+- intent: có_quen_biết_với_người_nợ
+  examples: |
+    - Đúng, tôi quen biết với [ne_name]. Cần gì?
+    - À, [ne_name] à? Mình quen.
+    - Là bạn của tôi đấy. Sao bạn hỏi?
+    - Đúng, mình biết người đó. Bạn cần gì?
+    - Có, [ne_name] là bạn của mình.
+    - Đúng rồi, tôi biết người bạn đang nói.
+    - Tôi và [ne_name] quen nhau từ lâu. Có chuyện gì?
+    - Ừ, mình biết [ne_name]. Tại sao?
+    - Đúng, tôi quen biết với [ne_name]. Sao vậy?
+    - Có, mình và [ne_name] là bạn. Sao bạn hỏi?
+    - [ne_name]? Đúng, là người thân của mình.
+    - Mình quen [ne_name] từ hồi còn đi học.
+    - Đúng đấy, tôi và [ne_name] là bạn thân. Bạn cần gì?
+    - Ừ, [ne_name] là hàng xóm của tôi. Sao?
+    - Tôi biết [ne_name]. Bạn muốn gặp người đó à?
+    - Có, [ne_name] là bạn cùng công ty với mình.
+    - Có, mình quen [ne_name] từ hồi còn nhỏ.
+    - Đúng rồi, mình và [ne_name] từng làm việc chung.
+    - [ne_name]? Có, tôi quen. Cần giúp gì?
+    - Đúng đấy, [ne_name] và tôi là bạn từ hồi cấp 3.
+    - Có, mình biết. Sao bạn muốn biết?
+    - Đúng, mình quen biết. [ne_name] hiện giờ ở đâu vậy?
+    - Tôi biết người đó. Cần tôi giúp gì không?
+    - Có, tôi và [ne_name] từng hợp tác làm ăn chung.
+    - [ne_name]? Có, tôi biết người đó. Làm sao tôi có thể giúp?
+    - Ừ, [ne_name] là bạn gái/cậu bạn cũ của tôi. Bạn muốn nói gì?
+    - Đúng, mình biết [ne_name]. Bạn tìm người đó à?
+    - Có, tôi biết [ne_name]. Bạn là ai vậy?
+    - Đúng rồi, [ne_name] là anh/chị/em của tôi. Có chuyện gì?
+- intent: không_quen_biết_với_người_nợ
+  examples: |
+    - Tôi chưa từng nghe nói đến tên đó.
+    - Bạn chắc đã nhầm người rồi. Mình không biết [ne_name].
+    - Ai vậy? Mình không quen biết.
+    - Đúng số này nhưng tôi không quen người bạn nói.
+    - [ne_name]? Không, tên đó lạ lẫm với mình.
+    - Sao bạn hỏi về người đó? Mình không biết gì cả.
+    - Tôi không quen bất kỳ ai tên là [ne_name].
+    - Bạn có chắc đang nói về người đúng không? Tôi không biết.
+    - Mình không hề biết hoặc gặp người đó bao giờ.
+    - Không, mình không có quen người đó.
+    - Sai rồi, mình không quen ai tên như thế.
+    - Có thể bạn đã gọi nhầm. Tôi không quen biết người đó.
+    - Người đó không ở đây và tôi cũng không biết.
+    - Bạn nên kiểm tra lại. Mình không biết người bạn nói.
+    - Tôi chắc chắn không quen biết với [ne_name].
+    - Không, tôi không hề biết hoặc quen người bạn nói đến.
+    - Mình nghĩ bạn đã gọi nhầm số. Tôi không quen biết [ne_name].
+    - Bạn có thể đã nhầm lẫn. Mình không biết người đó.
+    - Không, tôi chưa từng gặp hoặc nghe nói về [ne_name].
+    - Mình không biết và cũng không quen biết với người bạn nói.
+    - Tôi không có thông tin gì về người bạn đang hỏi.
+    - Mình chưa từng nghe nói hoặc gặp người đó.
+    - Tôi không quen và cũng chưa từng nghe về tên đó.
+    - [ne_name]? Lần đầu tiên tôi nghe đến tên này.
+    - Không, mình không quen biết.
+    - Không hề, tôi không biết người bạn đang nói đến.
+    - Bạn có chắc là bạn đang gọi đúng số không? Mình không quen biết người đó.
+    - Tôi không biết, bạn có thể đã nhầm lẫn.
+    - Mình chưa bao giờ gặp hoặc biết về người tên [ne_name].
+- intent: yêu_cầu_và_thắc_mắc
+  examples: |
+    - Sao tớ phải biết [ne_name] bạn nhỉ?
+    - Ai là [ne_name] cơ? Tớ không quen người đó.
+    - Làm sao tôi biết được [ne_name] là ai, chị nhỉ?
+    - Thằng [ne_name] nào thế? Tôi không ngửi thấy mùi nó a.
+    - Cô có chắc không? Tôi làm sao có thể biết [ne_name] được?
+    - Chị chắc đã nhầm, mình không quen biết ai tên [ne_name].
+    - Chắc chắn là tôi không quen [ne_name]. Cô nên kiểm tra lại thông tin.
+    - Tớ không hề biết [ne_name]. Chắc cô đã nhầm rồi.
+    - Tôi không hề biết [ne_name] là ai.
+    - Mình không nhớ tên này, chắc chắn là không quen.
+    - Tôi chưa từng nghe tên này bao giờ nên chắc chắn là mình không quen [ne_name].
+    - Ai thế không biết, [ne_name] đâu có quen tôi đâu cho nên tớ không biết.
+    - Chắc là có lẽ tớ không biết, [ne_name] đâu có là người quen của tớ đâu.
+    - Đâu có người quen tên là [ne_name]. Cô nhầm rồi thì phải.
+    - Tôi không nhớ mình có người quen nào tên là [ne_name] cả, chắc cô đã nhầm rồi.
+    - [ne_name] là ai vậy cô? Tớ không có ký ức về người có tên này cả.
+    - Chắc cô đã nhầm lẫn giữa tôi và người khác, mình không quen [ne_name].
+    - Hình như cô đã gặp nhầm người, tôi không quen [ne_name] đâu ạ.
+    - Tôi chưa từng nghe thấy tên này, chắc chắn rằng tôi không quen [ne_name].
+    - Mình không hề biết [ne_name] là ai, cô nên kiểm tra lại thông tin mình có đi đã nhé.
+    - Tớ không thể nhớ được mình có quen [ne_name] hay không, nhưng mà tỉ lệ là không.
+    - Tao không quen thằng [ne_name] này, nhầm rồi đấy.
+    - Cô ơi, tôi không hề quen ai tên là [ne_name] cả.
+    - Tôi không nhớ là mình có quen [ne_name] không, nhưng mà chắc là không.
+    - Tên [ne_name] này lạ lạ, mình không quen người đó.
+    - Rõ ràng là tôi không quen [ne_name]. Cô nên kiểm tra lại thông tin của mình.
+    - Tôi không biết ai có tên là [ne_name], cô chắc là đã nhầm người rồi.
+    - [ne_name] là ai? Cô có chắc điều này không? Mình không hề quen người này cả.
+    - Mình không nhớ là mình có quen ai tên [ne_name] không nữa, nhưng hầu hết là không.
+    - Anh không quen gặp ai có tên là [ne_name] cả, bạn kiểm tra lại thông tin thử xem.
+    - Tui không hề quen biết hay liên quan gì đến người bạn đang nói cả.
+    - Không, tao không hề quen ai tên là [ne_name].
+    - Mình không nhận ra tên [ne_name], bạn chắc là đã nhầm người rồi.
+    - Chị không quen ai tên [ne_name] nha, bạn kiểm tra lại xem.
+    - Tớ không nhớ quen ai tên là [ne_name], bạn xem lại thông tin đi.
+    - Tôi nghĩ bạn đã nhầm măn, mình không quen ai tên như vậy cả.
+    - Tui nói thật đấy, tui không quen biết gì về người tên [ne_name].
+    - Anh không biết, anh không nhớ quen ai có tên đó cả.
+    - [ne_name] là ai vậy? Tôi không quen.
+    - Tớ không có quen ai tên đó, chắc có sự nhầm lẫn rồi.
+    - Mình không quen ai tên đó mà, chắc bạn nhắc nhầm rồi.
+    - Chắc bạn nhầm rồi, chị không quen ai tên là [ne_name].
+    - Anh không quen, không hề biết người bạn đang cần tìm.
+    - Tui có thể xác định chắc chắn là tui không quen người tên [ne_name].
+    - Không, tao không quen ai với cái tên như thế.
+    - Nhầm to rồi nhé, mình chưa từng quen biết người các bạn đang tìm.
+    - Tôi không hề quen ai có tên đó, bạn xem lại thông tin đã.
+    - Anh có thể chắc chắn một điều là anh không quen người bạn cần tìm.
+    - Tao chắc chắc là tao không biết ai tên như vậy.
+    - Tớ không có quen biết gì với người tên [ne_name], bạn kiểm tra lại thử.
+    - Mình không nhớ quen ai tên là [ne_name] cả, bạn nhầm rồi.
+    - Chị nói thật, chị không hề quen biết người bạn đang muốn tìm cả.
+    - Tôi không quen, đừng lieên hệ với tôi nữa.
+    - Tôi khẳng định tôi không quen ai tên [ne_name], đừng gọi cho tôi nữa.
+    - Ngắt kết nối đi nhé, tớ khẳng định không quen gì người đang nói cả.
+    - Ngắt cuộc gọi đi, mình không biết gì về người tên [ne_name].
+    - Đừng tìm tao nhé, tao chắc chắn không quen ai tên [ne_name].
+    - Ngắt kết nối đi bạn oi, tui hoàn toàn chắc chắn không quen ai tên [ne_name] cả.
+    - Ôi zời, tớ dùng số này đã lâu lắm rồi, và nó cũng đã đăng ký sim chính chủ. Nhưng tớ chả có mượn tiền hay làm hợp đồng thẻ tín dụng gì đâu. Công ty cậu check lại đi.
+    - Dạ, mình dùng số này khoảng năm rưỡi rồi, đã đăng ký sim chính chủ. Nhưng mình không có hợp đồng thẻ tín dụng nào cả. Anh làm ơn kiểm tra lại thông tin giùm mình nhé!
+    - Ơ, thẻ tín dụng ư? Tôi không có dùng cái đó đâu. Bạn kiểm tra lại thông tin đi. Tôi chưa bao giờ đăng ký thẻ tín dụng.
+    - Làm thế nào mà thẻ tín dụng của tôi lại lọt vào tay bạn được vậy? Tôi chưa từng sử dụng dịch vụ này.
+    - Ôi, tao đã dùng số này năm năm rồi, và đã đăng ký sim chính chủ. Nhưng tao không hề mượn tiền hay dùng thẻ tín dụng. Kiểm tra lại đi, cậu đang bị lầm.
+    - Ấy à, mình dùng số này tý tẹo thôi và không có làm hợp đồng thẻ tín dụng gì đâu. Không lẽ lại bảo mình trốn nợ không?
+    - Đúng là anh chả có dùng thẻ tín dụng nên cảm giác bạn kiểm tra lại thông tin đi nhé, không có nợ nào cả.
+    - Dạ bên công ty em check lại đi, tôi không dùng thẻ tín dụng nên không thể có nợ được. Tôi không muốn giải quyết những vụ lặt vặt như thế này.
+    - Cái đó có thể là sai sót, tôi thì không có hợp đồng thẻ tín dụng nào với bất kì công ty nào cả. Em check lại thông tin dùm anh nha!
+    - Nếu như thông tin của bạn đúng thì anh chắc chắn không còn sống rồi. Anh không có mượn tiền qua thẻ tín dụng. Check lại thông tin đi.
+    - Ơ rứa tôi đi đăng ký chính chủ đúng không? Mà thẻ tín dụng là gì ta? Tôi chưa nghe nói bao giờ?
+    - Uhm, mình đã đăng ký sim chính chủ thực sự, nhưng mình chưa hề dùng thẻ tín dụng. Check lại thông tin giúp mình nhé.
+    - Số này tôi dùng gần chục năm nay rồi, nhưng tôi không thể nhớ tồn tại một ai đó mặc tên tôi mở thẻ tín dụng. Bạn tìm hiểu kỹ lại nhé.
+    - Dạ em ơi, chị dùng thẻ ATM thôi, không làm thẻ tín dụng đâu. Làm ơn kiểm tra lại thông tin giúp chị nhé.
+    - Sim chính chủ tôi đăng ký từ hồi còn đi học, mà tiền thì tôi kiếm không dễ dàng chỉ để mất oan như thế này. Kiểm tra lại giúp tôi.
+    - Vụ này có thể là do nhầm lẫn. Tôi không hề sử dụng thẻ tín dụng. Anh/em vui lòng kiểm tra lại thông tin.
+    - Có vẻ như có một sự nhầm lẫn ở đây. Tôi không có mở thẻ tín dụng. Anh/em tìm hiểu lại giúp tôi nhé.
+    - Nếu là thẻ tín dụng thì mình không biết đâu, vì mình không dùng thẻ tín dụng.
+    - Ồ, thẻ tín dụng à? Tớ chưa từng dùng thẻ tín dụng, có lẽ là do nhầm lẫn. Cậu kiểm tra kỹ lại nhé!
+    - Anh dùng số điện thoại này đã từ lâu và đã đăng ký chính chủ, nhưng có lẽ bạn đã nhầm người, anh không mở thẻ tín dụng với bất kì công ty nào.
+    - Chuyện gì đây, tôi dùng số này đã lâu và đã đăng ký chính chủ nhưng tôi không mở thẻ tín dụng với bên công ty của cậu.
+    - Không đúng rồi, chị không bao giờ sử dụng thẻ tín dụng, thông tin này chắc chắn là sai. Em kiểm tra lại giúp chị nhé!
+    - Mình chưa từng đăng ký thẻ tín dụng. Thông tin có lỗi rồi. Bạn kiểm tra lại giúp mình nhé!
+    - Cái gì nè? Đây chắc chắn là sự nhầm lẫn rồi. Tôi không bao giờ có nhu cầu cần sử dụng thẻ tín dụng.
+    - Tớ chưa từng mở thẻ tín dụng với bất kì công ty nào, nên đúng là có lỗi nhầm lẫn ở đây. Cậu tìm hiểu lại thông tin rõ hơn nhé.
+    - Tôi không hề mở thẻ tín dụng ở công ty của bạn. Gì vậy, làm gì có chuyện tôi mượn tiền rồi không trả?
+    - Dạ, em thông cảm nhưng chị không hề mở thẻ tín dụng. Em kiểm tra lại thông tin giúp chị với nha.
+    - Chắc là bạn đã nhầm lẫn rồi. Tôi không có dùng thẻ tín dụng của công ty bạn nên làm sao có thể nợ tiền được. Kiểm tra lại thông tin nhé!
+    - Tớ không bao giờ mở thẻ tín dụng với bất kì công ty nào, nên rõ ràng là có lỗi nhầm lẫn ở đây. Cậu tìm hiểu lại thông tin nhé!
+    - Làm sao tôi có thể trả tiền này khi mà tôi đang thất nghiệp?
+    - Tui thật sự không có cách nào để trả nợ ngay bây giờ. Bạn đã từng hỗ trợ ai trong tình huống như tui chưa?
+    - Chẳng lẽ mình bị phạt nếu không thanh toán trước số tiền này?
+    - Tao đang gặp khó khăn tài chính lớn, có gì giúp tao với nên không?
+    - Cái tình trạng này khó thật, tôi thật sự không biết làm thế nào đây.
+    - Tụi mày nhắc nợ chắc chắn rằng sẽ hỗ trợ giảm lãi sau khi tao thanh toán trước được không?
+    - Sao tôi cứ phải trả trước số tiền này? Tôi cần giải thích rõ hơn.
+    - Anh không thể trả ngay bây giờ. Có cách nào khác không?
+    - Chị hiện tại rất khó khăn, không thể trả được. Bạn có thể hỗ trợ gì chị không?
+    - Làm sao tớ có thể trả tiền này khi mà tớ mới mất việc?
+    - Tui không thể trả ngay bây giờ. Tui cần một giải pháp tài chính khác.
+    - Mình phải trả số tiền này ngay lập tức ư? Mình không có khả năng làm vậy.
+    - Tao không thể thanh toán trước số tiền này. Có cách nào để giúp tao không?
+    - Đến tôi cũng phải trả trước ư? Tôi cần giái quyết vấn đề này.
+    - Không thể trả ngay bây giờ đâu. Có cách nào hỗ trợ không?
+    - Bây giờ tớ rất khó khăn, không thể trả được. Tớ cần giúp đỡ.
+    - Tui không thể trả ngay bây giờ. Bạn có thể giúp tui tìm giải pháp không?
+    - Đến khi nào thì mình phải trả tiền này?
+    - Tôi không thể trả được số nợ này. Cần một giải pháp khác.
+    - Sao lại cứ đòi trả trước tiền?
+    - Cái này khó thật, anh không thể trả lúc này được. Giúp anh với!
+    - Làm sao chị có thể trả nợ này khi mà công việc của chị đang không ổn định?
+    - Tao bây giờ không biết làm sao để trả nợ được. Có gì giúp tao được không?
+    - Tại sao lại phải trả trước? Cần một giải pháp hợp lý hơn.
+    - Anh không thể trả được lúc này. Có cách nào giúp anh không?
+    - Anh đang gặp khó khăn tài chính, không thể trả lúc này. Bạn có thể giúp gì được không?
+    - Sao tôi lại phải trả tiền này? Tôi cần một lời giải thích.
+    - Tôi không thể trả tiền này ngay được. Có gì giúp tôi được không?
+    - Đây là một số tiền lớn, tôi không thể trả ngay. Cần một giải pháp tốt hơn.
+    - Được rồi, điều tôi cần là hoàn toàn không có cuộc gọi nào từ bạn nữa.
+    - Con cái anh nợ mình, anh đang muốn tránh những cuộc gọi này từ bạn. Hãy xử lý cho anh sớm nhé.
+    - Chị nhắc mả, nếu bạn không muốn bị chị làm phiền thì hãy dừng cuộc gọi này ngay đi.
+    - Ông cần gì nữa không? Chuyện này tao đã trình báo rất nhiều lần rồi.
+    - Mình không muốn nhận cuộc gọi từ đồng ý của bạn. Hãy dừng cuộc gọi này ngay đi.
+    - Tớ muốn không bị bạn làm phiền nữa, cứ như bị quấy rối vậy.
+    - Em muốn không phải nhận thêm cuộc gọi từ số này nữa, đấy là yêu cầu của em.
+    - Nếu tao không muốn nhận thêm cuộc gọi từ bạn nữa, tao phải làm sao?
+    - Anh muốn dừng cuộc gọi từ phía bạn, hãy xử lý cho anh với.
+    - Chán chết, muốn tránh những cuộc gọi phiền phức này lắm rồi. Bạn có thể giúp tôi không?
+    - Đúng rồi, mình cần tránh những cuộc gọi phía bạn. Hay là bạn nghĩ tôi thích bị làm phiền à?
+    - Xin lỗi, nhưng nếu tớ không muốn nhận thêm cuộc gọi từ bạn nữa thì phải làm sao?
+    - Chị không muốn bị bạn làm phiền nữa. Bạn giúp chị giải quyết vấn đề này nhé.
+    - Đúng rồi, có thể chị không muốn nhận thêm cuộc gọi từ số này nữa.
+    - Tớ không muốn bị làm phiền bởi cuộc gọi của bạn nữa. Bạn hiểu ý tớ chứ?
+    - Nếu tôi không muốn nhận thêm cuộc gọi từ bạn, tôi phải làm sao?
+    - Tôi muốn bạn dừng cuộc gọi này và không làm phiền tôi nữa.
+    - Đúng, mình muốn dừng những cuộc gọi từ bạn, nếu không mình sẽ tố cáo bạn với cơ quan quản lý.
+    - Tao chán chết với mấy cuộc gọi này rồi đấy, tốt nhất là nên dừng lại.
+    - Chỉ cần mày dừng cuộc gọi lại, anh sẽ không bao giờ làm phiền mày nữa, đấy là lời hứa của anh.
+    - Chị ơi, dừng cuộc gọi lại cho tôi đi, chị đừng làm phiền tôi nữa.
+    - Giúp tôi dừng những cuộc gọi này. Hay là tôi phải tố cáo bị làm phiền hay sao?
+    - Tôi không muốn bị bạn gọi nữa. Dừng cuộc gọi này ngay đi.
+    - Nếu bên em không muốn bị làm phiền thì bên em cũng nên hiểu cảm giác của tôi. Dừng cuộc gọi này ngay đi.
+    - Anh không muốn bị làm phiền nữa. Hãy dừng cuộc gọi này lại ngay.
+    - Chị ơi, tôi đã nói rất nhiều rồi. Chị hãy dừng cuộc gọi này lại đi.
+    - Bọn mày hãy dừng cuộc gọi này. Tao chả muốn ba cái cuộc gọi quấy rối này nữa.
+    - Nhóc, tôi đã nói với em rất nhiều lần rồi, dừng cuộc gọi này lại cho tôi, em chớ làm phiền tôi nữa.
+    - Đúng, tao cần không phải có thêm việc gặp gỡ ảnh này nữa. Bạn hãy thực hiện đúng lời hứa của mình.
+    - Tôi không nợ tiền, hãy kiểm tra lại thông tin.
+    - Hả, chuyện này đã nói bao nhiêu lần rồi, tôi không có tiền trả nợ.
+    - Tôi biết rồi, mình sẽ trả khi có tiền.
+    - Làm ơn, miễn lôi thôi, chị trả khi chị có tiền thôi.
+    - Tui nói rồi, tui sẽ trả khi có khả năng, giờ không nên đừng gọi nữa.
+    - Tao đang bận, tao sẽ gọi lại sau.
+    - Làm phiền quá, mình đã biết rồi, không cần phải nhắc nữa.
+    - Tớ không nghe rõ, tớ sẽ gọi lại sau nhé.
+    - Anh không cần biết hợp đồng hay gì đó, chỉ biết là anh chưa có tiền.
+    - Tôi không nhận biết công ty của bạn, tôi không nợ tiền, kiểm tra lại đi.
+    - Chị đang bận, chị sẽ gọi lại.
+    - Tui không hiểu cô nói gì, tui cần người giải thích rõ ràng hơn.
+    - Tao không thể trả tiền ngay, tao cần thời gian.
+    - Anh đang nghe, nhưng anh không thể trả lời ngay được.
+    - Mình không nợ tiền, bạn kiểm tra sai rồi nhé.
+    - Tớ không có nhu cầu mượn tiền nữa, tớ đang trả nợ, tớ cần thời gian.
+    - Tao không thở nổi với việc trả nợ, tao cần người tư vấn giúp.
+    - Trả nợ không phải chuyện dễ, tui đang cố gắng.
+    - Nếu có gì sai sót, mình sẽ liên hệ, đừng gọi nữa.
+    - Nếu cần anh sẽ gọi lại, giờ anh bận.
+    - Tôi không hiểu gì về hợp đồng, tôi cần giải thích.
+    - Tao không có tiền trả, tao không biết phải làm sao.
+    - Mày gọi sai số rồi, tao không nợ tiền.
+    - Tớ không có nhu cầu mượn thêm, khỏi gọi nữa.
+    - Tui sẽ trả khi có tiền, đừng gọi nữa.
+    - Nếu cần, tôi sẽ liên hệ với bạn, bây giờ tôi không thể trả lời.
+    - Bạn gọi sai người rồi, tôi không mở hợp đồng.
+    - Tao không còn tiền để trả, không biết phải làm sao...
+    - Tôi đang bận, tôi không thể nói chuyện bây giờ.
+- intent: chưa_xác_định_đã_thanh_toán
+  examples: |
+    - Tao chưa rõ nữa mày ạ, chưa xác định nơi nào để thanh toán cả.
+    - Ờ, tớ chưa xác nhận mà, đang tìm hiểu xem đóng tiền ở đâu nè.
+    - Chị mới nghe nói, đang kiểm tra xem nên than toán ở đâu và bao nhiêu.
+    - Chưa, mình còn phải tìm hiểu xem phải đóng ở đâu và mức phí là bao nhiêu.
+    - Anh chưa biết vụ này, chắc phải kiểm tra xem nên thanh toán ở đâu và bao nhiêu.
+    - Tui chưa kiểm tra được, còn chưa xác định được chỗ đóng cũng như số tiền thanh toán.
+    - Chưa rõ lắm, mình đang xem xét xem phải trả bao nhiêu và ở đâu.
+    - Tớ chưa thanh toán ấy, đang tìm hiểu xem đóng ở đâu và số tiền đóng là bao nhiêu.
+    - Chưa biết vụ này nữa, chị phải kiểm tra xem nên đóng bao nhiêu tiền và ở đâu hả.
+    - Đang kiểm tra xem đóng ở đâu, tôi chưa xác nhận đã đóng hay chưa.
+    - Tao chưa xác nhận chỗ đóng tiền và số tiền nên đóng nữa, đợi tao xem đã.
+    - Tui còn chưa xác định được chỗ đóng và bao nhiêu tiền nữa, mình đang xem nè.
+    - Chưa biết chỗ này, mình đang tìm hiểu xem đóng ở đâu và phí bao nhiêu nè.
+    - Tớ còn trong giai đoạn tìm hiểu ấy bạn ơi, chưa biết nên đóng ở đâu và bao nhiêu tiền.
+    - Hình như tao chưa thanh toán, tao đang tìm hiểu xem tiền nợ đóng ở đâu và phí bao nhiêu đây.
+    - Chị chưa thanh toán, đang tìm hiểu vụ số tiền và địa điểm để thanh toán.
+    - ông ơi, chú chưa biết nơi đóng tiền, chưa xác định được mình đã đóng tiền chưa nha.
+    - Vụ này tôi chưa rõ nữa, phải kiểm tra lại chỗ đóng tiền và số tiền nợ.
+    - Cô ơi, tớ chưa có thông tin chỗ cụ thể để thanh toán và bao nhiêu tiền.
+    - ủa mày ơi, tao chưa biết đóng ở đâu, tao chưa thanh toán đâu.
+    - Ờ, tớ đang xem kìa, tớ chưa biết đóng ở đâu và số tiền bao nhiêu nữa.
+    - Còn chưa biết chỗ thanh toán và số tiền, anh đang tìm hiểu nè.
+    - Tui chưa biết chỗ nào để đóng tiền này, tui đang xem thông tin ấy.
+    - Tớ vẫn đang xem xem tớ nên đóng tiền ở đâu nè, tớ chưa thanh toán đâu.
+    - Tớ chưa rõ, tớ đang kiểm tra xem tớ nên đóng ở đâu và bao nhiêu tiền.
+    - Anh chị ơi, tao chưa biết chỗ nào để thanh toán á, tao đang xem.
+    - Ah, mình chưa biết ấy, mình đang xem xem chỗ nào để thanh toán.
+    - Tôi chưa thanh toán hết đâu nhé, tôi đang tìm hiểu vụ phí này.
+    - Chưa, tao đang kiểm tra xem bao nhiêu tiền và nơi đóng tiền.
+    - Chưa thanh toán được. Chắc nợ thêm một thời gian nữa. Thông cảm giùm!
+    - Tôi chưa có tiền đóng nợ, mình thông cảm nhé!
+    - Tao chưa trả được, nợ thêm chút nữa, có được không?
+    - Tiền này chắc chắn tớ chưa trả, tớ không biết phải đóng nợ ở đâu cả.
+    - Tớ chưa trả được nợ, đang cố gắng kiếm tiền. Tớ mong bạn thông cảm.
+    - Tui chưa thanh toán được nợ, tôi không biết thanh toán ở đâu và mất bao nhiêu nữa.
+    - Tui chưa đóng được, không biết đóng ở đâu nữa.
+    - Tôi chưa có tiền để trả nợ. Tôi cũng không biết phải trả ở đâu nữa.
+    - Tao chưa trả nợ, chưa trả được. Không biết trả ở đâu và bao nhiêu luôn.
+    - Xin lỗi bạn, hiện tại tôi chưa thanh toán được. Tôi cũng không rõ cần thanh toán ở đâu và số tiền là bao nhiêu?
+    - Chưa trả được. Vui lòng cho biết đóng ở đâu và số tiền.
+    - Nợ chưa trả xong, không biết phải đi đâu trả nữa.
+    - Chưa trả được, đang kẹt do làm ăn thua lỗ. Trả sau được không?
+    - Tôi chưa thanh toán được. Cho tôi biết tôi cần thanh toán ở đâu?
+    - Mình chưa trả nợ. Tiền mình đóng ở đâu và bao nhiêu vậy?
+    - Chưa có tiền trả nợ, vẫn không rõ đóng ở đâu nữa.
+    - Làm ơn thông cảm, tôi chưa trả được. Tôi cũng không biết trả ở đầu và mất bao nhiêu tiền nữa.
+    - Chưa trả được nợ, không biết số tiền và địa điểm đóng nợ nữa.
+    - Chưa trả rồi nha, không biết số tiền và chỗ đóng nước.
+    - Anh chưa trả nợ, cần biết thông tin về việc đóng gọi.
+    - Mình chưa trả nợ được nha, không rõ đóng ở đâu nữa.
+    - Xin lỗi, tài chính chưa ổn định nên chưa trả được nợ.
+    - Tôi chưa trả nợ, không biết số tiền và nơi thanh toán.
+    - Chưa trả rồi nha, chưa biết số tiền và vị trí đóng.
+    - Xin lỗi, tui chưa trả nợ, không biết cần đưa bao nhiêu và đóng ở đâu.
+    - Chưa trả được nợ, không biết đóng ở đâu và số tiền bao nhiêu.
+    - Chỉ tôi nơi đóng tiền, tình hình chưa trả được nên bạn thông cảm.
+    - Cần biết đóng tiền ở đâu, chưa trả nợ được.
+    - Tui chưa trả được tiền nợ, không biết chỗ nào để đóng.
+    - Ồ, tao chưa thanh toán, có nghĩa là tớ phải trả bao nhiêu tiền và ở đâu vậy?
+    - Chưa, tôi chưa đóng nợ, bạn có thể nói rõ lại là phải đóng ở đâu và bao nhiêu tiền không?
+    - Tao chưa nhận được biên lai nào cả, tại sao không nghe gì về số tiền phải trả và nơi thanh toán?
+    - Chưa nhé, tui chưa thanh toán. Biết đâu đóng nợ? Đóng bao nhiêu tiền?
+    - Chưa, tớ chưa thanh toán. Nói rõ hơn đi là tớ đóng ở đâu và bao nhiêu tiền?
+    - Chưa, anh chưa đóng nợ nào. Chỉ cho anh nơi thanh toán với số tiền cụ thể đi?
+    - Tui không nhận được biên lai nào thì làm sao biết phải đóng ở đâu, đóng bao nhiêu nào?
+    - Chưa, mình chưa thanh toán. Vậy mình đóng ở đâu và đóng bao nhiêu thì mới hết nợ?
+    - Anh chưa nhận được biên lai thanh toán, vậy anh đóng ở đâu, đóng bao nhiêu mới đủ?
+    - Ờ, tao chưa thanh toán. Bảo tao biết đóng ở đâu và bao nhiêu tiền đi?
+    - Chưa, tui chưa thanh toán một xu nào. Biết đâu đóng và bao nhiêu hả?
+    - Biên lai? mình chưa nhận được gì cả. Cần thanh toán ở đâu với bao nhiêu tiền?
+    - Đến lúc này, tao chưa nhận được biên lai nào hết, không biết phải trả bao nhiêu tiền mà trả.
+    - Tao chưa nhận được biên lai và không rõ phải đóng ở đâu, cũng không biết mình nợ bao nhiêu tiền cả.
+    - Chưa, tớ chưa thể thanh toán ngay bây giờ. Cụ thể là phải đóng ở đâu và đóng bao nhiêu tiền vậy?
+    - Chưa đâu, tôi chưa thanh toán đấy. Bảo tôi thanh toán ở đâu và bao nhiêu tiền đi.
+    - Chưa, tôi chưa thanh toán, vì tôi không biết phải đóng ở đâu cũng như số tiền cần phải trả.
+    - Chưa, tui chưa thanh toán. Vụ này, tui phải trả ở đâu và bao nhiêu tiền hả?
+    - Chị chưa nhận được biên lai nào, không biết nặng nợ bao nhiêu tiền để trả nữa.
+    - Biên lai thanh toán, tớ chưa nhận được cái gì cả, tớ chưa biết phải trả ở đâu với bao nhiêu tiền.
+    - Mình chưa nhận được biên lai nên không biết cần trả bao nhiêu tiền và trả ở đâu nữa.
+    - Anh chưa có thời gian thanh toán nợ nên chưa biết cần trả bao nhiêu và trả ở đâu.
+    - Tớ chưa nhận được thông tin nên không biết cần trả bao nhiêu và trả ở đâu.
+    - Tao chưa có biên lai nên không biết cần trả nợ bao nhiêu và ở đâu.
+    - Nợ! tui chưa trả nợ đâu, cũng không biết phải trả nợ ngày nao, trả ở đâu và số nợ là bao nhiêu.
+    - Thật ra, chị chưa thanh toán và chị cũng không rõ chị phải nộp bao nhiêu tiền và ở đâu.
+    - Eh, mình chưa có thông tin, không biết mình phải đóng thế nào và đóng bao nhiêu.
+    - Uh, tớ chưa thanh toán đâu, tớ cũng không biết là tớ phải trả bao nhiêu tiền và trả ở đâu.
+    - Chưa, tôi vẫn chưa nhận được biên lai nợ nên không biết tôi cần trả bao nhiêu và ở đâu.
+- intent: vấn_đề_hợp_đồng_và_thông_tin
+  examples: |
+    - Tui đã trả tiền rồi, ở ngân hàng XYZ. Số tiền tui đóng là 10 triệu, có biên lai luôn nha.
+    - Rồi, mình trả rồi. Đóng ở chi nhánh ngân hàng DEF, số tiền là 20 triệu.
+    - Anh đã đóng tiền rồi, ở ngân hàng GHI. Số tiền đóng là 30 triệu, có biên lai luôn đó.
+    - Tớ đã thanh toán rồi đó, ở ngân hàng JKL. Số tiền tớ trả là 50 triệu, có biên lai đấy.
+    - Chị đã thanh toán đủ tiền rồi, ở ngân hàng MNO. Số tiền đã trả là 60 triệu, có biên lai đó.
+    - Tao đã trả tiền rồi, ở ngân hàng PQR. Số tiền trả là 70 triệu, có biên lai rồi đó.
+    - Rồi mà, tui đã thanh toán hết rồi, tiền đóng ở ngân hàng STU. Lượng tiền tui đóng là 80 triệu, có biên lai nhé.
+    - Ừ, tôi đã thanh toán rồi. Số tiền là 90 triệu, ngân hàng VWX đó.
+    - Đã trả rồi, ở ngân hàng YZ. Số tiền là 100 triệu, có biên lai.
+    - Tôi đã trả hết tiền nợ, chi nhánh ngân hàng ABC. Số tiền là 15 triệu, có biên lai.
+    - Rồi làm gì còn gì, tớ đã thanh toán hết rồi, ngân hàng DEF. Số tiền trả là 25 triệu, có biên lai đó.
+    - Anh đã trả hết rồi, ngân hàng GHI đó. Số tiền anh đã thanh toán là 35 triệu, có biên lai.
+    - Tui đã thanh toán đủ rồi, ngân hàng JKL. Số tiền đã trả là 45 triệu, có biên lai luôn nha.
+    - Tao đã trả rồi, ngân hàng MNO đó. Số tiền là 55 triệu, có biên lai.
+    - Mình đã thanh toán hết rồi, ngân hàng PQR. Số tiền đã thanh toán là 65 triệu, có biên lai.
+    - Đã thanh toán rồi, ngân hàng STU nha. Số tiền là 75 triệu, có biên lai đó.
+    - Rồi, tớ đã đóng rồi. Chi nhánh ngân hàng VWX, số tiền là 85 triệu.
+    - Tui đã thanh toán đủ rồi, ngân hàng YZ. Số tiền là 95 triệu, có biên lai.
+    - Mình đã trả rồi, chi nhánh ngân hàng ABC. Số tiền mình trả là 105 triệu, có biên lai rồi nhé.
+    - Tôi đã thanh toán hết rồi, ngân hàng DEF. Số tiền tôi thanh toán là 200 triệu, có biên lai đó.
+    - Tao đã trả hết rồi, ngân hàng GHI đó. Số tiền là 300 triệu, có biên lai.
+    - Đã trả rồi, ngân hàng JKL. Số tiền là 400 triệu, có biên lai nhé.
+    - Rồi, mình đã thanh toán hết rồi, ngân hàng MNO. Số tiền mình trả là 500 triệu, có biên lai.
+    - Đã trả đủ rồi, ngân hàng PQR đó. Số tiền trả là 600 triệu, có biên lai nha.
+    - Tôi đã thanh toán rồi, ngân hàng STU. Số tiền là 700 triệu, có biên lai rồi đó.
+    - Anh đã đóng rồi, ngân hàng VWX. Số tiền đóng là 800 triệu, có biên lai.
+    - Tui tha1nh toán hết rồi, ngân hàng YZ đó. Số tiền tui trả là 900 triệu, có biên lai.
+    - Đã trả hết rồi, ngân hàng ABC. Số tiền trả là 1 tỷ, có biên lai rồi đó.
+    - Tôi không biết, tôi phải xem xét lại hợp đồng đã. Ông đợi tôi một chút.
+    - Cảm ơn em nhắc nhở, nhưng ngày nào tui trả được mới là chuyện của tui chứ.
+    - Ngày hợp đồng mình sẽ trả, không trả sớm được đâu.
+    - Chị cảm thấy ngày gốc cũng được rồi, không cần phải sớm.
+    - Cô đợi tớ xem thử tiền đã chuyển đến đâu chưa rồi tớ mới nói chắc được.
+    - Mày nói có lý, nhưng anh sẽ xem tài chính của anh ra sao đã rồi hãy nói tiếp.
+    - Tao biết ông quan tâm, nhưng tao phải xem thử tình hình đã.
+    - Bà đợi mình xem thử kế hoạch làm ăn này sao đã nhé.
+    - Đúng là hợp đồng mình là ngày [ne_short_due_date], nhưng xin em cho mình chút thời gian suy nghĩ nhé.
+    - Ngày [ne_short_due_date] chị sẽ chuyển, không sớm hơn, không muộn hơn.
+    - Tớ nghĩ là ngày [ne_short_due_date], nhưng tớ phải tính toán lại đã.
+    - Anh hiểu, nhưng tất cả còn phụ thuộc vào tình hình kinh doanh của anh.
+    - Ngày gốc thôi, không có gì đổi khác cả. Tôi không trả trước được.
+    - Để tui xem lại đúng ngày hợp đồng là ngày nào đã.
+    - Còn tuỳ vào tình hình làm ăn của mình, chưa chắc đã trả sớm được.
+    - Đợi tao xem thử dư nợ thế nào đã, rồi tao nói chắc.
+    - Ngày nào trả được thì anh trả, anh không chắc chắn được.
+    - Tớ không hứa trước được, để tớ xem lại ổn định tài chính đã.
+    - Chị phải xem lại ngày tháng, không thể hứa trước được.
+    - Tôi không biết, để tôi xem thử đã.
+    - Mình sẽ trả vào ngày hợp đồng, nhưng nếu có khả năng mình sẽ cố gắng trả trước.
+    - Cô để tớ xem thử tình hình đã nhé.
+    - Mày đợi tao coi thử hợp đồng đã rồi làm sao tao sẽ báo mày.
+    - Ngày trên hợp đồng tôi sẽ trả, không nên nói đến trả sớm.
+    - Bà xem thử hợp đồng kỹ đã rồi trả lời cô.
+    - Anh sẽ coi lại hợp đồng cùng tình hình tài chính cá nhân đã, rồi quyết định.
+    - Chị cần phải xem lại sổ sách đã, sau đó mới trả lời em được.
+    - Đợi tui cái nhé, để tui coi kỹ đã.
+    - Mày đợi tao nhé, còn tùy tạo hình kinh doanh của tao nữa.
+    - Tui đang làm việc, tui sẽ thanh toán sớm thôi.
+    - Có gì đâu mà phải gấp rút, tui sẽ trả sớm mà.
+    - Dạ, tôi đang bận xíu, tôi sẽ kiểm tra hợp đồng và thanh toán sớm.
+    - Mình hiểu rồi, mình sẽ thanh toán sớm.
+    - Chị biết rồi, đừng bắt chị gấp giữa giờ làm việc, chị sẽ thanh toán sớm thôi.
+    - Ôi, tớ cứ tưởng là có tin vui, tớ sẽ thanh toán sớm thôi.
+    - Tao biết mà, tao sẽ trả sớm thôi, cứ yên tâm đi.
+    - Đừng có gọi tao trong giờ làm việc, tao sẽ trả sớm thôi.
+    - Lần sau gọi nhắc nợ đừng nói nhiều thế, mình sẽ trả sớm mà.
+    - Anh đang bận chút xíu, sau anh sẽ xem lại hợp đồng và trả sớm.
+    - Chỉ là trễ một chút thôi, sao mà kiểu này, tôi sẽ trả ngay bây giờ.
+    - Cái hợp đồng này tôi đã đọc rồi, hãy để tôi trả sớm.
+    - Đúng, tôi cũng đang định thanh toán sớm mà.
+    - Tôi đang bận tý, tôi sẽ trả sớm mà, bạn đừng nói nhiều.
+    - Không cần nhắc tui, tui sẽ trả sớm mà, bạn làm ơn đừng gọi vào giờ làm việc của tui.
+    - Stop! Tao đang bận, tao sẽ trả sớm mà.
+    - Sorry, tớ đang công tác, khi về tớ sẽ xem lại hợp đồng và trả sớm.
+    - Tui biết mà, sao mà hấp tấp thế, tui sẽ trả sớm thôi.
+    - Anh đã ghi nhớ thông tin rồi, hẹn 1 ngày không xa, anh sẽ thanh toán sớm.
+    - Chị biết rồi, đừng gọi nhắc nợ với từ ngữ gấp gáp như vậy, chị sẽ trả sớm thôi.
+    - Okay, tạo đã ghi nhớ số tiền và thông tin, tao sẽ thanh toán sớm.
+    - Tui biết rồi, tui sẽ trả sớm thôi, đừng gọi nhắc nợ dài dòng như vậy.
+    - Thôi, đừng gọi nữa, tôi sẽ trả tiền ngay bây giờ.
+    - Chị sẽ kiểm tra lại hợp đồng đi đã, rồi chị thanh toán sớm.
+    - Okay okay, chị hiểu rồi, có gì chị thanh toán sớm.
+    - Dạ, em biết rồi. Để em kiểm tra lại hợp đồng và thanh toán sớm.
+    - Mình biết mình cần phải trả nợ sớm rồi, cứ đừng gọi lúc mình đang làm việc nữa.
+    - Anh biết mà, anh đã chuẩn bị sẵn tiền rồi, anh sẽ thanh toán sớm.
+    - Tao đang nằm viện, tao sẽ thanh toán sớm khi tao khỏi bệnh.
+    - Nợ ở đâu ra mà đòi? Mình không vay tiền.
+    - Ủa, sao lại nhắc tôi? Tôi chưa từng vay bao giờ.
+    - Tớ không rõ việc này, đã vay thì người vay phải trả.
+    - Làm gì có chuyện đó? Tôi không vay mà đòi là sao?
+    - Sorry nhé, mình chả hiểu gì bạn nói cả.
+    - Tôi không vay, đừng ngại, việc này có thể là do hiểu lầm.
+    - Cái gì? Tôi không hiểu tại sao lại nói tôi vay tiền?
+    - Chị không nợ, chị không hiểu những gì bạn đang nói.
+    - Tui chả hiểu gì bạn nói hết hả?.
+    - Có lẽ bạn nhầm rồi, tôi không bao giờ vay tiền.
+    - Anh không nợ tiền mà sao anh lại vay?
+    - Tôi không vay mà sao bạn lại đòi tôi.
+    - Tôi không vay! Bạn có thể kiểm tra lại thông tin của tôi không?
+    - Chắc chắn bạn đang nhầm lẫn, tôi không mượn tiền.
+    - Tôi không thể hiểu cách mà chị ấy vay tiền khi tôi không mượn.
+    - Hình như ngày nào đó tui biết mình không vay.
+    - Cái quái gì đang xảy ra, tấm hợp đồng đó là gì tôi không hề biết.
+    - Tui cực kỳ hoang mang, chả biết tại sao tên tui lại hiện lên hợp đồng ấy.
+    - Mi nhắc tụi tao làm gì? Tụi tao không vay đồng nào cả.
+    - Làm ơn kháng lại. Tao không đi vay tiền đâu.
+    - Mày có chắc không? Tao chưa hề vay tiền mấy bữa nay.
+    - Mày chắc không, tao chưa từng nhận nợ bao giờ.
+    - Trời ơi, bản thân tao chẳng biết gì cả, lần đầu tiên tao nghe vụ này.
+    - Tôi không vay, tôi không biết việc này.
+    - Cái gì? Tôi không biết gì về tiền vay của bạn.
+    - Chị không hề vay tiền. Bạn chắc chứ?
+    - Xin lỗi, nhưng tôi không nợ ai cả.
+    - Tôi không hiểu tại sao tôi lại nằm trong danh sách nợ của bạn.
+    - Tôi không vay tiền, hãy xác nhận lại thông tin.
+    - Tôi đang trong tình trạng khó khăn, không biết làm sao thanh toán được. Bạn có cách giải quyết nào không?
+    - Mình biết rồi. Sẽ cố gắng để trả nợ sớm nhất có thể.
+    - Chị ghét bị nhắc nhở. Chị biết trách nhiệm của mình.
+    - Tớ biết rồi, không cần đề cập vấn đề này nữa. Tớ sẽ thanh toán cho mà xem.
+    - Tui xin lỗi, tui đang gặp một vài rắc rối tài chính. Tui sẽ cố gắng trả sớm nhất có thể.
+    - Em biết rồi, đừng có nhắc mãi. Anh sẽ giải quyết được mà.
+    - Anh biết trách nhiệm của mình là gì, cứ để anh lo.
+    - Chị đây, chị nhớ như in. Đừng nhắc nhở nữa, ghê quá!
+    - Tao không cần ai nhắc, tao biết mình phải làm gì.
+    - Mình cũng không mong muốn thế này, nhưng hiện tại thật sự khó khăn. Có cách nào hỗ trợ không?
+    - Dạ, tui hiểu rồi. Tui sẽ thanh toán sớm thôi.
+    - Tớ sẽ thanh toán sớm nhất có thể, đừng lo.
+    - Không cần phải nhắc mãi, em biết phải làm gì rồi.
+    - Mình cũng không muốn vậy đâu. Nhưng mình thực sự không còn khả năng nào để trả nợ.
+    - Nếu tao có thể trả ngay bây giờ, tao đã không để bạn nhắc nhở đến thế nào.
+    - Cứ để dành thời gian cho công việc khác đi, chứ đừng nhắc nhở tôi mãi.
+    - Chị không muốn bị nhắc nhở hoài. Chị biết phải làm gì.
+    - Tớ thực sự không biết phải làm sao để trả nợ bây giờ.
+    - Anh biết mà. Anh sẽ sắp xếp để trả ngay khi có khả năng.
+    - Tui biết tui đang nợ nên không cần ai nhắc. Tui sẽ trả khi có khả năng, OK?
+    - Dạ vâng, mình sẽ thu xếp để trả nợ.
+    - Tao sẽ trả nợ sớm nhất có thể, đừng nhắc nhở nữa!
+    - Không lẽ tôi muốn vậy. Nếu tôi có thể, tôi đã trả rồi!
+    - Cảm ơn em đã nhắc nhở, chị sẽ cố gắng trả sớm nhất có thể.
+    - Dạ, dạ em biết rồi. Em sẽ thanh toán sớm nhất có thể. Để em sắp xếp công việc thôi.
+    - Anh không cần ai nhắc, anh sẽ lo.
+    - Tớ biết trách nhiệm của mình là gì, đừng nhắc mãi nữa.
+    - Tui đây, tui biết tui phải làm gì. Mình không cần ai nhắc nhở đâu.
+    - Chị đang cố gắng trả nợ. Nếu có gì hỗ trợ thêm thì nói chị biết nhé
+    - Chị không rõ hợp đồng này, có thể giải thích thêm không?
+    - Tui chưa hiểu rõ lắm, có thể nói kĩ hơn chỗ hợp đồng này không?
+    - Cái hợp đồng này tao chưa hiểu lắm, có thể giải thích rõ hơn không?
+    - Anh không rõ lắm về hợp đồng này, có thể cho biết thêm thông tin không?
+    - Mình không nhớ rõ cái hợp đồng này, có thể giải thích rõ hơn được không?
+    - Em phải giải thích rõ hơn về cái hợp đồng này!
+    - Cô ấy không hiểu gì về hợp đồng anh đang nói. Cho cô ấy biết thêm chi tiết.
+    - Tớ chưa hiểu lắm cái hợp đồng này, có thể giải thích rõ hơn không?
+    - Cái hợp đồng này trễ hạn từ bao giờ, tao chưa rõ lắm?
+    - Anh có thể nói rõ hơn về vụ trễ hạn này được không?
+    - Có thể cho tôi biết thêm thông tin về vụ trễ hạn này được không?
+    - Chị chưa rõ lắm về vụ trễ hạn này. Em nói rõ hơn được không?
+    - Tui chưa biết gì về vụ trễ hạn này, nói rõ hơn được không?
+    - Cái vụ trễ hạn này chưa rõ lắm, có thể giải thích thêm không?
+    - Mình không hiểu vụ trễ hạn này lắm, có thể giải thích thêm không?
+    - Cô ấy chưa biết gì về vụ trễ hạn này, nói rõ hơn đi.
+    - Tớ chưa hiểu cái vụ trễ hạn này, có thể giải thích thêm không?
+    - Em cho tao biết thêm về cái vụ trễ hạn này nào.
+    - Chị chưa hiểu cái vụ trễ hạn này lắm, có thể giải thích thêm được không?
+    - Anh có thể cho biết thêm thông tin về căn cứ của việc nói mình là người giữ tên được không?
+    - Tui chưa biết gì về việc tui là người giữ tên, anh nói rõ hơn nha.
+    - Tao chưa hiểu lắm về chuyện người giữ tên, có thể giải thích thêm được không?
+    - Em chưa rõ lắm về việc em là người giữ tên, anh nói rõ hơn nha.
+    - Anh có thể giải thích thêm về việc mình là người giữ tên được không?
+    - Mình chưa hiểu lắm về việc mình là người giữ tên, có thể giải thích thêm được không?
+    - Cô ấy chưa hiểu lắm về việc cô ấy là người giữ tên, hãy nói rõ hơn.
+    - Tớ chưa hiểu lắm về việc tớ là người giữ tên, có thể giải thích thêm được không?
+    - Em cần nah215ing thông tin về việc tao là người giữ tên.
+    - Chị không rõ việc chị là người giữ tên. Anh giải thích rõ hơn nha.
+    - Ông này, hợp đồng trễ hạn một ngày mà bắt thanh toán gì vội.
+    - Đừng có gọi tao nữa, tao biết rồi.
+    - Rõ, mình sẽ thanh toán khi có tiền.
+    - Anh không nhớ đã vay bao nhiêu, cho anh thông tin với?
+    - Thế tôi thanh toán ngay được không? công ty thuê được khoản tiền tự nhiên lại.
+    - Nghĩa là mình phải thanh toán liền hả?
+    - Ồ, tôi tưởng tôi đã thanh toán hết rồi, để tôi xem lại hợp đồng.
+    - Chị không nhớ có vay tiền công ty mình, gửi hợp đồng qua cho chị xem lại với.
+    - Tớ không nhớ hợp đồng trễ hạn, gửi thông tin lại với.
+    - Ông nói là có lạc hậu ngày hả, tôi sẽ đóng tiền sớm.
+    - Ố, tao tưởng mình đã trả hết rồi, để tao xem lại thông tin.
+    - Công ty mình không thông báo trễ hạn gì cả, cho tôi xem hợp đồng lại với.
+    - Tao đầu tư vào việc làm khác rồi, chờ tao thu hồi vốn đã, tao sẽ trả.
+    - Chờ mình thu xếp nguồn tiền đã, mình sẽ trả.
+    - Anh không thể trả tiền ngay được, anh sẽ liên hệ sau.
+    - Tôi cần kiểm tra hợp đồng lại, có thể gửi lại cho tôi không?
+    - Tui hiểu rồi, nhưng tui muốn xem lại hợp đồng có được không?
+    - Chụp thông tin hợp đồng và nợ rồi gửi wa cho tao xem lại nha.
+    - Ừ, chưa thấy thông báo lãi suất trễ hạn, hồi đó đọc trong hợp đồng là 1%/ngày hả?
+    - Đừng có gọi tao liên tục nha, tao sẽ trả khi có tiền.
+    - Mình trả trễ một ngày mà tính nhiều đó, chắc qua ngân hàng khác vay thì hơn.
+    - Anh không nhớ là đã truy cứu nợ trước. Cho xin lại thông tin hợp đồng để kiểm tra.
+    - Cái thông tin hợp đồng tao đã vứt rồi, địa chỉ gặp nhau để ký giấy trả tiền luôn nha.
+    - Chị chưa thanh toán được tại chị phải chi tiền cho việc đột xuất, chị hứa sẽ trả sớm nhất có thể.
+    - Tớ chưa nhận được thông báo gì cả nên tớ chưa biết hợp đồng bị trể hạn.
+    - Tôi đã trả tiền rồi, tại sao lại nói hợp đồng trễ hạn?
+    - Ồ, biết rồi, trễ một ngày mà cũng đã gọi nhắc nhở. Tôi sẽ thanh toán sớm.
+    - Mình không có tiền trả ngay được, để mình thu xếp đã.
+    - Rõ rồi, tớ sẽ trả tiền sớm nhất có thể.
+    - Chắc chắn tôi sẽ trả trước ngày [ne_short_duedate] nha.
+    - Tui sẽ chuyển số tiền này trong tuần này.
+    - Mình sẽ cố gắng thanh toán sớm nhất có thể.
+    - Tôi sẽ thanh toán số nợ này vào ngày mai.
+    - Chị sẽ chuyển tiền vào tuần sau.
+    - Để tui xem, tui nghĩ tui sẽ trả nợ vào thứ 7 tuần này.
+    - Tao sẽ gửi tiền vào ngày 30 nhé.
+    - Tớ sẽ thanh toán số nợ này vào ngày mùng 1 tháng sau.
+    - Mình sẽ thanh toán trước ngày [ne_short_duedate].
+    - Ăn nói lịch sự chút, chưa kịp trả mà đã nhắc hoài, tao trả khi nào tao muốn!
+    - Nợ nần gì mà ép người ta thanh toán sớm, tao trả khi nào tao có tiền!
+    - Tao trả lúc nào cũng được, cần chi phải quản?
+    - Tôi sẽ trả ngày mai, đừng gọi nữa.
+    - Các bạn nhắc hơi quá, tôi sẽ trả trước ngày [ne_short_duedate] mà.
+    - Anh sẽ chuyển tiền vào chiều nay.
+    - Trời ơi, sao quấy rối hoài vậy, tao trả khi nào tao muốn đấy.
+    - Ok tôi hiểu rồi, tôi sẽ trả vào cuối tuần.
+    - Để tôi thanh toán ngay bây giờ đi, khỏi phải nghe mấy cái cuộc gọi như vậy.
+    - Đã nói là sẽ trả mà, đừng nhắc mãi.
+    - Tôi sẽ thanh toán ngay khi có tiền.
+    - Hãy để tôi xem, có lẽ tôi sẽ trả ngày sau.
+    - Tao sẽ trả sau khi nhận lương cuối tháng.
+    - Oi giời ơi, sao phiền phức vậy, tao chuyển sau cũng được mà.
+    - Đừng gọi nữa, tôi sẽ chuyển tiền vào thứ hai tuần sau.
+    - Để tôi xem, tôi nghĩ tôi sẽ trả vào ngày [ne_short_duedate].
+    - Chỉ tiền thì làm sao chả có, tao sẽ trả ngay sau khi có lương.
+    - Tao sẽ chuyển sau khi có lương.
+    - Tôi hiểu, tôi sẽ trả vào ngày mai.
+    - Mình sẽ trả sau 3 ngày nữa.
+    - Ờ thì tui biết rồi, bạn không cần khách sáo đâu. Tôi đang gặp khó khăn, sẽ thanh toán khi có thể thôi.
+    - Cái hợp đồng này mình không công nhận, mình chưa kí đâu mà đòi nợ. Bạn check lại thông tin giúp mình.
+    - Sao tôi thanh toán sớm được khi tôi đang mất việc, nhớ đi nhé.
+    - Mình đã thanh toán rồi mà sao bạn cứ nhắc hoài vậy?
+    - Hợp đồng tui đã thanh toán xong rồi! Có gì bạn check lại giúp tui với nhé.
+    - Sao anh không có thông báo gì trước mà đòi tiền bất chợt vậy?
+    - Kì vậy... tưởng anh nhớ nhầm người rồi đấy, tớ không mượn tiền mà.
+    - Chắc bên em lộ thông tin rồi, tôi không có nợ tiền mà bên em cứ nhắc nợ mãi thế!?!
+    - Hiểu rồi, tui sẽ cố gắng chuyển tiền sớm nhất có thể, đang chờ lương thì chuyển hết cho mấy bạn.
+    - Mi check lại hồ sơ này đi, mi đòi nhầm người rồi!
+    - Không phải tôi cứ nợ mãi đâu, tôi đang chờ tiền tỷ lệ phí từ công ty. Thả lỏng đừng áp lực vậy.
+    - Dở hơi quá, tao đã thanh toán rồi mà, check lại đi!
+    - Chị chưa nhận được hợp đồng mà được hộ tống cổ trả nợ, cơ cấu lại nội bộ đi em.
+    - Đồng ý, chị biết chị nợ. Chị đang cố gắng để trả nợ trong thời gian sớm nhất.
+    - Chị đã gọi vào ngân hàng hỏi, họ nói chị không còn nợ nữa. Cậu check lại thông tin đi.
+    - Làm ơn đừng gọi nữa, tao biết mình nợ mà. Đang cố gắng xanh rơn đây đây này.
+    - Anh biết rồi. Anh sẽ thanh toán khi có khả năng và không cần bạn nhắc nhở ổn không nha.
+    - Mày kiểm tra lại đi, tao không mắc nợ đâu cưng à.
+    - Yeah, tớ biết nhưng bây giờ tớ không có tiền để trả. Khi nào có tớ sẽ liên lạc lại.
+    - Không hiểu sao tui vẫn cần trả tiền trong khi đã thanh toán hết hợp đồng, làm ơn kiểm tra lại giúp.
+    - Tao đang chờ tiền phúc lợi từ công ty, cho tao một ít thời gian nhé.
+    - Uh tôi biết rồi. Tôi sẽ chuyển tiền ngay khi nhận tiền lương. Cảm ơn đã nhắc nhở!
+    - Nói tiếng người đi, tớ không hiểu đâu. Tớ cũng không thấy nhận được thông báo về đợt nợ này cả.
+    - Done, mình đã nhận được thông tin. Bạn không cần gọi điện nhắc nhở mình nữa.
+    - Uhmm, anh biết rồi nhé. Anh sẽ thanh toán như đã hứa.
+    - Sao bên chị không gửi thông báo cho tớ nhỉ? Thế này mới gọi là đúng không bên chị?
+    - Đã nói là tao không mắc nợ, mi không hiểu hay sao á?
+    - Tụi mày đòi nợ không có tính kỷ luật gì cả. Tao đã trả hết những gì nợ rồi.
+    - Chị với em đều rõ chị có nợ không mà, vậy còn cần gì thông báo nữa. Chị sẽ thanh toán.
+    - Vâng, cảm ơn em. Tôi sẽ xem xét và thanh toán.
+    - Ừ, tui hiểu rồi, để tui xử lý nhé.
+    - Có vấn đề gì không mà cứ nhắc đi nhắc lại thế? Tôi đã nói là sẽ thanh toán mà!
+    - Mình biết, mình đang kiểm tra lại thông tin. Để mình gọi lại sau.
+    - Em nói đúng đấy! Nhưng chị cần kiểm tra lại mọi thứ trước khi thanh toán.
+    - Để tớ xem lại, có vẻ như có vấn đề với thông tin hợp đồng.
+    - Anh biết rồi, cứ để anh xem xét lần cuối.
+    - Ờ, thế em đợi mình một chút, mình kiểm tra lại đã.
+    - Tao biết, nhưng tao không thanh toán đâu, tao không tin vào những gì cty này nói!
+    - Được rồi, để mình kiểm tra thông tin đã, cảm ơn em.
+    - Ái chà, em nói rối quá, để anh xem lại đã!
+    - Đúng, tôi cần kiểm tra lại tất cả thông tin trước khi tôi đồng ý thanh toán.
+    - Vâng, chị đồng ý, nhưng để chị xem lại thông tin đã!
+    - Tui biết mà, nhưng tui cần xem lại thông tin trước đã.
+    - Chị yên tâm, chị sẽ kiểm tra và thanh toán.
+    - Ờ...để tao xem lại đã, điều này đang làm tao khá phiền lòng.
+    - Tôi đã biết rồi, hãy để tôi xác nhận tất cả mọi thứ.
+    - Anh đã hiểu, để anh kiểm tra đã. Em thông cảm nha!
+    - Nói nhiều quá, tôi cần xem lại thông tin trước khi trả tiền.
+    - Ăn nói lịch sự một chút có được không? Mình biết rồi, mình sẽ xem lại hợp đồng.
+    - Vâng, để tui tính toán lại đã, dường như có gì đó không đúng.
+    - Để mình xem hợp đồng đã, mình thanh toán sau.
+    - Tớ hiểu rồi, nhưng tớ cần chắc chắn với mọi điều.
+    - Chị nắm rõ thông tin rồi, để chị kiểm tra lại.
+    - Để mình xác nhận lại hợp đồng đã, tớ sẽ thanh toán sau.
+    - Tui hiểu nhưng phải chắc rằng mọi thứ đều ổn trước đã.
+    - Được rồi, để anh xem lại đã.
+    - Có thông tin mới hả? Để mình kiểm tra.
+    - Mình biết mình đến hạn thôi, để mình xử lý.
+    - Tôi sẽ cố thanh toán trong hôm nay.
+    - Được rồi, tôi sẽ chuyển tiền.
+    - Ok, tao sẽ đóng hôm nay.
+    - Tui biết rồi, đừng nhăn nhó.
+    - Lát tôi chuyển, đang bận.
+    - Tao hiểu, tao sẽ đóng hôm nay.
+    - Tui sẽ thanh toán trong hôm nay.
+    - Tớ biết, tớ sẽ chuyển trong hôm nay.
+    - Anh sẽ thanh toán hôm nay, anh hứa đấy.
+    - Chị sẽ chuyển trong hôm nay, giảm áp lực hộ chị với.
+    - Tớ hiểu, tớ thanh toán hôm nay.
+    - Tao sẽ giải quyết hôm nay, tao hứa.
+    - Tớ sẽ chuyển tiền hôm nay.
+    - Tôi hứa sẽ thanh toán số tiền đúng hạn.
+    - Tui đồng ý, tui sẽ thanh toán hôm nay.
+    - Anh sẽ cố gắng thanh toán sớm trong hôm nay.
+    - Chị sẽ transfer trong ngày hôm nay.
+    - Chị hiểu. Chị sẽ thanh toán hôm nay.
+    - Mình sẽ chuyển tiền sớm trong hôm nay.
+    - Tựa hiểu, tựa sẽ chuyển hôm nay.
+    - Tôi promise, tôi sẽ đóng trong hôm nay.
+    - Được, mình sẽ chuyển trong hôm nay.
+    - Uhm, chị sẽ giải quyết trong hôm nay.
+    - Được, tớ sẽ chuyển hôm nay.
+    - Tui đồng ý, tui sẽ thanh toán sớm trong ngày.
+    - Mình biết, mình sẽ thanh toán.
+    - Ừ, tôi sẽ thanh toán trong hôm nay.
+    - Được, tao sẽ giải quyết ngay hôm nay.
+    - Mình cam đoan sẽ chuyển tiền đúng hạn.
+    - Chính xác đấy cũng không có gì sai.
+    - Ừm, đúng con số đấy.
+    - Ủa, tao không rõ lắm, để tao xem lại hợp đồng đã.
+    - Số liệu tao không nhớ rõ nữa. nhưng chắc cũng đúng.
+    - Uh, đúng đấy cứ gọi anh là [ne_title], rồi thông tin hợp đồng đó là đúng.
+    - Tớ cũng không chắc lắm, để tớ xem lại đã.
+    - Nếu mà như cô đọc thì chắc đúng thôi.
+    - Đúng, đúng rồi đó.
+    - Oh, thì ra là thế. Tôi cũng không rõ lắm.
+    - Tớ không nhớ rõ, nhưng nếu thông tin cô đưa ra thì chắc đúng thôi.
+    - Tui không chắc lắm, để tui kiểm tra lại đã.
+    - Cái số liệu kia tôi không rõ, nhưng mà tôi chắc rằng tên tôi chắc là đúng.
+    - Chính xác đấy, để anh xác nhận.
+    - Quên rồi cậu ạ, tớ không nhớ nữa.
+    - Chắc vậy thôi, tôi không nhớ rõ lắm.
+    - Nếu cậu nói thế thì chắc đúng thôi.
+    - Nhớ không nhầm thì đúng là thế.
+    - Ấy, tôi không biết, tôi không nhớ nữa.
+    - Tôi cũng không quan tâm lắm. Nhưng mà cậu nói có lẽ là đúng.
+    - À, đúng rồi cô ạ, [ne_name] đấy, và số tiền thanh toán tối thiểu là [ne_emi] đúng chưa cô?
+    - E, tao nhớ là hợp đồng của tao khác cô nói nè.
+    - Ờ, nếu cô nói thì tôi cũng tin vậy.
+    - Cái này tôi nhớ không rõ nữa, cho tôi xem lại đã.
+    - Cô nói đúng đấy, xin cảm ơn cô đã thông tin.
+    - Chắc là đúng, tôi không nhớ rõ lắm.
+    - Tao cũng không quan tâm lắm. Tao ghi nhận thông tin vậy.
+    - Tao cũng không rõ nữa. Tao không nhớ lắm.
+    - Uh, chắc là đúng rồi thôi chứ biết sao được.
+    - Uh, tao cũng nghĩ là đúng thôi.
+    - Tôi đã làm ăn đàng hoàng mà sao vẫn bị đòi hoài vậy em.
+    - Tui nhớ là tui đã trả rồi mà, sao em còn nói chờ nhận?
+    - Mình đang gặp khó khăn, nên không thanh toán được ngay. Cho mình xin thời gian.
+    - Chị cũng muốn trả nhanh tha hồ mà cuộc sống này lắm trắc trở lắm em à.
+    - Tớ thật sự không có khả năng trả ngay được, nhưng tớ đang cố gắng tìm giải pháp.
+    - Tao cũng không mượn vui đâu, nhưng giờ không có lúa nào cả.
+    - Thẻ tín dụng này anh đã xóa hồ sơ từ lâu rồi, sao lại có thông tin vậy nhỉ.
+    - Đúng là tôi dùng thẻ này, nhưng tôi đã thanh toán mà.
+    - Tui không phải là người nợ tiền này, em kiểm tra lại thông tin đi.
+    - Mình sẽ thanh toán ngay sau khi có tiền, xin em đừng gọi điện hàng ngày như vậy.
+    - Chị đảm bảo là đã thanh toán chỗ này rồi nha, em kiểm tra lại giúp chị với.
+    - Chẳng nhớ là có dính dáng gì tới chỗ nào cả, tao thật sự không biết gì.
+    - Anh nhớ là anh đã trả mà, nhưng để anh kiểm tra lại lịch sử giao dịch.
+    - Tôi thật sự không nhận ra tên tổ chức này, tôi nghĩ có lẽ tôi chưa dính dáng gì cả.
+    - Tui dùng thẻ này, nhưng tui đã trả hết tiền rồi nè.
+    - Tao không cần đến lời khuyên của ai, tao sẽ tự giải quyết tất cả những nợ nên trả.
+    - Thành thực mà nói thì mình không có tiền để trả ngay.
+    - Chị phải lo cho gia đình, nên chưa thanh toán được, nhưng chắc chắn chị sẽ tìm cách để giải quyết.
+    - Tớ nhớ là tớ đã trả rồi mà sao vẫn phải nhắc nhở như vậy nhỉ.
+    - Tao xin lỗi nhưng tao thật sự không nhận ra thông tin này.
+    - Anh không nhớ là anh mượn tiền ở đâu cả, em kiểm tra lại dùm anh nhé.
+    - Tôi xin lời khuyên, tôi sẽ trả một phần tiểu nhé, chứ không thể trả hết ngay được.
+    - Tui nghĩ rằng tui đã thanh toán rồi. Tui sẽ kiểm tra lại.
+    - Mình không thể trả bằng tiền mặt ngay được, nhưng mình đảm bảo sẽ thanh toán.
+    - Chị thấy chị trả đủ rồi đấy, em kiểm tra lại giúp chị nhé.
+    - Tôi không nhớ là có mở thẻ tín dụng ở đây.
+    - Tui đã thanh toán hết mọi nợ nên trả rồi nè, tui không còn nợ bất cứ ai nữa.
+    - Tao không nhận ra thông tin này, tao không biết tao nợ ai cả.
+    - Khoản tiền này anh chưa thanh toán, nhưng anh đang bận rộn. Anh sẽ thanh toán sau.
+    - Ổn, mình có hợp đồng đó. Nhưng có lẽ mình phải xem lại.
+    - Đúng rồi, anh có hợp đồng như vậy. Nhưng làm gì có tiền trả em.
+    - Tao đâu đếch biết gì hết, nợ thiệt là chán.
+    - Tớ có hợp đồng đó em. Nhưng cần em tư vấn thêm.
+    - Đúng rồi, đấy là hợp đồng của tôi. Nhưng không định thanh toán sớm đâu.
+    - Tại sao tớ phải thanh toán kỳ này? Tại sao không kỳ sau?
+    - Anh xác nhận lại là có hợp đồng như vậy. Nhưng chưa chắc đã trả em liền đâu.
+    - Đúng rồi, chị có hợp đồng đó. Em có thể giúp chị giải quyết vấn đề này không?
+    - Mình có hợp đồng. Nhưng không nhớ kỳ nào phải trả nữa, em có thể giúp không?
+    - Uh, vậy nghĩa là mình phải trả ngay à? Không có tiền đâu, đừng lấy không có.
+    - Chỉ xác nhận là chị có hợp đồng thôi, còn vụ thanh toán thì tính sau.
+    - Tui không nhớ chính xác hợp đồng, có lẽ phải giải quyết sau.
+    - Em đợi tớ một chút, tớ cần kiểm tra thông tin.
+    - Tao chả nhớ đúng hay sai, chả ôm đầu mỗi lần thanh toán.
+    - Chắc có, chứ tôi cũng không nhớ rõ. Làm ơn, bớt nhắc tôi đi.
+    - Tui xác nhận hợp đồng đó. Nhưng cần em giúp tui cách giải quyết mới đó.
+    - Tớ có hợp đồng mà tớ không nắm rõ lắm, nợ khó kinh khủng.
+    - Uh, đúng thế! Anh nợ em thì em cứ lấy chứ gì.
+    - Đúng rồi! Tôi có hợp đồng như vậy, nhưng không chắc có thể trả ngay.
+    - Đương nhiên, tao đã nợ thì phải trả, nhưng chưa biết trả bằng cách nào.
+    - Đấy là hợp đồng của tôi, nhưng không chắc tôi có thể trả nợ ngay.
+    - Chị có hợp đồng đó, nhưng chị chưa biết chị có thể trả nợ ngay hay không.
+    - Tớ nợ thì phải trả thôi, nhưng cần em giúp tớ cách giải quyết.
+    - Uh, đúng rồi! Tớ có hợp đồng đó, nhưng tớ không chắc tớ có thể trả ngay được không.
+    - Có, mình có hợp đồng như em nói, nhưng mình cần thêm thời gian.
+    - Đúng là tôi có nợ nhưng không phải bây giờ tôi thanh toán được.
+    - Nhớ là còn một ít nợ, nhưng chắc chắn không phải kỳ này phải trả, chắc em nhầm rồi.
+    - Anh có hợp đồng nhưng chưa trả được, anh cần tư vấn.
+    - Đúng thế, tui nợ. Nhưng cần em giúp tui cách giải quyết.
+    - Mình không nhớ là có làm thẻ tín dụng, mày kiểm tra lại càng tốt anh nhé?
+    - Tại sao tôi lại phải đóng khoản tiền đó, tôi chẳng nhớ đã sử dụng hay đăng ký thẻ tín dụng gì cả
+    - Tồi Bời, Tôi nói chưa bao giờ làm thẻ tín dụng mà, cô xem lại cho tôi cái.
+    - Anh tôi không nhớ là có làm cái thẻ tín dụng ấy. Em check lại giúp anh hen
+    - Ôi trời ơi đầu mình cũng rối quá. Công ty tài chính nào vậy em?
+    - Hình như có nhầm lẫn gì rồi em ạ! Tôi chưa từng đăng ký thẻ tín dụng.
+    - Tớ thật sự không nhớ là đã có hợp đồng nào hết, cậu xem lại thông tin được không?
+    - Mình hoàn toàn không biết thông tin này, anh kiểm tra lại cho chắc chắn đi.
+    - Tôi chưa từng đăng ký hợp đồng thẻ tín dụng, bạn xem lại giúp tôi nhé?
+    - Tui làm cái gì mà chỉ đòi tiền suốt thế kia? Tui không biết gì cả, coi lại kỹ đi nha.
+    - Û, tôi không biết gì vụ này nha, em tìm hiểu kỹ lại giúp tôi.
+    - Hình như là mình không biết việc này, bạn kiểm tra lại hộ mình với.
+    - Ôi trời, thẻ tín dụng đâu, tiền cũng chưa thấy sử dụng, đòi kiểu gì vậy?
+    - Có phải em đang nhầm lẫn không? Tôi không nhớ là mình đã làm thẻ tín dụng mà?
+    - Mình không hiểu vì sao lại có hợp đồng thẻ tín dụng, em kiểm tra lại thông tin đó đi.
+    - Mình chưa hề làm thẻ tín dụng, em nên kiểm tra lại thông tin.
+    - Á à...sao mà khó hiểu quá, làm thẻ tín dụng nào mà đòi tiền thế kia?
+    - Mình chưa bao giờ mở thẻ tín dụng mà sao lại có thông tin vậy? Em kiểm tra lại nhé.
+    - Tui kiểm tra thử xem, tui cũng không nhớ tui đã làm thẻ tín dụng ở đâu nữa cơ.
+    - Hợp đồng thì còn chưa làm, sao lại có thông tin này vậy?
+    - Thẻ tín dụng? Mình chưa từng dùng mà, em kiểm lại giúp mình nha.
+    - Sao mình không nhớ gì hết vậy. Mình không biết gì vụ thẻ tín dụng cả em.
+    - Có lẽ anh đã quên, nhưng anh không nhớ là đã làm thẻ tín dụng ở đâu cả, em kiểm tra lại dùm anh nhé.
+    - À huh? Sao mà lạ thế, thẻ tín dụng à? Dạo này đầu có vấn đề hay sao ấy.
+    - Ui giời ơi, em kiểm tra lại giúp anh với. Anh chưa làm thẻ tín dụng mà.
+    - Tui không nhớ là đã làm cái thẻ tín dụng đó, cậu check lại giúp tui nhé.
+    - Tôi không nhớ là tôi làm thẻ tín dụng, bạn kiểm tra lại thông tin giúp tôi nhé?
+    - Mình không nhớ là mình có làm cái thẻ tín dụng nào đâu. Em kiểm tra lại giúp mình với.
+    - Chắc có nhầm lẫn đâu rồi, tui chưa làm thẻ tín dụng ở đâu mà, check lại dùm tôi cái.
+    - Em yên tâm, tớ sẽ đóng nợ vào cuối tuần này.
+    - Ok, mình sẽ chuyển khoản sau.
+    - Chị biết rồi, sẽ thanh toán sớm.
+    - Tui nợ chưa đủ hay sao mà cứ nhắc mãi vậy, tao đóng cuối tuần tới.
+    - Tôi đã hiểu, sẽ thanh toán trước ngày hết hạn.
+    - Tôi sẽ cố gắng chuyển trước ngày mà bạn nói.
+    - Có chờ thêm vài ngày được không? Tao đang trong tình cảnh khó khăn.
+    - Tui biết cần thanh toán rồi, tui sẽ chuyển sau.
+    - Hợp đồng chưa đến hạn mà cứ nhắc đi nhắc lại vậy, tao đóng khi nào cũng được mà.
+    - Chị chuyển tiền vào đầu tháng sau được không?
+    - Tui hiểu, sẽ thanh toán sau khi lương về.
+    - Nếu đảm bảo không gọi nhắc nữa thì tôi sẽ thanh toán.
+    - Chị biết, chị sẽ chuyển tiền ngay khi nhận được lương.
+    - Anh sẽ cố gắng thanh toán sớm nhất có thể.
+    - Tui hiểu rồi, không cần nhắc nữa.
+    - Tại sao lại cứ nhắc hoài, nếu không thì tao không trả thêm một xu nào nữa đâu!
+    - Mình sẽ chuyển tiền cuối tuần này.
+    - Anh sẽ thanh toán vào ngày sau hoặc ngày kia.
+    - Em yên tâm, sẽ chuyển tiền đúng hạn.
+    - Tao sẽ trả khi nào tao có tiền!
+    - Tôi sẽ thanh toán vào ngày sau.
+    - Đấy tôi biết rồi, tôi sẽ thanh toán đúng thời hạn.
+    - Tớ sẽ chuyển tiền ngay sau khi có tiền.
+    - Hiểu rồi, không cần nhắc nữa, ngày mai anh sẽ trả.
+    - Tôi biết rồi, đợi khi có tiền tôi sẽ trả ngay.
+    - Mình hiểu, sẽ chuyển trước ngày mà bạn nói.
+    - Chăm sóc khách hàng của bên bạn thật kém, có cần không nhắc nữa không? Tao sẽ chuyển khi tao muốn.
+    - Chụp hình hợp đồng gửi tôi nhìn lại đã, tôi không nhớ là mình còn nợ nữa.
+    - Tôi đóng cuối tháng này, em đừng gọi nữa nhé.
+    - Tôi nghĩ là tôi đã trả hết rồi, làm ơn kiểm tra lại hợp đồng giúp tôi nhé.
+    - Anh đang kiểm tra lại tài liệu, không nhớ rõ vụ này lắm.
+    - Cái hợp đồng này tớ cũng chưa rõ, cùng lắm thì tớ cũng sẽ trả trước ngày đó thôi.
+    - Chị sẽ liên hệ tổng đài để xác nhận lại thông tin, nếu đúng thì chị sẽ thanh toán ngay.
+    - Mình không nhớ đã đồng ý mua bảo hiểm, mình sẽ tìm hiểu lại điều này.
+    - Tôi chưa rõ về hợp đồng này, tôi sẽ liên hệ tổng đài để xác minh thông tin.
+    - Tao sẽ kiểm tra lại, nếu như tao mắc nợ thật thì tao sẽ trả, không thì thôi.
+    - Tớ không rõ vấn đề này lắm, tớ sẽ xem xét và liên hệ với tổng đài để lấy thông tin.
+    - Tôi đồng ý với ngày trả nợ nhưng vẫn cần kiểm tra lại thông tin hợp đồng. 
+    - Tôi nghĩ là mình đã thanh toán hết các khoản nợ. Tôi sẽ gọi cho tổng đài để hỏi thêm.
+    - Anh không nghĩ mình đã mua bảo hiểm, anh sẽ tìm hiểu lại vụ này.
+    - Tui nào cũng trả nếu có nợ, nhưng tui cần xem lại hợp đồng đã.
+    - Chị cần xác minh lại thông tin là chị đã mua bảo hiểm, nếu đã mua thì chị sẽ trả nợ.
+    - Tôi cần tìm hiểu rõ hơn về hợp đồng này mới quyết định được.
+    - Chắc mày lừa đảo, tao chưa mua bảo hiểm bao giờ.
+    - Mình cần xem lại hợp đồng trước khi quyết định trả nợ.
+    - Tôi cần biết chi tiết hợp đồng để xác minh lại thông tin.
+    - Tui không nhớ đã mua bảo hiểm thẻ tín dụng, tui sẽ liên hệ với tổng đài để hiểu rõ hơn.
+    - Tao đâu có mua cái bảo hiểm mà mày nói, mày đừng có lừa tao nha.
+    - Làm ơn xem lại cho tôi, tôi nghĩ tôi đã thanh toán hết mọi khoản nợ.
+    - Anh cần biết chi tiết hơn về thông tin hợp đồng này mới quyết định được.
+    - Anh cần xác thực thông tin hợp đồng trước, nếu đúng thì anh sẽ thanh toán.
+    - Cần kiểm tra lại thông tin hợp đồng, chị nghĩ là đã thanh toán hết rồi.
+    - Mình cần biết thông tin chi tiết hơn về hợp đồng này trước khi trả nợ.
+    - Chắc mày lừa tao đây mà, tao chưa bao giờ mua cái bảo hiểm mày nói.
+    - Tao sẽ kiểm tra lại hợp đồng, tao không nhớ đã mua bảo hiểm.
+    - Tao sẽ kiểm tra lại thông tin và liên hệ với tổng đài, nếu đúng thì tao sẽ trả nợ.
+    - Nếu thông tin này chính xác, tôi sẽ xem xét việc thanh toán.
+    - Tôi cần xác minh thông tin trước khi quyết định trả nợ.
+    - Tao đang kiểm tra lại hợp đồng nha cưng. Đồng ý, hôm nay tao sẽ thanh toán.
+    - Để tớ kiểm tra lại nhé. Hợp đồng đã trễ hạn, tớ sẽ cố gắng thanh toán trong hôm nay.
+    - Tôi đã không nhớ rõ hợp đồng này. Để tôi kiểm tra lại. Tôi cam kết sẽ thanh toán trong ngày.
+    - À, xin lỗi em. Tôi cần kiểm tra lại hợp đồng. Đúng, chắc chắn sẽ thanh toán trong hôm nay.
+    - Hợp đồng cũng chưa nằm trong tầm kiểm soát của tui. Tui đảm bảo đóng tiền hôm nay.
+    - Ủa, đợi chị xem lại hợp đồng. Chứ chưa rõ lắm. Thành thật xin lỗi, chị sẽ thanh toán ngay hôm nay.
+    - Tôi không nhớ rõ vụ hợp đồng này. Để tôi xem xét kỹ hơn. Hiện tại, tôi cam kết sẽ thanh toán trong hôm nay.
+    - Ủa, hợp đồng này có vẻ hơi lạ. Để chị xem lại đã nha. Chị hứa là sẽ thanh toán trong hôm nay.
+    - Hợp đồng hình như hơi rối, mình cần xem lại. Tuy nhiên, dù sao thì mình cũng sẽ thanh toán hôm nay.
+    - Hình như tao không rõ lắm về hợp đồng này. Nếu không gặp vấn đề gì, tao sẽ thanh toán ngay hôm nay.
+    - Uh, chắc cái contract này tao cần phải xem lại. Dù sao, hôm nay tao cũng sẽ gửi tiền.
+    - Ủa, hợp đồng này có vẻ hơi lạ. Để anh xem lại. Tuy nhiên, anh sẽ đảm bảo thanh toán ngay hôm nay.
+    - Hình như chị cần phải xem xét lại hợp đồng này. Nếu không có gì thay đổi, chị sẽ gửi tiền trong hôm nay.
+    - Hợp đồng này tớ không nhớ lắm. Tớ sẽ xem lại thông tin và cam kết sẽ thanh toán trong hôm nay.
+    - Để tui xem lại hợp đồng đã. Tui hứa sẽ thanh toán cho bên em hôm nay.
+    - Thông tin hợp đồng này hơi khó hiểu. Mình cần xem lại. Dù sao, mình cũng sẽ thanh toán hôm nay.
+    - Ah, tôi phải xem lại thông tin của hợp đồng. Tuy nhiên, tôi sẽ giao tiền trong hôm nay.
+    - Chắc tao phải xem lại hợp đồng nha. Dù sao hôm nay tao cũng sẽ thanh toán.
+    - Chắc tôi cần xem lại hợp đồng. Nhưng tôi cam kết sẽ thanh toán trong hôm nay.
+    - Hợp đồng này tớ không rõ lắm. Tớ cần xem lại, nhưng tớ cam kết sẽ thanh toán ngay hôm nay.
+    - Ủa, hợp đồng này lạ quá. Để anh xem lại. Nhưng dù sao anh sẽ thanh toán ngay hôm nay.
+    - Mình cần xem lại hợp đồng đã. Nhưng mình sẽ thanh toán hôm nay cho em nha.
+    - Hợp đồng hình như hơi ngược. Tao cần xem lại. Nhưng dù sao cũng sẽ trả tiền hôm nay.
+    - Hợp đồng này tôi chưa rõ lắm. Tôi sẽ xem lại và cam kết sẽ thanh toán hôm nay.
+    - Hình như có gì đó sai với hợp đồng này. Tao cần xem lại. Nhưng hiện tại, tao sẽ gửi tiền trong hôm nay.
+    - Chị chưa rõ vấn đề với hợp đồng này. Chị sẽ xem lại. Dù sao, hôm nay chị sẽ thanh toán.
+    - Chắc hợp đồng này tui cần xem lại. Nhưng dù sao, hôm nay tui vẫn sẽ đóng tiền.
+    - Tui chưa biết rõ vụ hợp đồng này. Tui cần xem lại. Dù vậy, tui cam kết se~ chuyển tiền trong hôm nay cho em.
+    - Thông tin hợp đồng hơi phức tạp. Mình cần xem lạ. Dù sao, hôm nay mình sẽ gửi tiền.
+    - Cái hợp đồng của bạn tôi chẳng hiểu gì cả, cứ viết hoa viết thường lung tung.
+    - Tao chả hiểu sao kê là cái gì, đọc không ra hồn.
+    - Tớ đã xem lại hợp đồng rồi nhưng vẫn không hiểu lãi và phí tính như thế nào.
+    - Tui đang ở ngoại tỉnh, không có sao kê để xem cả.
+    - Mình không nhớ đã ký cái hợp đồng nào cả.
+    - Chị không biết sao kê là gì cả, mấy cái này quá khó để hiểu.
+    - Sao tôi gọi tổng đài hoài mà không được hỗ trợ vậy trời.
+    - Tui chả biết cái hợp đồng nói gì cả, toàn chữ mù tịt.
+    - Anh chẳng cần biết lãi hay phí, chỉ cần biết mình còn nợ bao nhiêu.
+    - Mình đã gọi tổng đài nhưng không có ai hỗ trợ cả.
+    - Chị chưa bao giờ nhìn thấy cái hợp đồng mà chị ký cả.
+    - Sao tôi phải gọi tổng đài, không lẽ bạn không biết thông tin à?
+    - Hợp đồng của tao đã bị mất rồi, giờ làm sao để biết được lãi và phí.
+    - Tui không biết tìm sao kê ở đâu, có thể giúp tui không?
+    - Đừng nói chuyện vòng vo như vậy, tôi chỉ cần biết mình phải trả bao nhiêu thôi.
+    - Chị thì chả biết gì về sao kê cả, tốt nhất là bạn giải thích luôn đi.
+    - Cái tổng đài của các bạn thì không bao giờ nghe máy cả, tôi không biết phải làm sao.
+    - Tao chẳng hiểu gì về lãi và phí, bạn giải thích giùm tao đi.
+    - Cái hợp đồng đó tớ không còn giữ nữa, giờ làm sao để biết được thông tin.
+    - Tui thì chả hiểu gì về chuyện hợp đồng cả, cứ nói rõ hơn đi.
+    - Đã mất công gọi tới thì sao bạn không giải thích luôn cho tôi biết cái lãi và phí đó là gì?
+    - Mình chả biết đọc sao kê, bạn có thể giải thích rõ hơn không?
+    - Chị thì chẳng có nhiều thời gian để đọc cái hợp đồng đó cả
+    - Làm sao tôi biết mình đã ký nhiêu hợp đồng khi không nhận được cái hợp đồng nào cả.
+    - Tui chả nhớ là mình có ký hợp đồng nào, giờ làm sao để xem lãi và phí chứ?
+    - Anh lúc nào cũng nhớ rõ hệ thống này lì lợm, gọi tổng đài không ai nghe, còn hỏi anh gọi tổng đài làm gì nữa, công ty trục lợi qua lãi phí.
+    - Bọn công ty nợ này, cứ mượn là dễ, đến khi trả thì lúc nào cũng gặp rắc rối; lãi phí gì mà cứ thay đổi quài.
+    - Mình đã cố gọi tổng đài mấy lần mà không thấy ai trả lời, không biết phải làm thế nào bây giờ.
+    - Mình chẳng hiểu cái hợp đống của bạn tôi đã đọc như thế nào cả, nó quá phức tạp.
+- intent: vấn_đề_sức_khỏe
+  examples: |
+    - Bệnh tình của tôi như này, còn gì để trả nợ đây?
+    - Anh đau bệnh như thế này, tiền đâu mà trả cho bạn?
+    - Tui đang ốm, còn kịp trả nợ đâu!
+    - Anh đang ở bệnh viện, trả nợ đâu phải chuyện quan trọng nhất.
+    - Mỗi ngày tôi đau đớn như này, nghĩ đến việc trả nợ làm gì?
+    - Tôi ốm đau thì tôi đâu có thể trả nợ được cho bạn.
+    - Đừng nói chuyện trả nợ với tôi lúc này, tôi đang ốm.
+    - Tôi muốn trả nhưng bây giờ tôi đang ốm nhé, có tiếng mà không có miếng đấy.
+    - Tui đang bệnh, tiền có thì cũng để trị bệnh chứ không phải trả nợ.
+    - Anh đâu có tiền trả nợ, mả tôi nằm viện kìa.
+    - Anh chả còn sức nào để nghĩ đến chuyện trả nợ cả.
+    - Tao bảo mày rồi, tao đang ốm, trả nợ đâu phải là vấn đề lớn nhất bây giờ.
+    - Tôi không có sức để nghĩ đến chuyện trả nợ nữa.
+    - Trả nợ? Tao đang ốm đây này.
+    - Mày có biết tao đang phải chống chọi với bệnh tật không mà cứ đòi nợ mãi thế?
+    - Trả nợ? Tao bệnh thì có cơ hội nào trả nợ cho mày?
+    - Hiện tại tôi đang đau quá, không thể nghĩ đến chuyện trả nợ.
+    - Còn bệnh tật thì đâu có tiền mà trả nợ.
+    - Bây giờ tân tốt bao nhiêu, dành dụm để trị bệnh cũng không đủ, trả nợ thì đợi sau nhé.
+    - Thật sự tôi đang bệnh mà, không có khả năng dành dụm tiền trả nợ dau.
+    - Chỉ nghĩ đến chuyện trả nợ là đau bệnh thêm thôi, bạn ơi.
+    - Có bệnh tật như tôi thì đâu có khả năng trả nợ for mấy bạn.
+    - Tao ốm quá, chả có sức trả nợ.
+    - Lúc này tôi đang cần tiết kiệm từng đồng để trị bệnh, không có khả năng trả nợ đâu bạn à.
+    - Tôi đang trong bệnh viện, trả nợ thì có sau, giờ tôi cần điều trị.
+    - Bệnh này kéo dài, không biết khi nào mới trả nợ được.
+    - Dù biết nợ mình phải trả nhưng bệnh như này thì trả sau đi bạn ơi.
+    - Tao bệnh rồi, trả nợ thì chắc phải đợi.
+    - Cần gấp tiền để chữa bệnh, trả nợ có sau.
+    - Tao đang bị đau bụng, không đọc kịp số atm để thanh toán.
+    - Mình bị thấp huyết mấy hôm nay, không thể thanh toán được. Mình xin lỗi nhé.
+    - Tôi nhớ là đã giao bàn giao lại cho con tôi thanh toán rồi nhưng tôi không biết tại sao giờ vẫn còn nợ. Tôi vẫn đang điều trị tại bệnh viện.
+    - Tui đang bị sốt, chắc khó mà ra ngân hàng thanh toán.
+    - Pardon me, chị đang cảm lạnh, không thể thanh toán được.
+    - Thằng nhỏ của tao vừa nhập viện, không thanh toán được ngay đâu nha.
+    - Tớ không thể thanh toán được, vì tớ bị cúm.
+    - Rất tiếc, mình đang ốm nặng không thể thanh toán.
+    - Tôi bị đau dạ dày, khó có thể thanh toán được.
+    - Ở nhà mà nằm sô, chưa thanh toán nổi.
+    - Tao đang đi viện, không thanh toán được.
+    - Tui đang trong viện không có điều kiện để thanh toán.
+    - Hôm nay tôi bị đau đớn, không thể làm gì hết.
+    - Chú tôi vừa bị ốm nặng, tôi không có thời gian để thanh toán.
+    - Tao phải nằm viện mấy ngày nay không có đầu óc nghĩ vụ này.
+    - Mình nằm viện mấy ngày hết biết chuyện gì rồi.
+    - Mình đau quá không nghĩ tới chuyện thanh toán.
+    - Tớ cảm thấy chóng mặt nên không thể thanh toán được.
+    - Anh vừa phẫu thuật nên không thể thanh toán được.
+    - Lúc giờ tui tưởng là mình đã thanh toán rồi nhưng giờ mới biết tui quên mất do bị ốm. Tui xin lỗi em.
+    - Chắc tôi phải nằm viện ít nhất là một tuần nữa, chỉ bảo con tôi thanh toán mà không biết nó có thanh toán không. Tôi xin lỗi em nhé.
+    - Sức khỏe tớ không ổn, không thể thanh toán được.
+    - Chị đang ốm yếu, không thể thanh toán ngay lập tức.
+    - Tao bị tai biến, không thể ra khỏi nhà để thanh toán.
+    - Tui vừa bị đau tim nên không có tâm trạng để thanh toán.
+    - Tôi đang trong tình trạng không dậy được, không thể kiểm tra và thanh toán được.
+    - Chú em vừa bị tai nạn, nhà tao không thể thanh toán nổi.
+    - Ngồi liệt trên giường này chị không thể nghĩ tới chuyện thanh toán đâu em.
+    - Đệ này bị ốm quá, không thể ra ngân hàng thanh toán được.
+    - Tôi đồng ý với em, nhưng tôi cũng cần phải chăm sóc sức khỏe mình trước, có thể chờ tôi hồi phục không?
+    - Tui hiểu mà, nhưng tui đang bệnh mà, không thể làm liền được.
+    - Mình xin lỗi, nhưng mình không thể làm được ngay bây giờ, sức khỏe mình đang khá tệ.
+    - Chị biết mà, nhưng chị đang điệu trị, chắc chắn sẽ trả khi chị khỏi bệnh.
+    - Lương tao đang bỏ vào chữa bệnh mà, tao cũng muốn trả ngay lắm, nhưng bây giờ không được.
+    - Tao biết, có gì tao sẽ nhờ người khác trả hộ khi tao khỏi bệnh.
+    - Tớ đang trong quá trình điều trị nên không thể trả ngay được, tớ sẽ nhờ bạn bè trả giúp tớ khi tớ ổn hơn.
+    - Thằng em anh đang nằm viện, anh hứa sẽ trả ngay khi có thể nhưng bây giờ không thể.
+    - Tôi biết, và tôi cũng muốn trả nợ. Cơ mà bây giờ tôi không thể, tôi đang ốm?
+    - Tôi hiểu, nhưng tôi đang đau lắm, không thể làm gì cả...
+    - Ôi, em ơi, tui biết mà, nhưng tui bệnh quá, chắc phải nhờ người thân trả hộ.
+    - Đúng rồi, tao hiểu, nhưng tao đang phải đầu tư hết tiền vào việc chữa bệnh đây này.
+    - Tớ hiểu, nhưng chả hiểu sao tớ bị bệnh, và tớ không thể di chuyển được.
+    - Tui biết, nhưng thực sự tui không thể trả lúc này. Tui đang ốm đấy.
+    - Mình biết mình đang nợ em rất nhiều tiền, nhưng mình không thể trả ngay được, mình đang ốm.
+    - Tao hiểu mà, nhưng giờ tao đang chống chọi với căn bệnh của tao, khó quá.
+    - Anh biết, anh đang cố gắng hồi phục để thanh toán nợ. Nhưng lúc này, sức khỏe anh rất yếu.
+    - Chị biết, chị sẽ cố gắng trả khi chị đã ổn.
+    - Mình biết mình cần phải trả, nhưng hiện tại mình đang chống chọi với bệnh tật. Mình sẽ xem xét việc trả sau khi mình hồi phục.
+    - Dạ, em hiểu ạ ... nhưng mà em đang phải điều trị, chắc sẽ phải nhờ gia đình trả giúp em.
+    - Tao cũng không muốn thế này, nhưng tao đang phải chữa bệnh, tiền đang khan hiếm lắm.
+    - Cái bệnh này nó hành hạ tạo quá. Tao không thể thanh toán được. Tao cần thời gian để hồi phục.
+    - Tui đang điều trị bệnh, chắc phải nhờ người thân trả giúp tui.
+    - Tôi không biết làm sao để có thể trả ngay. Tôi đang phải chữa bệnh.
+    - Tui hiểu, nhưng việc trả nợ bây giờ khó khăn với tui lắm. Tui đang ốm. Tui sẽ cố gắng nhưng không hứa được.
+    - Tao hiểu tình hình mà, nhưng tao còn phải chăm sóc sức khỏe của mình nữa, tiền bây giờ là một vấn đề lớn mà.
+    - Tôi biết, tôi cũng muốn trả nợ. Nhưng tôi đang phải chống chọi với căn bệnh của mình.
+    - Bây giờ anh đang chữa bệnh, không thể trả nợ như thường lệ. Nhưng anh hứa, khi cơ thể ổn định anh sẽ trả nợ.
+    - Chị hiểu quan điểm của em, nhưng hiện tại chị nên chăm sóc sức khỏe mình trước. Chị sẽ trả sau khi đã khỏi bệnh.
+    - Tôi hiểu mà, nhưng tôi đang gặp vấn đề về sức khỏe, tạm thời chưa thể thanh toán được.
+    - Chị biết rồi, nhưng bây giờ chị đang nằm viện không thể thanh toán ngay được.
+    - Tao biết rồi nhưng mà tao đang bị ốm nặng, chưa thể trả nợ ngay được.
+    - Thế mà tớ đang đau, chưa làm việc gì được, tự nhiên phải trả tiền ngay á?
+    - Mình biết mà, nhưng mình đang khó khăn vì vấn đề sức khỏe, không thể thanh toán ngay được.
+    - Tui biết rồi, nhưng tui đang gặp chuyện, chưa có tiền đâu.
+    - Bạn à, mình đang bệnh, chưa có khả năng thanh toán ngay được đâu.
+    - Ôi, tối qua tớ bị đau dữ dội, công việc bị đình trệ hoàn toàn, chưa thể thanh toán ngay được.
+    - Bạn thông cảm dùm mình, mình đang ốm, không thanh toán được ngay.
+    - Tui biết mà nhưng tui bị bệnh lâu rồi, chưa có tiền để trả nợ đâu.
+    - Úi, mình biết mình nợ nhưng mà giờ mình đang bệnh, chưa trả được ngay đâu.
+    - Chào bạn, tớ mới bị tai nạn, chưa thanh toán được nhé.
+    - Hiện giờ tôi đang nằm viện, chưa thanh toán nợ được.
+    - Tao đau lắm, không làm việc được, chưa trả nợ ngay được.
+    - Tôi biết rồi mà giờ tôi đang gặp chuyện, chưa có tiền trả nợ đâu.
+    - Tui đang bệnh, không có năng lực thanh toán ngay được.
+    - Tôi biết, nhưng hiện tại tôi không thể thanh toán được vì đang mắc bệnh.
+    - Tao bị bệnh không thể thanh toán ngay được.
+    - Tớ biết rồi, nhưng tớ đang có vấn đề về sức khỏe, chưa thanh toán được.
+    - Tao bị bệnh lâu rồi, chưa có tiền để trả nợ.
+    - Vô lý quá, tui đang bệnh mà còn đòi trả nợ ngay.
+    - Ôi, bây giờ anh đang gặp vấn đề về sức khỏe, không thể thanh toán ngay được.
+    - Tôi biết mình trễ hạn, nhưng bây giờ tôi đang gặp phải một số vấn đề về sức khỏe, chưa thanh toán được.
+    - Tôi biết, nhưng giờ tôi đang yếu, không thể trả nợ ngay được.
+    - Bạn có thể đợi tôi chút không? Tôi đang nằm bệnh không thể trả tiền ngay được.
+    - Tao bị ốm nên chưa kiếm tiền trả nợ được.
+    - Tớ đang phải điều trị bệnh, bạn có thể đợi tớ một chút không?
+    - Tôi đang gặp khó khăn về sức khỏe, bạn có thể chờ tôi một thời gian được không?
+    - Tui bị bệnh nặng, không thể thanh toán được ngay.
+    - Chồng mình đang bị bệnh nặng, không trả nổi đâu.
+    - Mình bị viêm gan ghé lắm, không nghĩ đến việc trả nợ được.
+    - Tui đang lo cho bệnh tật của mẹ tui, tiền đâu ra trả nợ giờ.
+    - Anh đang trong bệnh viện, không làm gì được, trả nợ xong rồi họ mới cho ra chăng?
+    - Tôi đang nhập viện, không lo được việc này.
+    - Người nhà mình mất, tiền đâu mà trả nợ bây giờ.
+    - Tui bị tai biến cách đây vài hôm, đang tập đi lại kìa, trả nợ thì sau hết ốm đã.
+    - Mình đang trong tình trạng nguy kịch, không thể trả nợ được.
+    - Con tui mất do tai nạn giao thông, tôi có thể trả sau được không?
+    - Bà nhà tui ra đi bất ngờ, đợi tui lo xong việc tang sẽ trả.
+    - Ông bà nhà tui mới mất vì COVID, tui không trả được việc này.
+    - Tao đang trong quá trình hồi phục từ cú sốc, không thể trả được.
+    - Mình đang hồi phục từ phẫu thuật, không tự lo được.
+    - Má tui mới mất, để tui xong việc rồi trả sau.
+    - Cha tôi mất, tôi không thể tập trung vào việc trả nợ được.
+    - Vợ chồng tui đều đang nằm viện, đợi vợ tui ổn rồi trả sau.
+    - Con cháu tui bị viêm phổi, tui không trả được giờ.
+    - Ông X nhà tui bị tai biến, đang trong tình trạng nguy kịch, tui không trả được
+    - Con trai nhà tao bị viêm phổi, dằn với việc trả nợ cũng chẳng biết làm thế nào.
+    - Chồng tui thủy đậu toàn thân, không trả nổi giờ.
+    - Cả nhà ngộ độc thực phẩm, để mình hết ốm rồi trả sau.
+    - Mẹ tui mới mổ tim, không thể trả được giờ đâu.
+    - Vợ tao mới sinh, chưa thể trả được.
+    - Mấy hôm nay tao bị đau lưng, không làm ăn gì nổi, trả sau nhé.
+    - Mẹ tui bị sỏi mật, không trả nợ được giờ này.
+    - Gia đình mình đang ốm, chắc phải trả sau.
+    - Ông nhà mình bị suy thận, phải chạy thận mỗi tuần, không lo được việc trả nợ đâu.
+    - Chị tui vừa bị đập phải tay, đau lắm, không nghĩ đến việc trả nợ được.
+    - Tao bị gãy chân, không kiếm tiền được, trả nợ thì chắc chờ tao lành đã.
+    - Tao gặp khó khăn vì sức khỏe đây, không thể tới ngân hàng, hiểu không?
+    - Chị có sức khỏe không tốt, em có cách nào hỗ trợ thanh toán không?
+    - Rất mong anh thông cảm, tui phải đi viện nên không thể thanh toán được, có cách nào giúp tôi không?
+    - Tớ đang bị ốm nặng, không có khả năng tự thanh toán được, lấy lòng đễ giúp tớ!
+    - Bệnh tật chồng chất, tôi không thể tự thanh toán được, có giải pháp nào không?
+    - Tình hình sức khỏe của mình rất tệ, không tự đi nổi, gì chỗ đóng phí, mong cậu thông cảm uh!
+    - Mình khó đi lại do tình trạng sức khỏe. Có cách nào giúp mình không?
+    - Tiền thì tao có nhưng tao không tự đi được, giúp tao với!
+    - Sức khỏe của tớ đang không tốt, nên tớ không thể thanh toán được, có cách nào làm ơn giúp tớ không?
+    - Tôi đang bịnh nặng, tạm thời không có cách thanh toán, nhờ anh tìm cách giải quyết giúp!
+    - Tình hình sức khỏe tao đang rất tệ, tao không tự thanh toán được, giúp tao với!
+    - Tôi không thể tự thanh toán nổi vì tôi đang gặp vấn đề về sức khỏe, bạn có thể giúp tôi không?
+    - Mình đang phải điều trị nên không tự thanh toán được, bạn giúp mình nghen!
+    - Nếu không do vấn đề sức khỏe, tại sao tôi lại không thanh toán. Cậu có thể giúp tôi không?
+    - Tình hình sức khỏe không tốt, không tự đi đóng nổi, các cậu thông cảm nhé!
+    - Hiện tại tớ đang không khỏe nên không thể tự thanh toán. Có cách khác không cả nhà?
+    - Bệnh đã cản trở việc tự thanh toán của mình rồi, có cách nào giúp mình không?
+    - Chắc em không hiểu, tui đang bị bệnh nặng không tự thanh toán được!
+    - Tôi hiện đang bịnh nặng không tự thanh toán được, lấy lòng giúp đỡ!
+    - Vấn đề sức khỏe không cho phép tôi tự thanh toán, có ai giúp tôi không?
+    - Tôi đang hấp hối mà còn đòi nợ! Có cách nào thanh toán giúp tôi không?
+    - Mình nằm viện cả tháng nay nên không tự thanh toán được. Mong các bạn thông cảm!
+    - Dạo này sức khỏe của tớ sa sút nên không thể tự thanh toán được, giúp tớ với!
+    - Tao không tự thanh toán được vì sức khỏe. Các cậu có giải pháp không?
+    - Vấn đề sức khỏe khiến tôi không thể tự thanh toán được. Cậu có thể giúp tôi không?
+    - Tao đang nằm viện nè, không thể thanh toán được. Mong mấy bạn thông cảm!
+    - Tại tao mệt, không tự thanh toán đóng nợ được, mấy cậu giúp tao với!
+    - Tôi không thể tự thanh toán do tôi đang gặp vấn đề về sức khỏe. Có cách nào giúp tôi không?
+    - Rất mong thông cảm vì mình không tự thanh toán được do sức khỏe kém. Có cách nào giúp mình không?
+    - Tôi đang cần dưỡng sức tại bệnh viện, chuyện nọ vừa rồi không phải lúc.
+    - Tôi đang trong quá trình phẫu thuật, chắc chắn sẽ không thể trả lời cuộc gọi của bạn.
+    - Tui đang bị sốt rét không thể trả nợ.
+    - Mình đang đau bệnh, không thể tiếp tục trả trả nợ.
+    - Chị đang trong tình trạng sức khỏe không tốt, không thể thanh toán nợ được.
+    - Tao phải đi viện rồi, bệnh quá không đóng nợ được.
+    - Chúng ta có thể nói về việc đóng nợ sau khi tôi hồi phục sức khỏe được không?
+    - Việc trả nợ giờ không thể, anh đang cần dưỡng sức.
+    - Anh dang bị bệnh, nên việc trả nợ không thể thực hiện được.
+    - Tôi không thể đóng nợ bây giờ, tôi đang phải điều trị.
+    - Tôi đang trong quá trình hồi phục sau phẫu thuật, rất tiếc không thể thanh toán nợ.
+    - Tui đang chịu đựng căn bệnh quái ác, không thể nghĩ đến chuyện nợ nữa.
+    - Mình đang phải điều trị, nên việc đóng nợ không thể thực hiện được.
+    - Chị đang phải điều trị bệnh nên khó lòng có thể thanh toán được nợ.
+    - Tao không thể nghĩ đến việc trả nợ khi tao đang phải chống chọi với bệnh tật.
+    - Chúng ta có thể trì hoãn việc đóng nợ cho tớ, tớ đang ốm.
+    - Anh đang bị bệnh nặng, vụ đóng nợ chắc phải để sau.
+    - Tôi đang gặp vấn đề về sức khỏe, không thể trả nợ được.
+    - Trả nợ không thể thực hiện được lúc này, tui đang vật lộn với bệnh tật.
+    - Mình đang bị ốm đấy, dù muốn cũng không thể trả nợ.
+    - Chị đang phải chống chọi với căn bệnh, không thể trả nợ được.
+    - Tao đang đau đớn, việc trả nợ không thể thực hiện được.
+    - Tớ đang gặp vấn đề với sức khỏe của mình, không thể nghĩ đến chuyện trả nợ.
+    - Anh đang bị bệnh nặng, không thể tập trung vào việc đóng nợ.
+    - Tôi đang phải chăm sóc sức khỏe của mình, không thể trả nợ bây giờ.
+    - Tui đang cần thời gian để hồi phục sức khỏe nên không thể thanh toán nợ.
+    - Khi nào sức khỏe mình ổn định, mình sẽ nghĩ đến chuyện trả nợ.
+    - Chị đang gặp rắc rối về sức khỏe, không thể thanh toán nợ.
+    - Tao đang phải điều trị, không thể tập trung trả nợ.
+    - Tôi biết mình nợ tiền và cũng muốn trả lẹ, nhưng bây giờ tôi đang gặp rắc rối về sức khỏe.
+    - Tao hiểu nhưng tao đang đau ốm, chưa đủ khỏe để di chuyển.
+    - Tui biết nhưng sức khoẻ tui không cho phép tui thanh toán bây giờ.
+    - Mình không ngoan tròn được, mình đang phải giữ sức khỏe.
+    - Chị biết, nhưng chị đang mệt lắm, sức khỏe không cho phép.
+    - Hiện tại, sức khỏe tớ không tốt, tớ chưa thể thanh toán nợ được.
+    - Mình biết lỗi của mình nhưng mình đang rất yếu, chưa thể giao dịch.
+    - Tớ đang gặp phải một vấn đề sức khỏe, tớ  không thể thanh toán được bây giờ.
+    - Anh hiểu nhưng hiện tại anh không thể thanh toán, anh bị ốm.
+    - Tôi biết tôi nợ, nhưng tôi không thể thanh toán ngay bây giờ vì tôi đang ốm.
+    - Tao đau khổ, tao không thể thanh toán được ngay bây giờ.
+    - Tui hiểu, nhưng tui không thể gặp ai hoặc đi đâu được bởi vì tui đang ốm.
+    - Chị biết, nhưng chị đang đau lắm, không thể thanh toán được.
+    - Mình cống hiến hết mình nhưng cơ thể mình bây giờ không cho phép.
+    - Tớ thật sự muốn thanh toán nhưng sức khoẻ tớ không cho phép.
+    - Anh biết mình sai, nhưng sức khoẻ anh không cho phép anh thanh toán.
+    - Tao đang chịu đựng nỗi đau, tao không thể thanh toán nợ.
+    - Mình biết mình nợ tiền, nhưng mình cần tập trung vào việc giữ gìn sức khỏe.
+    - Tớ biết tớ nợ tiền, nhưng tớ đang cần nghỉ ngơi vì lý do sức khỏe.
+    - Vấn đề sức khỏe không cho phép tôi thanh toán trễ.
+    - Chị biết, nhưng chị không thể dậy khỏi giường vì lí do sức khỏe.
+    - Cháu đau ốm, cháu không năng lực đến giao dịch.
+    - Anh biết mình nợ, nhưng anh đang không khỏe, phải dùng toàn bộ tiền cho thuốc men.
+- intent: vấn_đề_tài_chính_và_công_việc
+  examples: |
+    - Tớ cũng không muốn không trả nợ. Nhưng hiện tại, tớ đang vướng mấy chuyện công việc, tài chính. Tớ sẽ trả khi có thể.
+    - Dạo này tài chính tao thật sự không được tốt lắm, tao sẽ cố gắng trả nợ vào [ne_short_due_date].
+    - Tui biết nợ phải trả nhưng cuộc sống mình lận đận quá, tài chính còn khan hiếm hơn. Hứa vào [ne_short_due_date] sẽ có tiền trả.
+    - Lương chưa nhận, công việc cũng không ổn, tôi thật sự không biết phải trả sao vào [ne_short_due_date].
+    - Tôi đang rất hạn hẹp về tài chính, công việc cũng rắc rối. Không biết có thể trả được vào [ne_short_due_date] không nữa.
+    - Công việc của tui bây giờ không ổn định, tài chính còn eo hẹp hơn. Tui sẽ trả nợ khi cải thiện được tình hình.
+    - Tóc grê công việc, tóc grê tài chính, giờ còn nợ nữa. Thôi để mình quyết toán xong rồi trả sau.
+    - Dạo này cuộc sống tớ khốn khổ lắm, tài chính hạn hẹp và công việc cũng khắc nghiệt. Tớ không hứa được sẽ trả nợ vào [ne_short_due_date].
+    - Anh đang phải giải quyết một số vấn đề tài chính và công việc. Thực sự khó để đảm bảo trả nợ vào [ne_short_due_date].
+    - Cuộc sống của chị khá khó khăn hiện tại. Chị đang quản lý để trả nợ nhưng không chắc chắn có thể trả vào [ne_short_due_date].
+    - Chị đang khó khăn vì vấn đề tài chính, công việc cũng nặng nhọc. Chị sẽ cố gắng trả nợ vào [ne_short_due_date].
+    - Anh thắc mắc là làm sao thanh toán được khi tài chính đang ếch tốt và công việc cũng gặp nhiều trở ngại. Đúng là đời này khó lắm!
+    - Hiện tại tui đang mắc kẹt trong mấy vấn đề tài chính và công việc, khó mà trả được vào [ne_short_due_date].
+    - Dạo này, tôi đang gặp khó khăn về công việc, kèm theo đó là vấn đề về tài chính. Tôi sẽ cố gắng trả nợ khi có thể.
+    - Lương tôi chưa đến tay, công việc còn lung tung. Thực sự thì tôi không biết trả sao vào [ne_short_due_date].
+    - Anh thấy vấn đề năm ở chỗ thanh toán. Tài chính eo hẹp, công việc cũng khó khăn lắm. Anh cố gắng xem!
+    - Tui đang bận rộn giải quyết các vấn đề về tài chính và công việc, nên khó để tui có thể thanh toán vào [ne_short_due_date].
+    - Không biết phải làm sao, công việc tớ đang làm khá mệt, tài chính thì eo hẹp nên chẳng biết trả lúc nào mới được.
+    - Bây giờ tài chính của mình đang không ổn, công việc cũng không tốt. Mình không thể đảm bảo sẽ trả nợ vào [ne_short_due_date].
+    - Nếu như vấn đề tài chính và công việc đã ổn thì tớ đã không phải nợ nữa. Thật sự rất xin lỗi nhưng tớ không thể hứa trả nợ vào [ne_short_due_date].
+    - Chị cũng biết nợ phải trả nhưng bây giờ công việc không thuận lợi, tài chính thì eo hẹp. Chị cũng rất hoang mang.
+    - Mình đang gặp khó trong việc quản lý tài chính cá nhân, công việc thì cứ lận đận. Khó mà trả nợ được vào [ne_short_due_date].
+    - Công việc của mình đang diễn ra không như mong muốn, tài chính thì càng thêm căng thẳng. Mình không chắc là sẽ trả đúng vào [ne_short_due_date].
+    - Hẳn em cũng thấy rằng cuộc sống này đầy thách thức. Anh đang phải đương đầu với công việc và tài chính vận hạn. Không biết anh có thể thanh toán vào [ne_short_due_date] không nữa.
+    - Tình hình tài chính và công việc của tớ đang không ổn định. Tớ không đủ sức để thanh toán nợ vào [ne_short_due_date].
+    - Lương của tao chưa về, công việc cũng còn nhiều thứ phải lo. Thật sự thì tao không biết làm như thế nào để trả nợ vào [ne_short_due_date].
+    - Tui đang gặp khó khăn về công việc, tài chính bấp bênh nên chưa trả được nợ. Tui sẽ cố gắng trả trong thời gian sớm nhất.
+    - Tình hình là công việc còn vấn đề, tài chính thì đang hạn hẹp. Tui sẽ cố gắng trả nợ vào [ne_short_due_date].
+    - Cuộc sống của tao đang diễn ra không như mong muốn. Tài chính và công việc cũng đang gặp vấn đề. Tao thực sự không biết làm sao để trả nợ vào [ne_short_due_date].
+    - Tôi biết rồi, nhưng nếu tôi mà có tiền ở nhà đi vay làm gì chứ. Công việc chậm trễ thấy mệt nghĩ, chậm chút thôi, tôi trả dần được không?
+    - Tui biết rồi, nhưng lúc nào tui cũng nhận lương muộn. Tui sẽ cố gắng trả sớm nhất tui có thể.
+    - Em rồi, nhưng em không có tiền, lương chậm, mượn được bao nhiêu đâu. Em hứa trả dần, chị vui lòng kiên nhẫn giúp em.
+    - Tớ đang cố gắng kiếm tiền đây, chậm chút thôi, chị đợi tớ nhé.
+    - Hiểu rồi, nhưng nếu mình có tiền ở nhà thì mình đã đi vay làm gì chứ. Mình sẽ cố gắng kiếm thêm.
+    - Tui hiểu, nhưng công việc chậm trễ quá, không có tiền trả. Tui sẽ trả dần, cô thông cảm giúp.
+    - Tôi biết, nhưng tôi vẫn không có tiền. Vậy tôi phải làm sao giờ? Tôi giờ đang phải lo công việc rồi.
+    - Rồi, đấy cháu sẽ cố gắng. Cháu cũng không muốn vậy, nhưng cháu không còn cách nào khác. Chị giúp cháu nhé!
+    - Biết rồi, mình không muốn vậy đâu. Chỉ là giờ không có thể thông không, mình sẽ cố gắng trả sớm nhất.
+    - Anh hiểu, nhưng với tình hình của anh hiện tại thì không thể trả ngay được. Anh hứa sẽ trả sau khi anh nhận lương.
+    - Được, tôi sẽ cố gắng trả sớm nhất sau khi tôi nhận lương.
+    - Tui hứa sẽ trả sớm sau khi tui có tiền, nhưng tui không biết khi nào có. Chị đợi tui được không?
+    - Tớ không thể trả ngay được, tớ sẽ thông báo sau khi tớ nhận lương, chị đợi tớ chứ?
+    - Mình không thể trả ngay được, mình sẽ trả sau khi mình nhận được lương, cô thông cảm cho mình nhé.
+    - Anh không thể trả ngay, cho anh xin thời gian đến lúc nhận lương, anh sẽ trả nợ cho chị.
+    - Tôi xin hứa sẽ trả nợ sau khi tôi nhận được lương, tôi không phải là người trốn tránh nợ.
+    - Rõ rồi, tui sẽ trả sau khi tui nhận lương. Chị không cần lo, tui không phải loại người trốn tránh nợ.
+    - Tớ sẽ trả tiền nợ sau khi tớ nhận lương, tớ đảm bảo tớ không trốn tránh nợ.
+    - Mình sẽ trả sau khi mình có lương. Mình không phải người trốn tránh nợ, mình xin đảm bảo.
+    - Anh xin hứa, anh sẽ trả nợ sau khi anh nhận được lương, cho dù có chậm chút.
+    - Tôi đảm bảo tôi sẽ trả nợ, tôi không trốn tránh trách nhiệm, chỉ tiếc là tôi không có ngay số tiền để trả.
+    - Rước cháu sẽ trả tiền nợ sau cháu nhận lương. Cháu không trốn tránh trách nhiệm, cháu xin chị thông cảm.
+    - Hiểu rồi, mình sẽ trả tiền sau khi nhận lương. Mình xin chị thông cảm.
+    - Anh không muốn âu chỉnh chuyện này, cho anh xin thêm thời gian, anh sẽ trả nợ.
+    - Tôi không có ý trốn tránh nợ, chỉ là hiện tại tôi không có tiền, tôi sẽ trả nợ sau khi nhận lương tiếp theo.
+    - Tui không phải loại người trốn tránh nợ, tui chỉ muốn cô thông cảm cho hoàn cảnh hiện tại của tui.
+    - Tớ không muốn trì hoãn chuyện này, tớ sẽ trả sau khi nhận lương, chị đợi tớ nhé.
+    - Mình hiểu, mình sẽ trả sau khi nhận lương tiếp theo, mình đảm bảo không trốn tránh nợ.
+    - Anh không nhẫn tâm, anh sẽ trả sau khi nhận lương tiếp theo, anh không trốn tránh nợ, anh đảm bảo.
+    - Anh không trốn tránh, nhưng công việc anh không ổn định, chưa rõ khi nào mới có tiền trả nợ được.
+    - Khó khăn lắm rồi, làm ăn thất bại, không biết khi nào mới trả hết nợ được đây.
+    - Khổ thật, còn đang lo chuyện công việc, giờ nợ thêm nựa.
+    - Em tìm hiểu thêm về chương trình hỗ trợ khách hàng khó khăn của bên anh xem.
+    - Mình cũng muốn trả sớm, nhưng giờ công việc không ổn định, khó khăn lắm.
+    - Mình đã làm hết sức mà, bạn thông cảm, khoản nợ này mình trả dần được không?
+    - Dạ, chị có trách nhiệm nhưng chị đang rất khó khăn, làm ăn đang thua lỗ nữa.
+    - Tao hiểu, tao cũng không muốn để nợ lâu, nhưng giờ tao không có khả năng trả hết.
+    - Tớ đang rất căn thận với việc tài chính của mình, tớ sẽ cố gắng trả từ từ.
+    - Phải chi mình biết trước được chuyện này thì đã không vay ra, giờ mình không biết phải làm sao.
+    - Tớ thể nào cũng muốn trả, nhưng tớ khó khăn, tớ phải xác định lại tài chính đã.
+    - Không dễ dàng gì đâu, tôi đang cố gắng mà công việc vẫn thế.
+    - Anh biết rồi, nhưng bây giờ công việc anh không ổn định, chưa biết khi nào mới có thể trả được.
+    - Chưa thể trả được, em không ngại công ty sẽ truy cứu, nhưng lương tháng này em mới mất việc.
+    - Chị hiểu rồi, công việc chị còn khá bập bẹ, chưa biết khi nào chị có thể trả.
+    - Chưa biết khi nào mới cởi mở về tài chính, ngay cả công việc của mình còn thất thường.
+    - Khỏi nhắc, cuộc sống đã khó khăn, công việc thất thường, giờ còn nợ nên càng khó hơn.
+    - Giờ doanh nghiệp tớ đang bị ảnh hưởng bởi Covid, không lợi dụng được, nợ vẫn còn đó.
+    - Tồi tệ thật, lương trả chưa kịp dùng hết đã phải trả nợ, muốn trả cũng không trả được.
+    - Em thôi, công việc vất vả không ra gì rồi ý.
+    - Anh đang cố gắng kiếm sống, anh chưa thể trả hết nợ được, có lẽ anh cần sắp xếp lại công việc.
+    - Vấn đề với mình giờ kiếm việc làm mới đã khó, huống chi là trả nợ.
+    - Cớ sở kinh doanh đang phải đóng cửa tạm thời, có lẽ phải chậm trễ trong việc trả nợ rồi.
+    - Mình có khả năng trả, đúng là mình cần trả, nhưng giờ quá khó khăn, mình không trả được.
+    - Chỉ cần được hoãn lịch trả, giúp tôi vượt qua khó khăn công việc tôi sẽ trả sớm nhất có thể.
+    - Giờ đang lo chuyện công việc, gia đình thì điều này quá nặng nề.
+    - Tôi thậm chí không có tiền để sống, nên tôi không có cách nào để trả nợ.
+    - Nếu là anh thì cũng chẳng biết phải làm gì, tôi không trốn nợ nhưng tôi thực sự không còn cách nào.
+    - Đáng lẽ mình phải trả, nhưng mình đang khó khăn quá.
+    - Công việc tớ đang gặp chút vấn đề, có thể trễ chút nhé, rất xin lỗi bên bạn.
+    - Chịu khó thông cảm cho bên em tí! Tôi đang gặp lúng túng mấy chuyện cơm áo gạo tiền đây.
+    - Thực ra đây là tháng khó khăn của tao vì công việc không thuận lợi, nhưng tao sẽ thu xếp.
+    - Nghèo khó là nguyên nhân mà tui ko trả được ngay. Cuối tháng tui hứa chuyển tiền cho.
+    - Mình biết mình phải trả tiền. Nhưng bạn có hiểu chứ, mình đang chật vật.
+    - Nhục nhổ quá, người ta đang cố làm việc mà cứ phải stress về tiền.
+    - Thôi tui biết rồi. Đừng có cứ thúc đẩy như con trâu này nọ. Nhục lắm!
+    - Đang cố kiếm thêm tiền, tớ sẽ trả ngay khi có được.
+    - Tui đang trong cảnh éo le, xin bên em thông cảm.
+    - Nhờ bên em thông cảm tình hình cực khổ của tui đi.
+    - Chị biết chị sai, nhưng chị đang gặp khó khăn nên chị mới trễ thôi.
+    - Nhờ bên bạn chịu khó thông cảm, tôi đang gặp vấn đề ở công ty.
+    - Tháng này sao lương tôi chưa đến, mình sẽ trả khi nhận lương.
+    - Tao biết mình phải trả nhưng chà bá lỗ rồi, biết làm sao bây giờ?
+    - Ối giời ơi, tớ cũng biết mà, nghèo khó quá đi mất. Hẹn cuối tháng nhé!
+    - Ồ, ông trả tiền giúp tôi đó à, nếu không thì đừng cứ éo le hoài.
+    - Tớ biết rồi, đừng có cứ nhắn tin làm phiền tớ nhé. Đằng này tiền cũng không có mà trả.
+    - Tôi biết lỗi của tôi. Tôi đang cố gắng xử lý tình hình.
+    - Tao đang gặp vấn đề về công việc nên tao không có tiền trả, mày thông cảm.
+    - Công việc bên em chịu, chúng mày đừng có đòi nữa.
+    - Tôi sẽ thanh toán ngay tời có tiền, thời gian này công việc không tốt lắm.
+    - Vẫn đang cố thôi bạn ạ, nhớ nhé!
+    - Mình còn phải trả nợ nhiều người quá. Đợi mình xíu!
+    - Nợ thì tui biết mà, nhưng công việc đang éo le quá trời, đợi tui thu xếp đã.
+    - Tui biết tui nợ mà, tui không có trốn trại, đợi tui thu xếp tiền rồi tui trả cho.
+    - Ông thông cảm hộ cái, cái nghề này giờ kiếm tiền khó quá.
+    - Công việc bên mình thì đang cẩu lương, chịu khó đợi chút nhé.
+    - Anh cũng muốn trả cho em nhanh, nhưng hiện tại công việc đang rất éo le.
+    - Nợ thì anh biết rồi, nhưng công việc hiện giờ anh cũng không kiếm nổi tiền. Anh chưa trả ngay được.
+    - Chấp nhận làm ăn khó khăn cho tạm bỏ qua cuộc kế hoạch này nhé.
+    - Tớ hiểu là nên thanh toán sớm. Nhưng bây giờ tớ đang gạch đầu dòng với việc kiếm sống nên không có tiền trả nợ được, xin lỗi nhé.
+    - Tôi biết là tôi nên thanh toán. Nhưng với tình hình tài chính hiện tại, tôi thật sự chưa thể.
+    - Xin lỗi nhưng mình đang gặp khó khăn về tài chính. Công việc cũng không thuận lợi. Mình sẽ cố gắng thanh toán sớm nhất có thể.
+    - Tôi chưa thể thanh toán được ngay. Tôi sẽ liên lạc lại khi tôi sắp xếp được tiền.
+    - Làm ơn hiểu cho tôi. Tôi đang trong một khó khăn tài chính lớn và công việc cũng không ổn định.
+    - Tui hiểu nhưng mà tui thật sự không thanh toán được bây giờ. Tui đang cố gắng mà, nhưng mà công việc khó khăn quá.
+    - Hiện tại tôi đang gặp rắc rối với công việc và tài chính. Mong bạn thông cảm.
+    - Mình hiểu mình nên trả nợ. Nhưng bây giờ tài chính và công việc của mình đang rất khó khăn.
+    - Đúng là tôi đang nợ các bạn. Nhưng bây giờ tôi chưa xác định được thời gian thanh toán vì công việc của tôi còn nhiều bận rộn và vấn đề tài chính.
+    - Chị xin lỗi, chị đang gặp khó khăn với công việc và không có đủ tiền để thanh toán. Chị sẽ liên lạc lại sau.
+    - Tôi biết tôi phải thanh toán, nhưng công việc và tài chính của tôi không tốt lắm. Mong các bạn thông cảm.
+    - Tui đang chịu áp lực lớn từ công việc và tài chính. Tui ko thể thanh toán được ngay.
+    - Tao biết, tao nợ mày. Nhưng bây giờ việc làm của tao vẫn chưa ổn, tao chưa có tiền trả được.
+    - Tôi hiểu tôi nợ các bạn, nhưng hiện tại tôi đang gặp khó khăn với công việc và tài chính. Xin hãy kiên nhẫn.
+    - Hiện tại mình đang rất bận rộn với công việc và tài chính cũng khá căng thẳng. Mình chắc chắn sẽ trả khi có thể.
+    - Tôi xin lỗi nhưng tôi không thể thanh toán được ngay bây giờ. Tài chính và công việc của tôi đang rất khó khăn.
+    - Cả tài chính và công việc của mình đều đang trên dây câu. Mình hi vọng sẽ giải quyết được sớm.
+    - Tôi biết là tôi nợ, nhưng bây giờ tôi chưa thể trả nợ được. Tôi đang gặp khó khăn về công việc và tài chính.
+    - Tôi đang tự đối mặt với mấy rắc rối tài chính và việc làm. Tôi chưa thể thanh toán được ngay.
+    - Tui xin lỗi nhưng bây giờ tui chưa thể thanh toán. Tui đang tự cố gắng mà, nhưng mà công việc và tài chính khó khăn quá.
+    - Tôi không thể thanh toán ngay bây giờ. công việc và tài chính cũng đang gặp rắc rối.
+    - Tôi xin lỗi nhưng tôi không thể trả nợ ngay bây giờ. Công việc và tài chính của tôi đang trong thời kỳ khó khăn.
+    - Đúng là tao đang nợ nên trả, nhưng công việc của tao không thuận lợi và tài chính cũng khó khăn quá.
+    - Hiện tại tôi đang đối mặt với rắc rối tài chính và công việc. Không thể thanh toán được ngay.
+    - Tôi hiểu tôi cần phải thanh toán, nhưng hiện tại tôi khá khó khăn với công việc và tài chính nên không thể thanh toán được.
+    - Mình xin lỗi nhưng hiện tại mình chưa thể trả nợ được do công việc không thuận lợi và gặp khó khăn về tài chính.
+    - Tớ hiểu tớ phải trả nợ, nhưng bây giờ tớ đang phải cố gắng vì công việc và tài chính của tớ không ổn.
+    - Tôi xin lỗi, tôi vẫn chưa có khả năng thanh toán ngay. Tôi đang đối mặt với một khó khăn tài chính và công việc.
+    - Tôi biết tôi cần trả tiền, nhưng công việc và tài chính đang khiến tôi khá mệt mỏi. Tôi xin hứa sẽ thanh toán khi có thể.
+    - Dạ tôi hiểu rồi, nhưng mà bên tôi đang cực kì khó khăn về mọi mặt. Tôi không biết làm sao để trả nợ bây giờ.
+    - Ôi zồi, tui cũng không muốn chậm trễ cả, nhưng cái công việc của tui đang dở dang quá, lương không thể nào về đúng hẹn được.
+    - Tớ cũng không biết phải nói sao nữa, cả công việc lẫn tình hình tài chính đều rắc rối tới nỗi chẳng thể trả tiền được.
+    - Tao biết mày cũng khổ, nhưng tao đây cũng vậy. Chả biết khi nào mới cân đủ số tiền trả nợ.
+    - Thật tình là bây giờ mình không có tiền, công việc thì khá bế tắc. Mình chưa thể trả nợ được.
+    - Ồ không, ngạc nhiên chưa, mình cũng không trả được đây. Công việc ăn không ngon, ngủ không yên, lương cũng không có.
+    - Dạ, anh hiểu mà, nhưng hiện tại do công việc nên anh không thể thanh toán ngay được.
+    - Chỗ tớ bây giờ đang cắt giảm nhân viên nên lương cũng không có, trả sao bây giờ?
+    - Tôi ở đây cũng vừa mới mất việc nên chắc tôi không thể có tiền trả nợ trong thời gian này được.
+    - Công ty chúng tao cắt giản nhân viên chưa biết khi nào mới nhận lương, trả nợ đâu.
+    - Tớ thì không chắc là sẽ có thể trả được hết số tiền đó tại tớ đang gặp chút vấn đề về công việc.
+    - Đúng rồi, ăn chắc mặc bền mà, tui thì chưa có lương, không biết bao giờ mới trả được, lương ăn oan ức.
+    - Tình hình công việc của tôi cũng khá là không ổn định nên tôi thật sự không biết khi nào mới trả nợ được.
+    - Bây giờ tui đang vướng mắc công việc, chẳng có tiền để trả ngay được, thứ lỗi nha.
+    - Mình hiểu, mình sẽ nắn nót la cố gắng xuýt xoa đút thứ xương chó để trả nợ. Tinh thần hơn thua kém là chính.
+    - Chắc chị cũng hiểu vấn đề tài chính mà chị đang gặp, nên không thể trả hết số nợ được.
+    - Mình thì cũng muốn trả ngay chứ có chờ đợi đâu, nhưng vì tình hình công việc nên trễ một chút.
+    - Dạ nghe đã thấy khó rồi, nhưng tui chưa nhận được lương, nên chưa thể trả nợ được.
+    - Thực sự thì tôi đang gặp khó khăn vì mất việc, nên không thể thanh toán được nợ ngay.
+    - Úi, mình nói thiệt nha, công việc mình bây giờ như con thuỷ triều, nên trả nợ không ngay được đâu.
+    - Ừ thì mình đang cố gắng làm việc để có tiền trả nợ nhưng khó khăn lắm mới có tiền trả được ít nợ.
+    - Chị chưa có tiền trả nợ nên chị sẽ thanh toán sau, công việc chị đang khá là không ổn định.
+    - Chị không muốn chậm trễ gì đâu, nhưng do công việc chưa ổn định nên chị chưa có tiền trả nợ.
+    - Ok, mình sẽ cố gắng thu xếp, nhưng bây giờ thì công việc mình cũng đang giật cấu nên không thể trả ngay được.
+    - Tình hình tài chính của mình cũng rất là khó khăn nên mình chưa thể trả được hết nợ.
+    - Tăng tuổi tăng phiền muộn, việc nợ này làm mất ngủ tôi suốt đêm. Tôi hiện tại đang gặp khó khăn về tài chính.
+    - Tôi đang cố giành lấy một cơ hội trong công việc nên tôi không thể trả nợ được ngay.
+    - Rất tiếc là tôi không thể trả tiền nợ vào thời điểm này do tôi đang gặp rắc rối với công việc.
+    - Tôi có thể hiểu thế nhưng giờ tiền đâu để trả.
+    - Chị biết nhưng giờ chị chưa có đồng nào, chị nợ ngân hàng thì ngân hàng cũng chờ thôi.
+    - Hôm nay tao làm việc từ sáng đến tối, tiền ở đâu mà trả đây?
+    - Tất nhiên mình biết, nhưng bây giờ mình đang gặp vận đen, không có tiền thanh toán. Cơ mà mình hứa sẽ trả ngay khi có.
+    - Tớ cũng hiểu mà, nhưng trả tiền từ đâu đây cô?
+    - Tui vốn là người đáng tin nhưng bây giờ tiền khó kiếm quá, chịu khó đợi tui vài ngày nữa nhé.
+    - Mày thử hỏi xem, ai muốn nợ mà đéo trả.
+    - Ông đợi tôi vài hôm nữa, tôi đang rất rối với mảng công việc.
+    - Tớ cũng muốn trả ngay đó, nhưng tiền đâu ra giờ. Thông cảm nhé.
+    - Nhưng bây giờ tao đang gặp khó khăn. Con nợ đâm ra tao cũng khốn đốn.
+    - Mình hiểu rồi, nhưng có tiền đâu mà đóng.
+    - Chịu khó đợi tôi vài hôm nữa nhé, tôi đang rất rối với mảng tài chính.
+    - Chịu khó thông cảm cho anh nhé, hôm nay tài chính không cho phép.
+    - Tôi là người trách nhiệm, sẽ trả cho bạn sớm thôi.
+    - Tui mấy ngày nay khoản thu không đủ để trả nợ.
+    - Anh đang tìm cách kiếm tiền đây, sợ phải mất thêm thời gian mới có.
+    - Nhưng tui chưa có đồng nào, tui nợ ngân hàng thì ngân hàng cũng phải chờ thôi.
+    - Hiện tại công việc đang rất bận, chưa có thời gian để giải quyết vụ nợ nên.
+    - Mình cũng muốn thanh toán sớm nhưng chưa đủ tiền.
+    - Bạn chờ tớ tí nhé, tớ đang tìm mọi cách để có tiền trả nợ.
+    - Mày cứ từ từ, bố mày đang cố gắng sắp xếp mọi thứ để thanh toán đây!
+    - Tao cũng muốn trả nhanh chóng đó, nhưng tiền đâu ra giờ.
+    - Tớ biết liệu tớ, nhưng tớ cũng phải cân nhắc giữa nợ và việc đương đầu với cách mà cuộc sống đang thách thức tớ.
+    - Tui từ trước đến giờ cũng trung thực mà, nhưng lúc này tien khó kiếm quá.
+    - Các bạn thông cảm chờ thêm vài ngày nhé, tôi sẽ trả ngay khi có khả năng.
+    - Tớ rất thương tiếc nhưng tớ chưa thể trả được. Tha thứ cho tớ nhé.
+    - Cứ từ từ đã, tớ cũng không muốn nợ đâu.
+    - Ồ, anh cũng không muốn tình hình thế này nhưng công việc và tài chính hiện tại khá khó khăn.
+    - Tôi hiểu, nhưng bây giờ, tôi không có khả năng trả nợ.
+    - Thôi, tớ biết rồi, tớ sẽ cố gắng đóng hôm sau.
+    - Tôi lúc nào cũng trả nợ đúng hạn. Lần này có việc bận một chút.
+    - Nhưng công việc tớ làm đang thất thu, đến hôm nay tớ mới có tiền đấy.
+    - Biết rồi, mình sẽ chuyển tiền ngay bây giờ.
+    - Cám ơn đã nhắc nhở! Nhưng hôm nay, tôi có việc khác phải làm.
+    - Anhnhớ, tài khoản của anh đang có vấn đề, anh sẽ thanh toán vào ngày mai.
+    - Việc này do ngân hàng không thông báo cho tôi trước.
+    - Tính năng thanh toán online của bên bạn có vấn đề, tao đã gửi feedback nhưng không thấy sửa đâu.
+    - Tôi hứa, sẽ chuyển tiền vào tuần sau.
+    - Anh đang gặp vấn đề trong công việc. Có cách nào gia hạn không?
+    - Chị xin lỗi, có việc bận đột xuất, chắc sẽ thanh toán muộn một chút.
+    - Trời ơi, chủ động vào hôm sau hả?
+    - Tui đang rất bận, có thể thanh toán sau được không?
+    - Cẩm ơn! Mình sẽ chuyển vào cuối tuần.
+    - Tài chính của tớ đang gặp một số vấn đề.
+    - Anh/ chị ơi, tôi đang mắc kẹt trong công việc, hợp đồng đã trễ hạn.
+    - Ôi, mình đã quên chuyển tiền. Mình xin lỗi và sẽ chuyển ngay bây giờ.
+    - Ta đang mắc kẹt trong việc nhà. Sẽ chuyển tiền hàng ngày sau khi xong việc này.
+    - Anh/chị ơi, tôi chưa nhận được tiền lương.
+    - Hôm nay mình bận, có thể thanh toán hôm sau?
+    - Tôi muốn trừ tiền trực tiếp từ tài khoản. Tôi sẽ liên hệ với ngân hàng của tôi để sắp xếp.
+    - Con bé nhà tớ đang ốm, phải cho con đi bệnh viện. Tớ sẽ thanh toán trễ một vài ngày.
+    - Tao biết, tao sẽ chuyển tiền sau khi tao làm xong việc này.
+    - Tui làm ăn thua lỗ, nếu được tui sẽ trả dần nhé.
+    - Tôi đang có một số vấn đề với ngân hàng của tôi. Tôi sẽ thanh toán sau.
+    - Tôi đã mất thẻ của tôi và đang chờ thẻ mới. Tôi sẽ thanh toán trễ một chút
+    - Mình sẽ chuyển tiền ngày mai.
+    - Hôm nay tàivề tận 9h tối. Có thể chuyển vào lúc đó được không?
+    - Tôi sẽ chuyển tiền khi nhận được tiền lương vào cuối tháng.
+    - Chì, tao đang tìm việc làm, thế mà giờ bác cứ ép tao thế này, à?
+    - Các anh cứ đòi mãi như vậy mà các anh nghĩ tôi lấy tiền đâu?
+    - Tử hình còn dễ hơn việc tìm tiền trả nợ cho các anh đấy!
+    - Các chị thử tưởng tượng xem, nếu việc của chị không thu nhập, lương chị sẽ bị giảm và chị phải trở thành nợ nên chị sẽ trả nợ thế nào?
+    - Tôi đau đầu với công việc này. Đến khi nào nó ổn tôi mới trả được nợ.
+    - Đôi khi tôi thấy mình giống như một con chuột đang chạy trong cái bánh xe may mắn không ngừng nghỉ.
+    - Tôi có thể trả nợ khi tôi giữ chỗ trong công ty.
+    - Anh biết không, việc tìm tiền trả nợ như anh là một ác mộng với tôi.
+    - Mình đang lâm vào tình trạng khốn khổ. Việc nợ nên mình không thể trả tiền mà bạn yêu cầu.
+    - Chào chọn. Công việc của tao đứt đoạn và tao chẳng biết phải làm sao.
+    - Chị thấy chẳng ai mà muốn mình nợ hết. Nhưng chị cũng đang gặp khó khăn lắm.
+    - Anh thấy không, chuyện công việc và nợ nên khá phức tạp đấy.
+    - Mình cần phải tìm cách xử lý công việc trước, sau đó mới trả nợ được.
+    - Chẳng lẽ anh nghĩ tớ có tiền để trả nợ sao? Mà cũng đáng tiếc là tớ không có.
+    - Chiếc túi của tôi trống rỗng, tôi không tìm được việc nào cả.
+    - Tao thì còn chưa có tiền trả nợ, làm sao tao trả cho bọn mày đây?
+    - Tớ nợ và tớ biết tớ phải trả nhưng giờ việc cũng đang khó khăn lắm. Mong anh thông cảm.
+    - Tôi đang phải vất vả lắm, không thể trả tiền anh yêu cầu.
+    - Tôi đang gặp khó khăn với công việc. Không biết tìm đâu ra tiền trả.
+    - Công việc tui đang làm cũng đang gặp trở ngại, tiền tụi mày đòi tui lấy đâu ra hả?
+    - Tao biết tao nợ, nhưng cũng không dễ kiếm tiền đâu.
+    - Tui cũng không biết tui có thể trả nợ cho bên chị vào lúc nào nữa.
+    - Trẻ con ở nhà đói, tao đi làm còn phải trả nợ cho bọn mày à?
+    - Đừng có mà đòi tao nữa, tao khóc luôn đấy!
+    - Công việc cũng vừa đi vừa bị ngã. Anh đừng gây áp lực như thế nữa.
+    - Mày đòi tiền tao cũng chả có, công việc chả ra gì.
+    - Chị cũng thấy khó khăn rồi, nợ thì nợ, chị còn phải vay mượn của người khác để trả nợ.
+    - Anh không hiểu, tôi đang gặp khó khăn với công việc. Anh nên để tôi giải quyết trước rồi mới trả nợ được.
+    - Tôi đối mặt với vấn đề tài chính, tôi không thể trả hết số tiền bạn đòi.
+    - Hiểu rồi nha, tôi đang gặp khó khăn với tài chính, tôi sẽ thanh toán ngay khi có thể.
+    - Tui đang mệt mỏi với công việc, hãy cho tui thêm thời gian thanh toán nợ.
+    - Tớ cũng không muốn trễ nợ đâu, nhưng tớ đang gặp khó khăn trong công việc, hãy thông cảm.
+    - Bên chị họ hiểu tình hình của chị không? Chị đang gặp vấn đề với tài chính và công việc, chị sẽ thanh toán khi chị có khả năng.
+    - Không cần nhắc tớ, tớ đang cố gắng giải quyết vấn đề tài chính và công việc ở đây.
+    - Anh hiểu mà, đừng lo. Anh đang cố gắng giải quyết để trả tiền.
+    - Cám ơn đã nhắc, anh sẽ cố gắng sắp xếp thanh toán.
+    - Mình đang gặp vấn đề với công việc nên chẳng có tiền để thanh toán, thông cảm cho mình nhé.
+    - Hiểu rồi. Đang gặp khó khăn với công việc và tài chính, mình sẽ cố gắng sắp xếp thanh toán.
+    - Tôi đang trong tình trạng khó khăn, tôi cần thêm chút thời gian để thanh toán nợ.
+    - Mình sẽ cố gắng thanh toán sớm nhất có thể. Mình đang xử lý một số vấn đề tài chính và công việc.
+    - Mình biết mình đang nợ, mình sẽ thanh toán khi mình có thể. Sắp xếp công việc và tài chính thôi!
+    - Tao hiểu, nhưng tao đang gặp vấn đề với tài chính và công việc. Tao sẽ trả nợ khi có thể.
+    - Tui cũng không muốn vậy, nhưng tui đang trong tình trạng khó khăn về tài chính và công việc, tui sẽ cố gắng trả sớm nhất có thể.
+    - Làm ơn hiểu cho tui, tui đang trong thời gian khó khăn, tui sẽ trả tiền khi mọi công việc ổn định trở lại.
+    - Tôi biết mình cần phải thanh toán, nhưng tôi đang gặp vấn đề với công việc. Tôi sẽ thanh toán khi có thể.
+    - Mình hiểu mình đang trễ nợ, nhưng mình đang gặp khó khăn với công việc. Mình sẽ trả nợ sớm nhất có thể.
+    - Tớ hiểu nhưng tớ đang gặp một số vấn đề tài chính không mong muốn, tớ sẽ trả nợ càng sớm càng tốt.
+    - Tao biết, nhưng tao đang trong tình trạng khó khăn tài chính và công việc. Tao chắc chắn sẽ thanh toán khi khắc phục xong.
+    - Cám ơn đã nhắc, tớ sẽ xem xét và sẽ thanh toán nếu có thể
+    - Tao tìm mọi cách để trả nợ cho bọn mày, nhưng bây giờ thì tao không thể.
+    - Tui biết tui phải trả, nhưng bây giờ tui không có tiền.
+    - Chị biết chị phải trả, chị đang tìm nguồn tài chính.
+    - Anh đang tìm cách giải quyết vấn đề công việc để có thể trả nợ.
+    - Tôi đang gặp khó khăn với công việc, tôi sẽ thanh toán nợ ngay khi tôi xử lý xong.
+    - Chị biết chị phải trả nợ, nhưng chị đang gặp một số vấn đề tài chính. Chị sẽ trả ngay khi chị có thể.
+    - Mình biết mình nợ, mình sẽ trả khi mình có tiền, hãy cho mình thêm thời gian.
+    - Tớ biết tớ nợ và tớ sẽ trả khi tớ có thể. Bây giờ tớ đang gặp rắc rối với tài chính và công việc.
+    - Tôi hiểu tôi cần phải thanh toán, nhưng tôi đang gặp khó khăn với công việc và tài chính. Tôi sẽ thanh toán khi mọi thứ ổn.
+    - Công ty tui đang gặp vấn đề về tài chính nên có thể mình sẽ phải trễ chút đỉnh.
+    - Tôi hiểu nhưng bạn cũng phải hiểu tình hình tài chính và công việc của tôi hiện đang khó khăn.
+    - Anh biết rồi, nhưng việc đang cơm chưa lên mâm, anh đợi có tiền sẽ trả ngay.
+    - Tao biết, nhưng đang layout mà, đợi tao có lúa là tao trả liền.
+    - Tớ có công chuyện này nọ, có tiền chắc chắn sẽ trả sớm. Tiện thể, bớt áp lực cho tớ chút đi.
+    - Trời ơi, tài chính công việc đang khủng hoảng kìa. Làm ăn đâu có phải lúc nào cũng thuận lợi.
+    - Tui hiểu rồi. Nhưng bạn cũng phải hiểu là chị đang gặp khó khăn trong việc kinh doanh ngày nay.
+    - Mình hiểu mà, đợi công việc ổn định mình sẽ trả liền, đừng giục mình nữa.
+    - Không cần nhắc, tiền tôi cũng biết trả. Nhưng bây giờ tôi đang vội vã với công việc.
+    - Tôi biết những gì bạn muốn nói. Nhưng lúc này tôi đang cố giải quyết một vài vấn đề tài chính khác.
+    - Chị hiểu rồi, nhưng bây giờ không phải lúc chị có thể trả được.
+    - Tui cảm ơn nhưng tui cân đối vụ này đã, bạn đừng áp lực quá.
+    - Tôi sẽ trả, nhưng phải đợi tôi xử lý xong một số chuyện năm chương này đã.
+    - Tới nói vậy chúng ta hẵng nói, còn giờ là lúc anh phải chăm sóc công ty này đã.
+    - Tui biết, tui có trách nhiệm mà. Lỗi do tui cũng rõ. Đợi tui có tiền là tui trả thôi.
+    - Đúng rồi, tui đang làm việc đây, tiền bạc đâu mà sẵn có. Đợt sau tui sẽ cố trả sớm hơn.
+    - Ý tao là, vài ngày nữa khi dự án này kết thúc tao sẽ thanh toán liền.
+    - Điều này chắc chắn mình sẽ xem xét, nhưng mình cần thêm một chút thời gian để thu xếp kế hoạch tài chính.
+    - Anh đâu phải không muốn trả. Nhưng công ty anh đang gặp khó, anh đang cố gắng sau này không trễ hạn nữa.
+    - Mình đã hiểu và sẽ thanh toán sớm nhất có thể, đợi công việc của mình ổn thôi.
+    - Tôi rất tiếc nhưng hiện tại tôi đang không thể thanh toán ngay được.
+    - Công việc của tôi hơi bận và tài chính cũng khá căng. Tôi sẽ cố trả sớm trong những ngày tới.
+    - Tao biết mà, cơ mà việc đang nhiều, tiền nên cuộc sống không chỉ có nợ nên.
+    - Đúng rồi, cơ mà công việc bây giờ khó khăn quá, chắc phải trễ chút đỉnh thôi.
+    - Mình đã hiểu, nhưng hiện giờ tài chính công việc hơi bận, đợi mình xong việc mình trả sau.
+    - Đúng rồi tớ tới giờ chưa trả nợ. Nhưng mà việc đang đè nặng lên người nửa.
+    - Chị cũng không muốn mỗi lần hẹn chị đều không thành. Nhưng chị đang làm ăn khó khăn lắm, thông cảm nhé.
+    - Mình cố gắng trả nhanh nhất có thể, đợi có tiền mình trả tức thì nhé.
+    - Chờ tui xử lý được mấy vụ khác tui trả ngay cho. Tui cũng không muốn nợ nên đâu.
+    - Trời ơi, em thấy nợ nần quá, có lẽ chắc cuối tháng tôi mới trả được nha.
+    - Sao tôi biết được. Tôi cũng muốn trả nhưng công việc giờ càng ngày càng khó khăn.
+    - Ồ, cứ để tui suy nghĩ đã, chắc phải tháng sau mới trả được.
+    - Chắc chắn là không trước [ne_short_due_date], tao phải chờ đến khi có lương.
+    - Chị sẽ cố gắng đóng trước [ne_short_due_date], nhưng không hứa được.
+    - Hiện giờ, chị chưa thể hứa hẹn được gì với em.
+    - Tớ mới mất việc, chưa biết khi nào mới tìm được việc mới nên chưa thể hứa hẹn.
+    - Tôi sẽ trả khi tôi sắp xếp được việc làm, hiện tại tôi đang thất nghiệp.
+    - Có lẽ mình chỉ có thể trả sau ngày [ne_short_due_date], tôi đang trong giai đoạn khó khăn.
+    - Tao chưa biết, việcs nhà đang bế tắc nên tao chưa thể chắc chắn.
+    - Uhm, chưa biết, tôi cần thời gian để xem xét nếu có chút tiền thì sẽ trả trước.
+    - Tớ chưa biết, hiện nay công việc thất thường quá, tớ đang cố gắng tìm nguồn thu mới.
+    - Đừng hỏi tao, gia đình tao cũng đang gánh nợ, chưa biết khi nào mới thoát.
+    - Giờ không ai chịu vay cho tôi, tôi cũng không biết lấy gì trả nữa.
+    - Không chắc lắm, tạm thời tôi không thể trả được cho em. Phải chờ đợi đến lúc có việc mới.
+    - Tui không thể trả cho đến khi tìm được nguồn tài chính mới.
+    - Anh không chắc lắm, tài chính đang eo hẹp. Có lẽ phải qua tháng sau anh mới trả được.
+    - Dạ chưa biết chị ạ, tôi cần thời gian để xem xét.
+    - Chắc tui phải bán nợ cho ai đó để trả nợ cho cậu quá, công việc không có triển vọng gì cả.
+    - Không biết, cố gắng tìm việc làm mới để kiếm tiền thu hồi nợ.
+    - Chắc tôi phải bán máu quá, tài chính tôi đang rất khó khăn.
+    - Tôi cần thêm thời gian, hi vọng cuối tháng tôi có thể trả.
+    - Tôi sẽ cố trả sớm nhất có thể, nhưng giờ không chắc lắm.
+    - Có lẽ sau ngày [ne_short_due_date]. Tài chính tôi đã ổn được rồi.
+    - Tôi chưa thể hứa ngày cụ thể, nhưng tôi sẽ cố gắng trả sớm nhất.
+    - Chưa biết, tôi đang chờ việc từ một công ty. Nếu đỗ thì sẽ trả ngay.
+    - Tôi chưa chắc, tôi sẽ thông báo ngay khi có khả năng trả được.
+    - Tôi chưa biết, tôi đang chờ đợi một vài deal, nếu thành công thì sẽ trả ngay.
+    - Tôi sẽ trả sớm nhất có thể, bây giờ tôi không thể đưa ra một ngày cụ thể.
+    - Công việc bây giờ khó khăn quá, dính vào mấy cái vụ khó nên chưa có tiền đóng.
+    - Chị đang gặp sự cố tài chính, hãy hiểu cho chị.
+    - Tôi đang mắc mấy vụ cần tiền gấp, nên tạm thời chưa thanh toán được.
+    - Đừng gọi nữa, có tiền tao sẽ trả, còn không có thì thôi.
+    - Tớ đang cố gắng kiếm thêm tiền để trả nợ, hãy kiên nhẫn chút nữa nhé.
+    - Tui đang gặp khó khăn trong công việc, nên chưa thanh toán nợ được.
+    - Mình đang có chút vấn đề với công việc nên chưa có thể trả được.
+    - Công việc gặp trục trặc, nên chắc chắn tôi chưa thể thanh toán được.
+    - Tôi đang gặp khó khăn về tài chính, cần thêm thời gian để sắp xếp.
+    - Những vấn đề về công việc khiến tui không thể thanh toán ngay được.
+    - Có tiền thì tôi đã thanh toán rồi, đừng có lèm bèm nữa.
+    - Mình đang cố gắng giải quyết mấy chuyện tài chính, chắc chắn sẽ trả nợ.
+    - Chị đang cố gắng giải quyết vấn đề tài chính nên chưa thể trả được.
+    - Vấn đề tài chính khiến tao không thể thanh toán được.
+    - Anh đang gặp khó khăn trong công việc nên chưa trả được nợ.
+    - Nợ nên mới vay, có tiền thì đã trả rồi chứ lẽo nhèo gì.
+    - Mình đang cố gắng giải quyết vấn đề công việc để thanh toán.
+    - Ngần nấy vấn đề công việc, chị chưa thể thanh toán được nợ.
+    - Công việc của tớ đang không ổn, nên chưa thể trả nợ được.
+    - Công việc khó khăn quá, chưa kiếm được tiền trả nợ.
+    - Anh chưa có dư dả để trả nợ, hãy kiên nhẫn chút nữa.
+    - Tui đang mất thăng bằng tài chính nên chưa thanh toán được.
+    - Tôi đang cố gắng xử lý mấy vụ tài chính, khi nào có tiền sẽ trả liền.
+    - Mình đang cố gắng sắp xếp công việc để có thể trả nợ.
+    - Cái đống vấn đề công việc làm tao chưa thể thanh toán được.
+    - Tui biết mình nợ, đang cố gắng sắp xếp để trả.
+    - Công việc của tớ đang rối như cơn mưa, chưa thể trả nợ ngay được.
+    - Mình hiểu vấn đề, nhưng chưa có công việc ổn định để có thể trả được.
+    - Tôi đang cố gắng kiếm thêm việc để trả nợ, nên cần thêm thời gian.
+    - Tôi biết nhưng tôi cũng đang mất việc, không biết làm sao để có tiền thanh toán.
+    - Mình cũng muốn trả mà cả tháng nay công ty không có dự án, đến lương còn không đủ sống.
+    - Chị cũng không muốn trễ cả, nhưng tài chính không cho phép, công việc cũng đang khó khăn.
+    - Em hiểu nhưng tôi đang thất nghiệp, chu còn nợ, cũng không biết phải trả lương nào.
+    - Anh cũng muốn trả tiền nhưng công ty vừa sa thải anh, khó khăn quá.
+    - Tớ hiểu nhưng tớ thất nghiệp rồi, lương khéo đâu mà trả.
+    - Chị cũng không muốn trễ cả, nhưng vương vấn công việc khiến chị không có thể thanh toán ngay.
+    - Tao cũng muốn trả nhưng công việc khốn nạn quá, lương đụng không tới.
+    - Tôi cũng không muốn vậy, nhưng tôi không có việc làm nên không có tiền trả.
+    - Anh cũng không muốn trễ cả, chỉ là công việc của anh đang gặp rắc rối, anh không thể trả trong ngày.
+    - Tớ đang rơi vào tình trạng không có việc làm, không biết trả lương từ đâu.
+    - Công việc tao đang lận đận quá, không biết trả lương từ đâu.
+    - Tớ biết nhưng tớ cũng rơi vào khủng hoảng tài chính, không biết làm sao để có tiền trả.
+    - Chị cũng muốn trả tiền nhưng vì vấn đề tài chính và công việc nên chị không thể trả ngay được.
+    - Tớ đang gặp khó trong công việc nên không thể trả tiền ngay được.
+    - Mình cũng muốn trả nhưng việc kinh doanh đang thua lỗ, mình không thể trả ngay được.
+    - Tao muốn trả nhưng tao cũng phải sống, công việc khó khăn quá.
+    - Tớ biết nhưng tớ đang gặp khó khăn trong công việc, không thể trả được.
+    - Em hiểu nhưng tôi không thể thanh toán ngay hôm nay được vì công việc đang gặp khó khăn.
+    - Anh đang khủng hoảng tài chính, không thể trả ngay được.
+    - Bữa nay công việc không thuận lợi, tớ không thể trả ngay được đâu.
+    - Chị cũng muốn trả tiền nhưng tài chính và công việc đang gặp khó khăn.
+    - Tôi cũng muốn trả, nhưng tôi cần một chút thời gian để sắp xếp công việc và tài chính.
+    - Mình khủng hoảng tài chính nên không thể trả lương ngay trong ngày được.
+    - Anh biết nhưng công việc của anh bây giờ không ổn, anh không thể trả ngay được.
+    - Tớ cũng không muốn trả muộn cả nhưng tớ đang gặp vấn đề với công việc, tớ không thể trả luôn được.
+    - Tôi cũng muốn trả nhưng tôi đang gặp khó khăn trong công việc, không thể trả ngay được.
+    - Chị cũng không muốn trễ cả, chỉ là tài chính và công việc đang rất khó khăn, chị không thể trả ngay.
+    - Tao cũng muốn trả nhưng tao còn phải lo chu còn sống, công việc đang rất khó khăn.
+    - Anh biết mà, nhưng công việc hôm nay làm anh không kịp. Anh sẽ cố gắng đóng tiền sớm nhất.
+    - Anh hiểu, nhưng tiền anh kiếm được từ công việc hiện tại không đủ để trả nợ ngay.
+    - Anh quá mệt mỏi với công việc đang làm, chưa kịp thu xếp thanh toán. Anh sẽ cố gắng.
+    - Đừng nhắc, vấn đề tài chính đang khiến tôi đau đầu. Tôi sẽ thanh toán sớm thôi.
+    - Cháu hiểu rồi, nhưng gặp lúc khó khăn quá. Em sẽ đóng tiền sớm nhất có thể.
+    - Tớ biết mà, nhưng công việc cả ngày hôm nay chưa xong, chưa kịp thu xếp thanh toán.
+    - Chị hiểu, nhưng hiện tại tài chính chị khá khó khăn. Chị sẽ cố gắng đóng tiền sớm hơn.
+    - Đừng có nói, tui còn chưa đủ tiền trả tiền điện, nước thì đâu có tiền trả nợ ngay.
+    - Tao biết rồi, nhưng công việc đang quá trễ, chưa đong đến tiền nợ.
+    - Tôi biết, nhưng ngân sách của tôi hiện tại không cho phép thanh toán ngay lúc này.
+    - Anh hiểu, nhưng do công việc cả ngày hôm nay làm anh không kịp. Anh sẽ thanh toán vào ngày mai.
+    - Công việc của tôi cả ngày hôm nay chưa xong, chưa kịp thu xếp thanh toán. Tôi sẽ điều chỉnh.
+    - Tôi hiểu, nhưng tôi đang gặp khó khăn với vấn đề tài chính. Tôi sẽ cố gắng thanh toán sớm nhất.
+    - Dạ em biết ạ, nhưng tiền lương em còn chưa nhận được, em sẽ thanh toán vào ngày mai.
+    - Tao quá mệt với công việc nên chưa kịp thanh toán. Tao sẽ trả trong thời gian sớm nhất.
+    - Tui đang có chút vấn đề với tài chính, thông cảm giùm tui, tui sẽ cố gắng thanh toán sớm nhất.
+    - Chán ghê, lương còn chưa trả, nợ chưa trả được. Thiệt là đau đầu quá đi.
+    - Anh hiểu, đang gặp trục trặc với công việc nên hơi trễ. Anh sẽ cố gắng xử lý nhanh.
+    - Chị thông cảm giúp em, em đang rất khó khăn về tài chính. Em sẽ cố gắng thanh toán nhanh.
+    - Nợ gì mà đòi sớm thế, tui chưa có tiền đâu. Thôi chắc thanh toán vậy.
+    - Tạm thời tôi chưa thể thanh toán, vì tôi đang gặp khó khăn với công việc.
+    - Tôi hiểu nhưng hiện tại tôi đang chưa có đủ tiền để trả nợ. Tôi sẽ trả sớm ngay khi có thể.
+    - Anh biết mà, khó khăn lắm mới kiếm được tiền. Anh sẽ cố gắng đóng vào ngày mai.
+    - Vấn đề tài chính của mình đang khá khó khăn, mình sẽ cố gắng thanh toán sớm nhất có thể.
+    - Tao đang cố gắng mà, nhưng công việc quá nặng nề. Tao sẽ trả trong thời gian sớm nhất.
+    - Vấn đề tài chính là cái tao đang phải lo lắng nhiều nhất. Tao sẽ cố gắng trả sớm.
+    - Không phải anh không muốn trả đâu. Do tài chính khó khăn quá, anh sẽ trả sớm nhất có thể.
+    - Công việc của tôi đang rất nặng đô, chưa kịp thanh toán. Tôi sẽ cố gắng thanh toán sớm.
+- intent: sự_cố_gia_đình_và_sự_kiện
+  examples: |
+    - Bạn ơi, tôi đang trong quá trình xử lý một lần tai nạn của mình, khó khăn lắm, nên chắc chắn sẽ không thể thanh toán đúng hạn.
+    - Bác ơi, tôi không thể thanh toán ngay được. Tôi vừa ốm dậy, cả nhà tôi phải nuôi tôi thêm mấy tháng nữa mới hồi phục.
+    - Em ơi, sắp tới ông phải chịu chi phí cho đám cưới của cháu gái ông, vậy nên không thể trả nợ cho em được.
+    - Cô giúp tôi được không? Gần đây nhà tôi ảnh hưởng bởi trận lũ, chúng tôi phải xây lại từ đầu, không thể trả nợ ngay được.
+    - Chị ạ, tôi vừa mới mất việc, còn phải nuôi cả nhà, chưa thể trả nợ được.
+    - Bạn ơi, mình vừa mới chuyển nhà, đồ đạc đang lung tung hết, không thể thanh toán ngay được. Mong bạn thông cảm.
+    - Cô ơi, chồng tôi vừa mới qua đời, cả nhà tôi ngập trong nợ, khó khăn lắm cô ạ.
+    - Anh ơi, dịch bệnh này tôi không thể làm việc, thất nghiệp mất rồi. Nên không thể trả nợ được.
+    - Bây giờ nhà tôi mới hiểu hậu quả của tình trạng chính trị, tôi không thể thanh toán ngay được. Mong anh thông cảm.
+    - Tao mới bị mất tài sản do rủi ro đầu tư, không thể trả được. Mong mày thông cảm.
+    - Tớ không trả được bây giờ. Nhà tớ vừa bị sạt lở nên cần thời gian để xử lý.
+    - Tôi mới bị tai nạn giao thông, cần thời gian để hồi phục không thể thanh toán được.
+    - Tui mới qua mất người thân, chưa thể thanh toán được. Mong cậu thông cảm.
+    - Chị ơi, chồng em vừa bị mất việc làm, em không thể trả nợ được.
+    - Chụy ơi, tui chưa trả nợ được. Vì tui vừa mới thất nghiệp.
+    - Mình không thể trả nợ được. Mình mới chuyển nhà, đồ đạc còn lung tung không tìm ra tiền.
+    - Bạn ơi, tôi chưa có khả năng trả nợ. Nhà tôi vừa bị sập nên cần thời gian xử lý.
+    - Anh ơi, em mới qua mất người thân. Em chưa thể trả nợ được.
+    - Chị ơi, nhà em vừa mới cháy, em chưa có khả năng trả nợ.
+    - Cô ơi, tôi vừa mới thất nghiệp, không thể trả nợ ngay được.
+    - Bác ơi, tôi vừa mất việc, không thể trả nợ được.
+    - Bạn à, tôi mới qua mất người thân. Tôi không thể thanh toán ngay được.
+    - Bây giờ gia đình tôi đang gặp khó khăn, không trả nợ được. Mong bạn thông cảm.
+    - Em à, tôi đang gặp phải rắc rối tài chính, không thể trả nợ được.
+    - Tớ thật sự xin lỗi nhưng gia đình tớ đang gặp rắc rối. Tớ chưa thể trả nợ được.
+    - Tao mới mất việc, không thể trả nợ được. Mong mày thông cảm.
+    - Mình không thể thanh toán ngay được. Mình mới mất việc.
+    - Bác ơi, tôi đang trong quá trình phần hồi sau một lần tai nạn. Tôi không thể trả nợ ngay được.
+    - Tui không thể thanh toán ngay được. Tui mới mất việc, cần thời gian để tìm việc mới.
+    - Tui bận chữa bệnh cho con, dẫn con đi viện không làm gì được, thông cảm giùm tui mấy hôm nữa
+    - Tôi đang mắc kẹt ở quê vì cô vi-ốc, không thể thanh toán được, rất xin lỗi
+    - Tao rất xin lỗi nhưng tao đang ở viện chăm sóc bố mẹ tao, khó mà thanh toán được
+    - Tớ đang bận lo việc tang lễ ở gia đình, nên khó mà thanh toán được, thông cảm tớ nhé
+    - Mình xin lỗi, nhưng mình kiệt quệ vì việc đám cưới của em gái, khó mà thanh toán được
+    - Chị xin lỗi, nhưng chị đang chuẩn bị cho con chị thi đại học, không có thời gian để thanh toán.
+    - Anh xin lỗi, nhưng anh đang phải chuẩn bị tiền phẫu thuật cho bố. Anh sẽ thanh toán sớm nhất khi có thể.
+    - Tao rất xin lỗi, nhưng tao phải chữa bệnh cho mẹ tao bây giờ, nên khó thanh toán được.
+    - Thằng con tui gặp tai nạn, tui phải lo cho nó bây giờ, xin lỗi nha.
+    - Chồng tôi mất việc, chúng tôi không thể thanh toán được trong thời gian này, rất xin lỗi.
+    - Hiện tại, tài chính gia đình tôi đang rất khó khăn vì việc chữa bệnh cho bà ngoại, tôi không thể thanh toán được.
+    - Từ khi dịch bệnh bùng phát, tui thật sự không còn khả năng thanh toán nữa.
+    - Tôi biết mình nợ, nhưng thực hôn, bây giờ việc gia đình dồn đến đầu, không có khả năng trả được.
+    - Lúc khác anh trả được không? Anh đang đi đám tang người thân ở quê.
+    - Chị tạm cắt đứt mọi hoạt động ngân hàng, như vậy chị chưa thanh toán được, chị rất xin lỗi.
+    - Giờ tui đang lo phẫu thuật cho con nên chưa thanh toán được, xin lỗi tui nghen.
+    - Ngân hàng chắc chịu khó, mấy hôm nữa mình xử lý việc nhà xong mình trả.
+    - Tôi biết mình cần trả nợ nhưng giờ tôi đang trong bệnh viện, tôi rất khó để trả.
+    - Xin lỗi, tôi không thể trả nợ bây giờ, tôi đang trong viện chăm sóc vợ.
+    - Chắc chịu khó đợi tớ mấy hôm nữa, tớ đang phẫu thuật cho mẹ.
+    - Mình đang lo cho con mình thi đại học, chắc phải đợi một thời gian.
+    - Râu ria sự khéo, chị có con mắc bệnh nặng, miễn cưỡn chị lẹo thanh toán được
+    - Tui xin lỗi. Tui đang ở viện chăm bà tui, nên tạm thời chưa làm ăn gì được
+    - Tui cũng biết phải trả nợ nhưng bây giờ cái chết nó đang đè tui, không trả được, nhân nhượng với tui nghen.
+    - Tớ đang vướng việc gia đình, chắc chịu khó đợi tớ vài hôm nữa vậy.
+    - Mình đang lo cho việc gia đình, có thể chịu khó đợi mình thêm mấy ngày được không?
+    - Tui có sự cố gia đình, không thể thanh toán được, rất tiếc nhé.
+    - Tui xin lỗi, tui đang giữa việc chôn cất người thân, không thể thanh toán được
+    - Xin lỗi, tao đang trong viện chăm sóc mẹ tao. Tao không thể thanh toán được
+    - Chị bảo là chị có chuyện ở nhà, không thể thanh toán được hôm nay.
+    - Mình đang đau đầu với mấy sự việc ở nhà rồi, làm sao mà nghĩ được tới chuyện trả nợ nữa đây.
+    - Rắc rối gia đình đầy đầu rồi, ông xử lý giùm tôi với.
+    - Chị không còn tâm trạng để suy nghĩ về chuyện này nữa.
+    - Không biết lúc nào mới giải quyết xong mấy chuyện này, không thể đảm bảo hôm nay thanh toán được.
+    - Ngại quá, còn nhiêu triệu chuyện ở nhà cần giải quyết mà giờ lại còn phải giải quyết mấy cái nợ này nữa.
+    - Chả biết làm cách nào để thu xếp được tiền trong tình hình này cả.
+    - Còn chuyện buồn ở nhà chưa xử lý xong, tiền đâu thanh toán bây giờ.
+    - Chưa biết tớ sẽ trả nợ như thế nào, tớ cũng muốn trả, nhưng gia đình tớ đang gặp chuyện.
+    - Bây giờ mình tự cảm thấy mệt mỏi với mấy chuyện gia đình lắm rồi, tao không thể lo nghĩ về chuyện trả nợ ngay được.
+    - Lẹt đẹt biết bao nhiêu chuyện ở nhà cần giải quyết mà tôi lại còn phải nghĩ đến mấy chuyện nợ nên.
+    - Trời ạ, gia đình tôi đang gặp rắc rối, không thể thanh toán được ngay được.
+    - Bao hôm nay tôi lo mấy chuyện gia đình, chả biết lúc nào mới trả được.
+    - Tao không thể thanh toán được ngay bây giờ, tao đang phải đối mặt với nhiều chuyện trong gia đình.
+    - Tớ đang trong quá trình giải quyết những rắc rối trong gia đình, tớ không thể trả nợ được lúc này.
+    - Tôi vẫn chưa giải quyết xong mấy rắc rối gia đình, giờ tôi không thể thanh toán ngay được.
+    - Anh không thể thanh toán tiền được, anh đang có chuyện ở nhà.
+    - Tao mới vừa bận rộn với chuyện nhà cả nhưng có vẻ như tao còn phải thanh toán cái nợ này trước khi tao có thể giải quyết được nó.
+    - Mình đang phải đối mặt với biết bao nhiêu chuyện trong gia đình, không thể thanh toán ngay lúc này được.
+    - Có quá nhiều chuyện đang xảy ra trong gia đình mình, không thể thanh toán ngay được.
+    - Khó khăn quá, đang bận lo mấy chuyện gia đình mà giờ lại còn phải thanh toán công nợ.
+    - Tao đang cố gắng xử lý mấy vấn đề nhà cửa đây, nợ đợi tao xíu nhé.
+    - Các cậu hiểu giúp tớ cái, tớ đang quá bận rộn với mấy chuyện ở nhà, không thể nghĩ đến việc thanh toán công nợ ngay được.
+    - Tôi cũng muốn thanh toán, nhưng mà tôi đang gặp vấn đề trong gia đình, chắc chắn không thể thanh toán trong hôm nay được.
+    - Chả biết làm sao tôi có thể thanh toán được trong lúc này, gia đình tôi đang gặp sự cố.
+    - Cậu thông cảm cho tớ, tớ đang cố gắng giải quyết mấy chuyện thị phi ở nhà nên không thể thanh toán công nợ ngay.
+    - Gia đình chúng tôi đang gặp sự cố, không biết bao giờ mới có thể thanh toán công nợ.
+    - Tôi chưa xác định được khi nào thanh toán được, sự cố gia đình lớn quá.
+    - Việc gia đình của tôi đang rất rắc rối, không thể thanh toán công nợ.
+    - Có chuyện gia đình, khó khăn lắm, làm sao tôi trả được nợ.
+    - Em bị việc đây này, cho em xin ít thời gian.
+    - Cái hạn chót của anh em cũng biết, nhưng em đang phải lo cho gia đình
+    - Chị hiểu mà, nhưng chị có chuyện cá nhân cần giải quyết trước.
+    - Đừng nói nữa, tao hiểu rồi. Nhưng tao đang có chuyện gia đình đây này.
+    - Tao đang phải lo cho mấy chuyện tế nhị trong gia đình, thanh toán được tao thanh toán thôi.
+    - Tui biết mà, đang cố gắng thanh toán đây này.
+    - Tớ có chút việc giađình nên chưa thể thanh toán ngay được, có gì chờ tớ một chút nhé
+    - Mình đang có chuyện nên chưa thanh toán được, mong các bạn thông cảm.
+    - Chị biết này, nhưng chị có việc ở nhà, làm sao trả nợ được.
+    - Anh làm ăn thua lỗ rồi còn có việc gia đình, anh trả sao được.
+    - Đợt này tớ gặp sự cố gia đình, chắc chắn sẽ không thể trả nợ đúng hạn.
+    - Tao đang có tang lễ trong gia đình, có lẽ sẽ trễ tiền.
+    - Có chuyện buồn xảy đến, tui chưa thanh toán được tiền.
+    - Anh xin lỗi, nhưng anh đang phải xử lý một số việc gia đình, anh chưa dự định trả nợ ngay.
+    - Tôi đang cố gắng giải quyết một số việc gia đình, tôi không thể trả nợ ngay được.
+    - Tớ rất muốn thanh toán nợ ngay nhưng tớ đang gặp một số rắc rối gia đình.
+    - Tớ xin lỗi nhưng tớ đang phải đối mặt với một số vấn đề ở nhà.
+    - Mình biết mình đã quá hạn thanh toán nhưng mình phải đối mặt với một số vấn đề cá nhân.
+    - Chị đang gặp một số sự cố ở nhà nên chị không thể thanh toán tiền nợ vào lúc này.
+    - Cô đừng giục tôi, tôi biết tôi đang nợ tiền nhưng tôi đang gặp một số khó khăn gia đình.
+    - Anh đang gặp một số khó khăn ở nhà, anh hy vọng anh sẽ có thể thanh toán sớm.
+    - Lúc này tôi đang cố gắng giải quyết một số rắc rối ở nhà, tôi không thể trả nợ ngay được.
+    - Tôi biết tôi cần phải trả nợ nhưng tôi đang đối mặt với một số vấn đề gia đình.
+    - Chị ơi, em đang đi công việc gia đình, chắc chắn là sẽ thanh toán trễ.
+    - Tui đang có việc gia đình nên chưa thanh toán nợ được, thông cảm cho tui nhé.
+    - Tớ đang cố gắng giải quyết một số vấn đề cá nhân nên có lẽ tớ sẽ trễ thanh toán tiền nợ hợp đồng.
+    - Mọi người thông cảm, tao đang có chút rắc rối về gia đình.
+    - Tao đang phải đối mặt với một số vấn đề ở nhà nên không thể trả nợ ngay được.
+- intent: lo_lắng_về_khoản_vay_hoặc_có_vấn_đề
+  examples: |
+    - Dĩ nhiên là tao cảm thấy lo lắng rồi.
+    - Anh không muốn có rắc rối với công ty nợ.
+    - Đến hạn rồi hả? Tôi cần thu xếp vậy.
+    - Chắc tôi phải nhờ người khác giúp đỡ mất.
+    - Tớ cũng nghĩ về việc thanh toán lâu rồi.
+    - Tôi biết, nhưng kế hoạch thanh toán vẫn đang dở dang.
+    - Đừng lo, tui sẽ thanh toán đúng hạn.
+    - Tao hiểu rồi, để tao xem tao có thể chu cấp đủ chưa.
+    - Oke, để mình xem có thể trả hết vào ngày [ne_due_date] hay không.
+    - Uhm, hiểu rồi. Tôi đang cân nhắc xem không thể đúng hạn không thôi.
+    - Chị không muốn có rắc rối nào với công ty đâu nhé.
+    - Dạ, tối nay tôi sẽ xem xét và tìm cách thanh toán.
+    - Đừng lo, trước ngày [ne_due_date] chắc chắn tao đã trả hết.
+    - Chắc tôi phải bán một số đồ cũ để trả nợ vậy.
+    - Hmm, để tôi tìm hiểu kỹ về vấn đề này đã.
+    - Không, tao không muốn công ty còn áp lực nợ nữa.
+    - Ôi giời, tới giờ hả. Chắc mình lại phải mượn tiền để trả nợ rồi.
+    - Cũng hợp lý, để tớ xem còn bao nhiêu đã thanh toán.
+    - Hiểu rồi. Tanh toán trước ngày [ne_due_date] nhé.
+    - Tao sẽ chuẩn bị thanh toán đầy đủ trước hạn.
+    - Yên tâm, vào ngày [ne_due_date] tao sẽ gửi tiền ngay.
+    - Bạn muốn tôi phải trả hết tiền vào ngày [ne_due_date] hả? Toàn tiền quý ah?
+    - Công ty muốn đè tao trả tiền lắm hả?
+    - Mình biết rồi, mình sẽ cố trả trước ngày [ne_due_date].
+    - Anh thích làm việc đúng hẹn, anh sẽ trả vào ngày [ne_due_date].
+    - Nếu tôi không trả được trước ngày [ne_due_date] thì sao?
+    - Anh đảm bảo sẽ thanh toán đầy đủ trước ngày [ne_due_date].
+    - Em cần kiếm thêm tiền để trả nợ.
+    - Dạ, để em suy nghĩ và tìm cách trả nợ.
+    - Dạ anh cũng muốn trả nhưng giờ tài chính không đủ. Thôi, để anh cố gắng xem sao.
+    - Chị đang trong hoàn cảnh khó khăn, nhờ chị một chút nữa đợi chị kiếm tiền trả nhé.
+    - Tui đang bị mất việc nên chưa có cách nào để trả cho người ngay được.
+    - Em cố gắng mà, thật lòng là không muốn nợ đâu.
+    - Tiền đâu mà thanh toán nhanh được, chú thấy tao đang lo lắng chứ không phải chảnh chọe đâu nha.
+    - Tớ chưa thể trả nợ ngay trong tình hình này, chờ tớ một chút nữa.
+    - Đến lúc nào tớ có đủ tiền tớ sẽ liên hệ ngay để đóng nợ.
+    - Anh chưa có điều kiện để trả ngay, cho anh thêm thời gian nữa nhé.
+    - Thời buổi này khó kiếm tiền lắm, nên anh phải trì hoãn một chút.
+    - Ôh mình biết rồi, mình cố gắng nhưng mình không hứa chắc được. Thông cảm nhé.
+    - Cảm ơn đã nhắc nợ, tội nhiệm tớ đây hiểu, hứa sẽ trả sớm nhất có thể.
+    - Lạy mình thì cũng muốn trả lẹ cho xong, nhưng mà tiền ở đâu ra bây giờ.
+    - Tui hiểu, nhưng ngại gì mà chẳng nói thẳng ra, tiền đâu ra thanh toán ngay giờ.
+    - Muốn trả nợ lắm, nhưng cuộc đời khó khăn quá. Nợ vậy, chưa trả được ngay.
+    - Tớ hiểu mọi người muốn tớ trả nợ. Nhưng tớ không biết là tớ có thanh toán được ngay không nữa.
+    - Tôi sẽ trả nợ khi có thể, cứ binh tĩnh nhé. Tiền không đâu bay vào đâu mất.
+    - Mình phải xác định cách thanh toán trước khi nói chuyện với bạn. Trả lời sau nhé.
+    - Cố gắng không để nợ nữa nhưng bây giờ khó khăn quá, chị thông cảm nhé.
+    - Tao thấy mày cứ nhắc đi nhắc lại quài, tao đã biết rồi, tao sẽ thanh toán khi có thể thôi.
+    - Tớ thật lòng là rất muốn trả nợ nhưng hiện tại thì khó nữa, tớ mong cả nhà thông cảm cho tớ.
+    - Nghĩ sao tao thanh toán được ngay bây giờ, tao đang lúng túng quá không biết làm sao hết trơn.
+    - Tôi đồng ý với bạn, nhưng hiện nay tình hình không cho phép, mong bạn thông cảm.
+    - Ok, tôi hiểu. Tôi sẽ cố gắng giải quyết chuyện nợ này càng sớm càng tốt.
+    - Tao sẽ trả khi tao có tiền, đừng có áp lực tao. Tao đang cố gắng yếu lòng quá rồi
+    - Ah, chị học rồi. Chị cố gắng ra sao trả nợ cho nhanh cho bớt áp lực jum chị.
+    - Ui, tháng nay chứ, tháng sau có tiền tớ sẽ trả.
+    - Tôi chỉ mong được thêm chút thời gian nữa để thu xếp.
+    - Tao biết rồi, tao sẽ cố gắng trả nợ sớm nhất có thể.
+    - Tình hình là bây giờ tui không thể trả được, hàng tháng kiếm mấy đồng mà sống thiệt là khó hóc múa.
+    - Tiền đâu mà thanh toán, tui đang thiếu tiền ăn đây này!
+    - Chưa nhận lương, sao đóng hôm nay được?.
+    - Tối mày tối mít, chưa có tiền đâu!
+    - Tớ đang vướng một chút, chị thông cảm nhé!
+    - thật sự là tui đang khó khăn, tui xin hứa sẽ trả sau.
+    - Mình xin lỗi, chưa có tiền để trả nợ đâu!
+    - Anh ơi, tôi chưa có tiền, chắc chắn sẽ đóng sau.
+    - Tui không biết làm sao để có tiền trả nợ đây, tui cứ lo lắng mãi.
+    - Khó quá, tiền đâu mà trả, tao đang tính kế sống qua ngày đây này!
+    - Chị ơi, tôi đang trong tình trạng khó khăn, chắc chắn sẽ trả không muộn.
+    - Vấn đề là tui đang cần tiền, không biết làm sao đây!
+    - Anh thông cảm, tôi đang rất lo lắng vì không có tiền trả.
+    - Khó khăn quá, chưa có tiền đâu, cho tôi thêm thời gian.
+    - Chị thông cảm, tôi đang gặp rủi ro tài chính.
+    - Tớ không thể trả nợ ngay, tớ đang trong tình trạng khó khăn.
+    - Mình đang cần tiền để chi trả một số việc cần thiết, mình không thể trả ngay được.
+    - Lúc này tiền đâu mà trả, rối não quá!
+    - Xin lỗi, tôi không thể trả nợ được bây giờ, tôi đang lo lắng về tình hình tài chính của mình.
+    - Tao đang trong cảnh túng quẫn, không biết làm sao trả nợ được.
+    - Anh thông cảm nhé, em đang rất khó khăn.
+    - Úi, tiền đâu mà trả. Đang vỡ nợ đây này!
+    - Ăn cơm từng hạt, sao mà trả nợ kịp bây giờ.
+    - Tôi thật sự rất lo lắng về việc này, tôi không biết làm thế nào để trả nợ.
+    - Tớ thực sự không biết làm thế nào để trả nợ. Tớ rất hoảng loạn.
+    - Dạo này tui khó khăn lắm, không biết làm thế nào để trả nợ.
+    - Tao đang cần tiền để chi tiêu cho một số nhu cầu cần thiết, không thể trả nếu không muốn thiếu thốn.
+    - Tôi hiện tại chưa có khả năng trả nợ, xin hãy thông cảm.
+    - Tôi đảm bảo sẽ trả ngay khi có khả năng, tôi đang rất lo lắng.
+    - Anh thông cảm cho chị nhé, chị cũng đang rất khó khăn.
+    - Chị biết mà, nhưng bấy lâu nay chị chịu không nổi.
+    - Khổ thân tui, nhưng vẫn phải trả nợ.
+    - Tôi biết, nhưng lúc này tôi chưa có khả năng đóng tiền.
+    - Mình cũng muốn trả, nhưng hiện tại mình đang gặp vấn đề với công việc.
+    - Tao cũng không muốn vậy, nhưng thật sự tao đang gặp rắc rối.
+    - Đúng là tớ nên trả nợ, nhưng tớ đang gặp khó khăn.
+    - Tui biết là phải trả, nhưng tui cũng đang lâm vào càn khôn.
+    - Đúng là tao phải trả, nhưng tao cũng đang gặp chuyện.
+    - Thế mới biết đời nó khổ cực, tớ cũng không biết làm sao nữa.
+    - Tôi đang cố gắng giải quyết, nhưng công việc hiện tại không thuận lợi.
+    - Anh cũng không muốn động vào tiết kiệm của mình.
+    - Giờ chị còn chưa đủ tiền để sống, trả nợ làm gì nữa.
+    - Tui thấy tiền lương cũng không đủ sống nữa là trả nợ.
+    - Mình đang loay hoay với cuộc sống, chưa kịp nghĩ đến việc trả nợ.
+    - Lương tao thì ít ỏi, chưa đủ sống nữa là trả nợ.
+    - Tao đang thất nghiệp, chưa có khả năng trả nợ.
+    - Tớ chưa có việc làm, nên chưa trả được nợ.
+    - Tôi chưa kiếm đủ tiền để có thể trả nợ.
+    - Anh muốn trả, nhưng lương anh nhận được còn không đủ sống cho anh.
+    - Chị đang phải trả nợ cho con chị đi học, chưa có tiền trả nợ cho công ty.
+    - Tui cũng không muốn trễ hạn, nhưng tui đang gặp khó khăn.
+    - Tao muốn trả nợ nhưng tao không có khả năng.
+    - Tớ biết là phải trả, nhưng tớ không còn tiền.
+    - Chắc tôi phải bán nhà mới trả được nợ lúc này.
+    - Lương anh chưa đủ nuôi gia đình, nên chưa trả được nợ.
+    - Chị cần tiền nuôi con, nên chưa tìm được cách để trả nợ.
+    - Tui cần tiền cho công việc kinh doanh, chưa có khả năng trả nợ.
+    - Tao cần tiền để duy trì cuộc sống, không thể trả nợ được lúc này.
+    - Tớ đang chuẩn bị cưới, không có khả năng trả nợ lúc này.
+- intent: nhân_viên_có_thái_độ
+  examples: |
+    - Tăng tiền lương người nợ như tôi chưa? Thằng nào mượn tiền mà vui.
+    - Nói chung là tôi cũng đéo thấy mình nợ...
+    - Tao là tao chả thích giao tiếp với mấy nhân viên như mày.
+    - Nói thật nhé, tao hết kiên nhẫn với thái độ làm việc của mày rồi.
+    - Mày nói cứ như mắc nợ mày ấy.
+    - Hôm nay tui có hứng giao tiếp chưa mà mày phải nhắn tin.
+    - Anh quả thật không thích cách giao tiếp của em.
+    - Chị đang mệt, chị không muốn nói nhiều.
+    - Chị không thích nếm mùi đồng nát từ ngữ của em.
+    - Ôi dồi ôi, mày cứ nhái như con vẹt.
+    - Chưa bao giờ tớ thấy ghét như lúc này.
+    - Mày nghĩ mày nói xin lỗi là tao vui lắm à?
+    - Đồng chí à, phong cách giao tiếp đúng là khá độc đáo.
+    - Mày nghĩ về lương tâm của mày chưa?
+    - Tôi cảm thấy khá ghê tởm với cách giao tiếp hiện tại.
+    - Mình thật sự chán với bạn rồi.
+    - Mày thử đưa tao vài triệu xem tao còn tức không.
+    - Lỡ là tao nợ mày một tỷ thì mày có liên quan gì không?
+    - Bữa nay tôi đang cảm thấy khá ức chế và tất cả nhờ gặp mày.
+    - Đẹp trai thì nhiều mà nợ thì cũng nhiều, mày hiểu không?
+    - Mày nghĩ về việc tử tế không?
+    - Không thích cách mày nói chuyện.
+    - Tôi không thể tưởng tượng ra cách mày và công ty mày nghĩ để chọn ra những câu như thế.
+    - Nghe mày nói, tao cảm thấy tao đúng hơn mày.
+    - Mày nghĩ mày nợ mày ấy à?
+    - Mày định chém gió với tao bao lâu nữa?
+    - Thật sự tôi không hài lòng với cách tiếp xúc của bên bạn.
+    - Thôi, nếu tao không đặt chân lên công ty mày thì mày gọi đúng không?
+    - Tôi đã gọi gần chục lần cho tổng đài và thái độ của bên bạn khiến tôi không hài lòng.
+    - Tôi không đồng ý, công ty của bạn quá đòi hỏi.
+    - Mày không ngại hả? Nợ tiền mà còn đòi lãi đấy à?
+    - Bây giờ tui đang nợ tiền, mày có cả thái độ nữa hả?
+    - Tao không dự định trả một xu nữa cho công ty của mày nhé.
+    - Mình phải chịu sao? Công ty của bạn quá tệ.
+    - Tớ đã nói rồi, tớ không thể trả nợ lúc này, bạn thái độ lắm hả?
+    - Chị không thể tin được, mọi người trong công ty của em đều thế à?
+    - Cô ấy thực sự nghĩ rằng tôi có thể trả tiền lúc này hay sao?
+    - Dẫu có thể làm gì đi nữa, cậu không cần cố gắng nhắc nợ tôi nữa.
+    - Thông báo cho sếp biết, tớ không thể trả nợ vào ngày đó.
+    - Tôi không còn tiền để trả nợ cho bạn nữa đâu.
+    - Đừng nghĩ rằng tôi có thể trả nợ cho bạn bất cứ lúc nào bạn muốn.
+    - Mình không phải là công cụ để bạn kiếm tiền đâu nhé.
+    - Cần lời xin lỗi từ cả công ty vì thái độ của bạn.
+    - Anh chẳng còn tiền để trả nợ cho em nữa rồi, em có biết không?
+    - Đừng nghĩ rằng tương lai của em sẽ tốt đẹp nếu em tiếp tục làm việc cho công ty đấy.
+    - Tôi thực sự không thể chấp nhận thái độ của bạn.
+    - Vì sao bạn nghĩ rằng tôi sẽ trả tiền cho công ty của bạn?
+    - Không cần nhắc tôi trả nợ nữa, tớ không có tiền.
+    - Mình đã nói rồi, mình không còn tiền trả nợ cho công ty của bạn.
+    - Đừng nghĩ rằng tôi sẽ chấp nhận thái độ của bạn.
+    - Cô ấy có thật là nghĩ tôi có tiền trả nợ cho cô ấy không?
+    - Tui không còn tiền để trả nợ cho cậu nữa đâu.
+    - Đúng là không có lương tâm gì cả, sao cô lại nhắc tôi trả nợ như thế?
+    - Tớ thật sự không còn tiền để trả nợ cho công ty của cậu.
+    - Mình đã nói rồi, mình không còn tiền để trả nợ như thế.
+    - Anh thật không thể chấp nhận thái độ của cô ấy.
+    - Sao có thể cư xử như thế với khách hàng, tớ chẳng đồng ý chút nào.
+    - Tôi không thể chấp nhận thái độ của bạn, tôi sẽ không trả nợ cho công ty của bạn nữa.
+    - Nghe cách nói chuyện của anh tốt quá nên tôi sẽ cố gắng trả hết trong hôm nay.
+    - Công ty của anh chăm sóc khách hàng tốt quá nên chắc chắn mình sẽ trả hết trong hôm nay.
+    - Em nói chuyện nhẹ nhàng quá, nếu mà tôi có tiền thì tôi sẽ ngay lập tức trả cho em.
+    - Tui thấy nhân viên của bên em thật là tử tế, nếu tui có thể, tui sẽ trả ngay bây giờ.
+    - Anh nói như thế tôi mới tiếc, nếu biết công ty anh tư tế như thế này tôi đã trả trước rồi.
+    - Công ty anh đã quá tốt với tôi, nên tôi sẽ cố gắng trả hết ngay hôm nay.
+    - Chị biết lỗi là do chị, nếu chị có tiền lúc này thì chị đã trả rồi, thế nhưng bây giờ chị không có tiền trả nợ.
+    - Anh nói chuyện nhẹ nhàng quá, nếu tume có tiền thì tume đã trả rồi.
+    - Mình rất tiếc, mình không thể trả nợ được bây giờ, hôm nay mình cũng không có tiền để trả nợ.
+    - Chị biết là khó chịu khi bên em đến nhắc nhở, nhưng hiện tại chị đang không có khả năng trả nợ ngay được.
+    - Nếu tao có tiền, tao đã trả, chứ đâu cần mi nhắc nhở!
+    - Tớ biết tớ cần phải trả nợ, nhưng khó khăn quá, cứ cho tớ thêm thời gian nữa nhé!
+    - Đoạn đường phía trước chưa rõ ràng, cho nên mình chỉ có thể chờ đợi cuộc gọi tiếp theo của anh.
+    - Tôi rất xin lỗi vì sự bất tiện này, nhưng tôi thực sự không có khả năng trả tiền ngay bây giờ.
+    - Quả thật tôi rất muốn trả nợ cho công ty của các anh ngay lúc này, nhưng tôi hoàn toàn không có khả năng.
+    - Em thật tâm lý là biết rồi. Nhưng giờ tao chưa có tiền, đợi mẹ tao trả sau!
+    - Tui chặn công nợ rồi, em mà qua đòi nữa tui đánh chết má mày nghe chưa!
+    - Công ty anh làm ăn tốt, anh cũng rất tốt nhưng tôi không còn tiền để trả cho anh nữa.
+    - Em nói dễ chịu quá, nếu mà chị có tiền thì chị sẽ ngay lập tức trả cho em.
+    - Anh xin lỗi được thì mình cảm kích lắm nhưng lùi bước bây giờ chẳng thể nào.
+    - Em nói như thế thì tôi phải nói sao, ngày mai có lẽ tôi sẽ trả được.
+    - Đó là việc bạn nên làm, còn riêng tôi, lúc này tôi không thể giúp điều đó được.
+    - Bạn nghĩ việc đấy dễ ư? Tôi không thể trả được ngay bây giờ!
+    - Mình thấy công ty của anh thật tâm lý, nếu mình có thể, mình sẽ trả ngay trong hôm nay.
+    - Nếu tao có tiền, tao đã trả, chứ đâu cần mày nhắc nhở!
+    - Tui biết lỗi của tui, nhưng bây giờ tui không có tiền để trả nợ cho công ty của anh.
+    - Tớ hứa sẽ cố gắng trả trong thời gian sớm nhất.
+    - Mình không còn có khả năng trả nợ nữa, nhưng anh đừng lo lắng, mình sẽ cố gắng thanh toán một cách som nhất!
+    - Rất tiếc là khả năng thanh toán ngay không thể, nhưng chúng ta có thể thảo luận về một kế hoạch trả góp.
+    - Thái độ cô nói chuyện khá khác với mình nghĩ nhé! Thanh toán xong hàng t thì cút ngay.
+    - Anh không hiểu sao cô lại nói chuyện với anh như thế nhỉ? Để anh trả tiền xong đã.
+    - Cô cần xem lại cách nói chuyện của mình đi, tớ chưa muộn mà còn đòi. Bực mình chứ.
+    - Đừng có mà chửi thề với tôi như vậy. Tôi sẽ không trả tiền cho công ty nếu cô cứ thế này.
+    - Có thái độ đó thì cưng trả tiền cho ai? Tôi thì không trả đâu.
+    - Công việc của tớ là thanh toán tiền nợ, tớ hiểu và sẽ làm. Nhưng không cần đội thô lỗ đâu nhé!
+    - Cô xem lại thái độ giao tiếp của mình đi. Để tôi thanh toán xong đã.
+    - Cô đừng nên nói chuyện với tôi như thế, tôi cảm thấy không thoải mái. Tôi sẽ thanh toán.
+    - Cô đây có phải bỏ mẹ không, nói như thế mới phiền, tao trả tiền xong xuôi mới chổng đít ra mà đi nhé!
+    - Thế này thì khó trả nợ lắm cô ơi, tôi không thích cách nói chuyện của cô rồi đấy.
+    - Nếu cứ cô cứ nói chuyện như thế thì tôi khó trả nợ lắm đấy.
+    - Tôi không thích cách cô nói chuyện, nhưng tôi sẽ trả nợ đúng hạn.
+    - Trời ạ, cô nói như vậy không ổn đâu, tớ trả tiền xong tớ xuống công ty gặp trực tiếp.
+    - Cô nói như thế chứng tỏ cô không tôn trọng tôi. Để tui xem xử trí thế nào!
+    - Mày không cần thiết phải nói như thế. Tao trả tiền để giải quyết vấn đề, không phải để nghe mày chửi.
+    - Cái cách nói của cô khiến tôi cảm thấy không thoải mái. Tôi sẽ thanh toán tiền nợ.
+    - Nếu bên em cứ nói chuyện như thế, tôi khó trả tiền lắm.
+    - Cô nói như thế khá là khó chịu, nhưng tôi sẽ trả nợ dù gì mình đã mắc nợ mà.
+    - Tôi không thích cách nói chuyện như thế. Tôi đã ghép thanh toán nhưng vậy là không có vấn đề gì.
+    - Khá là chưa ổn khi cô nói như thế, tôi không thấy thoải mái, nhưng trả tiền thì tôi nên trả.
+    - Nếu cứ cô cứ nói chuyện với tôi như thế, tôi sẽ khá khó khăn trong việc thanh toán nợ.
+    - Cô nói như thế làm tôi không thoải mái. Tôi đang cố gắng trả nợ.
+    - Thôi, tôi không muốn nghe cô nói nữa. Tôi sẽ trả tiền.
+    - Dòng ý tưởng như thế mà cô nói với tôi sao? Tôi sẽ trả tiền.
+    - Chỗ này khá lằng nhằng đấy, cô nên xem lại cách nói chuyện với khách hàng của mình.
+    - Cách nói của cô khá là không phù hợp. Tôi chưa thanh toán nhưng không quạo lắm đâu.
+    - Anh không thích cách cô nói chuyện. Nhưng dù sao tôi cũng sẽ trả tiền.
+    - Tôi không hiểu sao cô lại nói chuyện với tôi kiểu đó, nhưng tôi vẫn sẽ trả tiền.
+    - Cô nói chuyện sao thế, thôi để tôi thanh toán tiền đã.
+- intent: người_nghe_có_thái_độ
+  examples: |
+    - Anh hứa mà, cái hợp đồng mà em nói đó, anh chẳng nhớ một chút gì cả. Cả đầu anh đều là những vấn đề khác nên anh không có tâm trạng mà ngồi đây nghe em nói.
+    - Đừng có nói với tôi như vậy, tôi biết mình phải làm gì.
+    - Tao béo tao trả, tao trả như thế nào là quyền của tao, biết chưa?
+    - Tôi không cần giải thích cho bạn biết tôi cảm thấy thế nào. Bạn chỉ việc làm công việc của bạn, và tôi sẽ làm công việc của tôi.
+    - Trời, nói chuyện với những người như em thật khó khăn!
+    - Chị không hứa, nhưng chị sẽ cố gắng. Biết chưa không?
+    - Tớ biết tớ nợ, cố gắng tớ sẽ trả, em đừng có cứ đến đây mà nài nỉ như vậy. Thấy mệt mỏi lắm!
+    - Em trả cho mình cái thẻ mình đòi mình sẽ trả. Còn không thì thôi, cứ để mình. Mình không muốn cứ phải nghe những lời nhắc nhở như thế này nữa.
+    - Anh tôi còn sống chưa anh? Làm ơn, nếu anh muốn nói thì hãy nói với anh tôi. Tôi không muốn nói với anh về chuyện này nữa.
+    - À, anh biết rồi. Giờ anh mới biết nên làm sao. Anh sẽ trả nợ cho em.
+    - Được, tớ sẽ im lặng nghe em nói nhưng sau đó tớ không trả tiền, thì anh em mình chuyện này còn tiếp tục không?
+    - Đời mình mình cũng có biết một chút, em đừng có nói nhiều về việc phải trả nợ như vậy.
+    - Tui không thể tin được là tui lại ngồi đây và nghe bạn nói như vậy.
+    - Từ từ đã, đừng có vội vàng thế. Anh biết anh phải làm thế nào rồi. Nhưng giờ, anh cần thời gian mà suy nghĩ.
+    - Ồ, giờ mình mới hiểu, mình chưa trả tiền cho bạn. Mình sẽ sắp xếp và trả ngay.
+    - Tại sao chị phải trả nợ. Mấy thằng trên đầu chị vẫn còn nợ chị mà đã đòi chị trả nợ. Thật khó hiểu!
+    - Có gì không đúng sao? Mình đã trả tiền rồi mà, có thể ngân hàng chưa nhận được tiền?
+    - Ah, rõ rồi. Tôi sẽ trả tiền sớm nhất có thể. Cảm ơn đã nhắc nhở.
+    - Cuộc sống có nhiều chuyện phức tạp và khó khăn hơn là trả nợ. Bạn à, tôi biết mình phải làm gì.
+    - Tao đi vệ sinh đã, tao không muốn nghe nữa
+    - Tôi trả được tôi trả, tôi không trả được thì sao? Bạn giết tôi à?
+    - Cảm ơn đã chia sẻ nhưng nếu chị trả được thì chị đã trả rồi. Chị cũng không muốn ai đến nói chuyện này với chị.
+    - Em nói tiếp đi, anh ngồi đây không trốn đâu.
+    - Mình không nhớ ký cái gì cả, mình không trả đâu, đừng có mà truy cứu mình.
+    - Đừng nói với tôi những lời đó, tôi sẽ trả khi tôi có tiền
+    - Em không phải là người duy nhất đòi nợ tôi. Tôi sẽ trả khi tôi sắp xếp được sự việc.
+    - Ai đưa ra quy định là phải trả nợ. Ngày trước chưa ai đòi trả nợ tôi. Tôi đéo có trả.
+    - Tôi đã nói với bạn rất nhiều lần rồi, đừng nhắc tôi nữa, tôi sẽ trả.
+    - Được, tôi nghe bạn. Đừng lo lắng, tôi sẽ trả nợ.
+    - Tôi không biết, nhưng tôi đang rất hoang mang, căng thẳng với tình hình hiện tại.
+    - Tui bị thất nghiệp á, ko có tiền đâu mà trả.
+    - Mình đang phải chữa bệnh nên ko có tiền. Tha cho mình với.
+    - Tớ ít tiền nên phải tiết kiệm. Tớ không trả nợ được lúc này đâu.
+    - Tao có biệt thự, xe hơi nhưng mày đừng mơ tao sẽ trả nợ được với cái thẻ tín dụng đó.
+    - Anh có tiền, nhưng không phải để trả nợ cho mấy cái thẻ tín dụng này.
+    - Tui không phải là người mà bạn đang tìm. Tôi không biết gì về thẻ tín dụng này.
+    - Tôi đang rất căng thẳng với cuộc sống hiện tại. Tôi không muốn nghe bất cứ ai nhắc về nó.
+    - Từ giờ tớ không trả nợ nữa. Tớ không muốn sống trong nợ nên.
+    - Tao đang trong tình trạng khó khăn về tài chính. Tao không trả được nợ.
+    - Anh không kiếm đủ tiền để trả nợ cho thẻ tín dụng các bạn.
+    - Dạo này tui không có tiền để trả nợ. Các bạn thông cảm cho tui với.
+    - Mình đã thất nghiệp. Mình không có khả năng trả nợ.
+    - Anh không hiểu tại sao lại có cái số nợ này. Anh không chịu trách nhiệm về nó.
+    - Anh không có tiền, anh không trả nợ được!
+    - Tôi không còn tiền trả nợ nữa. Tôi cảm thấy tức giận vì điều này.
+    - Mình đã mất việc và không có khả năng trả nợ.
+    - Tao không muốn trả nợ cho cái thẻ tín dụng này.
+    - Anh cảm thấy rất khó chịu với việc anh phải trả nợ mỗi tháng.
+    - Tôi quyết định không trả nợ nữa.
+    - Tui không phải trả nợ, tui không muốn trả nợ.
+    - Tớ không có tiền để trả nợ. Tớ muốn dừng việc trả nợ.
+    - Tao không trả nợ nữa! Tao đã mất công việc của tao!
+    - Anh không muốn nghe nữa, anh không chịu trả nợ đâu.
+    - Tôi không muốn mất thêm thời gian chỉ để trả nợ.
+    - Tui không trả được, tui không có việc làm!
+    - Mình đang khó khăn về tài chính, không trả được nợ.
+    - Tớ không muốn trả nợ nữa, tớ thấy nó rất khó khăn.
+    - Tao không muốn trả nợ! Tao đã quyết định vậy rồi!
+    - Anh đang bực mình lắm nha, thôi cho anh xin, đừng gọi nữa.
+    - Anh đang bận, không có thời gian nghe mấy cái việc vớ vẩn này của bạn.
+    - Tớ bốc mộ rồi, thôi đừng làm phiền tớ nữa.
+    - Tôi không muốn nghe nữa, hỡi người né tránh nợ, thả tôi ra đi.
+    - Tôi có quyền không nghe những thứ vớ vẩn này của bạn, bạn biết không?
+    - Tôi chảnh lắm, không muốn nói chuyện với bạn, đừng gọi nữa.
+    - Tao đang bực mình, khỏi gọi nữa, để tao yên!
+    - Tui chán ngán rồi, đừng gọi nữa, để tui yên!
+    - Thôi, đừng nói nữa. Tớ không muốn nghe, đừng gọi nữa.
+    - Anh yêu rất bực mình đấy, đừng gọi nữa được không?
+    - Để tôi yên, tôi không muốn nói chuyện với bạn.
+    - Tui không có nhu cầu nói chuyện với bạn, bạn thông cảm nha.
+    - Mình đang rất bận, khỏi gọi, đừng làm phiền mình.
+    - Chị không muốn nói chuyện với bạn, bạn đừng gọi nữa.
+    - Tao chả muốn nghe nữa. Thôi cho tao xin, đừng phiền tao.
+    - Tôi không muốn nghe bất cứ điều gì nữa, đừng gọi nữa.
+    - Tôi đã đủ bực rồi, đừng thêm vào nữa, đừng gọi tôi.
+    - Anh không có hứng thú với những thứ này, thôi đừng gọi nữa.
+    - Tệ nạn, tôi không muốn nghe gì nữa cả
+    - Thôi, tôi không muốn nghe gì từ cậu nữa, tôi đã quá chán chường với cuộc sống không có cậu.
+    - Anh hơi khó chịu lắm, thôi đừng gọi nữa nhé.
+    - Tao đang ăn, khốn nạn, thôi đừng phiền tao nữa.
+    - Tao không muốn nói chuyện với bạn, thôi cho tao xin đi.
+    - Đồ khốn nạn, tao chả muốn nói chuyện với bạn, thôi cho tao yên.
+    - Chắc chắn rồi, tao sẽ không nói chuyện với bạn, thôi cho tao yên.
+    - Tao chả yêu cầu bạn gọi tao cả, thôi đừng làm phiền tao nữa!
+    - Tui không muốn nghe, thôi cho tui xin, đừng làm phiền tui nữa!
+    - Tôi không muốn nói chuyện với bạn, tôi cần thời gian yên tĩnh, bạn hiểu không?
+    - Tao đang rất bực mình, thôi đừng gọi tao nữa nhé.
+    - Tôi biết rồi, tôi sẽ trả sau. Đừng gọi nữa.
+    - Nếu tiền rôm như tiền tệ thì chắc chắn tôi sẽ trả đủ từ hôm qua.
+    - Tớ đang có chút rắc rối với việc cá nhân, sẽ trả sau.
+    - Mình sẽ trả... nếu mình có nó.
+    - Thẻ tín dụng sao kê hàng tháng? Tớ còn chưa đủ tiền trả thẻ tín dụng kỳ trước mà.
+    - Anh đang trong cảnh khó khăn, cần chút thời gian để trả nợ.
+    - Tớ biết, nhưng tớ chưa có tiền để trả.
+    - Đừng gọi cho tao, chẳng có đồng nào để trả đâu.
+    - Tôi sẽ trả nợ ngay khi tôi có tiền. Bây giờ tôi không có tiền.
+    - Ồ không, không phải anh không muốn trả nợ, chỉ là anh không có đủ tiền để trả nợ.
+    - Tao biết, nhưng chẳng phải tao đang nghèo không có tiền sao.
+    - Chị thừa hiểu chị đang nợ, nhưng chị cũng đang cố gắng trả.
+    - Miễn là mình có tiền, mình sẽ trả ngay lập tức.
+    - Anh sẽ trả tiền khi có thể, vui lòng đừng gọi nữa.
+    - Tớ đang gặp rắc rối ở công việc, nên tớ cần thêm thời gian để trả nợ.
+    - Ngày tôi có tiền, là ngày tôi trả nợ, nhưng hôm nay không phải ngày đó.
+    - Chồng chất lên cả đống nợ, chủ nợ gọi quanh năm. Tớ biết, nhưng gặp khó khăn quá nên tạm chưa trả được.
+    - Tao biết tao đang nợ, nhưng tao không biết làm sao để có tiền trả nợ.
+    - Nếu tôi có tiền, tôi sẽ trả nợ, nhưng tôi không có tiền để trả.
+    - Tôi biết rồi, nhưng tôi đang gặp khó khan, cho tôi thêm thời gian để trả nợ.
+    - Tôi đầu tư vào một dự án và tôi đã mất tất cả. Tôi không biết làm sao để trả nợ.
+    - Tôi biết tôi vẫn nợ, nhưng tôi đang chờ một số tiền phải đến. Tôi sẽ trả nợ sau khi tôi nhận được nó.
+    - Tớ biết tớ cần trả tiền, nhưng tớ đang chờ đợi một khoản tiền từ một người bạn của tớ.
+    - Có rất nhiều người đang đợi tôi trả nợ. Tôi phải xem tôi có thể trả nợ cho ai trước.
+    - Tôi biết tôi phải trả tiền, nhưng tôi không thể trả tất cả mọi người cùng một lúc.
+    - Táo đang đợi một số tiền từ công việc. Tạo sẽ trả tiền sau khi tao nhận được nó.
+    - Công việc của tôi đang gặp khó khăn. Tôi sẽ trả tiền khi tôi giải quyết được những rắc rối này.
+    - Tôi sẽ trả tiền khi tôi có thể. Đừng gọi nữa.
+    - Tôi sẽ trả tiền. Nhưng không phải bây giờ. Tôi sẽ liên lạc với bạn.
+- intent: nhắc_hạn_thanh_toán
+  examples: |
+    - Anh đã nắm thông tin đó rồi nha
+    - Được rồi, tao sẽ gọi trong thời gian tới
+    - Uhm, tôi cũng mới kiểm tra xong hồ sơ, cảm ơn em
+    - Thế à? Hạn đã đến sớm thật, cảm ơn em nhắc nhở
+    - A, vâng em, tôi sẽ gọi tổng đài để biết thêm thông tin
+    - Ok! Anh sẽ đảm bảo thanh toán trước hạn
+    - Tớ biết thông tin đó rồi, không cần nhắc nữa
+    - Được, mình sẽ gọi tổng đài để xác nhận lại
+    - Ngày đến hạn thanh toán rồi à? Ok, cảm ơn em
+    - Vậy à? Tôi sẽ lưu ý. Cảm ơn em nhé
+    - Uh, anh lưu ý rồi. Cám ơn nhé! 
+    - Vâng, tôi đã nhớ.
+    - Ờ, ok, tao biết rồi
+    - Tôi đã note lại ngày thanh toán rồi, em đừng nhắc nữa
+    - Okie dokie, đã nghe rõ
+    - Tôi đã hiểu, cảm ơn em nhé
+    - Cảm ơn em đã nhắc, tớ sẽ chú ý
+    - Chị đã ghi nhớ, cảm ơn em nhắc nhở
+    - Ok, không sao, tao sẽ tính toán cho phù hợp
+    - Tôi sẽ lưu ý và liên lạc lại.
+    - Tao đã hiểu, không cần nhắc nữa
+    - Ok, tớ đã note lại rồi
+    - Tui cảm thấy đã rõ rồi
+    - Uh, tao sẽ gọi tổng đài
+    - Ok em, tôi đã nhận được thông tin
+    - Vậy à? Mình sẽ chú ý, cảm ơn em
+    - Vâng, mình đã hiểu, cảm ơn nhé
+    - Ơ, được rồi, cảm ơn em đã nhắc nhở
+    - Anh đã hiểu, cảm ơn em nhắc nhở
+- intent: thông_tin_hd
+  examples: |
+    - Tôi đã trả nợ rồi, sao còn nhắc vậy?
+    - Vớ vẩn, tao không mất thẻ nào cả, tao không có nợ
+    - Ừm, tôi hiểu. Mình sẽ kiểm tra thông tin
+    - Tôi không nhận được bất kỳ sao kê nào từ thẻ của mình
+    - Dạ, ok, chị đã lưu lại số tổng đài rồi
+    - Vui lòng cung cấp tên của bạn để tớ kiểm tra lại thông tin nhé
+    - Mình không nhận được thông tin gì về việc này cả
+    - Bạn nói rõ hơn về thẻ F e được không?
+    - Số hợp đồng mình đâu có là [ne_speakable_app_id] như bạn nói
+    - Anh có thể cung cấp thêm thông tin về việc này không?
+    - Tao không biết thông tin này. Giúp tao hiểu hơn với!
+    - Tôi không có nợ mà. Có lẽ có lỗi gì đó?
+    - Đúng, số hợp đồng của tôi là [ne_speakable_app_id]
+    - Chưa hiểu lắm, sao kê cuối cùng là gì nghĩa là gì vậy?
+    - Có phải là tui nên gọi số tổng đài bạn vừa nói không ?
+    - Làm ơn kiểm tra lại thông tin, mình không có thẻ F e
+    - Tôi không rõ thẻ F e là thẻ gì
+    - Nghe lạ quá cậu, hợp đồng [ne_speakable_app_id] là gì thế ?
+    - Tớ chưa bao giờ mở thẻ tín dụng ở bên [ne_title]
+    - Đúng, mình có thẻ tín dụng F e
+    - Lần sau thông báo trước cho tôi biết nhé, tôi hơi sốc
+    - Tao không tin tao có nợ, tao sẽ gọi cho tổng đài
+    - Vậy thì tôi sẽ gọi lên tổng đài để xem
+    - Dạ, cám ơn em đã thông tin, để chị kiểm tra đã
+    - Tớ hiểu rồi, tớ sẽ gọi lên tổng đài để kiểm tra
+    - Tui cảm thấy hơi hoang mang, tui sẽ gọi lên tổng đài để xác minh lại
+    - Có lẽ tao đã trả trong sao kê mà tao recent nhất rồi. Để tao kiểm tra lại nhé
+    - Hiểu, để tao kiểm tra sao kê gần nhất của tao
+    - Mình đã hiểu, cảm ơn bạn đã thông báo
+    - Chị có hiểu mình đang nợ bao nhiêu không? Mình không đủ tiền đâu.
+    - Tao thấy số nợ lớn quá, tao không chắc lúc nào mới trả hết được.
+    - Tôi không nhớ có mượn tiền mà nợ nhiều thế này, tôi cần biết thông tin hợp đồng.
+    - Anh đã lên kế hoạch thanh toán rồi, buổi chiều nay anh sẽ chuyển.
+    - Tớ hiểu rồi, cảm ơn bạn nhé.
+    - Tao cần xem lại hợp đồng, chả nhớ đã vay bao nhiêu.
+    - Anh vừa kiểm tra tài khoản thấy còn rất ít tiền, không đủ trả nợ. Anh sẽ thanh toán sau.
+    - Chị đã nhắc nhiều lần rồi, tôi sẽ thanh toán khi có tiền.
+    - Không biết ngày nào tui mới trả hết nợ nữa.
+    - Thế thì chắc tui phải đi vay tiếp để trả nợ mất.
+    - Tao không nhớ mình đã vay số tiền ấy, cần kiểm tra lại thông tin hợp đồng.
+    - Tớ sẽ xem lại hợp đồng và sau đó quyết định trả bao nhiêu.
+    - Đúng, mình đang nợ tiền. Mình sẽ chuyển trong hôm nay.
+    - Tao tính trong tuần này tao sẽ chuyển số tiền cần thanh toán.
+    - Ok, anh đã hiểu, sẽ thanh toán sớm nhất có thể.
+    - Em ơi, chị nợ bao nhiêu cả? Chị gần như không còn tiền trên tài khoản.
+    - Cám ơn em, anh đã hiểu. Anh sẽ chuyển tiền trong tuần này.
+    - Tao sẽ xem xét lại hợp đồng rồi quyết định tao trả bao nhiêu.
+    - Chắc anh phải đi vay tiền mới trả nợ được.
+    - Mình sẽ cố gắng thanh toán trong tuần này.
+    - Tớ sẽ cố gắng thanh toán sớm nhất có thể.
+    - Anh sẽ kích hoạt chuyển khoản định kỳ để trả nợ từ tài khoản của anh.
+    - Tao sẽ cố gắng gom tiền từ chỗ khác để trả.
+    - Hiểu rồi, mình sẽ trả khi có khả năng.
+    - Chuẩn, tui đang nợ bấy nhiêu. Tui cố gắng trả dần.
+    - Tao đã biết điểm rơi rồi, tao sẽ xem xét để thanh toán.
+    - Biết rồi, tôi sẽ tìm cách thanh toán.
+    - Giờ tui mới hiểu tui đang nợ bao nhiêu.
+    - Tớ đã ghi nhớ số tiền rồi, trong tuần này tớ sẽ thanh toán.
+- intent: thắc_mắc
+  examples: |
+    - Tao không biết cách thanh toán online, tồng đài đó làm thế nào để gọi?
+    - Chị không rõ về việc thanh toán ở cửa hàng điện thoại, em có thể giải thích thêm không?
+    - Nếu tôi muốn trả ở viettel thì làm cách nào vậy?
+    - Mình không hiểu vụ này lắm, có nên gọi tổng đài không nhỉ?
+    - Anh thắc mắc về chỗ m thốt là, có thể giảng rõ giùm không!
+    - Để chị gọi tổng đài thêm thông tin về cái thanh toán online nhé!
+    - Tui cần rõ về cái việc trả nợ tại viettel có đc không?
+    - Lại phải gọi tổng đài à, chán thật!
+    - Tớ không rõ lắm, thanh toán ở bưu điện thì làm sao nhỉ?
+    - Mình cần tìm hiểu thêm thông tin về việc thanh toán trên mạng!
+    - Làm j có tiền trả nợ, bọn m cứ nhắc mãi vậy!
+    - Tôi định gọi tổng đài để hỏi thêm, nhưng giờ đang bận, em có thể giải thích cho tôi không?
+    - Còn cách nào khác để thanh toán ngoài việc đến viettel, bưu điện không?
+    - Thế mình có thể thanh toán tại bất kỳ cửa hàng điện thoại nào không?
+    - Thế còn nếu tớ ở nước ngoài thì sao? Có cách nào thanh toán không?
+    - Tao không biết thanh toán online, có cần gọi tổng đài để hướng dẫn không?
+    - Anh chưa hiểu lắm, gọi tổng đài là như thế nào?
+    - Tui là người già, không biết vụ online này. Em có thể giải thích rõ hơn được không?
+    - Có thể hướng dẫn tôi cách trả nợ tại cửa hàng điện thoại không?
+    - Chuẩn bị tiền làm j, tao thanh toán bằng online được rồi.
+    - Giờ chị gọi tổng đài em để hỏi thêm nhé!
+    - Tớ cần biết thêm về việc thanh toán ở viettel!
+    - Chưa giải thích rõ cách thanh toán cả, tụi m cứ nhắc nợ suốt vậy!
+    - Chị chưa hiểu chỗ nào để thanh toán toàn quốc ở cửa hang điện thoại kìa!
+    - Còn nếu tui ở nước ngoài thì làm thế nào để thanh toán?
+    - Nếu mình muốn thanh toán tại bưu điện thì làm như thế nào?
+    - Tôi cần hiểu rõ hơn về việc gọi tổng đài!
+    - Thanh toán tại viettel, tui cần chuẩn bị những thông tin gì?
+    - Thanh toán online là như thế nào vậy? Mình không hiểu lắm, em giải thích cho mình với.

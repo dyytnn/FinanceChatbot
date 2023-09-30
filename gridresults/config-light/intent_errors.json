@@ -1,0 +1,330 @@
+[
+  {
+    "text": "xin chào",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.5726898312568665
+    }
+  },
+  {
+    "text": "chào bạn",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.8445814251899719
+    }
+  },
+  {
+    "text": "chào",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.9317382574081421
+    }
+  },
+  {
+    "text": "Vâng đúng rồi",
+    "intent": "confirm_customer_true",
+    "intent_prediction": {
+      "name": "confirm_customer_connect_other_customer_true",
+      "confidence": 0.9920772314071655
+    }
+  },
+  {
+    "text": "Dạ đúng rồi",
+    "intent": "confirm_customer_true",
+    "intent_prediction": {
+      "name": "confirm_customer_connect_other_customer_true",
+      "confidence": 0.9964357614517212
+    }
+  },
+  {
+    "text": "Dạ anh nhầm số rồi ạ",
+    "intent": "confirm_customer_false",
+    "intent_prediction": {
+      "name": "confirm_customer_connect_other_customer_true",
+      "confidence": 0.8746615648269653
+    }
+  },
+  {
+    "text": "Dạ không ạ",
+    "intent": "confirm_customer_connect_other_customer_false",
+    "intent_prediction": {
+      "name": "confirm_customer_false",
+      "confidence": 0.9968396425247192
+    }
+  },
+  {
+    "text": "Dạ",
+    "intent": "confirm_customer_connect_other_customer_true",
+    "intent_prediction": {
+      "name": "confirm_customer_true",
+      "confidence": 0.9995288848876953
+    }
+  },
+  {
+    "text": "Vâng ạ",
+    "intent": "confirm_customer_connect_other_customer_true",
+    "intent_prediction": {
+      "name": "confirm_customer_true",
+      "confidence": 0.4924231767654419
+    }
+  },
+  {
+    "text": "Có chi không ạ",
+    "intent": "confirm_customer_connect_other_customer_true",
+    "intent_prediction": {
+      "name": "confirm_customer_true",
+      "confidence": 0.998970627784729
+    }
+  },
+  {
+    "text": "y",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.4257514774799347
+    }
+  },
+  {
+    "text": "of course",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "confirm_customer_true",
+      "confidence": 0.5404447317123413
+    }
+  },
+  {
+    "text": "correct",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9315390586853027
+    }
+  },
+  {
+    "text": "don't like that",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8921884894371033
+    }
+  },
+  {
+    "text": "great",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.44957542419433594
+    }
+  },
+  {
+    "text": "I am feeling very good",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9916908740997314
+    }
+  },
+  {
+    "text": "I am great",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.25580310821533203
+    }
+  },
+  {
+    "text": "I am going to save the world",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.6909055113792419
+    }
+  },
+  {
+    "text": "extremely good",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9993442893028259
+    }
+  },
+  {
+    "text": "so good",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9963636994361877
+    }
+  },
+  {
+    "text": "hi",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "confirm_customer_connect_other_customer_true",
+      "confidence": 0.98201584815979
+    }
+  },
+  {
+    "text": "có ai giúp mình không",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "confirm_customer_connect_other_customer_true",
+      "confidence": 0.5006551742553711
+    }
+  },
+  {
+    "text": "có ai ở đây không?",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "confirm_customer_connect_other_customer_true",
+      "confidence": 0.8118322491645813
+    }
+  },
+  {
+    "text": "Dạ",
+    "intent": "confirm_customer_true",
+    "intent_prediction": {
+      "name": "confirm_customer_connect_other_customer_true",
+      "confidence": 0.9955130219459534
+    }
+  },
+  {
+    "text": "Sao nữa ạ",
+    "intent": "confirm_customer_true",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.5417254567146301
+    }
+  },
+  {
+    "text": "Có chi không ạ",
+    "intent": "confirm_customer_true",
+    "intent_prediction": {
+      "name": "confirm_customer_connect_other_customer_true",
+      "confidence": 0.9979655742645264
+    }
+  },
+  {
+    "text": "Dạ không ạ",
+    "intent": "confirm_customer_false",
+    "intent_prediction": {
+      "name": "confirm_customer_connect_other_customer_false",
+      "confidence": 0.6460793018341064
+    }
+  },
+  {
+    "text": "Dạ em không phải ạ",
+    "intent": "confirm_customer_false",
+    "intent_prediction": {
+      "name": "confirm_customer_connect_other_customer_false",
+      "confidence": 0.6310651898384094
+    }
+  },
+  {
+    "text": "Sao nữa ạ",
+    "intent": "confirm_customer_connect_other_customer_true",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.5417254567146301
+    }
+  },
+  {
+    "text": "Dạ đúng rồi",
+    "intent": "confirm_customer_connect_other_customer_true",
+    "intent_prediction": {
+      "name": "confirm_customer_true",
+      "confidence": 0.9757869243621826
+    }
+  },
+  {
+    "text": "Vâng",
+    "intent": "confirm_customer_connect_other_customer_true",
+    "intent_prediction": {
+      "name": "confirm_customer_true",
+      "confidence": 0.5228878259658813
+    }
+  },
+  {
+    "text": "indeed",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.8456609845161438
+    }
+  },
+  {
+    "text": "that sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.825069785118103
+    }
+  },
+  {
+    "text": "n",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "confirm_customer_false",
+      "confidence": 0.7415132522583008
+    }
+  },
+  {
+    "text": "not really",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9998605251312256
+    }
+  },
+  {
+    "text": "perfect",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5545415282249451
+    }
+  },
+  {
+    "text": "wonderful",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.7518451809883118
+    }
+  },
+  {
+    "text": "super stoked",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.999213695526123
+    }
+  },
+  {
+    "text": "my day was horrible",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.552579939365387
+    }
+  },
+  {
+    "text": "I am disappointed",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.465702086687088
+    }
+  },
+  {
+    "text": "unhappy",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "confirm_customer_false",
+      "confidence": 0.4512752592563629
+    }
+  }
+]

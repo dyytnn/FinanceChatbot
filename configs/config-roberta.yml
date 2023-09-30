@@ -1,0 +1,10 @@
+recipe: default.v1
+language: en
+pipeline:
+   - name: WhitespaceTokenizer
+   - name: LanguageModelFeaturizer
+     model_name: roberta
+   - name: DIETClassifier
+     epochs: 200
+   - name: EntitySynonymMapper
+policies:
