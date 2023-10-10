@@ -1,0 +1,8 @@
+Sentence : Chắc tôi phải nhờ người khác giúp đỡ mất. 
+{'name': 'lo_lắng_về_khoản_vay_hoặc_có_vấn_đề', 'confidence': 0.9999761581420898} 
+Sentence : Dĩ nhiên là tao cảm thấy lo lắng rồi. 
+{'name': 'lo_lắng_về_khoản_vay_hoặc_có_vấn_đề', 'confidence': 0.9999985694885254} 
+Sentence : Anh không muốn có rắc rối với công ty nợ. 
+{'name': 'lo_lắng_về_khoản_vay_hoặc_có_vấn_đề', 'confidence': 0.9999957084655762} 
+Sentence : Hmm, để tôi tìm hiểu kỹ về vấn đề này đã. 
+{'name': 'lo_lắng_về_khoản_vay_hoặc_có_vấn_đề', 'confidence': 0.9999997615814209} 

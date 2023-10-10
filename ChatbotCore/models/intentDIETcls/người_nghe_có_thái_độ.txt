@@ -1,0 +1,8 @@
+Sentence : Tôi không cần giải thích cho bạn biết tôi cảm thấy thế nào. Bạn chỉ việc làm công việc của bạn, và tôi sẽ làm công việc của tôi. 
+{'name': 'người_nghe_có_thái_độ', 'confidence': 0.9996629953384399} 
+Sentence : Anh hứa mà, cái hợp đồng mà em nói đó, anh chẳng nhớ một chút gì cả. Cả đầu anh đều là những vấn đề khác nên anh không có tâm trạng mà ngồi đây nghe em nói. 
+{'name': 'người_nghe_có_thái_độ', 'confidence': 0.9990197420120239} 
+Sentence : Đừng có nói với tôi như vậy, tôi biết mình phải làm gì. 
+{'name': 'người_nghe_có_thái_độ', 'confidence': 0.9999988079071045} 
+Sentence : Ồ, giờ mình mới hiểu, mình chưa trả tiền cho bạn. Mình sẽ sắp xếp và trả ngay. 
+{'name': 'người_nghe_có_thái_độ', 'confidence': 0.9924881458282471} 

@@ -1,0 +1,8 @@
+Sentence : Tôi đã thanh toán tiền nợ tôi rồi, bạn kiểm tra lại được không? 
+{'name': 'đã_thanh_toán', 'confidence': 0.9986538887023926} 
+Sentence : Mình đã thanh toán đúng ngày rồi, kiểm tra lại đi! 
+{'name': 'đã_thanh_toán', 'confidence': 0.9994995594024658} 
+Sentence : Đã nộp xong con số tiền đó rồi, làm ơn kiểm tra kỹ hơn. 
+{'name': 'đã_thanh_toán', 'confidence': 0.9998857975006104} 
+Sentence : Em vừa mới trả cái nợ này xong, kiểm tra lại đi. 
+{'name': 'đã_thanh_toán', 'confidence': 0.9998784065246582} 
