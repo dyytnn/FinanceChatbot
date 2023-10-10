@@ -4,6 +4,7 @@ nlu:
 - intent: xin_chao
   examples: |
     - chào bạn
+    - alo cậu
     - alo
     - hello
     - hi
