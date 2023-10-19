@@ -1,8 +1,0 @@
-Sentence : Chưa đóng nữa, không có tiền mà đóng. 
-{'name': 'chưa_thanh_toán', 'confidence': 0.9999697208404541} 
-Sentence : Tao biết rồi, mày đừng nhắc nữa, tao không có tiền đó. 
-{'name': 'chưa_thanh_toán', 'confidence': 0.9999823570251465} 
-Sentence : Bữa này khó khăn quá, mình chưa thanh toán được. 
-{'name': 'chưa_thanh_toán', 'confidence': 0.9999971389770508} 
-Sentence : Chưa đó, phải chờ không biết khi nào mới đóng được nữa. 
-{'name': 'chưa_thanh_toán', 'confidence': 0.9994971752166748} 

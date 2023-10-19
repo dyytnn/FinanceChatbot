@@ -1,8 +1,0 @@
-Sentence : Đúng rồi, đây là mình. Mày cứ nói. 
-{'name': 'đồng_ý_là_khách_hàng', 'confidence': 0.9999234676361084} 
-Sentence : Được chứ, mày cứ nói đi. 
-{'name': 'đồng_ý_là_khách_hàng', 'confidence': 0.999037504196167} 
-Sentence : Đúng rồi, đây là tôi. Muốn nói gì thì nói. 
-{'name': 'đồng_ý_là_khách_hàng', 'confidence': 0.9998687505722046} 
-Sentence : Phải, đây là chị. Mày muốn chia sẻ gì? 
-{'name': 'đồng_ý_là_khách_hàng', 'confidence': 0.999968409538269} 

@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import {
   Code,
+  FileAudio2Icon,
   FileAudioIcon,
   ImageIcon,
   LayoutDashboard,
@@ -38,6 +39,14 @@ const routes = [
     href: "/texttospeech",
     color: "text-emerald-500",
   },
+
+  {
+    label: "Speech To Text",
+    icon: FileAudio2Icon,
+    href: "/speechtotext",
+    color: "text-green-700",
+  },
+
   {
     label: "Speech To Speech",
     icon: FileAudioIcon,
@@ -45,11 +54,11 @@ const routes = [
     color: "text-pink-700",
   },
 
-  {
-    label: "Settings",
-    icon: Settings,
-    href: "/settings",
-  },
+  // {
+  //   label: "Settings",
+  //   icon: Settings,
+  //   href: "/settings",
+  // },
 ];
 
 interface SidebarProps {
@@ -89,7 +98,7 @@ const SideBar: React.FC<SidebarProps> = ({ apiLimitCount = 0 }) => {
           ))}
         </div>
       </div>
-      <FreeCounter apiLimitCount={apiLimitCount} />
+      {/* <FreeCounter apiLimitCount={apiLimitCount} /> */}
     </div>
   );
 };

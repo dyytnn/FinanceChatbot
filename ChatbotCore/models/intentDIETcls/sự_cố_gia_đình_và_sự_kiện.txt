@@ -1,8 +1,0 @@
-Sentence : Cô giúp tôi được không? Gần đây nhà tôi ảnh hưởng bởi trận lũ, chúng tôi phải xây lại từ đầu, không thể trả nợ ngay được. 
-{'name': 'sự_cố_gia_đình_và_sự_kiện', 'confidence': 0.9999961853027344} 
-Sentence : Bạn ơi, tôi đang trong quá trình xử lý một lần tai nạn của mình, khó khăn lắm, nên chắc chắn sẽ không thể thanh toán đúng hạn. 
-{'name': 'sự_cố_gia_đình_và_sự_kiện', 'confidence': 0.9999843835830688} 
-Sentence : Bác ơi, tôi không thể thanh toán ngay được. Tôi vừa ốm dậy, cả nhà tôi phải nuôi tôi thêm mấy tháng nữa mới hồi phục. 
-{'name': 'sự_cố_gia_đình_và_sự_kiện', 'confidence': 0.9999983310699463} 
-Sentence : Chụy ơi, tui chưa trả nợ được. Vì tui vừa mới thất nghiệp. 
-{'name': 'sự_cố_gia_đình_và_sự_kiện', 'confidence': 0.9999933242797852} 

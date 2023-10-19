@@ -1,8 +1,0 @@
-Sentence : Chưa, mình còn phải tìm hiểu xem phải đóng ở đâu và mức phí là bao nhiêu. 
-{'name': 'chưa_xác_định_đã_thanh_toán', 'confidence': 0.9999856948852539} 
-Sentence : Tao chưa rõ nữa mày ạ, chưa xác định nơi nào để thanh toán cả. 
-{'name': 'chưa_xác_định_đã_thanh_toán', 'confidence': 0.999934196472168} 
-Sentence : Ờ, tớ chưa xác nhận mà, đang tìm hiểu xem đóng tiền ở đâu nè. 
-{'name': 'chưa_xác_định_đã_thanh_toán', 'confidence': 0.9999916553497314} 
-Sentence : Hình như tao chưa thanh toán, tao đang tìm hiểu xem tiền nợ đóng ở đâu và phí bao nhiêu đây. 
-{'name': 'chưa_xác_định_đã_thanh_toán', 'confidence': 0.9999973773956299} 

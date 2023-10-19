@@ -27,14 +27,14 @@ type Chat = {
 const ConversationPage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<Chat[]>([]);
-
+  const [response1, setResponse1] = useState([]);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { prompt: "" },
   });
 
   const isLoading = form.formState.isSubmitting;
-
+  let arrayConfidence1: any[] = [];
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const uuid = uuidv4();
@@ -50,21 +50,29 @@ const ConversationPage = () => {
           text: values.prompt,
         }
       );
+      // @ts-ignore
 
-      const responseData = response.data;
+      const responseData = await response.data;
       // console.log(responseData);
-      let text = `text: ${responseData.text} ` + "\n";
-      responseData.intent_ranking.map((intent: any) => {
-        text += `- ${intent.name}: ${intent.confidence} ` + "\n";
+      // let text = `text: ${responseData.text} ` + "\n";
+      let text = "";
+      await responseData.intent_ranking.map((intent: any) => {
+        text += `- ${intent.name}: ` + "\n";
+        let conf = parseFloat(intent.confidence).toFixed(5);
+        arrayConfidence1.push(conf);
       });
-      console.log(text);
+
       const reply = {
         role: "bot",
         content: text,
       };
+      // @ts-ignore
+      setResponse1(arrayConfidence1);
+
       setMessages((current) => [...current, userMessage, reply]);
 
       form.reset();
+      console.log(response1);
     } catch (error: any) {
       console.log(error);
       // if (error?.response?.status === 403) {
@@ -113,7 +121,18 @@ const ConversationPage = () => {
                   {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                 </div>
 
-                <p className="text-base whitespace-pre-line">{message.content}</p>
+                <div className="flex text-base whitespace-pre-line">
+                  {message.content}
+                  <div className="flex flex-col justify-center ml-2">
+                    {response1 &&
+                      message.role !== "user" &&
+                      response1.map((response, index) => (
+                        <p key={index} className="text-base">
+                          {response}
+                        </p>
+                      ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -121,7 +140,7 @@ const ConversationPage = () => {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2 bg-white"
+                className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2 bg-white "
               >
                 <FormField
                   name="prompt"

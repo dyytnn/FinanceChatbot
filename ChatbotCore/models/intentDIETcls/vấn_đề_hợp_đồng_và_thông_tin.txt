@@ -1,8 +1,0 @@
-Sentence : Tớ đã thanh toán rồi đó, ở ngân hàng JKL. Số tiền tớ trả là 50 triệu, có biên lai đấy. 
-{'name': 'vấn_đề_hợp_đồng_và_thông_tin', 'confidence': 1.0} 
-Sentence : Tui đã trả tiền rồi, ở ngân hàng XYZ. Số tiền tui đóng là 10 triệu, có biên lai luôn nha. 
-{'name': 'vấn_đề_hợp_đồng_và_thông_tin', 'confidence': 1.0} 
-Sentence : Rồi, mình trả rồi. Đóng ở chi nhánh ngân hàng DEF, số tiền là 20 triệu. 
-{'name': 'vấn_đề_hợp_đồng_và_thông_tin', 'confidence': 0.9999998807907104} 
-Sentence : Mình đã thanh toán hết rồi, ngân hàng PQR. Số tiền đã thanh toán là 65 triệu, có biên lai. 
-{'name': 'vấn_đề_hợp_đồng_và_thông_tin', 'confidence': 1.0} 

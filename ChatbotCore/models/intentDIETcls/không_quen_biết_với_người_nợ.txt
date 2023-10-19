@@ -1,8 +1,0 @@
-Sentence : Đúng số này nhưng tôi không quen người bạn nói. 
-{'name': 'không_quen_biết_với_người_nợ', 'confidence': 0.9999207258224487} 
-Sentence : Tôi chưa từng nghe nói đến tên đó. 
-{'name': 'không_quen_biết_với_người_nợ', 'confidence': 0.9999411106109619} 
-Sentence : Bạn chắc đã nhầm người rồi. Mình không biết [ne_name]. 
-{'name': 'không_quen_biết_với_người_nợ', 'confidence': 0.99954754114151} 
-Sentence : Tôi chắc chắn không quen biết với [ne_name]. 
-{'name': 'không_quen_biết_với_người_nợ', 'confidence': 0.9998171925544739} 

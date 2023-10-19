@@ -1,8 +1,0 @@
-Sentence : Nói thật nhé, tao hết kiên nhẫn với thái độ làm việc của mày rồi. 
-{'name': 'nhân_viên_có_thái_độ', 'confidence': 0.9999884366989136} 
-Sentence : Tăng tiền lương người nợ như tôi chưa? Thằng nào mượn tiền mà vui. 
-{'name': 'nhân_viên_có_thái_độ', 'confidence': 0.9999953508377075} 
-Sentence : Nói chung là tôi cũng đéo thấy mình nợ... 
-{'name': 'nhân_viên_có_thái_độ', 'confidence': 0.9999946355819702} 
-Sentence : Tôi cảm thấy khá ghê tởm với cách giao tiếp hiện tại. 
-{'name': 'nhân_viên_có_thái_độ', 'confidence': 0.9999992847442627} 

@@ -1,8 +1,0 @@
-Sentence : Anh đang ở bệnh viện, trả nợ đâu phải chuyện quan trọng nhất. 
-{'name': 'vấn_đề_sức_khỏe', 'confidence': 0.9998873472213745} 
-Sentence : Bệnh tình của tôi như này, còn gì để trả nợ đây? 
-{'name': 'vấn_đề_sức_khỏe', 'confidence': 0.9999923706054688} 
-Sentence : Anh đau bệnh như thế này, tiền đâu mà trả cho bạn? 
-{'name': 'vấn_đề_sức_khỏe', 'confidence': 0.9996392726898193} 
-Sentence : Mày có biết tao đang phải chống chọi với bệnh tật không mà cứ đòi nợ mãi thế? 
-{'name': 'vấn_đề_sức_khỏe', 'confidence': 0.9999969005584717} 

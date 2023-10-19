@@ -1,8 +1,0 @@
-Sentence : Đúng, mình biết người đó. Bạn cần gì? 
-{'name': 'có_quen_biết_với_người_nợ', 'confidence': 0.9999651908874512} 
-Sentence : Đúng, tôi quen biết với [ne_name]. Cần gì? 
-{'name': 'có_quen_biết_với_người_nợ', 'confidence': 0.9998679161071777} 
-Sentence : À, [ne_name] à? Mình quen. 
-{'name': 'có_quen_biết_với_người_nợ', 'confidence': 0.9999631643295288} 
-Sentence : Tôi biết [ne_name]. Bạn muốn gặp người đó à? 
-{'name': 'có_quen_biết_với_người_nợ', 'confidence': 0.9999654293060303} 

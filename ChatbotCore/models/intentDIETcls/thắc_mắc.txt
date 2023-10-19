@@ -1,8 +1,0 @@
-Sentence : Mình không hiểu vụ này lắm, có nên gọi tổng đài không nhỉ? 
-{'name': 'thắc_mắc', 'confidence': 0.9999185800552368} 
-Sentence : Tao không biết cách thanh toán online, tồng đài đó làm thế nào để gọi? 
-{'name': 'thắc_mắc', 'confidence': 0.999963641166687} 
-Sentence : Chị không rõ về việc thanh toán ở cửa hàng điện thoại, em có thể giải thích thêm không? 
-{'name': 'thắc_mắc', 'confidence': 0.9999970197677612} 
-Sentence : Thế còn nếu tớ ở nước ngoài thì sao? Có cách nào thanh toán không? 
-{'name': 'thắc_mắc', 'confidence': 0.9999507665634155} 

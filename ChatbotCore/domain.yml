@@ -1,30 +1,17 @@
 version: '3.1'
 
 intents:
- - xin_chao
- - đồng_ý_là_khách_hàng
- - không_phải_là_khách_hàng
- - chưa_thanh_toán
- - đã_thanh_toán
- - yêu_cầu_từ_khách_hàng
- - có_quen_biết_với_người_nợ
- - không_quen_biết_với_người_nợ
- - yêu_cầu_và_thắc_mắc
- - chưa_xác_định_đã_thanh_toán
- - vấn_đề_hợp_đồng_và_thông_tin
- - vấn_đề_sức_khỏe
- - vấn_đề_tài_chính_và_công_việc
- - sự_cố_gia_đình_và_sự_kiện
- - lo_lắng_về_khoản_vay_hoặc_có_vấn_đề
- - nhân_viên_có_thái_độ
- - người_nghe_có_thái_độ
- - nhắc_hạn_thanh_toán
- - thông_tin_hd
- - thắc_mắc
+ - không_trả
+ - thái_độ
+ - thông_tin_khác
+ - thăc_mắc
+ - trả
+ - xác_nhận_sai
+ - xác_nhận_đúng
 
 responses:
   utter_saybye:
-  - text: Dạ em chào anh ạ.
+  - text: Dạ em chào anh ạ. 
 
   utter_greeting_and_request:
   - text: Chào anh/chị (đb)(db). Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với anh/chị (đb). Cho em xin ít phút để trao đổi thông tin được không ạ?

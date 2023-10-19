@@ -23,6 +23,7 @@ import Loader from "@/components/loader";
 import { cn } from "@/lib/utils";
 import UserAvatar from "@/components/user-avatar";
 import BotAvatar from "@/components/bot-avatar";
+import { Input } from "@/components/ui/input";
 
 type Chat = {
   content: any;
@@ -31,83 +32,56 @@ type Chat = {
 const MusicPage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<Chat[]>([]);
+  const [response1, setResponse1] = useState([]);
   const [text, setText] = useState("");
-  const {
-    transcript,
-    listening,
-    resetTranscript,
-    browserSupportsSpeechRecognition,
-  } = useSpeechRecognition();
+
   // const [music, setMusic] = useState<string>();
-  const { stopRecording, startRecording, mediaBlobUrl } = useReactMediaRecorder(
-    {
-      audio: true,
-    }
-  );
+  let arrayConfidence1: any[] = [];
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { prompt: Buffer.from("") },
+    defaultValues: { prompt: "" },
   });
 
   const isLoading = form.formState.isSubmitting;
 
-  useEffect(() => {
-    setText(transcript);
-  }, [transcript]);
-
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      console.log(text);
-      resetTranscript();
-      if (mediaBlobUrl) {
-        const uuid = uuidv4();
-        const audioBlob = await fetch(mediaBlobUrl).then((r) => r.blob());
-        const arrayBuffer = await audioBlob.arrayBuffer();
-        const audioBuffer = Buffer.from(arrayBuffer);
-        // const audiofile = new File([audioBlob], "audiofile.mp3", {
-        //   type: "audio/mpeg",
-        // });
+      const uuid = uuidv4();
+      const userMessage = {
+        role: "user",
+        content: values.prompt,
+      };
 
-        form.setValue("prompt", audioBuffer);
-        // const response = await axios.post("/api/music", values, {
-        //   headers: {
-        //     "Content-Type": "multipart/form-data",
-        //   },
-        // });
+      const response = await axios.post(
+        `http://127.0.0.1:5000/api/v1/underthesea/`,
+        {
+          sender: `${uuid}`,
+          text: values.prompt,
+        }
+      );
+      // @ts-ignore
+      console.log(response);
+      const responseData = await response.data;
+      // console.log(responseData);
+      // let text = `text: ${responseData.text} ` + "\n";
+      let text = "";
+      await responseData.intent_ranking.map((intent: any) => {
+        text += `- ${intent.name}: ` + "\n";
 
-        const userMessage = {
-          role: "user",
-          content: mediaBlobUrl,
-        };
+        arrayConfidence1.push(intent.confidence);
+      });
 
-        const response = await axios.post(
-          "http://localhost:5005/webhooks/rest/webhook",
-          {
-            sender: `${uuid}`,
-            message: text,
-          }
-        );
+      const reply = {
+        role: "bot",
+        content: text,
+      };
+      // @ts-ignore
+      setResponse1(arrayConfidence1);
 
-        const reply = {
-          role: "bot",
-          content: response.data[0].text,
-        };
-        // const reply = {
-        //   role: "bot",
-        //   content: "hello",
-        // };
-        setMessages((current) => [...current, userMessage, reply]);
-
-        form.reset();
-      }
-
-      // if (error?.response?.status === 403) {
-      //   proModal.onOpen();
-      // } else {
-      //   toast.error("Something went wrong.");
-      // }
+      setMessages((current) => [...current, userMessage, reply]);
 
       form.reset();
+      console.log(response1);
     } catch (error: any) {
       console.log(error);
       // if (error?.response?.status === 403) {
@@ -120,44 +94,29 @@ const MusicPage = () => {
     }
   };
 
-  const onStart = () => {
-    SpeechRecognition.startListening({
-      language: "vi-VN",
-      continuous: true,
-      interimResults: true,
-    });
-    startRecording();
-  };
-  const onStop = () => {
-    SpeechRecognition.stopListening();
-    stopRecording();
-  };
-
   return (
     <div>
-      {browserSupportsSpeechRecognition ? (
-        <div>
-          <Heading
-            title="Text to Speech"
-            description="Voice with us"
-            icon={Music}
-            iconColor="text-emerald-500"
-            bgColor="bg-emerald-500/10"
-          />
-          <div className="px-4 lg:px-8 ">
-            <div className="space-y-4 mt-4">
-              {isLoading && (
-                <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-                  <Loader />
-                </div>
-              )}
+      <Heading
+        title="Text to Speech"
+        description="Voice with us"
+        icon={Music}
+        iconColor="text-emerald-500"
+        bgColor="bg-emerald-500/10"
+      />
+      <div className="px-4 lg:px-8 ">
+        <div className="space-y-4 mt-4">
+          {isLoading && (
+            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+              <Loader />
+            </div>
+          )}
 
-              {messages.length === 0 && !isLoading && (
-                <div>
-                  <Empty label="No conversation started." />
-                </div>
-              )}
-              {/* {!music && !isLoading && (
+          {messages.length === 0 && !isLoading && (
+            <div>
+              <Empty label="No conversation started." />
+            </div>
+          )}
+          {/* {!music && !isLoading && (
             <div>
               <Empty label="No music generated." />
             </div>
@@ -167,89 +126,63 @@ const MusicPage = () => {
               <source src={music} />
             </audio>
           )} */}
-            </div>
-            <div className="flex flex-col gap-y-4">
-              {messages.map((message, index) => (
-                <div
-                  className={cn(
-                    "p-8 w-full flex items-start gap-x-8 rounded-lg ",
-                    message.role === "user"
-                      ? "bg-white border border-black/10 flex justify-end items-center "
-                      : "bg-muted items-center "
-                  )}
-                  key={index}
-                >
-                  <div className={`${message.role === "user" && "order-2"}`}>
-                    {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                  </div>
-                  {message.role === "user" ? (
-                    <audio src={message.content} controls />
-                  ) : (
-                    <p className="text-sm">{message.content}</p>
-                  )}
-                </div>
-              ))}
-            </div>
-            <div>
-              <Form {...form}>
-                <form
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  encType="multipart/form-data"
-                  className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-[repeat(18,minmax(0,1fr))] gap-2"
-                >
-                  <FormField
-                    name="prompt"
-                    render={({ field }) => (
-                      <FormItem className="col-[_span_18_/_span_18] lg:col-[_span_16_/_span_16]">
-                        <FormControl className="m-0 p-0">
-                          <audio
-                            src={mediaBlobUrl}
-                            controls
-                            {...field}
-                            className="w-full"
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-
-                  {listening ? (
-                    <Button
-                      type="button"
-                      onClick={onStop}
-                      className="col-[_span_18_/_span_18] lg:col-span-1 w-12 h-12 rounded-full ml-7 bg-rose-500 hover:bg-rose-500/80"
-                      disabled={isLoading}
-                    >
-                      <Mic />
-                    </Button>
-                  ) : (
-                    <Button
-                      type="button"
-                      onClick={onStart}
-                      className="col-[_span_18_/_span_18] lg:col-span-1 w-12 h-12 rounded-full ml-7"
-                      disabled={isLoading}
-                    >
-                      <Mic />
-                    </Button>
-                  )}
-                  <Button
-                    type="submit"
-                    className=" w-12 h-12 rounded-full ml-4"
-                    disabled={isLoading}
-                  >
-                    <Send />
-                  </Button>
-                </form>
-              </Form>
-            </div>
-          </div>
         </div>
-      ) : (
+        <div className="flex flex-col gap-y-4">
+          {messages.map((message, index) => (
+            <div
+              className={cn(
+                "p-8 w-full flex items-start gap-x-8 rounded-lg ",
+                message.role === "user"
+                  ? "bg-white border border-black/10 flex justify-end items-center "
+                  : "bg-muted items-center "
+              )}
+              key={index}
+            >
+              <div className={`${message.role === "user" && "order-2"}`}>
+                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+              </div>
+              {message.role === "user" ? (
+                <audio src={message.content} controls />
+              ) : (
+                <p className="text-sm">{message.content}</p>
+              )}
+            </div>
+          ))}
+        </div>
         <div>
-          <h1>Your browser has no speech recognition support</h1>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2 bg-white"
+            >
+              <FormField
+                name="prompt"
+                render={({ field }) => (
+                  <FormItem className="col-span-12 lg:col-span-10">
+                    <FormControl className="m-0 p-0">
+                      <Input
+                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        disabled={isLoading}
+                        placeholder="What are my repayment options ?"
+                        {...field}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <Button
+                className="col-span-12 lg:col-span-2 w-full"
+                disabled={isLoading}
+              >
+                Send
+              </Button>
+            </form>
+          </Form>
         </div>
-      )}
+      </div>
     </div>
+
     // <div>
     //   <p>{status}</p>
     //   <button onClick={startRecording}>Start Recording</button>

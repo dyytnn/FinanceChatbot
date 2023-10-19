@@ -27,12 +27,9 @@ type Chat = {
 };
 const ImagePage = () => {
   const router = useRouter();
-  const [messages, setMessages] = useState<Chat[]>([
-    { content: "hello", role: "user" },
-    { content: "hi im bot", role: "bot" },
-    { content: "hello", role: "user" },
-    { content: "hi im bot", role: "bot" },
-  ]);
+  const [messages, setMessages] = useState<Chat[]>([]);
+
+  const [audioTest, setAudioTest] = useState("");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -45,11 +42,17 @@ const ImagePage = () => {
     try {
       setMessages([]);
 
-      const response = await axios.post("/api/image");
+      const response = await axios.post(
+        "https://ntt123-viettts.hf.space/run/predict",
+        {
+          data: ["Xin Chào"],
+        }
+      );
+      setAudioTest(response.data.data[0].name);
+      console.log(audioTest);
+      // const urls = response.data.map((image: { url: string }) => image.url);
 
-      const urls = response.data.map((image: { url: string }) => image.url);
-
-      setMessages(urls);
+      // setMessages(urls);
       form.reset();
     } catch (error: any) {
       console.log(error);
@@ -85,22 +88,25 @@ const ImagePage = () => {
             </div>
           )}
           <div className="flex flex-col-reverse gap-y-4">
-            {messages.map((message) => (
-              <div
-                className={cn(
-                  "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                  message.role === "user"
-                    ? "bg-white border border-black/10 flex justify-end items-center"
-                    : "bg-muted items-center"
-                )}
-                key={message.content}
-              >
-                <div className={`${message.role === "user" && "order-2"}`}>
-                  {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                </div>
-                <p className="text-sm">{message.content}</p>
-              </div>
-            ))}
+            {
+              //{messages.map((message) => (
+              // <div
+              //   className={cn(
+              //     "p-8 w-full flex items-start gap-x-8 rounded-lg",
+              //     message.role === "user"
+              //       ? "bg-white border border-black/10 flex justify-end items-center"
+              //       : "bg-muted items-center"
+              //   )}
+              //   key={message.content}
+              // >
+              //   <div className={`${message.role === "user" && "order-2"}`}>
+              //     {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+              //   </div>
+              //   {/* <p className="text-sm">{message.content}</p> */}
+              // </div>
+              //))}
+            }
+            <audio src={audioTest} controls />
           </div>
           <div>
             <Form {...form}>

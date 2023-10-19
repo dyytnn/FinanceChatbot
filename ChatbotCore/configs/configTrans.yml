@@ -1,0 +1,52 @@
+recipe: default.v1
+language: vi
+pipeline:
+- name: "vietnamese_tokenizer.VietnameseTokenizer"
+- name: LexicalSyntacticFeaturizer
+  intent_split_symbol: "+"
+  intent_tokenization_flag: true
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+
+- name: "transformer_classifier.TransformerClassifier"  # Replace with your actual component
+  model_name: "albert-base-v2"
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.00002
+  warmup_steps: 500
+  weight_decay: 0.01
+  scheduler_type: "constant"
+  max_length: 64
+
+
+
+assistant_id: 20230923-231551-proper-basis
+# policies:
+# # No configuration for policies was provided. The following default policies were used to train your model.
+# # If you'd like to customize them, uncomment and adjust the policies.
+# # See https://rasa.com/docs/rasa/policies for more information.
+#   - name: MemoizationPolicy
+#   - name: RulePolicy
+#   - name: UnexpecTEDIntentPolicy
+#     max_history: 5
+#     epochs: 100
+#   - name: TEDPolicy
+#     max_history: 5
+#     epochs: 100
+#     constrain_similarities: true
+policies:
+# # No configuration for policies was provided. The following default policies were used to train your model.
+# # If you'd like to customize them, uncomment and adjust the policies.
+# # See https://rasa.com/docs/rasa/policies for more information.
+#   - name: MemoizationPolicy
+#   - name: RulePolicy
+#   - name: UnexpecTEDIntentPolicy
+#     max_history: 5
+#     epochs: 100
+#   - name: TEDPolicy
+#     max_history: 5
+#     epochs: 100
+#     constrain_similarities: true

@@ -1,8 +1,0 @@
-Sentence : hi 
-{'name': 'xin_chao', 'confidence': 0.9997676014900208} 
-Sentence : chào bạn 
-{'name': 'xin_chao', 'confidence': 0.9997569918632507} 
-Sentence : alo 
-{'name': 'xin_chao', 'confidence': 0.9994953870773315} 
-Sentence : hi 
-{'name': 'xin_chao', 'confidence': 0.9997676014900208} 

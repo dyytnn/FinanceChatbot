@@ -1,0 +1,1551 @@
+version: "3.1"
+
+nlu:
+- intent: không_trả
+  examples: |
+    - Tao [không biết](negation), công việc này thời này [khó quá], chưa biết khi nào lương đến.
+    - Trời ơi, em thấy nợ nần quá, có lẽ chắc [cuối tháng](timeframe) tôi [mới trả được](debt_delay) nha.
+    - Sao tôi biết được. Tôi cũng muốn trả nhưng công việc giờ càng ngày càng [khó khăn](economic_situation)
+    - Ồ, cứ để tui suy nghĩ đã, chắc phải [tháng sau](timeframe) [mới trả được](debt_delay).
+    - Chắc chắn là không trước [ne_short_due_date], tao phải [chờ đến khi có lương](debt_delay).
+    - Chị sẽ [cố gắng đóng](confirm_repay_debt) trước [ne_short_due_date](timeframe), nhưng không hứa được.
+    - Hiện giờ, chị [chưa thể hứa hẹn](debt_denial) được gì với em.S
+    - Tớ mới [mất việc](economic_situation), chưa biết khi nào mới tìm được việc mới nên [chưa thể hứa hẹn](debt_denial).
+    - Tôi [sẽ trả](confirm_repay_debt) khi tôi sắp xếp được việc làm, hiện tại tôi đang [thất nghiệp](economic_situation).
+    - Có lẽ mình chỉ [có thể trả](confirm_repay_debt) sau ngày [ne_short_due_date](timeframe), tôi đang trong giai đoạn [khó khăn](economic_situation).
+    - Tao [chưa biết](negation), việc nhà đang bế tắc nên tao chưa thể chắc chắn.
+    - Uhm, [chưa biết](negation), tôi cần thời gian để xem xét nếu có chút tiền thì sẽ trả trước.
+    - Tớ chưa biết, hiện nay công việc [thất thường](economic_situation) quá, tớ đang cố gắng tìm nguồn thu mới.
+    - Đừng hỏi tao, gia đình tao cũng [đang gánh nợ](economic_situation), chưa biết khi nào mới thoát.
+    - Giờ không ai chịu vay cho tôi, tôi cũng [không biết lấy gì trả](negation) nữa.
+    - Không chắc lắm, tạm thời tôi [không thể trả](debt_denial) được cho em. Phải chờ đợi đến lúc có việc mới.
+    - Tui [không thể trả](debt_denial) cho đến khi tìm được nguồn tài chính mới.
+    - Anh không chắc lắm, tài chính đang [eo hẹp](economic_situation). Có lẽ phải qua [tháng sau](timeframe) anh [mới trả được](confirm_repay_debt).
+    - Dạ [chưa biết](negation) chị ạ, tôi cần thời gian để xem xét.
+    - Chắc tui [Không trả](debt_denial) được, công việc không có triển vọng gì cả.
+    - [Không biết](negation), cố gắng tìm việc làm mới để kiếm tiền thu hồi nợ.
+    - Chắc tôi phải bán máu quá, tài chính tôi đang [rất khó khăn](economic_situation).
+    - Tôi cần thêm thời gian, hi vọng [cuối tháng](timeframe) tôi [có thể trả](confirm_repay_debt).
+    - Tôi sẽ [cố trả](confirm_repay_debt) [sớm nhất có thể](timeframe), nhưng giờ không chắc lắm.
+    - Có lẽ sau ngày [ne_short_due_date](timeframe), tôi [sẽ trả](confirm_repay_debt). Tài chính tôi đã [ổn định](economic_situation) rồi.
+    - Tôi chưa thể hứa ngày cụ thể, nhưng tôi sẽ [cố gắng trả](confirm_repay_debt) sớm nhất.
+    - [Chưa biết], tôi đang chờ việc từ một công ty. Nếu đỗ thì sẽ trả ngay.
+    - Tôi [chưa chắc](negation), tôi sẽ thông báo ngay khi có khả năng trả được.
+    - Tôi [chưa biết](negation), tôi đang chờ đợi một vài deal, nếu thành công thì sẽ trả ngay.
+    - Tôi [sẽ trả](confirm_repay_debt) sớm nhất có thể, bây giờ tôi không thể đưa ra một ngày cụ thể.
+    - Anh đang [cố gắng](confirm_repay_debt) sắp xếp, bội chi nên chưa dư ra để trả nợ.
+    - Công việc bây giờ [khó khăn](economic_situation) quá, dính vào mấy cái vụ khó nên chưa có tiền đóng.
+    - Chị đang gặp [sự cố tài chính](economic_situation), hãy hiểu cho chị.
+    - Tôi đang mắc mấy vụ cần tiền gấp, nên tạm thời [chưa thanh toán được](debt_denial).
+    - Đừng gọi nữa, [có tiền tao sẽ trả](debt_delay), [còn không có thì thôi](debt_denial).
+    - Tớ đang [cố gắng](confirm_repay_debt) kiếm thêm tiền để trả nợ, hãy kiên nhẫn chút nữa nhé.
+    - Tui đang gặp [khó khăn](economic_situation) trong công việc, nên [chưa thanh toán nợ được](debt_delay).
+    - Mình đang có chút [vấn đề với công việc](economic_situation) nên [chưa thể trả được].
+    - Công việc gặp [trục trặc](economic_situation), nên chắc chắn tôi [chưa thể thanh toán được](debt_denial).
+    - Tôi đang gặp [khó khăn](economic_situation) về tài chính, cần thêm thời gian để sắp xếp.
+    - Những vấn đề về công việc khiến tui [không thể thanh toán](debt_denial) ngay được.
+    - Có tiền thì tôi đã thanh toán rồi, đừng có lèm bèm nữa.
+    - Mình đang cố gắng giải quyết mấy chuyện tài chính, [chắc chắn sẽ trả nợ](confirm_repay_debt).
+    - Chị đang cố gắng giải quyết vấn đề tài chính nên [chưa thể trả được](debt_denial).
+    - Vấn đề tài chính khiến tao [không thể thanh toán](debt_denial) được.
+    - Anh đang gặp [khó khăn] trong công việc nên [chưa trả được nợ].
+    - Nợ nên mới vay, có tiền thì đã trả rồi chứ lẽo nhèo gì.
+    - Mình đang [cố gắng] (confirm_repay_debt)giải quyết vấn đề công việc  để thanh toán.
+    - Ngần nấy vấn đề công việc, chị [chưa thể thanh toán](debt_denial) được nợ.
+    - Công việc của tớ đang không ổn, nên [chưa thể trả nợ](debt_denial) được.
+    - Công việc  [khó khăn](economic_situation) quá, [chưa kiếm được tiền](debt_denial) trả nợ.
+    - Anh [chưa có dư dả để trả nợ](debt_denial), hãy kiên nhẫn chút nữa.
+    - Tui đang mất thăng bằng tài chính nên [chưa thanh toán được](debt_denial).
+    - Tôi đang cố gắng xử lý mấy vụ tài chính, khi nào [có tiền sẽ trả liền](confirm_repay_debt).
+    - Mình đang [cố gắng](confirm_repay_debt) sắp xếp công việc để có thể trả nợ.
+    - Cái đống vấn đề công việc làm tao [chưa thể thanh toán được](debt_denial).
+    - Tui biết mình nợ, đang [cố gắng sắp xếp để trả](confirm_repay_debt).
+    - Công việc của tớ đang [khó khăn](economic_situation), [chưa thể trả nợ](debt_denial) ngay được.
+    - Mình hiểu vấn đề, nhưng [chưa có](negation) công việc ổn định để có thể trả được.
+    - Tôi đang [cố gắng](confirm_repay_debt) kiếm thêm việc để trả nợ, nên cần thêm thời gian.
+    - Tao cũng muốn trả mà công việc đang [khủng hoảng](economic_situation), thời gian đâu mà kiếm tiền.
+    - Tôi biết nhưng tôi cũng đang [mất việc](economic_situation), không biết làm sao để có tiền thanh toán.
+    - Mình cũng muốn trả mà cả tháng nay công ty không có dự án, đến lương còn [không đủ sống](economic_situation).
+    - Chị cũng không muốn trễ cả, nhưng tài chính không cho phép, công việc cũng đang [khó khăn](economic_situation).
+    - Em hiểu nhưng tôi đang [thất nghiệp](economic_situation), chu còn nợ, cũng không biết phải trả lương nào.
+    - Anh cũng muốn trả tiền nhưng công ty vừa sa thải anh, [khó khăn](economic_situation) quá.
+    - Tớ hiểu nhưng tớ [thất nghiệp](debt_denial) rồi, lương khéo đâu mà trả.
+    - Chị cũng không muốn trễ cả, nhưng vương vấn công việc khiến chị [không có thể thanh toán ngay](debt_denial).
+    - Tao cũng muốn trả nhưng công việc [khốn nạn](economic_situation) quá, lương không đủ sống.
+    - Tôi cũng không muốn vậy, nhưng tôi không có việc làm nên[ không có tiền trả](debt_denial).
+    - Anh cũng không muốn trễ cả, chỉ là công việc của anh đang gặp [rắc rối](economic_situation).
+    - Tớ đang rơi vào tình trạng [không có việc làm](economic_situation), không biết trả lương từ đâu.
+    - Công việc tao đang [lận đận](economic_situation) quá, không biết trả lương từ đâu.
+    - Tớ biết nhưng tớ cũng rơi vào [khủng hoảng tài chính](economic_situation), không biết làm sao để có tiền trả.
+    - Chị cũng muốn trả tiền nhưng vì vấn đề tài chính và công việc nên chị [không thể trả ngay được](debt_denial).
+    - Tớ đang gặp khó trong công việc nên [không thể trả tiền](debt_denial) ngay được.
+    - Mình cũng muốn trả nhưng việc kinh doanh đang [thua lỗ](economic_situation), mình [không thể trả ngay được](debt_denial).
+    - Tao muốn trả nhưng tao cũng phải sống, công việc [khó khăn](economic_situation) quá.
+    - Tớ biết nhưng tớ đang gặp [khó khăn](economic_situation) trong công việc, [không thể trả được](debt_denial).
+    - Em hiểu nhưng tôi [không thể thanh toán](debt_denial) ngay hôm nay được vì công việc đang gặp khó khăn.
+    - Anh đang [khủng hoảng tài chính](economic_situation), [không thể trả ngay được](debt_denial).
+    - Bữa nay công việc [không thuận lợi](economic_situation), tớ [không thể trả ngay](debt_denial) được đâu.
+    - Chị cũng muốn trả tiền nhưng tài chính và công việc đang gặp [khó khăn](economic_situation).
+    - Tôi cũng muốn trả, nhưng tôi cần một chút thời gian để sắp xếp công việc và tài chính.
+    - Mình [khủng hoảng tài chính] nên [không thể trả ngay](debt_denial) được.
+    - Anh biết nhưng công việc của anh bây giờ [không ổn](economic_situation), anh [không thể trả ngay được](debt_denial).
+    - Tớ cũng không muốn trả muộn cả nhưng tớ đang [gặp vấn đề](economic_situation) với công việc, tớ [không thể trả](debt_denial) luôn được.
+    - Tôi cũng muốn trả nhưng tôi đang gặp [khó khăn](economic_situation) trong công việc, [không thể trả ngay được](debt_denial).
+    - Chị cũng không muốn trễ cả, chỉ là tài chính và công việc đang rất [khó khăn](economic_situation), chị [không thể trả ngay](debt_denial).
+    - Tao cũng muốn trả nhưng tao còn phải lo chu còn sống, công việc đang rất [khó khăn](economic_situation).
+    - Tôi biết rồi, nhưng hiện tôi đang rất gặp [khó khăn về tài chính](economic_situation). Tôi [sẽ thanh toán](confirm_repay_debt) ngay khi có thể.
+    - Anh biết mà, nhưng công việc hôm nay làm anh không kịp. Anh sẽ [cố gắng đóng tiền sớm nhất](confirm_repay_debt).
+    - Anh hiểu, nhưng tiền anh kiếm được từ công việc hiện tại [không đủ để trả nợ](debt_denial) ngay.
+    - Anh quá mệt mỏi với công việc đang làm, [chưa kịp] (debt_delay)thu xếp thanh toán. Anh sẽ [cố gắng](confirm_repay_debt).
+    - Đừng nhắc, vấn đề tài chính đang khiến tôi đau đầu. Tôi [sẽ thanh toán](confirm_repay_debt) sớm thôi.
+    - Cháu hiểu rồi, nhưng gặp lúc[khó khăn](economic_situation) quá. Em [sẽ đóng tiền](confirm_repay_debt) sớm nhất có thể.
+    - Tớ biết mà, nhưng công việc cả ngày hôm nay chưa xong, [chưa kịp](debt_delay) thu xếp thanh toán.
+    - Chị hiểu, nhưng hiện tại tài chính chị khá [khó khăn](economic_situation). 
+    - Đừng có nói, tui còn chưa đủ tiền trả tiền điện, nước thì đâu có tiền trả nợ ngay.
+    - Tao biết rồi, nhưng công việc đang [khó khăn](economic_situation), chưa đong đến tiền nợ.
+    - Tôi biết, nhưng ngân sách của tôi hiện tại [không cho phép thanh toán](debt_denial) ngay lúc này.
+    - Anh hiểu, nhưng do công việc cả ngày hôm nay làm anh không kịp. Anh [sẽ thanh toán] vào ngày mai.
+    - Công việc của tôi cả ngày hôm nay chưa xong, [chưa kịp] thu xếp thanh toán. Tôi sẽ điều chỉnh.
+    - Tôi hiểu, nhưng tôi đang gặp [khó khăn] với vấn đề tài chính. Tôi [sẽ cố gắng thanh toán](confirm_repay_debt) sớm nhất.
+    - Dạ em biết ạ, nhưng tiền lương em còn chưa nhận được, em [sẽ thanh toán](confirm_repay_debt) vào [ngày mai](timeframe).
+    - Tao quá mệt với công việc nên chưa kịp thanh toán. Tao [sẽ trả](confirm_repay_debt) trong thời gian sớm nhất.
+    - Tui đang có chút [vấn đề với tài chính](economic_situation), thông cảm giùm tui, tui[ sẽ cố gắng thanh toán sớm nhất](confirm_repay_debt).
+    - Chán ghê, lương còn chưa trả, nợ [chưa trả được](debt_denial). Thiệt là đau đầu quá đi.
+    - Anh hiểu, đang gặp [trục trặc](economic_situation) với công việc nên hơi trễ. Anh sẽ cố gắng xử lý nhanh.
+    - Chị thông cảm giúp em, em đang rất [khó khăn](economic_situation) về tài chính. Em [sẽ cố gắng] thanh(confirm_repay_debt) toán nhanh.
+    - Nợ gì mà đòi sớm thế, tui [chưa có tiền](debt_denial) đâu. 
+    - Tạm thời tôi [chưa thể thanh toán](debt_denial), vì tôi đang gặp [khó khăn](economic_situation) với công việc.
+    - Tôi hiểu nhưng hiện tại tôi đang [chưa có đủ tiền](debt_denial) để trả nợ. Tôi sẽ trả sớm ngay khi có thể.
+    - Anh biết mà, [khó khăn](economic_situation) lắm mới kiếm được tiền. Anh [sẽ cố gắng đóng](confirm_repay_debt) vào [ngày mai](timeframe).
+    - Vấn đề tài chính của mình đang [khá khó khăn](economic_situation), mình [sẽ cố gắng thanh toán](confirm_repay_debt) sớm nhất có thể.
+    - Tao [đang cố gắng](confirm_repay_debt) mà, nhưng công việc quá nặng nề. Tao [sẽ trả](confirm_repay_debt) trong thời gian sớm nhất.
+    - Vấn đề tài chính là cái tao đang phải lo lắng nhiều nhất. Tao [sẽ cố gắng trả sớm](confirm_repay_debt).
+    - Không phải anh không muốn trả đâu. Do tài chính [khó khăn](economic_situation) quá, anh [sẽ trả sớm nhất có thể](confirm_repay_debt).
+    - Công việc của tôi đang rất nặng đô, chưa kịp thanh toán. Tôi [sẽ cố gắng thanh toán sớm](confirm_repay_debt).
+    - Anh [chưa có tiền](economic_situation) trả, [chờ](debt_delay) anh [một vài ngày](timeframe) nhé, anh [sẽ xếp sau](debt_delay).
+    - [Tôi hiểu rồi](confirmation), tôi [đang cố gắng trả](confirm_pay) [sớm nhất](timeframe) có thể.
+    - Tui [chưa có đủ tiền](debt_delay) đó, [đợi tui vài ngày nữa nhé](debt_delay).
+    - Mình vẫn [chưa có đủ tiền trả](economic_situation), [để mình xem xét thêm](debt_delay) [một vài ngày](timeframe).
+    - Chị xin lỗi, chị [đang gặp khó khăn tài chính](economic_situation), xin [chờ thêm thời gian] để chị thanh toán.
+    - Tớ thực sự [chưa có đủ tiền](economic_situation) nha, [tớ sẽ thanh toán sau](debt_delay).
+    - Thật sự [không có đồng nào](economic_situation), [chờ tớ một thời gian nữa](debt_delay).
+    - [Rõ rồi](confirmation),anh [đang cố gắng sắp xếp](confirm_pay).
+    - Tôi [biết điều đó](confirmation), [từ từ](negative_emotional_state), tôi [đang cố gắng để thanh toán](confirm_pay).
+    - [Tiền đâu](economic_situation) để trả, tui [đang cố gắng kiếm](confirm_pay).
+    - Mình [chưa có tiền](economic_situation), [đừng lo lắng quá], tớ [sẽ tìm cách trả nợ](debt_delay).
+    - Chị thực sự rất biết ơn [nếu có thể được kéo dài](debt_delay) [thêm vài ngày](timeframe), [chị sẽ trả khi có đủ tiền](confirm_pay).
+    - [Tớ đã hiểu rồi](confirmation), [đừng nhắc tớ nữa], tớ [sẽ thanh toán khi có thể](debt_delay).
+    - Thật sự [chưa đủ tiền](economic_situation), tao [sẽ trả sau khi kiếm được](debt_delay).
+    - [Anh cũng muốn thanh toán](confirmation), nhưng [đang trong tình huống khó khăn](economic_situation), [xin hãy thông cảm](debt_delay).
+    - Tôi [đang cố gắng làm việc](confirm_pay), [khi nào có tôi sẽ thanh toán](debt_delay).
+    - Tui [chưa có tiền](economic_situation), [đừng lo lắng](negative_emotional_state), [tui sẽ trả khi có đủ](confirm_pay).
+    - [Tôi hiểu rồi](confirmation), tôi [đang tìm mọi cách để thanh toán](confirm_pay) một cách nhanh nhât.
+    - Chị [đang gặp khó khăn](economic_situation), xin [để thêm thời gian](debt_delay) cho chị.
+    - [Tớ biết tớ nợ](confirmation), nhưng tớ [chưa có đủ tiền trả](economic_situation).
+    - [Hết sạch tiền](economic_situation), tao [sẽ trả cùng với lãi suất](debt_delay) sau cùng.
+    - Dạ [anh biết rồi](confirmation), anh [chưa thể trả ngay](economic_situation), [cho anh thêm một vài ngày](debt_delay).
+    - Tôi [tạm thời không có đủ tiền để trả](economic_situation) ngay bây giờ, xin hãy [cho tôi thêm một vài ngày](debt_delay).
+    - Tui [đang gặp khó khăn](economic_situation) nên [chưa thể thanh toán được ngay](debt_delay), [mong được sự thông cảm](debt_delay).
+    - Mình [đang trong tình huống khó khăn](economic_situation), xin [mình thêm chút thời gian](debt_delay) để trả nợ.
+    - Chị [cũng đang cố gắng](confirm_pay), xin hãy [thông cảm và đợi chị một vài ngày](debt_delay).
+    - Tớ [cũng muốn trả nợ mà](confirmation), nhưng hiện tại [tớ không có đủ tiền](economic_situation).
+    - Tao [biết tao bị nợ](confirmation), nhưng [tiền đâu mà trả](economic_situation), [đợi tao](debt_delay) kiếm xong tao sẽ thanh toán.
+    - Tôi thật sự [chưa thể trả](debt_delay) [ngay bây giờ](timeframe), [xin hãy đợi tôi sắp xếp](confirm_pay).
+    - [Công nhận tui đang nợ](confirmation) nhưng tui nói là [chưa có tiền mà](economic_situation),[đừng đòi nữa](negative_emotional_state).
+    - Giờ thì tớ [đang gặp khó khăn tài chính](economic_situation), [đừng đòi nữa](negative_emotional_state).
+    - [Chị hiểu](confirmation), chị sẽ [cố gắng thanh toán](confirm_repay_debt) [ngay khi có thể](timeframe).
+    - Tui sẽ [đến ngân hàng để xử lý việc thanh toán](confirm_repay_debt).
+    - [Vâng](confirmation), nhưng tớ [hiện tại không đủ tiền](economic_situation).
+    - Tớ [hiểu rồi](confirmation), nhưng [hiện tại tớ đang trong tình huống khó khăn](economic_situation), [sẽ thanh toán ngay khi có thể](confirm_repay_debt).
+    - Mình sẽ [cố gắng thanh toán](confirm_repay_debt) hết nợ khi có cơ hội.
+    - Tui sẽ [cố gắng chuyển khoản](confirm_repay_debt) ngay khi có thể.
+    - Anh [sẽ thanh toán](confirm_repay_debt) qua [chuyển khoản](payment_method).
+    - [Anh biết rồi](confirmation), nhưng anh hiện tại [đang đối diện với khó khăn tài chính](economic_situation)!
+    - Tui [đang sắp xếp](confirm_repay_debt) để [cố gắng trả nợ](confirm_repay_debt) rồi.
+    - [Vâng](confirmation), tôi [sẽ đến ngân hàng để thanh toán](confirm_repay_debt) hết cho xong.
+    - Tao [biết rồi](confirmation), [tao chuẩn bị trả](confirm_repay_debt) đây,[đừng hối nữa](negative_emotional_state).
+    - [Được](confirmation), để mình chuẩn bị tiền, mình [sẽ thanh toán đầy đủ](confirm_repay_debt).
+    - Tao sẽ [cố gắng chuyển khoản](confirm_repay_debt) sớm nhất có thể.
+    - Anh sẽ [giải quyết ngay](confirm_repay_debt) ngay khi có thể.
+    - [Nhà tôi mới bị cháy](economic_situation). Thật sự là [không có khả năng trả nợ](economic_situation)lúc này được.
+    - Bác ơi, tôi [không thể thanh toán ngay được](debt_delay). Tôi [vừa ốm dậy](health_status), thêm [mấy tháng nữa](timeframe) mới hồi phục.
+    - Cô giúp tôi được không? Gần đây [nhà tôi bị ảnh hưởng bởi trận lũ](economic_situation), chúng tôi phải xây lại từ đầu, [không thể trả nợ ngay được](debt_delay).
+    - Bạn ơi, mình [vừa mới chuyển nhà](economic_situation), đồ đạc đang lung tung hết, [không thể thanh toán ngay được](debt_delay). Mong bạn thông cảm.
+    - Anh ơi, [dịch bệnh này tôi không thể làm việc](economic_situation), [thất nghiệp mất rồi](economic_situation). Nên [không thể trả nợ](debt_delay) được.
+    - Tao [mới bị mất tiền](economic_situation), [không thể trả được](debt_delay). Mong thông cảm.
+    - Tôi mới [bị tai nạn giao thông](health_status), cần thời gian để hồi phục, [không thể thanh toán được](debt_delay).
+    - Chị ơi, chồng em vừa [bị mất việc làm](economic_situation), em [không thể trả nợ được](debt_delay).
+    - Mình [không thể trả nợ được](debt_delay). Mình [mới chuyển nhà](debt_denial_reason), đồ đạc còn lung tung không tìm ra tiền.
+    - Anh ơi, em [mới mất người thân](debt_denial_reason). Em [chưa thể trả nợ được](debt_delay).
+    - Cô ơi, tôi [vừa mới thất nghiệp](debt_denial_reason), [không thể trả nợ ngay được](debt_delay).
+    - Bạn à, tôi [mới qua mất người thân](debt_denial_reason). Tôi [không thể thanh toán](debt_delay) ngay được.
+    - Em à, tôi [đang gặp phải rắc rối tài chính](debt_denial_reason), [không thể trả nợ](debt_delay) được.
+    - Tao [mới mất việc](economic_situation), [không thể trả nợ được](debt_delay). Mong mày thông cảm.
+    - Bác ơi, tôi [đang trong quá trình phục hồi sau tai nạn](health_status). Tôi [không thể trả nợ ngay](debt_delay) được.
+    - Anh [đang có chuyện gia đình](debt_denial_reason), [không thể chuyển tiền](debt_delay) được, anh xin lỗi.
+    - Tôi [đang trong bệnh viện](debt_denial_reason), [không thể thanh toán được](debt_delay), rất xin lỗi.
+    - Tớ [đang bận lo việc tang lễ](debt_denial_reason), nên [khó mà thanh toán] được, thông cảm tớ nhé.
+    - Chị xin lỗi, nhưng chị [đang chuẩn bị cho con chị thi đại học](debt_denial_reason), [không có thời gian để thanh toán](debt_delay).
+    - Tao rất xin lỗi, nhưng tao [phải chăm sóc cho](debt_denial_reason) [mẹ](relative) tao, nên [khó thanh toán](debt_delay) được.
+    - Chồng [tôi mất việc](debt_denial_reason), chúng tôi [không thể thanh toán được](debt_delay) trong thời gian này, rất xin lỗi.
+    - [Từ khi dịch bệnh bùng phát](debt_denial_reason), tui thật sự [không còn khả năng thanh toán](debt_delay) nữa.
+    - [Lúc khác anh trả được không](debt_delay)? Anh [đang đi đám tang người thân](debt_denial_reason) ở quê.
+    - Giờ tui [đang lo phẫu thuật cho con](debt_denial_reason) nên [chưa thanh toán được](debt_delay), xin lỗi.
+    - [Tôi biết mình cần trả nợ](confirmation) nhưng giờ tôi [đang trong bệnh viện](debt_denial_reason), [tôi rất khó để trả](debt_delay).
+    - [Chắc chịu khó đợi tớ](debt_delay) [mấy hôm nữa](timeframe), tớ [đang đợi phẫu thuật](debt_denial_reason).
+    - Chị có [con mắc bệnh nặng](debt_denial_reason),  chị [chưa có thể](debt_delay) thanh toán được.
+    - Tui [cũng biết phải trả nợ](confirmation) nhưng bây giờ [nhà tôi có người chết](debt_denial_reason), [Không trả được](debt_delay), nhân nhượng với tui nghen.
+    - Mình đang [lo cho việc gia đình](debt_denial_reason), có thể [đợi mình một thời gian](debt_delay) được không?
+    - Tui xin lỗi, tui [đang chuẩn bị chôn cất người thân](debt_denial_reason), [không thể thanh toán được](debt_delay).
+    - Anh [đang trong giai đoạn khó khăn](debt_denial_reason), [gia đình tao có chuyện buồn](debt_denial_reason), [không biết bao giờ mới xong](debt_delay).
+    - Mình [đang đau đầu](health_status) với [mấy việc ở nhà](debt_denial_reason) rồi, [làm sao mà nghĩ được tới chuyện trả nợ nữa đây](debt_delay).
+    - Chị [không còn tâm trạng để suy nghĩ](debt_delay) về chuyện này nữa vì [nhà chị vừa có người mất](debt_denial_reason).
+    - Ngại quá,chị [chưa thể trả ngay được](debt_delay), còn [nhiều chuyện ở nhà cần giải quyết](debt_denial_reason) nên [chưa có tiền](economic_situation) để giải quyết mấy cái nợ này nữa.
+    - Còn [chuyện buồn ở nhà chưa xử lý xong](debt_denial_reason), [tiền đâu thanh toán bây giờ](debt_delay).
+    - Bây giờ mình [đang cảm thấy mệt mỏi với mấy chuyện gia đình](debt_denial_reason) lắm rồi, tao [không thể lo nghĩ về chuyện trả nợ ngay](debt_delay) được.
+    - Trời ạ, [gia đình tôi đang gặp rắc rối](debt_denial_reason), [không thể thanh toán được ngay](debt_delay) được.
+    - Tao [không thể thanh toán được][debt_delay] [ngay bây giờ](timeframe), tao [đang phải đối mặt với nhiều chuyện trong gia đình](debt_denial_reason).
+    - Tôi [vẫn chưa giải quyết xong mấy rắc rối gia đình](debt_denial_reason), [giờ tôi không thể thanh toán ngay được](debt_delay).
+    - Tao [mới vừa giải quyết chuyện nhà](debt_denial_reason) xong nên [chưa có đủ tiền](economic_situation) để thanh toán vui lòng [đợi tôi thêm vài ngày](debt_delay) .
+    - Có [quá nhiều chuyện đang xảy ra trong gia đình mình](debt_denial_reason), [không thể thanh toán ngay được](debt_delay).
+    - Tao [đang cố gắng xử lý mấy vấn đề nhà cửa](debt_denial_reason) đây, [cho tao nợ vài ngày nữa nhé](debt_delay).
+    - Tôi cũng muốn thanh toán, nhưng mà tôi [đang gặp vấn đề trong gia đình](debt_denial_reason), [không thể thanh toán](debt_delay) trong [hôm nay](timeframe) được.
+    - Cậu thông cảm cho tớ, tớ [đang cố gắng giải quyết mấy chuyện ở nhà](debt_denial_reason) nên [không thể thanh toán nợ ngay](debt_delay).
+    - Tôi [chưa xác định được khi nào thanh toán được](debt_delay), gia đình mình [vừa mới gặp sự cố](debt_denial_reason).
+    - Anh [đang có chuyện buồn trong gia đình](debt_denial_reason), anh [làm sao đóng nợ được](debt_delay) [giờ này](timeframe).
+    - Em vừa [bị tai nạn](debt_denial_reason) , [cho em xin ít thời gian](debt_delay).
+    - [Chị hiểu mà](confirmation), nhưng chị [có chuyện cá nhân cần giải quyết trước](debt_denial_reason).
+    - Tao [đang phải lo cho mấy chuyện trong gia đình](debt_denial_reason), tao [sẽ thanh toán khi giải quyết xong](confirm_repay_debt).
+    - Tớ [có chút việc gia đình](debt_denial_reason) nên [chưa thể thanh toán ngay được](debt_delay), có gì [chờ tớ một thời gian](debt_delay) nhé.
+    - [Chị biết rồi](confirmation), nhưng chị [có việc ở nhà cần giải quyết](debt_denial_reason), [làm sao trả nợ được](debt_delay).
+    - Đợt này tớ [gặp sự cố gia đình](debt_denial_reason), [không thể trả nợ đúng hạn](debt_delay).Mong bạn thông cảm
+    - Có [chuyện buồn xảy đến](debt_denial_reason), tui [chưa thể thanh toán được](debt_delay) tiền nợ ngay được.
+    - Tôi [đang cố gắng giải quyết một số việc gia đình](debt_denial_reason), tôi [không thể trả nợ ngay được](debt_delay).
+    - Tớ [xin lỗi](debt_delay) nhưng tớ [đang phải đối mặt với một số vấn đề ở nhà](debt_denial_reason).
+    - Chị [đang gặp một số khó khăn ở nhà](debt_denial_reason), chị hy vọng chị [sẽ có thể thanh toán muộn](debt_delay) một thời gian.
+    - [Tôi biết](confirmation) tôi cần phải trả nợ nhưng tôi [đang đối mặt với một số vấn đề gia đình](debt_denial_reason).
+    - Tui [đang có việc gia đình](debt_denial_reason) nên [chưa thanh toán nợ được](debt_delay), thông cảm cho tui nhé.
+    - Mọi người [thông cảm](debt_delay), tao [đang có chút rắc rối về gia đình](debt_denial_reason).
+    - [Bố anh vừa mất](debt_denial_reason), anh đang đau buồn anh [không có tâm trạng trả](debt_delay).
+    - Tao không thích, tao sẽ [Không trả](debt_denial) trước ngày [ne_due_date].
+    - Biết gì chưa, tao [không muốn trả](debt_denial) đó
+    - [Đéo trả](debt_denial) đấy, làm gì nhau?
+    - Đến hạn rồi hả? [Không thích trả](debt_denial) nhé
+    - Chà, chắc tôi [Không trả](debt_denial) đâu
+    - Tớ cũng nghĩ về việc này lâu rồi. Nhưng tớ vẫn [không muốn trả](debt_denial)
+    - Tôi biết, nhưng tôi [Không trả](debt_denial)
+    - Đừng lo, tui sẽ [không thanh toán](debt_denial) đâu.
+    - Tao hiểu rồi, nhưng mà tao [không thể trả](debt_denial) tiền
+    - Oke, để mình xem có thể trả hết vào ngày [ne_due_date] hay không. Hình như là [Không trả được](debt_denial) rồi đó bạn, kiếm người khác đi nha
+    - Uhm, hiểu rồi. Chỉ cần [Không trả](debt_denial) là được chứ gì.
+    - [Không](debt_denail) thì sao?
+    - Dạ, tối nay tôi sẽ xem xét và tìm cách để [không thanh toán](debt_denial).
+    - Đừng lo, trước ngày [ne_due_date] chắc chắn tao sẽ [Không trả](debt_denial) hết.
+    - Tao nói rồi, tao [không muốn trả](debt_denial)
+    - Nhưng anh [không đủ khả năng trả](debt_denial) trong thời gian này
+    - Em phải hiểu cho chị chứ, giờ chị [không thể trả](debt_denial) được, em có đòi bao nhiêu nữa cũng sẽ không được gì đâu
+    - Ôi giời, tới lúc phải trả rồi hả. [Dời thời hạn](debt_denial) cho anh được không?
+    - Thú thật với em là giờ chị [không có trả được](debt_denial], em đừng tìm chị nữa
+    - Nói chung là em [không  trả được](debt_denial)
+    - Mẹ cái [quân ăn cướp](disparaging_language), tao [không muốn trả tiền](debt_denial) cho tụi mày, tụi mày nên [biến mẹ luôn đi](negative_attitude)
+    - Hiểu cảm giác gì? Em hiểu chị chỗ nào, nếu em bảo em hiểu thì em đã không gọi nhắc chị trả nợ trong khi chị [không thể](debt_denial) rồi
+    - Chị muốn em trả tiền trước [ne_due_date](timeframe) à? Chị muốn em [đi chết](negative_emotional_state) đúng không?
+    - Kêu tao trả tiền thì thôi [để tao chết](debt_denial) cho tụi mày vừa lòng
+    - Chị [không có tâm trạng trả nợ](debt_denial), em đừng tìm chị nữa
+    - Em [khổ quá](negative_emotinal_state) chị ơi, em [rất mệt mỏi](negative_emotinal_state), em [Không trả được nợ](debt_denial) đâu
+    - Nếu tôi [Không trả được](debt_denial) trước ngày [ne_due_date] thì sao?
+    - Ngày [ne_due_date](timeframe) thì sát quá, giờ anh [Không trả được](debt_denial)
+    - Nếu là [ne_due_data] (timeframe) thì chị [không kịp trả](debt_denial) rồi
+    - Tao đã nói là tao không thích, tao sẽ [Không trả](debt_denial) trước ngày [ne_due_date].
+    - Mày vẫn chưa hiểu tao nói gì à, tao [không muốn trả](debt_denial) đó
+    - Đã nói là [đéo trả](debt_denial) rồi mà, mày dai quá vậy?
+    - [Không thích trả](debt_denial) nhé, tắt máy đây
+    - Chà, bạn cũng nhẫn nại quá ha, nhưng chắc tôi [Không trả](debt_denial) đâu
+    - Bạn nói làm tui tự dưng muốn trả liền, nhưng tớ vẫn [Không trả](debt_denial) đâu
+    - Biết rồi, nhắc lại lần nữa là tôi [không thể trả](debt_denial)
+    - Đã nói là bạn đừng lo, tui sẽ [không thanh toán](debt_denial) đâu.
+    - Tao đã nói la tao hiểu rồi, và tao [không thể trả](debt_denial) tiền
+    - Đã nói là bạn kiếm người khác đi, tui [không có trả được](debt_denial)
+    - Đúng vậy. Chỉ cần [Không trả](debt_denial) là được
+    - Bạn muốn tui nhắc lại câu vừa rồi à? Không sao, tui nói là tui [Không trả](debt_denial) đó, thì sao?
+    - Cảm ơn bạn đã khuyên tôi, nhưng tối nay tôi vẫn sẽ xem xét và tìm cách để [không thanh toán](debt_denial).
+    - Mày cứ yên tâm, đưng lo lắng, trước ngày [ne_due_date] chắc chắn tao sẽ [Không trả](debt_denial) hết.
+    - Mày không hiểu hay không muốn hiểu vậy, tao [không muốn trả](debt_denial)
+    - Anh biết, anh hiểu rồi, nhưng anh [không đủ khả năng trả](debt_denial) trong thời gian này
+    - Em hiểu cho chị đi chứ em, chị đã nói là giờ chị [không thể trả](debt_denial) được, em có đòi bao nhiêu nữa cũng sẽ không được gì đâu
+    - Anh biết, nhưng ngày đó anh [Không trả](debt_denial) được. [Dời thời hạn](debt_delay) cho anh được không?
+    - Em đừng tìm chị nữa,  giờ chị [không có trả được](debt_denial], vậy nha, bai em
+    - Chị có nói gì nữa thì em cũng [không  trả được](debt_denial)
+    - Tao đã nói là tụi mày nên [biến mẹ mày đi](disparaging_language) đi, tao [Không trả](debt_denial), [cút](disparaging_language)
+    - Em thì hiểu cái gì? Em hiểu chị chỗ nào, nếu em hiểu thì em sẽ không nhắc trả nợ trong khi chị [không thể](debt_denial) rồi
+    - Vậy là chị không muốn cho em đường sống à? Chị thực sự muốn em [đi chết](negative_emotional_state) à?
+    - Thôi để tao [đi chết](negative_emotional_state) chứ [làm gì có tiền trả](debt_denial)
+    - Đã nói là chị [không có tâm trạng trả nợ](debt_denial), em đừng tìm chị nữa
+    - Thực sự là giờ em [khổ quá](negative_emotinal_state) chị ơi, em [mệt mỏi](negative_emotinal_state) lắm, em muốn nhưng em [Không trả được nợ](debt_denial) đâu
+    - Bạn chưa trả lời câu hỏi phía trước của tôi mà, nếu tôi [Không trả được](debt_denial) trước ngày [ne_due_date] thì sao?
+    - Anh nói rồi, ngày [ne_due_date](timeframe) thì sát quá, giờ anh [Không trả được](debt_denial)
+    - Ừ em, chị cũng hiểu vấn đề của mình nhưng mà nếu là [ne_due_data] (timeframe) thì chị [không kịp trả](debt_denial) rồi
+    - Tình hình là bây giờ tui [không thể trả được](debt_denial), hàng tháng kiếm mấy đồng mà sống thiệt là khó hóc múa.
+    - Hôm nay tôi [không thể đóng được](debt_denial), xin lỗi nhé.
+    - [Tiền đâu mà thanh toán](debt_denial), tui đang [thiếu tiền ăn](economic_situation) đây này!
+    - [Chưa nhận lương](economic_situation), [sao đóng](debt_denial) [hôm nay](timeframe) được?.
+    - Tối mày tối mít, [chưa có tiền đâu](debt_denial)!
+    - Tớ [đang vướng một chút](debt_denial), chị thông cảm nhé!
+    - thật sự là tui đang [khó khăn](economic_situation), tui xin hứa [sẽ trả sau](debt_delay).
+    - Mình xin lỗi, [chưa có tiền để trả nợ](debt_denial) đâu!
+    - Anh ơi, tôi [chưa có tiền](economic_situation), chắc chắn sẽ [đóng sau](debt_delay)
+    - Tui [không biết làm sao để có tiền trả nợ](debt_denial) đây, tui cứ lo lắng mãi.
+    - Khó quá, [tiền đâu mà trả](debt_denial), tao đang tính kế sống qua ngày đây này!
+    - Chị ơi, tôi đang trong tình trạng [khó khăn](economic_situation), chắc chắn [sẽ trả](debt_delay) không muộn.
+    - Vấn đề là tui đang cần tiền, [không biết làm sao](debt_denial) đây!
+    - Anh thông cảm, tôi đang rất lo lắng vì [không có tiền trả](debt_denial).
+    - [Khó khăn](economic_situation) quá, [chưa có tiền đâu](debt_denial), cho tôi thêm thời gian.
+    - Chị [thông cảm](debt_denial), tôi đang gặp [rủi ro tài chính](economic_situation).
+    - Tớ [không thể trả nợ ngay](debt_denial), tớ đang trong tình trạng [khó khăn](economic_situation).
+    - Mình đang cần tiền để chi trả một số việc cần thiết, mình [không thể trả ngay](debt_denial) được.
+    - Lúc này [tiền đâu mà trả](debt_denial), rối não quá!
+    - Xin lỗi, tôi [không thể trả nợ](debt_denial) được bây giờ, tôi đang lo lắng về tình hình tài chính của mình.
+    - Tao đang trong cảnh túng quẫn, [không biết làm sao trả nợ](debt_denial) được.
+    - Anh thông cảm nhé, em đang rất [khó khăn](economic_situation).
+    - Úi, [tiền đâu mà trả](debt_denial). Đang vỡ nợ đây này!
+    - Ăn cơm từng hạt, [sao mà trả](debt_denial) nợ kịp bây giờ.
+    - Tôi thật sự rất lo lắng về việc này, tôi [không biết làm thế nào để trả](debt_denial) nợ.
+    - Tớ thực sự [không biết làm thế nào để trả](debt_denial) nợ. Tớ rất hoảng loạn.
+    - Dạo này tui [khó khăn](economic_situation) lắm, [không biết làm thế nào để trả](debt_denial) nợ.
+    - Tao đang cần tiền để chi tiêu cho một số nhu cầu cần thiết, không thể trả nếu không muốn thiếu thốn.
+    - Tôi hiện tại [chưa có khả năng trả nợ](debt_denial), xin hãy thông cảm.
+    - Tôi đảm bảo [sẽ trả](debt_delay) ngay khi có khả năng, tôi đang rất lo lắng.
+    - Anh thông cảm cho chị nhé, chị cũng đang rất [khó khăn](economic_situation).
+    - Anh hiểu, nhưng bây giờ anh đang gặp [khó khăn](economic_situation).
+    - Chị biết, nhưng chị [không có khả năng trả](debt_denial)
+    - Khổ thân tui, giờ [làm gì có khả năng trả nợ](debt_denial)
+    - Tôi biết, nhưng lúc này tôi [chưa có khả năng đóng tiền](debt_denial).
+    - Mình cũng muốn trả, nhưng hiện tại mình đang [gặp vấn đề với công việc](economic_situation).
+    - Tao cũng không muốn vậy, nhưng thật sự tao [Không trả được](debt_denial)
+    - Đúng là tớ nên trả nợ, nhưng tớ đang gặp [khó khăn](economic_situation).
+    - Tui biết là phải trả, nhưng tui [không có khả năng](debt_denial).
+    - Đúng là tao phải trả, tao cũng muốn trả, nhưng tao [Không trả được](debt_denial)
+    - Thế mới biết đời nó khổ cực, tớ cũng [không biết làm sao trả](debt_denial) nữa.
+    - Tôi [cũng muốn trả](debt_denial), nhưng [công việc hiện tại không thuận lợi](economic_situation).
+    - Anh [không muốn động vào tiền tiết kiệm](debt_denial) của mình.
+    - Giờ chị còn [chưa đủ tiền để sống](economic_situation), [trả nợ làm gì](debt_denial) nữa.
+    - Xin lỗi, nhưng [tiền lương cũng không đủ sống](economic_situation) nữa [lấy đâu trả nợ](debt_denial).
+    - Mình đang loay hoay với cuộc sống, [chưa kịp nghĩ đến việc trả nợ](debt_denial).
+    - [Lương tao thì ít ỏi](economic_situation), chưa đủ sống nữa thì [lấy đâu trả nợ](debt_denial).
+    - Tao đang thất nghiệp, [chưa có khả năng trả nợ](debt_denial).
+    - Tớ [chưa có việc làm](economic_situation), nên [chưa trả được nợ](debt_denial).
+    - Tôi [chưa kiếm đủ tiền để có thể trả nợ](debt_denial).
+    - Anh muốn trả, nhưng [lương anh nhận được còn không đủ sống](economic_situation) cho anh.
+    - Chị đang phải trả nợ cho con chị đi học, [chưa có tiền trả nợ cho công ty](debt_denial).
+    - Tui cũng không muốn trễ hạn, nhưng tui đang gặp [khó khăn](economic_situation).
+    - Tao muốn trả nợ nhưng tao [không có khả năng](debt_denial).
+    - Tớ biết là phải trả, nhưng tớ [không còn tiền](economic_situation).
+    - Chắc tôi [phải bán nhà mới trả được nợ](debt_denial) lúc này, nhưng [không có nhà](economic_situation).
+    - Lương anh chưa đủ nuôi gia đình, nên [chưa trả được nợ](debt_denial).
+    - Chị [cần tiền nuôi con](debt_denial_reason), nên [chưa tìm được cách để trả nợ](debt_denial).
+    - Tui [cần tiền cho công việc kinh doanh](economic_situation), [chưa có khả năng trả nợ](debt_denial).
+    - Tao [cần tiền để duy trì cuộc sống](economic_situation), [không thể trả nợ](debt_denial) được lúc này.
+    - Tớ đang [chuẩn bị cưới](debt_denial_reason), [không có khả năng trả nợ](debt_denial) lúc này.
+    - Bây giờ tớ rất [khó khăn](economic_situation), [không thể trả](debt_denial) được. Tớ cần giúp đỡ.
+    - Tui [không thể trả](debt_denial) ngay bây giờ. Bạn có thể giúp tui tìm giải pháp không?
+    - [Không thích trả](debt_denial), [không muốn trả](debt_denial)
+    - Tôi [không thể](debt_denial) trả được số nợ này. Cần một giải pháp khác.
+    - Nhà anh [mới có người thân mất](debt_denial_reason) nên anh [chưa thể thanh toán](debt_denail) kịp được
+    - Cái này khó thật, anh [không thể](debt_denial) trả lúc này được. Giúp anh với!
+    - [Làm sao chị có thể trả nợ](debt_denial) này khi mà [công việc của chị đang không ổn định](economic_situation)?
+    - Tao bây giờ [Không trả](debt_denial) nợ được. Có gì giúp tao được không?
+    - [Không thích trả](debt_denial) thì làm gì nhau?
+    - Anh [không thể trả](debt_denial) được lúc này. Có cách nào giúp anh không?
+    - Anh đang [gặp khó khăn tài chính](debt_denial_reason), [không thể trả](debt_denial) lúc này. Bạn có thể giúp gì được không?
+    - [Không thể trả](debt_denial), [không thích trả](debt_denial), [phá sản](debt_denial_reason) rồi
+    - Tôi [không thể trả](debt_denial) tiền này ngay được. Có gì giúp tôi được không?
+    - Đây là một [số tiền lớn](debt_denial_reason), tôi [không thể trả](debt_denial) ngay. Cần một giải pháp tốt hơn.
+    - [Thôi](debtor_refuse) tui [Không trả](debt_denial) trước hạn đâu, đợi đến [ngày hẹn] (timeframe) đã.
+    - [Đóng sớm gì](debt_denial), tao trả đúng [ngày] (timeframe), không lẹo lệch giây phút nào.
+    - Tớ [chưa có tiền](economic_situation) bây giờ, đợi đến [ngày 31/4] (timeframe) tớ sẽ trả.
+    - Anh sẽ trả vào [ngày hợp đồng] (timeframe), không sớm hơn, không muộn hơn.
+    - Tôi biết rồi, nhưng tôi chỉ trả tiền vào [ngày đã hẹn] (timeframe) thôi.
+    - [Tại sao mình phải trả sớm?](inquiry) Tui sẽ trả đúng [ngày hợp đồng] (timeframe).
+    - [Thôi](debt_denial), đợi tao trả vào ngày hợp đồng đi, tao [Không trả sớm](debt_denial)
+    - Chị [không thể trả trước](debt_denial) đâu, chỉ có thể trả vào [ngày ne_short_due_date] (timeframe) thôi.
+    - Thế nhưng mình chỉ có thể trả vào [ngày đã hẹn] (timeframe), xin lỗi nhé.
+    - [Thôi](debtor_refuse), đợi tao trả vào [ngày hợp đồng] (timeframe) đã.
+    - [Đóng trước ngày hạn?](inquiry) Khó đấy, chắc tớ chỉ trả vào [ngày 2/6] (timeframe) thôi.
+    - Lịch trả tiền của tui đã được đặt trước rồi, tui trả đúng [ngày] (timeframe) thôi.
+    - Để tao xem xét, nhưng khả năng cao là tao sẽ trả đúng [ngày đã hẹn] (timeframe).
+    - Thế nhưng tôi chỉ trả vào [ngày hợp đồng đã ký] (timeframe) thôi.
+    - Tớ biết, nhưng tớ sẽ trả vào [ngày đã định] (timeframe), không sớm hơn.
+    - Tôi đã tính toán rồi, chỉ trả tiền vào [ngày ne_short_due_date] (timeframe).
+    - Tao hiểu mà, nhưng giờ tao [không thể trả trước](debt_denial) được.
+    - Đợi đến [ngày 12/6] (timeframe), tui sẽ [chuyển tiền](payment_method) cho.
+    - Tui sẽ trả đúng [ngày hẹn] (timeframe), không cần nhắc nhở trước.
+    - Trả trước ngày hạn? Chắc không được đâu, tao trả đúng [ngày đã hẹn] (timeframe) thôi.
+    - Chị biết mà, nhưng chị chỉ có thể trả vào [ngày đã hẹn] (timeframe).
+    - [Không](debtor_refuse), nhưng tớ vẫn sẽ trả vào [ngày hợp đồng] (timeframe).
+    - Không cần nhắc tao, tao trả đúng [ngày đã hẹn] (timeframe) mà.
+    - Mình đã sắp xếp rồi, mình sẽ chuyển tiền vào [ngày 21] (timeframe).
+    - Thôi, đợi tui trả vào [ngày đã hẹn] (timeframe) đi, tui Không trả trước.
+    - Tôi sẽ sắp xếp và chuyển trước [ngày hết hạn] (timeframe) cho em.
+    - Tớ sẽ thanh toán trước, vào [thứ sáu tuần tới] (timeframe) cho chắc.
+    - [Không nha](debtor_refuse), tui sẽ chuyển vào [thứ bảy này] (timeframe) trước hạn.
+    - [Thôi](negation), tao đóng vào ngày hẹn thôi, [không đóng trước](debt_denial)
+    - Tao đang [nằm viện](debt_denial_reason), tao [không thanh toán](debt_denial) sớm được đâu.
+    - Tui nhờ [mẹ](relative) rồi, nhưng bà [Không trả](debt_denial) đâu
+    - Mệt quá! Nhờ [bố](relative) rồi mà ông [không muốn trả](debt_denial) thì ai mà biết
+    - Rồi rồi nhờ rồi, tôi có nhờ [bạn](accquatance) nhưng nó [không chịu trả] (debt_denial)
+    - Tôi nhờ người nhưng ai cũng nói [không đóng](debt_denial) giùm được, đang cố gắng kiếm người.
+    - Nói rồi, mạng lỗi nhờ ai cũng [không thể chuyển khoản](debt_denial)
+    - [Không thể thanh toán](debt_denial), nhờ ai cũng bận hết rồi 
+    - Để sau đi, nhờ [bạn](accquatance) rồi nhưng [chưa thể thanh toán](debt_denial) bây giờ
+    - Từ từ đi đang bận gần chết, [chưa muốn trả](debt_denial)
+    - Xin lỗi, sáng nay anh nói [vợ](relative) đi đóng hộ rồi mà vợ [chưa chịu trả](debt_denial)
+    - Đừng gọi nữa, đang đi nhờ người mà người ta [không thể chuyển tiền]((debt_denial)) hộ bây giờ
+    - [Chưa có thanh toán](debt_denial) thì lấy đâu ra biên lai, nhờ mẹ rồi mà bà chưa rảnh
+    - Vài hôm nữa đi, để đi kiếm người nhờ [thanh toán sau](debt_delay) 
+    - Biết rồi nhưng giờ [chưa trả được](debt_denial) vì không có ai làm hộ
+    - [Trả sau đi](debt_delay), giờ chưa nhờ được người nào cả
+    - Làm ơn thông cảm, tôi [chưa trả được](debt_denial) và cũng không nhờ ai được
+    - [Bạn](accquatance) tui [chưa trả](debt_denial) được tiền, nó đang đi công tác 
+    - Tôi [Không trả](negation) nợ vì tôi cho rằng mình không nợ bạn.
+    - Mình [không thanh toán](negation) vì mình nghĩ rằng số tiền này không đúng
+    - Tôi [Không trả](negation) tiền vì tôi không nhận được bất kỳ sản phẩm hay dịch vụ nào.
+    - Mình [Không trả](negation) nợ vì mình không nhận được hóa đơn chi tiết.
+    - Tôi [không thanh toán](negation) vì tôi đã thanh toán hóa đơn này trước đó.
+    - Mình [Không trả](negation) tiền vì mình đã hoàn trả sản phẩm.
+    - Tôi [không thanh toán](negation) vì tôi đã gửi tiền vào tài khoản khác.
+    - Mình [Không trả](negation) vì mình không nhận được dịch vụ như đã đảm bảo.
+    - Tôi [không thanh toán](negation) vì tôi không nhận được bất kỳ giấy tờ nào xác nhận việc sử dụng dịch vụ.
+    - Mình [Không trả](negation) vì tôi đã yêu cầu hủy dịch vụ từ tháng trước.
+    - Tôi [không thanh toán](negation) vì tôi đã bị trừ tiền tự động từ tài khoản.
+    - Mình [Không trả](negation) vì mình đã chuyển tiền vào tài khoản sai.
+    - Tôi [Không trả](negation) vì tôi đang chờ hoàn tiền từ bạn.
+    - Mình [không thanh toán](negation) vì mình chưa sử dụng dịch vụ này.
+    - Tôi [Không trả](negation) vì tôi đã hủy bỏ dịch vụ.
+    - Mình [không thanh toán](negation) vì mình không nhận được bất kỳ nào trước đó.
+    - Tôi [Không trả](negation) vì tôi đã thanh toán một phần.
+    - Mình [không thanh toán](negation) vì mình đã thanh toán lần trước đó.
+    - Tôi [Không trả](negation) vì tôi đã thanh toán.
+    - Mình [Không trả](negation) vì mình đã thanh toán trực tuyến.
+    - Chú tôi vừa bị [ốm nặng](health_status), tôi không có thời gian để thanh toán.
+    - Tao phải nằm viện mấy ngày nay không có đầu óc nghĩ vụ này.
+    - Mình nằm viện mấy ngày hết biết chuyện gì rồi.
+    - Mình [đau](health_status) quá không nghĩ tới chuyện thanh toán.
+    - Tớ cảm thấy [chóng mặt](health_status) nên không thể thanh toán được.
+    - Anh vừa [phẫu thuật](health_status) nên không thể thanh toán được.
+    - Lúc giờ tui tưởng là mình đã thanh toán rồi nhưng giờ mới biết tui quên mất do bị [ốm](health_status).
+    - Chắc tôi phải nằm viện ít nhất là một tuần nữa, chỉ bảo con tôi thanh toán mà không biết nó có thanh toán không.
+    - Sức khỏe tớ không ổn, không thể thanh toán được.
+    - Chị đang [ốm yếu](health_status), không thể thanh toán ngay lập tức.
+    - Tao bị [tai biến](health_status), không thể ra khỏi nhà để thanh toán.
+    - Tui vừa bị [đau tim](health_status) nên không có tâm trạng để thanh toán.
+    - Tôi đang trong tình trạng không [dậy được](health_status), không thể kiểm tra và thanh toán được.
+    - Chú em vừa bị tai nạn, nhà tao không thể thanh toán nổi.
+    - Ngồi [liệt](health_status) trên giường này chị không thể nghĩ tới chuyện thanh toán đâu em.
+    - Đệ này bị [ốm](health_status) quá, không thể ra ngân hàng thanh toán được.
+    - Ủa, anh cũng đang tìm cách trả, nhưng bây giờ anh đang ngập đến cổ trong việc điều trị [bệnh này](health_status) rồi.
+    - Tôi đồng ý với em, nhưng tôi cũng cần phải chăm sóc sức khỏe mình trước, có thể chờ tôi hồi phục không?
+    - Tui hiểu mà, nhưng tui đang [bệnh](health_status) mà, không thể làm liền được.
+    - Mình xin lỗi, nhưng mình không thể làm được ngay bây giờ, sức khỏe mình đang khá tệ.
+    - Chị biết mà, nhưng chị đang điều trị, chắc chắn sẽ trả khi chị khỏi [bệnh](health_status).
+    - Lương tao đang bỏ vào chữa [bệnh](health_status) mà, tao cũng muốn trả ngay lắm, nhưng bây giờ không được.
+    - Tao biết, có gì tao sẽ nhờ người khác trả hộ khi tao khỏi [bệnh](health_status).
+    - [Ông X nhà tui](relative) bị [tai biến](health_status), đang trong tình trạng [nguy kịch](health_status), tui Không trả được.
+    - [Con trai nhà tao](relative) bị [viêm phổi](health_status), dằn với việc trả nợ cũng chẳng biết làm thế nào.
+    - [Chồng tui](relative) [thủy đậu](health_status) toàn thân, Không trả nổi giờ.
+    - Cả nhà [ngộ độc thực phẩm](health_status), để mình hết ốm rồi trả sau.
+    - [Mẹ tui](relative) mới [mổ tim](health_status), không thể trả được giờ đâu.
+    - [Vợ tao](relative) mới sinh, chưa thể trả được.
+    - Mấy hôm nay tao bị [đau lưng](health_status), không làm ăn gì nổi, trả sau nhé.
+    - [Mẹ tui](relative) bị [sỏi mật](health_status), Không trả nợ được giờ này.
+    - Gia đình mình đang [ốm](health_status), chắc phải trả sau.
+    - [Ông nhà mình](relative) bị [suy thận](health_status), phải chạy thận mỗi tuần, không lo được việc trả nợ đâu.
+    - [Chị tui](relative) vừa bị đập phải tay, đau lắm, không nghĩ đến việc trả nợ được.
+    - Tao bị [gãy chân](health_status), không kiếm tiền được, trả nợ thì chắc chờ tao lành đã.
+    - Mình có [bịnh nặng](health_status) nên không tự thanh toán, thu xếp giúp mình với!
+    - Tao gặp khó khăn vì [sức khỏe](health_status) đây, không thể tới ngân hàng, hiểu không?
+    - Chị có [sức khỏe không tốt](health_status), em có cách nào hỗ trợ thanh toán không?
+    - Rất mong anh thông cảm, tui phải đi viện nên không thể thanh toán được, có cách nào giúp tôi không?
+    - Tớ đang bị [ốm nặng](health_status), không có khả năng tự thanh toán được, lấy lòng đễ giúp tớ!
+    - [Bệnh tật](health_status) chồng chất, tôi không thể tự thanh toán được, có giải pháp nào không?
+    - Tình hình sức khỏe của mình rất [tệ](health_status), không tự đi nổi, gì chỗ đóng phí, mong cậu thông cảm uh!
+    - Tao không tự thanh toán được vì sức khỏe. Các cậu có giải pháp không?
+    - Vấn đề sức khỏe khiến tôi không thể tự thanh toán được. Cậu có thể giúp tôi không?
+    - Tao đang [nằm viện](health_status) nè, không thể thanh toán được. Mong mấy bạn thông cảm!
+    - Tại tao [mệt](health_status), không tự thanh toán đóng nợ được, mấy cậu giúp tao với!
+    - Tôi không thể tự thanh toán do tôi đang gặp vấn đề về sức khỏe. Có cách nào giúp tôi không?
+    - Rất mong thông cảm vì mình không tự thanh toán được do sức khỏe [kém](health_status). Có cách nào giúp mình không?
+    - Anh đang [ốm nặng](health_status), không thể đóng nợ được.
+    - Tôi đang cần [dưỡng sức](health_status) tại bệnh viện, chuyện nọ vừa rồi không phải lúc.
+    - Tôi đang trong quá trình [phẫu thuật](health_status), chắc chắn sẽ không thể trả lời cuộc gọi của bạn.
+    - Tui đang bị [sốt rét](health_status) không thể trả nợ.
+    - Mình đang [đau bệnh](health_status), không thể tiếp tục trả trả nợ.
+    - Chị đang trong tình trạng sức khỏe không [tốt](health_status), không thể thanh toán nợ được.
+    - Tao phải [đi viện](health_status) rồi, bệnh quá không đóng nợ được.
+    - Chúng ta có thể nói về việc đóng nợ sau khi tôi [hồi phục sức khỏe](health_status) được không?
+    - Việc trả nợ giờ không thể, anh đang cần [dưỡng sức](health_status).
+    - Tôi đang phải chăm sóc [sức khỏe](health_status) của mình, không thể trả nợ bây giờ.
+    - Tui đang cần thời gian để [hồi phục sức khỏe](health_status) nên không thể thanh toán nợ.
+    - Khi nào [sức khỏe](health_status) mình ổn định, mình sẽ nghĩ đến chuyện trả nợ.
+    - Chị đang gặp rắc rối về [sức khỏe](health_status), không thể thanh toán nợ.
+    - Tao đang phải [điều trị](health_status), không thể tập trung trả nợ.
+    - Anh đang phải đối mặt với tình hình [sức khỏe không tốt](health_status), nên chưa thể thanh toán được.
+    - Tôi biết mình nợ tiền và cũng muốn trả lẹ, nhưng bây giờ tôi đang gặp rắc rối về [sức khỏe](health_status).
+    - Tao hiểu nhưng tao đang [đau ốm](health_status), chưa đủ khỏe để di chuyển.
+    - Tui biết nhưng [sức khoẻ](health_status) tui không cho phép tui thanh toán bây giờ.
+    - Mình không ngoan tròn được, mình đang phải giữ [sức khỏe](health_status).
+    - Chị biết, nhưng chị đang [mệt lắm](health_status), sức khỏe không cho phép.
+    - Hiện tại, [sức khỏe](health_status) tớ không tốt, tớ chưa thể thanh toán nợ được.
+    - Mình biết lỗi của mình nhưng mình đang rất [yếu](health_status), chưa thể giao dịch.
+    - Tớ đang gặp phải một vấn đề [sức khỏe](health_status), tớ  không thể thanh toán được bây giờ.
+    - Anh hiểu nhưng hiện tại anh không thể thanh toán, anh [bị ốm](health_status).
+    - Tôi biết tôi nợ, nhưng tôi không thể thanh toán ngay bây giờ vì tôi [đang ốm](health_status).
+    - Tao [đau khổ](health_status), tao không thể thanh toán được ngay bây giờ.
+    - Tui hiểu, nhưng tui không thể gặp ai hoặc đi đâu được bởi vì tui [đang ốm](health_status).
+    - Chị biết, nhưng chị đang [đau lắm](health_status), không thể thanh toán được.
+    - Mình cống hiến hết mình nhưng cơ thể mình bây giờ không cho phép.
+    - Chị biết, nhưng chị không thể dậy khỏi giường vì lí do [sức khỏe](health_status).
+    - Cháu [đau ốm](health_status), cháu không năng lực đến giao dịch.
+    - Anh biết mình nợ, nhưng anh đang không khỏe, phải dùng toàn bộ tiền cho thuốc men.
+    - Tao chưa nhận được biên lai và không rõ phải đóng [ở đâu](debt_inquiry), cũng không biết mình nợ [bao nhiêu tiền](debt_inquiry) cả.
+    - Chưa, tớ chưa thể thanh toán ngay bây giờ. Cụ thể là phải đóng [ở đâu và đóng bao nhiêu tiền](debt_inquiry) vậy?
+    - Chưa đâu, tôi chưa thanh toán đấy. Bảo tôi thanh toán [ở đâu và bao nhiêu tiền](debt_inquiry) đi.
+    - Chưa, tôi chưa thanh toán, vì tôi không biết phải đóng [ở đâu](debt_inquiry) cũng như [số tiền](debt_inquiry) cần phải trả.
+    - Chưa, tui chưa thanh toán. Vụ này, tui phải trả [ở đâu và bao nhiêu tiền](debt_inquiry) hả?
+    - Chị chưa nhận được biên lai nào, không biết nặng nợ [bao nhiêu tiền](debt_inquiry) để trả nữa.
+    - Biên lai thanh toán, tớ chưa nhận được cái gì cả, tớ chưa biết phải trả [ở đâu với bao nhiêu tiền](debt_inquiry).
+    - Mình chưa nhận được biên lai nên không biết cần trả [bao nhiêu tiền](debt_inquiry) và trả [ở đâu](debt_inquiry) nữa.
+    - Anh chưa có thời gian thanh toán nợ nên chưa biết cần trả [bao nhiêu](debt_inquiry) và trả [ở đâu](debt_inquiry).
+    - Tớ chưa nhận được thông tin nên không biết cần trả [bao nhiêu](debt_inquiry) và trả [ở đâu](debt_inquiry).
+    - Tao chưa có biên lai nên không biết cần trả nợ [bao nhiêu](debt_inquiry) và [ở đâu](debt_inquiry).
+    - Nợ! tui chưa trả nợ đâu, cũng không biết phải trả nợ ngày nao, trả [ở đâu](debt_inquiry) và số nợ là [bao nhiêu](debt_inquiry).
+    - Thật ra, chị chưa thanh toán và chị cũng không rõ chị phải nộp [bao nhiêu tiền](debt_inquiry) và [ở đâu](debt_inquiry).
+    - Eh, mình chưa có thông tin, không biết mình phải đóng thế nào và đóng [bao nhiêu](debt_inquiry).
+    - Uh, tớ chưa thanh toán đâu, tớ cũng không biết là tớ phải trả [bao nhiêu tiền](debt_inquiry) và trả [ở đâu](debt_inquiry).
+    - Chưa, tôi vẫn chưa nhận được biên lai nợ nên không biết tôi cần trả [bao nhiêu](debt_inquiry) và [ở đâu](debt_inquiry).
+    - Nợ ở đâu ra mà đòi? Mình  [không vay tiền] (negation)
+    - Tớ  [không rõ việc này ](negation)  , đã vay thì người vay phải trả.
+    - Tôi đã đi sâu vào suy nghĩ và thấy rằng việc đứng tên chỉ là một sự giúp đỡ hình thức và [ không có nghĩa là tôi sẽ trả tiền](negation).
+    - Tôi đã cân nhắc kỹ và quyết định [không nhận trách nhiệm tài chính](negation) cho hóa đơn này.
+    - Tôi đã thảo luận với gia đình và chúng tôi đồng ý rằng tôi [không có khả năng tài chính để trả tiền](negation) cho khoản nợ này
+    - Tôi đã thực hiện một bảng cân nhắc tài chính và nhận ra rằng trả tiền cho hóa đơn này sẽ gây khó khăn đáng kể cho tôi.
+    - Tôi [không vay](negation)! Bạn có thể kiểm tra lại thông tin của tôi không?
+    - Tôi không thể hiểu cách mà chị ấy vay tiền khi tôi [không vay tiền] (negation)
+    - Tôi đã tham khảo ý kiến của chuyên gia và họ đã khuyên tôi [không chịu trách nhiệm tài chính](negation) trong trường hợp này.
+    - Mi nhắc tụi tao làm gì? Tụi tao [ tình trạng vay] ( không vay ) đồng nào cả.
+    - Mày có chắc không? Tao chưa hề [ tình trạng vay] ( không vay )  mấy bữa nay.
+    - Trời ơi, bản thân tao [chẳng biết gì cả](negation), lần đầu tiên tao nghe vụ này.
+    - Cái gì? Tôi [không biết gì về tiền vay](negation) của bạn.
+    - Xin lỗi, nhưng tôi [không nợ](negation) ai cả.
+    - Tôi [không vay tiền] (negation) , hãy xác nhận lại thông tin.
+    - Tôi đang trong [tình trạng khó khăn](economic_situation) , không biết làm sao thanh toán được
+    - Tôi đã đọc kỹ các điều khoản và điều kiện và [không thấy bất kỳ cam kết nào yêu cầu tôi phải trả tiền](debt_denial) cho hóa đơn này.
+    - Tui xin lỗi, tui đang gặp [một vài rắc rối tài chính](economic_situation). Tui [sẽ cố gắng trả sớm](confim_repay_debt) nhất có thể.
+    - Tôi đã xem xét tình hình tài chính của mình và [không thể đáp ứng được trách nhiệm trả nợ](debt_denial) này.
+    - Tôi đã tham gia vào một số [tình huống tài chính khó khăn](economic_situation)  và không thể đảm bảo trả tiền cho hóa đơn này.
+    - Dạ, tui hiểu rồi. Tui [sẽ thanh toán](confim_repay_debt) sớm thôi.
+    - [Không cần phải nhắc mãi](negative_emotional_state), em biết phải làm gì rồi.
+    - Nếu tao có thể trả ngay bây giờ, tao [đã không để bạn nhắc nhở đến thế nào](negative_emotional_state).
+    - [Chị không muốn bị nhắc nhở hoài](negative_emotional_state) . Chị biết phải làm gì.
+    - Anh biết mà. Anh [sẽ sắp xếp để trả](confim_repay_debt) ngay khi có khả năng.
+    - Dạ vâng, mình sẽ [thu xếp để trả nợ](confim_repay_debt).
+    - Không lẽ tôi muốn vậy. Nếu tôi có thể, tôi đã trả rồi!
+    - Dạ, dạ em biết rồi. Em sẽ thanh toán sớm nhất có thể. Để em sắp xếp công việc thôi.
+    - Tớ biết trách nhiệm của mình là gì,[ đừng nhắc mãi nữa.](negative_emotional_state)
+    - Chị đang cố gắng trả nợ. Nếu có gì hỗ trợ thêm thì nói chị biết nhé
+    - Tôi đã gặp khó khăn trong việc quản lý tài chính cá nhân và [không thể đảm bảo trả tiền](debt_denial) cho khoản nợ này.
+    - Tôi đã chấp nhận việc đứng tên giúp nhưng [không ý định hoặc khả năng trả tiền](debt_denial) cho hóa đơn này
+    - Tôi đã thực hiện một cuộc đánh giá tài chính và kết luận rằng tôi [không thể cam kết trả tiền](debt_denial) cho khoản nợ này.
+    - Cô ấy [không hiểu gì về hợp đồng](negation) anh đang nói. Cho cô ấy biết thêm chi tiết.
+    - Tôi đã thảo luận với người thân và bạn bè và họ đồng ý rằng [không nên chịu trách nhiệm tài chính](debt_denial) trong trường hợp này.
+    - Tôi đã thực hiện một cuộc phân tích tài chính và [không tìm thấy khả năng tài chính](economic_situation) để trả tiền cho hóa đơn này.
+    - Tui [chưa biết gì](negation) về vụ trễ hạn này, nói rõ hơn được không?
+    - Tôi đã nhận ra rằng việc trả tiền cho hóa đơn này sẽ [tạo ra gánh nặng tài chính](economic_situation) không thể đáp ứng được.
+    - Đóng hóa đơn này sẽ làm cho mình cảm thấy [bất an về tài chính](economic_situation) cá nhân.
+    - Tôi đang trong giai đoạn tiết kiệm và [không thể đóng thêm tiền](debt_denial)  .
+    - Xin lỗi, mình [không thể đóng hóa đơn](debt_denial) này.
+    - [Không thể đóng hóa đơn](debt_denial) này, tôi muốn giữ tiền dự phòng cho các tình huống khẩn cấp.
+    - Mình chưa hiểu lắm về việc mình là người giữ tên, có thể giải thích thêm được không?
+    - Tôi đang trong [giai đoạn tiết kiệm tiền](economic_situation) để đảm bảo rằng tôi có đủ tiền cho cuộc sống hàng ngày. nên tôi [không thể chi trả] (debt_denial) cho hóa đơn này ngay lúc này được 
+    - Tôi muốn [giữ lại tiền để đảm bảo rằng mình có đủ tiền](economic_situation)  cho cuộc sống hàng ngày.
+    - Mình đang [cố gắng kiểm soát tài chính cá nhân](economic_situation) và [không thể đóng thêm tiền](debt_denial).
+    - [Không thể đóng hóa đơn này](debt_denial) , mình muốn dành tiền cho các mục tiêu cá nhân.
+    - Mình [cần tiền để xử lý](economic_situation)  các khả năng chi phí đột ngột khác.
+    - Tôi đang [trong giai đoạn tiết kiệm tiền](economic_situation) để đảm bảo rằng mình có đủ tiền cho mọi sự kiện.
+    - Đóng hóa đơn này sẽ làm mình [cảm thấy bị ràng buộc về tài chính](economic_situation) .
+    - Ố, tao tưởng mình đã trả hết rồi, để tao xem lại thông tin.
+    - Tao đầu tư vào việc làm khác rồi, [chờ tao thu hồi vốn ](economic_situation) đã, tao sẽ trả.
+    - Anh [không thể trả tiền](debt_denial) ngay được, anh sẽ liên hệ sau.
+    - Tôi [không muốn trả tiền](debt_denial) cho hóa đơn mà tôi [không tham gia.](negation)
+    - Tôi đã nói rõ ràng rằng tôi chỉ đứng tên giúp, [không có kế hoạch trả hóa đơn này.](debt_denial)
+    - Mình trả trễ một ngày mà tính nhiều đó, chắc qua ngân hàng khác vay thì hơn.
+    - Tôi [không hiểu](negation) tại sao hóa đơn này lại gửi đến tôi, khi tôi chỉ đứng tên.
+    - Tôi [không nhớ ](negation) đã bao giờ cam kết trả tiền cho hóa đơn này.
+    - [Hóa đơn](contract) này [không phải của tôi](negation) , tôi chỉ đứng tên giúp thôi
+    - Tôi chẳng có lý do gì để trả tiền cho hóa đơn mà tôi [không hề tiêu thụ](negation).
+
+- intent: thái_độ
+  examples: |
+    - Trời ơi, [thấy nói nghe chán quá chưa](negative_emotional_state) ! Anh [đâu có nghĩa vụ ngồi đây nghe bạn liên tục nhai lại những thứ đó](negative_emotional_state), biết không?
+    - Tại sao tôi nên tin tưởng bạn rằng tôi sẽ trả được khoản nợ này?
+    - Đừng có nói với tôi như vậy, tôi biết mình phải làm gì.
+    - Tao [đéo tao trả](negative_attitude) , tao [trả như thế nào là quyền của tao](negative_attitude), biết chưa?
+    - [Vì sao bạn nghĩ rằng tôi không có khả năng trả nợ](negative_attitude)?
+    - Trời, [nói chuyện với những người như em thật khó khăn](negative_emotional_state) !
+    - Chị không hứa, nhưng chị sẽ cố gắng. Biết chưa không?
+    - Tớ biết tớ nợ, cố gắng tớ sẽ trả, em [đừng có cứ đến đây mà nài nỉ như vậy. Thấy mệt mỏi lắm](negative_emotional_state)!
+    - Em trả cho mình cái thẻ mình đòi mình sẽ trả. Còn không thì thôi, cứ để mình. Mình [không muốn cứ phải nghe những lời nhắc nhở như thế này nữa](negative_emotional_state).
+    - Anh tôi còn sống chưa anh? Làm ơn, nếu anh muốn nói thì hãy nói với anh tôi. [Tôi không muốn nói với anh về chuyện này nữa](negative_emotional_state).
+    - À, anh biết rồi. Giờ anh mới biết nên làm sao. Anh sẽ trả nợ cho em.
+    - Được, [tớ sẽ im lặng nghe em nói nhưng sau đó tớ Không trả tiền](negative_attitude), thì anh em mình chuyện này còn tiếp tục không?
+    - Đời mình mình cũng có biết một chút, em [đừng có nói nhiều về việc phải trả nợ như vậy](negative_emotional_state).
+    - Tôi đã tuân thủ các điều khoản trả nợ. [Bạn có bằng chứng nào cho rằng tôi không đáng tin cậy](negative_attitude) ?
+    - Từ từ đã, đừng có vội vàng thế. Anh biết anh phải làm thế nào rồi. Nhưng giờ, anh cần thời gian mà suy nghĩ.
+    - Ồ, giờ mình mới hiểu, mình chưa trả tiền cho bạn. Mình sẽ sắp xếp và trả ngay.
+    - Tại sao chị phải trả nợ. Mấy thằng trên đầu chị vẫn còn nợ chị mà đã đòi chị trả nợ. Thật khó hiểu!
+    - Có gì không đúng sao? Mình đã trả tiền rồi mà, có thể ngân hàng chưa nhận được tiền?
+    - Ah, rõ rồi. Tôi sẽ trả tiền sớm nhất có thể. Cảm ơn đã nhắc nhở.
+    - Cuộc sống có nhiều chuyện phức tạp và khó khăn hơn là trả nợ. Bạn à, tôi biết mình phải làm gì.
+    - Tao đi vệ sinh đã, tao không muốn nghe nữa
+    - Tôi trả được tôi trả, tôi Không trả được thì sao? [Bạn giết tôi à](negative_attitude)?
+    - Cảm ơn đã chia sẻ nhưng nếu chị trả được thì chị đã trả rồi. Chị cũng [không muốn ai đến nói chuyện này với chị](negative_emotional_state).
+    - Bạn có đưa ra những tùy chọn khác không? [Tại sao tôi phải chấp nhận điều khoản này](negative_attitude)?
+    - Mình không nhớ ký cái gì cả, mình [Không trả đâu](debt_denial), [đừng có mà truy cứu mình](negative_attitude).
+    - [Đừng nói với tôi những lời đó](negative_emotional_state) , tôi sẽ trả khi tôi có tiền
+    - [Em không phải là người duy nhất đòi nợ tôi](negative_attitude). Tôi sẽ trả khi tôi sắp xếp được sự việc.
+    - [Ai đưa ra quy định là phải trả nợ.](negative_attitude) Ngày trước chưa ai đòi trả nợ tôi. [Tôi đéo có trả].(negative_attitude)
+    - Tôi đã nói với bạn rất nhiều lần rồi,[ đừng nhắc tôi nữa](negative_emotional_state) , tôi sẽ trả.
+    - Lịch sử tín dụng của tôi đã được xem xét kỹ lưỡng. Vì vậy, tôi không hiểu tại sao lại có quyết định từ chối vay nợ. Tôi cần bạn giải thích rõ ràng về lý do tại sao lịch sử tín dụng của tôi lại ảnh hưởng đến quyết định này và có những yếu
+    - Anh đang bị mất việc, [nợ ngập đầu rồi còn đòi sao được](negative_attitude).
+    - Tôi không biết, nhưng tôi đang rất hoang mang, căng thẳng với tình hình hiện tại.
+    - Tui bị thất nghiệp á,[ ko có tiền đâu mà trả.](negative_attitude)
+    - Mình đang phải chữa bệnh nên ko có tiền. Tha cho mình với.
+    - Tớ ít tiền nên phải tiết kiệm. Tớ Không trả nợ được lúc này đâu.
+    - Tao có biệt thự, xe hơi nhưng mày đừng mơ tao sẽ trả nợ được với cái thẻ tín dụng đó.
+    - Anh có tiền, nhưng không phải để trả nợ cho mấy cái thẻ tín dụng này.
+    - Tui không phải là người mà bạn đang tìm. Tôi không biết gì về thẻ tín dụng này.
+    - Tôi đang rất căng thẳng với cuộc sống hiện tại. Tôi không muốn nghe bất cứ ai nhắc về nó.
+    - Từ giờ tớ Không trả nợ nữa. Tớ không muốn sống trong nợ nên.
+    - Tao đang trong tình trạng khó khăn về tài chính. Tao Không trả được nợ.
+    - Anh không kiếm đủ tiền để trả nợ cho thẻ tín dụng các bạn.
+    - Dạo này tui không có tiền để trả nợ. Các bạn thông cảm cho tui với.
+    - Mình đã thất nghiệp. Mình không có khả năng trả nợ.
+    - Anh không hiểu tại sao lại có cái số nợ này. Anh không chịu trách nhiệm về nó.
+    - Anh không có tiền, anh Không trả nợ được!
+    - Tôi không còn tiền trả nợ nữa. Tôi cảm thấy tức giận vì điều này.
+    - Mình đã mất việc và không có khả năng trả nợ.
+    - Tao không muốn trả nợ cho cái thẻ tín dụng này.
+    - Anh cảm thấy rất khó chịu với việc anh phải trả nợ mỗi tháng.
+    - Tôi quyết định Không trả nợ nữa.
+    - Tui không phải trả nợ, tui không muốn trả nợ.
+    - Tớ không có tiền để trả nợ. Tớ muốn dừng việc trả nợ.
+    - Tao Không trả nợ nữa! Tao đã mất công việc của tao!
+    - Anh không muốn nghe nữa, anh không chịu trả nợ đâu.
+    - Tôi không muốn mất thêm thời gian chỉ để trả nợ.
+    - Tui Không trả được, tui không có việc làm!
+    - Mình đang khó khăn về tài chính, Không trả được nợ.
+    - Tớ không muốn trả nợ nữa, tớ thấy nó rất khó khăn.
+    - Tao không muốn trả nợ! Tao đã quyết định vậy rồi!
+    - Tôi chả muốn nói chuyện gì với bạn cả, rảnh rỗi thế?
+    - Anh đang bực mình lắm nha, thôi cho anh xin, đừng gọi nữa.
+    - Anh đang bận, không có thời gian nghe mấy cái việc vớ vẩn này của bạn.
+    - Tớ bốc mộ rồi, thôi đừng làm phiền tớ nữa.
+    - Tôi không muốn nghe nữa, hỡi người né tránh nợ, thả tôi ra đi.
+    - Tôi có quyền không nghe những thứ vớ vẩn này của bạn, bạn biết không?
+    - Tôi chảnh lắm, không muốn nói chuyện với bạn, đừng gọi nữa.
+    - Tao đang bực mình, khỏi gọi nữa, để tao yên!
+    - Tui chán ngán rồi, đừng gọi nữa, để tui yên!
+    - Thôi, đừng nói nữa. Tớ không muốn nghe, đừng gọi nữa.
+    - Anh yêu rất bực mình đấy, đừng gọi nữa được không?
+    - Để tôi yên, tôi không muốn nói chuyện với bạn.
+    - Tui không có nhu cầu nói chuyện với bạn, bạn thông cảm nha.
+    - Mình đang rất bận, khỏi gọi, đừng làm phiền mình.
+    - Chị không muốn nói chuyện với bạn, bạn đừng gọi nữa.
+    - Tao chả muốn nghe nữa. Thôi [cho tao xin, đừng phiền tao.](negative_emotional_state)
+    - Tôi không muốn nghe bất cứ điều gì nữa, [đừng gọi nữa.](negative_emotional_state)
+    - Tôi [đã đủ bực](negative_emotional_state) rồi, đừng thêm vào nữa, đừng gọi tôi.
+    - Anh không có hứng thú với những thứ này, [thôi đừng gọi nữa.](negative_emotional_state)
+    - [Tệ nạn, tôi không muốn nghe gì nữa cả](negative_emotional_state)
+    - Thôi, tôi không muốn nghe gì từ cậu nữa, tôi đã quá chán chường với cuộc sống không có cậu.
+    - Anh hơi khó chịu lắm, thôi đừng gọi nữa nhé.
+    - Tao đang ăn, khốn nạn, thôi đừng phiền tao nữa.
+    - Tao không muốn nói chuyện với bạn, thôi cho tao xin đi.
+    - Đồ khốn nạn, tao chả muốn nói chuyện với bạn, [thôi cho tao yên.](negative_emotional_state)
+    - Chắc chắn rồi, tao sẽ không nói chuyện với bạn, [thôi cho tao yên.](negative_emotional_state)
+    - Tao chả yêu cầu bạn gọi tao cả,[ thôi đừng làm phiền tao nữa!](negative_emotional_state)
+    - Tui không muốn nghe, thôi cho tui xin, đừng làm phiền tui nữa!
+    - Tôi không muốn nói chuyện với bạn, tôi cần thời gian yên tĩnh, bạn hiểu không?
+    - Tao đang rất bực mình, thôi đừng gọi tao nữa nhé.
+    - Đâu có đồng nào đâu mà trả? Tao đang vật lộn với cơm áo gạo tiền đây này.
+    - Tôi biết rồi, tôi sẽ trả sau. Đừng gọi nữa.
+    - Nếu tiền rôm như tiền tệ thì chắc chắn tôi sẽ trả đủ từ hôm qua.
+    - Tớ đang có chút rắc rối với việc cá nhân, sẽ trả sau.
+    - Mình sẽ trả... nếu mình có nó.
+    - Thẻ tín dụng sao kê hàng tháng? Tớ còn chưa đủ tiền trả thẻ tín dụng kỳ trước mà.
+    - Anh đang trong cảnh khó khăn, cần chút thời gian để trả nợ.
+    - Tớ biết, nhưng tớ chưa có tiền để trả.
+    - Đừng gọi cho tao, chẳng có đồng nào để trả đâu.
+    - Tôi sẽ trả nợ ngay khi tôi có tiền. Bây giờ tôi không có tiền.
+    - Ồ không, không phải anh không muốn trả nợ, chỉ là anh không có đủ tiền để trả nợ.
+    - Tao biết, nhưng chẳng phải tao đang nghèo không có tiền sao.
+    - Chị thừa hiểu chị đang nợ, nhưng chị cũng đang cố gắng trả.
+    - Miễn là mình có tiền, mình sẽ trả ngay lập tức.
+    - Anh sẽ trả tiền khi có thể, vui lòng đừng gọi nữa.
+    - Tớ đang gặp rắc rối ở công việc, nên tớ cần thêm thời gian để trả nợ.
+    - Ngày tôi có tiền, là ngày tôi trả nợ, nhưng hôm nay không phải ngày đó.
+    - Chồng chất lên cả đống nợ, chủ nợ gọi quanh năm. Tớ biết, nhưng gặp khó khăn quá nên tạm chưa trả được.
+    - Tao biết tao đang nợ, nhưng tao không biết làm sao để có tiền trả nợ.
+    - Nếu tôi có tiền, tôi sẽ trả nợ, nhưng tôi không có tiền để trả.
+    - Tôi biết rồi, nhưng tôi đang gặp khó khan, cho tôi thêm thời gian để trả nợ.
+    - Bạn đã không đáp ứng đúng cam kết ban đầu. Tại sao tôi lại phải trung thành với cam kết của mình?
+    - Tôi biết tôi vẫn nợ, nhưng tôi đang chờ một số tiền phải đến. Tôi sẽ trả nợ sau khi tôi nhận được nó.
+    - Tớ biết tớ cần trả tiền, nhưng tớ đang chờ đợi một khoản tiền từ một người bạn của tớ.
+    - Có rất nhiều người đang đợi tôi trả nợ. Tôi phải xem tôi có thể trả nợ cho ai trước.
+    - Tôi biết tôi phải trả tiền, nhưng tôi không thể trả tất cả mọi người cùng một lúc.
+    - Bạn có đảm bảo rằng các khoản phí và chi phí được tính toán đúng cách và hợp lý?
+    - [Tại sao tôi lại phải trả lãi suất cao như vậy khi thị trường đang có lãi suất thấp hơn](negative_emotional_state)  ?
+    - Bạn có chứng cứ nào chứng minh rằng tôi đã nhận được lợi ích từ khoản vay này?
+    - Tại sao tôi phải thanh toán khi tôi không nhận được dịch vụ đáng giá tương ứng?
+
+- intent: thông_tin_khác
+  examples: |
+    - Bạn có thể [giải quyết](debtor_request) vấn đề này ngay lập tức không?
+    - Tôi cần [hỗ trợ](debtor_request) về việc này ngay bây giờ.
+    - Làm ơn [kiểm tra lại](debtor_request) thông tin của tôi.
+    - Bạn giúp tôi [tìm hiểu](debtor_request) vấn đề này được không?
+    - Làm sao để tôi [liên hệ](debtor_request) với quản lý?
+    - Tôi cần một [giải pháp khác](debtor_request) cho vấn đề này.
+    - Tôi có thể [nói chuyện](debtor_request) với người quản lý được không?
+    - Làm ơn [gửi](debtor_request) tôi thông tin chi tiết qua email.
+    - Tôi cần một bản sao của hóa đơn gần đây nhất.
+    - Tôi có thể [đặt lịch hẹn](debtor_request) được không?
+    - Bạn giúp tôi [hủy bỏ](debtor_request) dịch vụ này được không?
+    - Tôi muốn [thay đổi](debtor_request) thông tin cá nhân của mình.
+    - Bạn có thể [giải quyết](debtor_request) vấn đề này trong hôm nay không?
+    - Tôi muốn [cập nhật](debtor_request) thông tin thanh toán.
+    - Tôi muốn [làm mới](debtor_request) dịch vụ của mình.
+    - Tôi muốn [thay đổi](debtor_request) gói dịch vụ của mình.
+    - Tôi muốn biết thêm về các khuyến mãi mới.
+    - Tôi cần được [tư vấn](debtor_request) về sản phẩm.
+    - Tôi muốn [đổi](debtor_request) sản phẩm này.
+    - Tôi có thể nhận được sự giúp đỡ từ một chuyên gia không?
+    - Tôi muốn kiểm tra [trạng thái](debtor_request) đơn hàng của mình.
+    - Tôi cần giúp đỡ với việc [cài đặt](debtor_request) sản phẩm.
+    - Tôi muốn [gửi](debtor_request) phản hồi về dịch vụ.
+    - Tôi có thể [nâng cấp](debtor_request) dịch vụ của mình không?
+    - Tôi muốn [hủy](debtor_request) đơn hàng của mình.
+    - Tôi cần giúp đỡ với việc [đặt lại](debtor_request) mật khẩu.
+    - Tôi muốn [kiểm tra](debtor_request) số dư tài khoản của mình.
+    - Bọn mày hãy [dừng cuộc gọi](debtor_request) này. Tao chả muốn ba cái cuộc gọi quấy rối này nữa.
+    - Tôi đã nói với em rất nhiều lần rồi, [dừng cuộc gọi](debtor_request) này lại cho tôi, em chớ làm phiền tôi nữa.
+
+- intent: thăc_mắc
+  examples: |
+    - Tao không nhận tiền đâu, mày [check lại](debt_inquiry) đi.
+    - Sao lại gọi cho tui? Tui [không lấy tiền](debt_denial) của công ty bạn.
+    - Làm ơn [check lại thông tin](debt_inquiry), chị không biết việc này.
+    - Mày nói cái gì vậy? Tôi [chả vay tiền](debt_denial)!
+    - Anh [không vay tiền](debt_denial) mà, thông tin sai rồi.
+    - Tớ không nhận được tiền, bạn [kiểm tra lại](debt_inquiry) giúp tớ với.
+    - Không, mình [không nhận tiền](debt_denial) nào hết.
+    - Chị [không mở thẻ](debt_denial), sao lại có hợp đồng?
+    - Các bạn [kiểm tra lại](debt_inquiry), tôi không có vay.
+    - Tôi không làm gì cả, tại sao lại gọi cho tôi?
+    - Thông tin sai rồi kìa, tui [không vay mà](debt_denial).
+    - [Check lại đi](debt_inquiry), không có tên tôi đâu.
+    - Mình [không vay mà](debt_denial), thông tin sai rồi kìa.
+    - Chưa nhận đồng nào đâu, bạn [xem lại](debt_inquiry) đi.
+    - Kiểm tra kỹ lại đi, tao [không lấy tiền đâu](debt_denial).
+    - Chị [không có ký hợp đồng](debt_denial), kiểm tra lại đi.
+    - Tao chưa nhận thấy tiền đâu, sao bắt tao trả?
+    - Tôi [không nhớ vay cái gì cả](debt_denial), bạn [check lại](debt_inquiry) hộ tôi.
+    - Đây là lần đầu tiên tao nghe về việc này, [kiểm tra lại ngay](debt_inquiry)!
+    - Mình [không nợ](debt_denial), các bạn [xem lại thông tin](debt_inquiry) giúp mình.
+    - Tớ [chưa từng mở thẻ](debt_denial), làm ơn [xem lại](debt_inquiry) hộ tớ.
+    - Công ty làm ăn lung tung quá, tui [không vay tiền](debt_denial)!
+    - Anh không biết chuyện này, bạn [tìm hiểu lại](debt_inquiry) đi.
+    - Cái gì vậy? [Chưa nghe kể về việc vay tiền](debt_denial) bao giờ!
+    - Tôi [chưa bao giờ nhận tiền](debt_denial), [kiểm tra lại](debt_inquiry) đi.
+    - Không biết vụ này, anh [chưa vay tiền](debt_denial) bao giờ.
+    - Tôi [không có mở thẻ](debt_denial), làm gì có chuyện đó?
+    - [Chưa vay tiền mà](debt_denial), thông tin sai rồi.
+    - Anh [không mở thẻ tín dụng](debt_denial), sao lại nói anh nợ?
+    - Có vấn đề gì không? Tôi [không có mượn tiền](debt_denial).
+    - Cái quái gì vậy? Tôi [không vay tiền](debt_denial)!
+    - Anh thật sự [không nhận được tiền](debt_denial), sao nói anh nợ?
+    - Chả hiểu công ty các cậu làm gì, mình [không nợ tiền đâu](debt_denial)!
+    - Tôi [chưa mở thẻ bao giờ](debt_denial), các bạn [check lại](debt_inquiry) đi.
+    - Chuyện gì vậy? Chị [không vay tiền đâu](debt_denial)!
+    - Tớ [không có vay](debt_denial), thông tin sai rồi kia!
+    - Anh không nhận được tiền, sao lại nói nợ?
+    - Các bạn đang nói gì vậy, tôi [không hề vay tiền](debt_denial)!
+    - Mày điên à, tao [không mở thẻ bao giờ](debt_denial)!
+    - [Chưa vay cái gì hết](debt_denial), chị Không trả đâu!
+    - [Kiểm tra lại thông tin](debt_inquiry) đi, tôi không mở thẻ.
+    - Làm ơn không gọi nữa, tao [không nợ tiền](debt_denial)!
+    - Tôi [không nhận tiền](debt_denial), thông tin của các bạn sai rồi!
+    - Mình [không vay](debt_denial), [kiểm tra lại thông tin](debt_inquiry) giúp mình với.
+    - Tôi [không biết việc này](debt_denial), bạn [xem lại](debt_inquiry) đi.
+    - Tôi [không mở thẻ](debt_denial), đừng làm phiền tôi nữa!
+    - Các bạn làm ơn [xem xét lại](debt_inquiry), mình [không vay mà](debt_denial).
+    - Tôi [không có nợ](debt_denial), [xem lại thông tin](debt_inquiry) đi!
+    - Công ty các bạn làm ăn cẩu thả quá!
+    - Tôi không biết công ty của các bạn là gì!
+    - Mày [check lại đi](debt_inquiry), tao [không nợ tiền đâu](debt_denial)!
+    - Các bạn lộn người rồi, chị [không vay tiền](debt_denial).
+    - Chuyện này tớ không biết, [kiểm tra lại đi](debt_inquiry)!
+    - Chị [không nhận tiền](debt_denial), [check lại thông tin đi](debt_inquiry).
+    - Tôi [không có vay](debt_denial), đừng gọi nữa!
+    - Anh [không có nợ tiền](debt_denial), đừng làm phiền anh!
+    - Tôi không có thông tin gì về việc này, [check lại đi](debt_inquiry)!
+    - Tôi [không vay](debt_denial), đừng gọi nữa, mất thời gian!
+    - Chị [không mở thẻ tín dụng](debt_denial), làm ơn đừng gọi nữa!
+    - [Không có chuyện này](debt_denial), tao [không vay tiền đâu](debt_denial)!
+    - Mình [không nhận tiền](debt_denial), làm ơn [kiểm tra lại](debt_inquiry)!
+    - Anh [không nhận tiền](debt_denial), sao lại bảo anh trả?
+    - Tôi [không biết chuyện này](debt_denial), đừng gọi nữa!
+    - Mày đừng làm phiền tao, tao [không vay tiền](debt_denial)!
+    - Chị [không vay](debt_denial), thông tin sai, [check lại đi](debt_inquiry)!
+    - Tớ [không nhận được tiền](debt_denial), [xem lại đi](debt_inquiry)!
+    - Tao [không có nợ](debt_denial), mày đừng gọi nữa!
+    - [Chưa nghe về vụ này bao giờ](debt_denial), [check lại đi](debt_inquiry)!
+    - Mình không biết vụ này, [kiểm tra lại thông tin](debt_inquiry)!
+    - Đừng gọi cho tôi nữa, tôi [không vay tiền](debt_denial)!
+    - Chị [không nhận được gì cả](debt_denial), thông tin của bạn sai!
+    - Tôi [không mở thẻ](debt_denial), các bạn đừng gọi nữa!
+    - Tôi [không biết vụ vay này là gì](debt_denial), đừng làm phiền tôi!
+    - Đây là lần đầu tớ nghe về việc này, [check lại thông tin](debt_inquiry)!
+    - Các bạn [kiểm tra lại thông tin](debt_inquiry), mình [không nợ tiền](debt_denial)!
+    - Anh [không nhận được tiền](debt_denial), các bạn [kiểm tra lại đi](debt_inquiry)!
+    - Cái quái gì vậy? Tôi [không mở thẻ tín dụng](debt_denial)!
+    - Tôi [không vay tiền](debt_denial), sao lại nói tôi nợ?
+    - Chị [không nhận tiền](debt_denial), các bạn [kiểm tra lại đi](debt_inquiry)!
+    - Mày ngừng gọi cho tao, tao [không biết vụ này](debt_denial)!
+    - Thẻ tín dụng? Mình đâu có mở thẻ, [check lại đi](debt_inquiry)!
+    - Tôi [không vay tiền](debt_denial), các bạn làm ơn không gọi nữa nhé!
+    - Công ty làm ăn loạn xạ vậy? Chị [không vay đồng nào cả
+    - Đừng gọi nữa, mình chả biết công ty các bạn là cái gì!
+    - Tao [không biết vụ này](debt_denial), đừng bám đuôi tao!
+    - Tôi [không nợ](debt_denial), nếu gọi nữa tôi sẽ báo công an đấy!
+    - [Không có chuyện đó](debt_denial), tớ [không nhận tiền đâu](debt_denial)!
+    - Mày làm ơn, đừng làm phiền tao nữa!
+    - Các cậu là ai vậy? Tớ [không mở thẻ mà](debt_denial)!
+    - Chị [không vay tiền](debt_denial), sao bảo chị nợ vậy?
+    - [Không có việc đó](debt_denial), tôi [không nhận tiền](debt_denial)!
+    - Lừa đảo à? Tao [không vay tiền mà](debt_denial)!
+    - Thông tin của bạn bị lỗi, tôi [không vay tiền](debt_denial)!
+    - Anh [không nợ](debt_denial), [kiểm tra lại hồ sơ đi](debt_inquiry)!
+    - Tôi sẽ không thanh toán vì tôi [không vay tiền](debt_denial)!
+    - Chị [không nhận được tiền](debt_denial), đừng làm phiền chị!
+    - Tôi không biết công ty bạn, tôi [không vay](debt_denial)!
+    - Tôi [không nợ tiền](debt_denial), đừng gọi tôi nữa!
+    - Anh [không mở thẻ](debt_denial), đừng gọi anh nữa!
+    - Chị [không có nợ](debt_denial), đừng gọi chị nữa!
+    - Tôi [không mở thẻ](debt_denial), các bạn đừng làm phiền tôi!
+    - Đừng gọi nữa! Mình [không nợ đồng nào cả](debt_denial)!
+    - Cái gì vậy? Tôi [không vay tiền đâu](debt_denial)!
+    - Thẻ gì vậy? [Chưa nghe bao giờ](debt_denial), đừng gọi nữa!
+    - Tôi [không biết chuyện này](debt_denial), làm ơn đừng làm phiền!
+    - Mày ngừng gọi cho tao, tao [không biết vụ này](debt_denial)!
+    - Anh không biết công ty của bạn, đừng gọi nữa!
+    - Tôi [không mở thẻ](debt_denial), đừng làm phiền tôi nữa!
+    - Đừng gọi nữa, tôi [không nợ tiền](debt_denial)!
+    - Mình [không vay tiền](debt_denial), sao bảo mình nợ?
+    - Thông tin sai rồi, tôi [không mở thẻ](debt_denial)!
+    - [Không đúng](debt_denial), tôi [không vay tiền](debt_denial)!
+    - Tôi [không có nợ](debt_denial), đừng làm phiền tôi!
+    - Tôi [không nhận tiền](debt_denial), thông tin sai rồi!
+    - Mày điên à? Tao [không mở thẻ bao giờ](debt_denial)!
+    - [Không đúng](debt_denial), mình [không vay tiền](debt_denial)!
+    - Mình [không nợ tiền](debt_denial), đừng gọi nữa!
+    - Đừng làm phiền tôi nữa, tôi không biết gì!
+    - Mình [không vay tiền](debt_denial), các bạn lộn người rồi!
+    - Anh [không nhận tiền](debt_denial), đừng làm phiền anh nữa!
+    - Tôi [đã gọi tổng đài nhưng không ai nghe máy](negative_emotional_state) [để giải thích lãi suất và phí](debt_inquiry).
+    - Cái hợp đồng của bạn tôi [chẳng hiểu gì cả](debt_denial) [liên quan đến lãi suất và phí](debt_inquiry).
+    - Tao [chả hiểu sao kê](negative_emotional_state) là cái gì, [trong vấn đề lãi suất và phí](debt_inquiry).
+    - Tớ [đã xem lại hợp đồng rồi](debt_inquiry) nhưng [vẫn không hiểu lãi và phí tính như thế nào](debt_denial).
+    - Tui đang ở ngoại tỉnh, [làm thế nào để xem sao kê](debt_inquiry) để [biết về lãi suất và phí](debt_inquiry).
+    - Mình [không nhớ đã ký cái hợp đồng](debt_denial) nào cả [liên quan đến lãi suất và phí](debt_inquiry).
+    - Chị [không biết sao kê là gì cả](debt_inquiry), mấy cái này quá khó để hiểu.
+    - Sao tôi [gọi tổng đài hoài](debt_inquiry) mà không được hỗ trợ vậy trời [trong việc lãi suất và phí](debt_inquiry)?
+    - Tui chả biết cái hợp đồng nói gì cả, tôi [không nhớ thông tin về lãi suất và phí](debt_denial).
+    - Anh [chẳng cần biết lãi hay phí](debt_denial), chỉ cần biết mình còn nợ bao nhiêu [để biết thêm về lãi suất và phí](debt_inquiry).
+    - Mình [đã gọi tổng đài nhưng không có ai hỗ trợ cả](negative_emotional_state) trong [việc lãi suất và phí](debt_inquiry).
+    - Chị [chưa bao giờ nhìn thấy cái hợp đồng](debt_denial) mà chị ký cả [về lãi suất và phí](debt_inquiry).
+    - Sao tôi có được thông tin [về lãi suất và phí](debt_inquiry)?
+    - Hợp đồng của tao đã bị mất rồi, giờ [làm sao để biết được lãi và phí](debt_inquiry)?
+    - Tui [không biết tìm sao kê ở đâu](debt_inquiry), có thể giúp tui không [để biết thêm về lãi suất và phí](debt_inquiry)?
+    - Đừng nói chuyện vòng vo như vậy, tôi [chỉ cần biết mình phải trả bao nhiêu phí và lãi suất](debt_inquiry) thôi.
+    - Chị thì chả biết gì về sao kê cả, tốt nhất là bạn giải thích luôn đi [về lãi suất và phí](debt_inquiry).
+    - Cái tổng đài của các bạn thì [không bao giờ nghe máy](debt_denial) cả, tôi không biết phải làm sao [để tìm hiểu về lãi suất và phí](debt_inquiry).
+    - Tao [chẳng hiểu gì về lãi và phí](debt_denial), bạn giải thích giùm tao đi [để tôi hiểu rõ hơn về lãi suất và phí](debt_inquiry).
+    - Cái [hợp đồng đó tớ không còn giữ nữa](debt_denial), giờ [làm sao để biết được thông tin về lãi suất và phí](debt_inquiry)?
+    - Tui thì [chả hiểu gì về chuyện hợp đồng](debt_denial) cả, cứ [nói rõ hơn đi về lãi suất và phí](debt_inquiry).
+    - [Đã mất công gọi tới thì sao](negative_emotional_state), bạn không [giải thích luôn cho tôi biết cái lãi và phí](debt_inquiry) đó là gì đi?
+    - Mình [không biết sao kê là như thê nào](debt_inquiry), bạn có thể [giải thích rõ hơn không về lãi suất và phí](debt_inquiry)
+    - Chị thì chẳng có nhiều thời gian để đọc cái hợp đồng đó nên [không biết thứ gì liên quan đến lãi suất và phí](debt_inquiry).
+    - [Làm sao tôi biết mình phải trả phí và lãi suất](debt_inquiry) như nào khi không nhận được giải đáp nào [về lãi suất và phí ](debt_detail)?
+    - Tui [chả nhớ là mình có ký hợp đồng](negative_emotional_state), nào, giờ [làm sao để xem lãi và phí](debt_detail) ?
+    - Anh [gọi tổng đài không ai nghe] (negative_emotional_state), gọi để hỏi về [lãi suất và phí](debt_detail).
+    - Bọn công ty nợ này,  [lúc nào cũng gặp rắc rối](negative_emotional_state), [lãi phí gì mà cứ thay đổi quài](debt_inquiry) .
+    - Mình đã [cố gọi tổng đài mấy lần mà không thấy ai trả lời](negative_emotional_state), không biết phải làm thế nào bây giờ [để hiểu thêm về lãi suất và phí](debt_inquiry).
+    - Mình chẳng hiểu cái hợp đồng của bạn, nó quá [phức tạp để hiểu lãi suất và phí](debt_inquiry).
+    - Các [hình thức thanh toán online](payment_channel) là như thế nào vậy em?
+    - Tao không biết [cách thanh toán online](payment_channel)
+    - Chị không rõ về việc [thanh toán ở cửa hàng điện thoại](payment_channel), em có thể giải thích thêm không?
+    - Nếu tôi muốn [trả ở viettel](payment_channel) thì làm cách nào vậy?
+    - Giờ anh đang ở quê, không biết [chỗ nào để thanh toán](payment_channel)
+    - Bên mình có những [cách thanh toán](payment_channel) nào vậy em?
+    - Chị [muốn thanh toán](payment_channel) thì phải làm sao?
+    - Tui cần rõ về cái việc [trả nợ tại viettel](payment_channel) có đc không?
+    - Phải ra cửa hàng thanh toán à, còn [cách khác](payment_channel) không?
+    - Tớ không rõ lắm, [thanh toán ở bưu điện](payment_channel) thì làm sao nhỉ?
+    - Mình cần tìm hiểu thêm thông tin về việc [thanh toán trên mạng](payment_channel)!
+    - Muốn [thanh toán thì ra đâu](payment_channel) em?
+    - Muốn [thanh toán ở quê](payment_channel) thì đi ra đâu em?
+    - Còn cách nào khác để thanh toán ngoài việc đến [viettel](payment_channel), [bưu điện](payment_channel) không?
+    - Thế mình có thể thanh toán tại bất kỳ [cửa hàng điện thoại](payment_channel) nào cũng được à?
+    - Tao không biết [thanh toán online](payment_channel), có cần gọi tổng đài để hướng dẫn không?
+    - Giờ tôi đang ở tây nguyên, không có 4g, không thanh toán qua ngân hàng được, có [cách thanh toán khác](payment_channel) không?
+    - Tui là người già, không biết [vụ online này](payment_channel). Em có thể giải thích rõ hơn được không?
+    - Có thể hướng dẫn tôi cách trả nợ tại [cửa hàng điện thoại](payment_channel) không?
+    - Anh không có tiền mặt, [thanh toán online](payment_channel) được không em?
+    - [Thanh toán online](payment_channel) sao em? Chỉ chị đi
+    - Tớ cần biết thêm về việc [thanh toán ở viettel](payment_channel)!
+    - Giải thích rõ [cách thanh toán](payment_channel) đi rồi anh trả tiền
+    - Chị chưa hiểu chỗ thanh toán toàn quốc ở [cửa hàng điện thoại](payment_channel) kìa!
+    - Nếu mình muốn [thanh toán tại bưu điện](payment_channel) thì làm như thế nào?
+    - Tôi cần hiểu rõ hơn về việc [thanh toán qua Viettel](payment_channel)
+    - [Thanh toán tại viettel](payment_channel), tui cần chuẩn bị những thông tin gì?
+    - [Thanh toán online](payment_channel) là như thế nào vậy? Mình không hiểu lắm, bạn giải thích cho mình với.
+    - Giờ tài khoản chị hết tiền rồi, có [cách thanh toán khác](payment_channel) không em?
+    - [Hợp đồng vay nợ](contract) của tôi có điều khoản nào về [lịch trình trả nợ và số tiền trả hàng tháng](debt_inquiry) ?
+    - Tôi có thể xem lại [hợp đồng vay nợ](contract) để hiểu rõ hơn về điều khoản và điều kiện?
+    - Làm thế nào để tính toán [số tiền còn lại cần trả và cách tính toán số tiền đó](debt_inquiry)?
+    - [Lãi suất được áp dụng cho khoản vay của tôi](debt_inquiry) là bao nhiêu? Xin giải thích cách tính lãi suất đó
+    - [Có phí phạt hoặc phí trễ hạn](debt_inquiry) nếu tôi Không trả tiền đúng hạn không? Nếu có, số tiền phạt đó là bao nhiêu?
+    - Tôi có thể biết về các [tùy chọn thanh toán khác nhau](payment_method) để trả nợ không?
+    - Tôi có thể thay đổi [lịch trình trả nợ](debt_inquiry) hoặc [tăng số tiền trả hàng tháng](debt_inquiry) được không?
+    - Tôi có thể biết về các biện pháp bảo vệ khách hàng nếu tôi gặp khó khăn trong việc trả nợ không? 
+    - Khi tôi trả tiền, số [tiền đó sẽ được ưu tiên trừ vào lãi suất hay vào số gốc](debt_inquiry)?
+    - Tôi có thể nhận được [thông báo trước về ngày thu hồi nợ](debt_inquiry) hoặc các thay đổi liên quan đến hợp đồng không?
+    - Tôi [có thể biết về các tùy chọn tái cơ cấu nợ hay thương lượng lại điều kiện vay](debt_inquiry) không?
+    - Khi tôi [trả nợ trước hạn, có phí thanh toán trước hạn](debt_inquiry) không?
+    - Tôi [có thể biết về các tài sản đảm bảo mà tôi đã cung cấp cho khoản vay](debt_inquiry) không?
+    - Nếu tôi [Không trả nợ đúng hạn, liệu tài sản đảm bảo của tôi có bị tịch thu](debt_inquiry) không?
+    - Tôi có thể biết về [quy trình và thủ tục để yêu cầu gia hạn hoặc kỳ hạn lại khoản vay](debt_inquiry) không?
+    - Nếu tôi muốn [trả nợ sớm hơn dự kiến](debt_inquiry), liệu có lợi ích gì không?
+    - Tôi có thể biết về [các tùy chọn thanh toán trực tuyến](payment_method) hoặc [qua ngân hàng](payment_channel) không?
+    - Tôi có thể [thay đổi phương thức thanh toán hàng tháng](payment_method) của mình không? Ví dụ: chuyển từ [thanh toán qua ngân hàng](payment_channel) sang [thanh toán tự động](payment_channel).
+    - Tôi có thể nhận được bảng [tổng kết về số tiền](debt_details) đã trả và [số tiền còn lại](debt_details) không?
+    - Các bạn [làm việc không tốt gì cả.] (negative_emotional_state) 
+    - Dịch vụ của bọn mày [chả ra gì](negative_emotional_state).
+    - [Chả muốn gặp mặt tụi mày nữa].(negative_emotional_state)
+    - [Dịch vụ hỗ trợ của mày thật sự rất tệ](negative_emotional_state)
+    - [Mấy cái tổng đài đều không hữu ích gì cả](negative_emotional_state)
+    - Tôi có thể biết về các chương trình khuyến mãi hoặc [ưu đãi đặc biệt liên quan đến khoản vay](debt_details) của tôi không?
+    - Tôi có thể yêu cầu [giảm lãi suất sau một thời gian trả nợ ](debt_details) đều đặn không?
+    - [Tôi không muốn liên lạc với bọn mày nữa.](negative_emotional_state)
+    - Tôi có thể biết về các biện pháp phòng ngừa và giảm thiểu rủi ro trong việc vay nợ tín dụng không?
+    - Tôi có thể biết về các điều khoản và điều kiện đặc biệt trong hợp đồng vay nợ không?
+    - [Các bạn hỗ trợ chả ăn nhập gì với tôi cả.](negative_emotional_state)
+    - [Ngày đến hạn thanh toán](debt_details) là khi nào?
+    - [Khi nào tôi phải trả ](debt_details) lại số tiền vay?
+    - Tôi cần biết [ngày cuối cùng để thanh toán](debt_details) khoản vay là khi nào?
+    - [Ngày đáo hạn khoản vay](debt_details) là khi nào?
+    - Thế à? [Hạn Thanh Toán đã đến](debt_details) sớm thật, cảm ơn em nhắc nhở
+    - [Ngày đáo hạn khoản vay](debt_details) là khi nào?
+    - Ok! Anh sẽ đảm bảo [thanh toán trước hạn](debt_details)
+    - Tôi cần [trả nợ trước ngày nào](debt_details)?
+    - [Khi nào là ngày quan trọng](debt_details) để tôi trả nợ?
+    - [Ngày đến hạn thanh toán](debt_details) rồi à? Ok, cảm ơn em
+    - Tôi phải [thanh toán số tiền vay vào ngày nào](debt_details)?
+    - Đến hạn thanh toán là vào [ngày nào trong tháng](debt_details)?
+    - Tôi có thể biết [ về ngày cuối cùng để tôi phải trả lại số tiền ](debt_details) vay không?
+    - [Khi nào tôi phải trả nợ](debt_details) theo hợp đồng?
+    - Tôi có thể biết [thời hạn cuối cùng để tôi trả nợ](debt_details) không?
+    - Tôi cần biết về [ngày mà tôi phải trả nợ ](debt_details)
+    - [Ngày trả nợ cuối cùng](debt_details) là khi nào?
+    - Tôi muốn biết [ngày chót để tôi phải trả](debt_details) lại số tiền vay.
+    - Khi nào là [ngày đến hạn để tôi trả lại](debt_details) số tiền đã vay?
+    - Tôi có thể biết về [ngày tôi cần trả nợ](debt_details) theo hợp đồng không?
+    - [Ngày mà tôi phải trả nợ](debt_details) là ngày nào trong tuần?
+    - Khi nào là [ngày ghi trong hợp đồng](debt_details) để tôi trả nợ?
+    - Tôi cần biết về [ngày tôi phải thanh toán khoản nợ](debt_details).
+    - [Ngày đến hạn thanh toán](debt_details) là vào ngày nào trong tháng?
+    - Khi nào là [ngày quy định để tôi trả nợ](debt_details)?
+    - Tôi có thể biết [ngày mà tôi phải trả nợ theo hợp đồng](debt_details) không?
+    - [Ngày mà tôi phải trả lại](debt_details) số tiền vay là khi nào?
+    - [Ngày trả nợ là vào ngày nào](debt_details) trong tháng?
+    - [Khi nào là ngày đến hạn](debt_details) để tôi trả lại số tiền đã vay?
+    - Tôi có thể biết về [ngày tôi cần trả nợ](debt_details) theo hợp đồng không?
+    - Xin lỗi, tôi không nghe rõ. Bạn có thể nói lại được không?
+    - Tôi xin lỗi, có thể bạn nói chậm hơn một chút được không?
+    - Rất tiếc, tôi không nghe rõ lắm. Bạn có thể nói to hơn được không?
+    - Xin lỗi, tôi không nghe kịp. Bạn có thể nói lại từ đầu được không?
+    - Tôi xin lỗi, có thể bạn lặp lại lần nữa được không?
+    - Rất tiếc, tôi bị mất một phần thông tin. Bạn có thể nói lại cho tôi được không?
+    - Xin lỗi, tôi không nghe rõ từ khóa quan trọng. Bạn có thể nhấn mạnh lại được không?
+    - Tôi xin lỗi, tôi đã bị lạc hướng trong lời giải thích của bạn. Bạn có thể nói lại một lần nữa được không?
+    - Rất xin lỗi, tôi không hiểu rõ. Có thể giải thích lại cho tôi từ đầu được không?
+    - Xin lỗi, tôi không nghe rõ phần cuối của câu trả lời của bạn. Bạn có thể nói lại lần nữa được không?
+    - Tôi xin lỗi, tôi đã bị mất điểm quan trọng trong lời diễn giải của bạn. Bạn có thể trình bày lại cho tôi không?
+    - Xin lỗi, tôi không nghe rõ thông tin về [chi tiết cụ thể]. Bạn có thể giúp tôi hiểu rõ hơn không?
+    - Tôi xin lỗi, tôi bị mất điểm trọng yếu trong lời diễn giải của bạn. Bạn có thể nói lại cho tôi không?
+    - Rất xin lỗi, tôi không nghe rõ phần cuối của câu trả lời của bạn. Bạn có thể nói lại lần nữa được không?
+    - Xin lỗi, tôi không nghe kịp thông tin về [nội dung cụ thể]. Bạn có thể giúp tôi hiểu rõ hơn không?
+    - Tôi xin lỗi, tôi bị mất điểm quan trọng trong lời diễn giải của bạn. Bạn có thể trình bày lại cho tôi không?
+    - Rất tiếc, tôi không nghe rõ phần giải thích về [nội dung cụ thể]. Bạn có thể nói lại một lần nữa được không?
+    - Xin lỗi, tôi không nghe kịp thông tin về [chi tiết cụ thể]. Bạn có thể giúp tôi hiểu rõ hơn không?
+    - Tôi xin lỗi, tôi đã bị lạc hướng trong lời giải thích của bạn. Bạn có thể nói lại một lần nữa được không?
+    - Rất xin lỗi, tôi không nghe rõ phần cuối của câu trả lời của bạn. Bạn có thể nói lại lần nữa được không?
+    - Xin lỗi, tôi không nghe kịp thông tin về [nội dung cụ thể]. Bạn có thể giúp tôi hiểu rõ hơn không?
+    - Xin lỗi, tôi không nghe rõ. Bạn có thể nói lại được không?
+    - ôi xin lỗi, có thể bạn nói chậm hơn một chút được không?
+    - Rất tiếc, tôi không nghe rõ lắm. Bạn có thể nói to hơn được không?
+    - Rất tiếc, tôi bị mất một phần thông tin. Bạn có thể nói lại cho tôi được không?
+    - Xin lỗi, tôi không nghe rõ từ khóa quan trọng. Bạn có thể nhấn mạnh lại được không?
+    - Tôi xin lỗi, tôi đã bị lạc hướng trong lời giải thích của bạn. Bạn có thể nói lại một lần nữa được không?
+    - Xin lỗi, tôi không nghe rõ phần cuối của câu trả lời của bạn. Bạn có thể nói lại lần nữa được không?
+    - Xin lỗi, tôi không nghe rõ thông tin về [chi tiết cụ thể]. Bạn có thể giúp tôi hiểu rõ hơn không?
+    - Rất xin lỗi, tôi không nghe rõ phần cuối của câu trả lời của bạn. Bạn có thể nói lại lần nữa được không?
+
+- intent: trả
+  examples: |
+    - Tao [đóng rồi] (confirmation)đấy, đừng có nhắc lãi nhé!
+    - Mình [đã thanh toán](confirmation) đúng ngày rồi, kiểm tra lại đi!
+    - [Đã nộp xong] (confirmation)số tiền đó rồi, làm ơn kiểm tra kỹ hơn.
+    - Tui xin bảo, tui [đã thanh toán] (confirmation)món nợ đó rồi.
+    - Tôi [đã thanh toán] (confirmation)tiền nợ của tôi rồi, bạn kiểm tra lại được không?
+    - Tớ [đã trả tiền](confirmation) đúng hạn rồi, sao còn nhắn nhủ thế?
+    - Tao [đã đóng] (confirmation)hết số nợ này rồi, sao còn nhắn nhủ thế?.
+    - Thân chào, tôi [đã  thanh toán](confirmation) hợp đồng thẻ tín dụng này.
+    - Tôi [đã chuyển] (confirmation)số tiền tối thiểu [ne_emi] đồng tôi nợ rồi.
+    - Tôi [đã trả](confirmation) hết nợ. Bạn kiểm tra lại giùm.
+    - Tao [đã thanh toán](confirmation) nợ này rồi, đừng nhắc nữa nhé!
+    - Anh [vừa thanh toán](confirmation) xong cái số nợ này.
+    - Rồi rồi, tôi [đã trả nợ] (confirmation)rồi. Bạn đừng nhắc nữa.
+    - Rồi, mình [đã nộp](confirmation) vào (hôm kia)(timeframe) rồi đó.
+    - [Thanh toán xong](confirmation) từ (hôm qua)(timeframe) rồi, kiểm tra kỹ lại đi!
+    - Em [vừa mới trả] (confirmation)cái nợ này xong, kiểm tra lại đi.
+    - Alo, tớ [đã trả](confirmation) cái nợ này rồi. Lại nhắc nữa à?
+    - Tôi [đã trả] (confirmation)tiền tôi nợ vào (hôm trước)(timeframe) rồi, xác nhận lại dùm tôi.
+    - Tôi [đã trả](confirmation) xong món nợ này, vui lòng xác minh lại!
+    - Tôi [đã thanh toán](confirmation) Bạn vui lòng kiểm tra lại!
+    - Uhm, tao [đã trả](confirmation) nợ rồi đấy!
+    - Tao [đã thanh toán] (confirmation)nhé, đừng nhắn nháy nữa!
+    - Tớ [đã đóng tiền] (confirmation)nợ rồi nha, check lại đi nha!
+    - Tao [đóng rồi](confirmation), kiểm tra lại đi rồi đừng có nhắn nữa nha!
+    - Tối qua tớ [đã chuyển tiền](confirmation) rồi nhé, check lại đi.
+    - Tao [vừa thanh toán](confirmation) xong, kiểm tra lại đi.
+    - Rồi, tao [đã trả](confirmation) rồi đấy, kiểm tra lại đi nha.
+    - Ừ, tao [đã trả] (confirmation)tiền rồi đó. Kiểm tra lại thử xem chúng mày đã nhận chưa nha.
+    - Tao [đã trả] (confirmation)nợ rồi đấy, đừng nhắn nháy nữa mệt ghê!
+    - Rồi rồi, tôi [đã trả](confirmation) tiền rồi, đừng nhắc nữa. Kiểm tra lại cho hết mệt nhé!
+    - Tôi [sẽ thanh toán](confirm_repay_debt) [ngay sau khi nhận tiền](timeframe).
+    - [Đừng lo](confirm_repay_debt), tôi [đang cố gắng sắp xếp](confirm_repay_debt) tiền để trả.
+    - [Chắc chắn](confirmation), tôi [sẽ đến ngân hàng](confirm_repay_debt) để giải quyết.
+    - [Được](confirmation), tôi đã chuẩn bị tiền và [sẽ thanh toán đầy đủ](confirm_repay_debt).
+    - [Cảm ơn vì đã thông báo](confirmation), tôi [sẽ cố gắng trả](confirm_repay_debt) [nhanh nhất](timeframe) có thể.
+    - [Tôi hiểu](confirmation), [tôi sẽ trả nợ theo thỏa thuận](confirm_repay_debt) của chúng ta.
+    - [Không sao cả](confirmation), tôi [đã sắp xếp để thanh toán đúng hẹn](confirm_repay_debt).
+    - Tôi đang [lên kế hoạch để trả nợ](confirm_repay_debt) trong thời gian [sớm nhất](timeframe).
+    - Mình [đã đề ra kế hoạch để thanh toán](confirm_repay_debt) trong [tuần này](timeframe).
+    - Tôi [sẽ đến trả nợ](confirm_repay_debt) cho bạn [ngay](timeframe).
+    - Không cần lo lắng, tôi [đã sắp xếp tài chính và sẽ thanh toán đúng hẹn](confirm_repay_debt).
+    - Tôi [cảm ơn vì việc nhắc nhở](confirmation), [tôi sẽ thực hiện thanh toán](confirm_repay_debt) theo thỏa thuận của chúng ta.
+    - [Cảm ơn][confirmation], tớ [sẽ thanh toán](confirm_repay_debt).
+    - Chị [hiểu rồi](confirmation). Chị [sẽ trả nợ sớm](confirm_repay_debt) thôi.
+    - Tớ [sẽ trả theo đúng kì hạn](confirm_repay_debt), cảm ơn vì đã nhắc nhở!
+    - Bạn ơi, tôi [vừa bị tai nạn](debt_denial_reason), khó khăn lắm, nhưng tôi [đảm bảo sẽ thanh toán](confirm_repay_debt) trong thời gian tới.
+    - Cháu ơi, sắp tới ông [phải chịu chi phí cho đám cưới](debt_denial_reason) của [cháu gái ông](relative),  nên [chưa thể trả ngay](debt_delay) được nhưng ông [hứa sẽ trả nợ cho cháu](confirm_repay_debt) trong thời gian tới.
+    - Chị ạ, tôi [vừa mới mất việc](economic_situation), còn [phải nuôi cả nhà](debt_denial_reason), nhưng tôi [cam kết sẽ trả nợ sớm](confirm_repay_debt).
+    - Cô ơi, [chồng tôi vừa mới qua đời](debt_denial_reason), cả nhà tôi ngập trong nợ, nhưng tôi [sẽ đảm bảo thanh toán](confirm_repay_debt) trong [thời gian tới](timeframe).
+    - Bây giờ nhà tôi [đang gặp khó khăn tài chính](economic_situation), tôi [không thể thanh toán ngay được](debt_delay). Mong anh thông cảm. Tuy nhiên, tôi [cam kết sẽ trả nợ](confirm_repay_debt) trong thời gian tới.
+    - Tớ [Không trả được] bây giờ. Nhà tớ [vừa bị sạt lở] nên cần thời gian để xử lý. Nhưng tôi [sẽ đảm bảo trả nợ](confirm_repay_debt) ngay khi có khả năng.
+    - Tui [mới mất người thân](debt_denial_reason), [chưa thể thanh toán được](debt_delay). Mong cậu thông cảm. [Tuy nhiên, tôi sẽ đảm bảo thanh toán] trong thời gian tới.
+    - Chị ơi, tui [chưa trả nợ được](debt_delay). Vì tui [vừa mới thất nghiệp](debt_denial_reason). Nhưng tôi [hứa sẽ trả nợ](confirm_repay_debt) sớm.
+    - Bạn ơi, tôi [chưa có khả năng trả nợ](debt_delay). [Nhà tôi vừa bị sập](debt_denial_reason) nên cần thời gian xử lý. Tôi [cam kết sẽ thanh toán](confirm_repay_debt) khi mọi thứ ổn định.
+    - Chị ơi, [nhà em vừa mới cháy](debt_denial_reason), em [chưa có khả năng trả nợ](debt_delay). Nhưng em [đảm bảo sẽ thanh toán](confirm_repay_debt) trong [thời gian tới](timeframe).
+    - Bác ơi, tôi [vừa mất việc](debt_denial_reason), [không thể trả nợ được](debt_delay). Tôi [sẽ đảm bảo trả nợ](confirm_repay_debt) sớm.
+    - Bây giờ gia đình tôi [đang gặp khó khăn](economic_situation), [Không trả nợ được](debt_delay). Mong bạn thông cảm. Nhưng tôi [cam kết sẽ thanh toán](confirm_repay_debt) trong [thời gian tới](timeframe).
+    - Tớ thật sự xin lỗi nhưng [gia đình tớ đang gặp rắc rối](debt_denial_reason). Tớ [chưa thể trả nợ được](debt_delay). Nhưng tôi [hứa sẽ trả nợ](confirm_repay_debt) khi có khả năng.
+    - Mình [không thể thanh toán ngay được](debt_delay). Mình mới mất việc(debt_denial_reason). Nhưng [mình cam kết sẽ trả nợ sớm](debt_delay).
+    - Tui [không thể thanh toán ngay được](debt_delay). Tui [mới mất việc(debt_denial_reason)], [cần thời gian để tìm việc mới](debt_delay). Tui [hứa sẽ trả nợ ngay](confirm_repay_debt) khi có khả năng.
+    - Tui [bận chăm bệnh cho con](debt_denial_reason), [dẫn con đi viện](debt_denial_reason) không làm gì được, tôi [sẽ đảm bảo thanh toán](confirm_repay_debt) [mấy hôm nữa](timeframe).
+    - Tao rất xin lỗi nhưng tao [đang ở viện chăm sóc] bố mẹ tao,[khó mà thanh toán giờ được](debt_delay),nhưng tao [hứa sẽ trả nợ](confirm_repay_debt) trong [tuần này](timeframe).
+    - Tôi [đang trong quá trình đổi công ty](debt_denial_reason), [không thể trả ngay bây giờ](debt_delay). Nhưng tôi [cam kết sẽ thanh toán](confirm_repay_debt) sớm.
+    - Em à, tôi [đang phải sửa chữa nhà](debt_denial_reason), nên tạm thời [tôi không thể trả nợ ngay lúc này](debt_delay). Nhưng em hãy yên tâm, tôi [sẽ thanh toán sớm](confirm_repay_debt).
+    - Một chút [trục trặc về tài chính](economic_situation) xảy ra trong gia đình, [không thể thanh toán được](debt_delay) vào lúc này. Tôi [hứa sẽ trả nợ](confirm_repay_debt) trong thời gian tới.
+    - Gia đình tôi [cần tiền để chữa trị một căn bệnh nặng](health_status). Do đó, tôi [cam kết sẽ thanh toán](confirm_repay_debt) sau khi tình hình ổn định.
+    - Tôi [cần thời gian để điều chỉnh kế hoạch tài chính](economic_situation) sau khi [vừa mua nhà mới](debt_denial_reason). Tôi [không thể trả nợ ngay bây giờ](debt_delay), nhưng [sẽ trả](confirm_repay_debt) trong thời gian tới.
+    - Anh [đang ở xa](debt_denial_reason) [không thể thanh toán](debt_delay) [bây giờ](timeframe) được. Tôi [cam kết sẽ thanh toán](confirm_repay_debt) ngay khi trở về.
+    - Tôi [đang phải lo tiền phẩu thuật](debt_denial_reason) cho [con gái](relative), [không thể trả nợ ngay bây giờ](debt_delay). Nhưng tôi [sẽ đảm bảo trả nợ] khi mọi thứ ổn định.
+    - Có một khoản tiền đột ngột [cần phải trả vào một dự án khẩn cấp](debt_denial_reason). Vì thế, tôi [không thể thanh toán ngay bây giờ](debt_delay). Nhưng tôi hứa [sẽ thanh toán sớm](confirm_repay_debt).
+    - Tôi mới [phải trả chi phí đào mương để tránh ngập lụt tại nhà](debt_denial_reason). [Không thể thanh toán được ngay lúc này], nhưng tôi [sẽ đảm bảo trả nợ] trong thời gian tới.
+    - Hiện tại, tôi [đang trong thời kỳ chuyển đổi công việc](debt_denial_reason), nhưng [tôi hứa sẽ thanh toán](confirm_repay_debt) ngay khi mọi thứ ổn định.
+    - Có một số [khách hàng của tôi trả tiền chậm trễ, khiến tôi bị không còn tiền](debt_denial_reason). Do đó, [tôi không thể thanh toán nợ ngay bây giờ]. Nhưng tôi [sẽ đảm bảo trả](confirm_repay_debt) sau khi tài chính ổn định.
+    - Gần đây, tôi [phải trả hóa đơn](debt_denial_reason) khám bệnh và thuốc cho gia đình, nên [không thể thanh toán nợ ngay lúc này](debt_delay). Tôi cam kết [sẽ thanh toán sớm](confirm_repay_debt).
+    - Công ty tôi [đang gặp khó khăn tài chính](economic_situation), nên [không thể trả nợ ngay lúc này](debt_delay). Tôi [sẽ đảm bảo thanh toán](confirm_repay_debt) sau khi tình hình cải thiện.
+    - Tôi [đang gặp một số vấn đề về thuế cần giải quyết](debt_denial_reason), nên tôi [cam kết sẽ thanh toán](confirm_repay_debt) sau khi tình hình giải quyết xong.
+    - Gần đây, tôi đã [mất số tiền lớn](economic_situation) trong một vụ đánh bạc không hợp pháp. Tôi [không thể trả nợ ngay bây giờ](debt_delay), nhưng tôi [hứa sẽ thanh toán](confirm_repay_debt) sớm.
+    - Tôi đang [phải giải quyết một vụ kiện pháp lý tốn kém](debt_denial_reason). [Không thể thanh toán được ngay lúc này](debt_delay), nhưng tôi [cam kết sẽ thanh toán](confirm_repay_debt) sau khi vụ kiện kết thúc.
+    - [Có một số thay đổi về thuế và luật pháp mà tôi cần thời gian để tìm hiểu](debt_denial_reason). Tôi [hứa sẽ thanh toán](confirm_repay_debt) ngay khi tôi hoàn tất việc tìm hiểu.
+    - Tôi [cần thời gian để xác định khi nào tài chính gia đình ổn định](debt_denial_reason) hơn. Tôi [cam kết sẽ thanh toán](confirm_repay_debt) sau khi tình hình ổn định.
+    - Hiện tại, tôi đang chờ nguồn thu nhập từ dự án đầu tư. Tôi [không thể trả nợ ngay bây giờ](debt_delay), nhưng tôi [sẽ đảm bảo thanh toán](confirm_repay_debt) khi dự án kết thúc.
+    - Tôi [cần thời gian để xử lý việc gia đình khẩn cấp](debt_denial_reason). [Không thể thanh toán nợ ngay lúc này](debt_delay), nhưng tôi [cam kết sẽ thanh toán](confirm_repay_debt) sớm sau khi tình hình gia đình ổn định.
+    - Gia đình tôi [đang đối mặt với một sự cố khó khăn](debt_denial_reason),cần tiền để giải quyết. Tôi hứa [sẽ thanh toán](confirm_repay_debt) sau khi gia đình tôi ổn định hơn.
+    - Tôi [cần thời gian để tìm một nguồn thu nhập thay thế sau khi mất việc](debt_denial_reason). Tôi [không thể trả nợ ngay lúc này](debt_delay), nhưng tôi [cam kết sẽ thanh toán](confirm_repay_debt) sau khi tìm được công việc mới.
+    - Tôi [đang phải thanh toán một số hợp đồng công việc](debt_denial_reason). Tôi [hứa sẽ trả nợ](confirm_repay_debt) ngay khi nhận được số tiền đó.
+    - Có một số [khoản chi tiêu đột ngột cần được giải quyết](debt_denial_reason). [Không thể thanh toán nợ ngay lúc này](debt_delay), nhưng tôi [sẽ đảm bảo thanh toán](confirm_repay_debt) sau khi tình hình ổn định.
+    - Tôi [đang tích luỹ tiền để đầu tư](debt_denial_reason) vào một dự án kinh doanh mới. [Tôi không thể trả nợ ngay bây giờ](debt_delay), nhưng tôi [hứa sẽ thanh toán sớm](confirm_repay_debt) sau khi dự án bắt đầu hoạt động.
+    - Tôi cần thời gian [để sắp xếp và chuẩn bị tiền](debt_denial_reason). Tôi [cam kết sẽ thanh toán](confirm_repay_debt) ngay khi có thể.
+    - Hiện tại, tôi [đang đối mặt với một số khoản chi phí y tế khẩn cấp](debt_denial_reason). [Không thể thanh toán nợ ngay lúc này](debt_delay), nhưng tôi [sẽ đảm bảo thanh toán](confirm_repay_debt) sau khi kế hoạch y tế được xác định.
+    - Tôi [đang tích luỹ tiền để đáp ứng các mục tiêu tài chính dài hạn](debt_denial_reason). [Tôi không thể trả nợ ngay bây giờ](debt_delay), nhưng tôi [hứa sẽ thanh toán sớm](confirm_repay_debt) sau khi đạt được mục tiêu đó.
+    - Tôi đang [có chuyện gia đình](debt_denial_reason), [chút khó khăn về chi phí đám tang](debt_denial_reason), nhưng tôi [cam kết sẽ trả nợ](confirm_repay_debt) trong [thời gian sớm nhất](timeframe).
+    - Em [biết em đã tới hạn](confirmation), nhưng em [đang phải chuẩn bị cho đám cưới](debt_denial_reason) của em gái, tôi [hứa sẽ thanh toán sớm](confirm_repay_debt) khi tiền đám cưới đã xong.
+    - Đừng nói nữa, [tôi hiểu rồi](confirmation). Nhưng tôi [đang phải chăm sóc gia đình](debt_denial_reason) trong thời gian này.Tôi [sẽ trả nợ nhanh nhất](confirm_repay_debt) có thể.
+    - [Tôi biết mà](confirmation), [đang cố gắng thu xếp mọi thứ cho đám tang](debt_denial_reason), nhưng [tôi sẽ đảm bảo thanh toán nợ sớm](confirm_repay_debt).
+    - Mình [đang phải xử lý một số vấn đề gia đình](debt_denial_reason), nên [việc thanh toán sẽ bị trễ chút xíu](debt_delay), nhưng mình [hứa sẽ trả sớm](confirm_repay_debt).
+    - Mình biết mình [đã quá hạn thanh toán](debt_denial_reason), nhưng [mọi thứ sẽ ổn khi mình giải quyết xong](confirm_repay_debt) vấn đề cá nhân.
+    - Cô đừng giục tôi, tôi [biết mình đang nợ tiền](confirmation) nhưng mình [đang phải lo việc đám tang](debt_denial_reason) [em tôi](relative).tôi [sẽ giải quyết nợ ngay khi xong](debt_delay) đám tang
+    - Lúc này tôi [đang cố gắng giải quyết một số rắc rối gia đình và các dự định cho đám tang](debt_denial_reason), tôi [hứa sẽ thanh toán](confirm_repay_debt) nợ ngay khi có thể.
+    - Chị ơi, em [đang đi hỗ trợ công việc gia đình liên quan đến đám tang](debt_denial_reason), [chắc chắn sẽ trả nợ](confirm_repay_debt) nhưng trễ một chút.
+    - Tôi [đang cố gắng giải quyết một số vấn đề cá nhân và đám tang](debt_denial_reason), nên có thể tôi [sẽ trả tiền nợ](confirm_repay_debt) trễ hơn một chút.
+    - Tôi [đang phải đối mặt với một số vấn đề gia đình](confirm_repay_debt), [không thể trả nợ ngay](debt_delay) [bây giờ](timeframe), [nhưng tôi sẽ đảm bảo trả sớm].
+    - Gia đình tôi [đang chuẩn bị cho đám cưới](debt_denial_reason) [em tôi](relative), vì vậy tôi [không thể thanh toán ngay lúc này](debt_delay). Nhưng [tôi cam kết sẽ trả nợ nhanh nhất có thể](confirm_repay_debt) sau khi đám cưới đã diễn ra.
+    - Tôi [mới mất người thân yêu và phải chuẩn bị cho lễ tang](debt_denial_reason), nên [tài chính hiện tại khá hạn hẹp](economic_situation). Tôi [hứa sẽ hoàn tất thanh toán nợ](confirm_repay_debt) trong thời gian ngắn [sau lễ tang](timeframe).
+    - Mọi người trong gia đình tôi [đang trong quá trình điều trị bệnh](debt_denial_reason) cho người thân. Chúng tôi [không thể thanh toán ngay](debt_delay), nhưng [chắc chắn sẽ trả nợ](confirm_repay_debt)khi có thể.
+    - Bà ngoại tôi [đang phải ở viện điều trị](debt_denial_reason) và gia đình [đang gặp khó khăn về tài chính](economic_situation). Tôi [đảm bảo sẽ trả nợ](confirm_repay_debt) ngay khi tình hình ổn định hơn.
+    - Tốt, tao [sẽ trả](confirm_repay_debt) trước ngày [ne_due_date](timeframe).
+    - Tao biết rồi, mày đừng nhắc nữa, [tuần sau](timeframe) tao [đóng liền](confirm_repay_debt).
+    - Vâng, em [trả liền](confirm_repay_debt)
+    - Đã nói là [sẽ thanh toán](confirm_repay_debt) mà, nhắc gì hoài vậy, không thấy [phiền](negative_emotional_state) à?
+    - Rồi rồi, [sẽ trả](confirm_repay_debt), nhắc lắm thế
+    - Anh [biết rồi](confirm_repay_debt), nhưng trả như thế nào vậy em?
+    - Ngày mốt có lương thì chị [trả](confirm_repay_debt) nha
+    - Oke bạn, biết rồi, [sẽ trả](confirm_repay_debt)
+    - [ne_short_due_date-2]  à? oke, gần tới đó [trả](confirm_repay_debt) nha
+    - [Trước hạn hai ngày](timeframe) em [trả](confirm_repay_debt) nha
+    - Tui chưa trả được, em thông cảm giúp tui với.
+    - À, cảm ơn em, suýt nữa chị cũng quên mất, để chị [trả liền](confirm_repay_debt)
+    - Oke em để anh [chuyển khoản liền](confirm_repay_debt)
+    - Để chị ra [Viettel](payment_channel) [chuyển liền](confirm_repay_debt) nha
+    - Khó nhở, [một tiếng nữa](timeframe) em [chuyển](confirm_repay_debt) được không, em đang ngoài đường
+    - Thôi nha, không gọi nhắc nữa nha, đã nói là [ba ngày trước hạn](time_frame) [sẽ trả](confirm_repay_debt) mà
+    - Để anh chạy ra cửa hàng [trả liền](confirm_repay_debt)
+    - Đi [trả liền](confirm_repay_debt), đừng có nhắc nữa
+    - [Mẹ nó](disparaging_language), có việc trả tiền thôi nhắc nhiều vậy? Còn lâu mới tới hạn mà, lần trước đã nói là [sẽ trả](confirm_repay_debt) mà sao cứ dai như đỉa vậy
+    - Chắc chưa, [sẽ trả](confirm_repay_debt) đúng hạn đó rồi sao
+    - Anh không có tiền, chưa thanh toán được, em nhắc sau nha.
+    - Chưa trả được, bạn nhắc sau cho tao nha.
+    - Còn chưa trả được. Chắc phải đợi lâu nữa quá.
+    - Giờ mình [chưa trả được], gần tới [ne_due_date] [nhắc] mình lại để mình [trả] nha
+    - Rồi, [trả trước [ne_short_due_date-2]](confirm_repay_debt)  là được chứ gì?
+    - Vâng, tới ngày mình [trả](confirm_repay_debt)
+    - [Biết rồi](confirmation)
+    - Ô kê chị biết rồi, [mai trả](confirm_repay_debt) nha
+    - Ừ em, [tới ngày](timeframe) anh [trả liền](confirm_repay_debt)
+    - À [oke](confirm_repay_debt) em, còn gì nữa không em?
+    - Đừng nhắc nữa, [tuần sau](timeframe) anh [trả](confirm_repay_debt)
+    - Rồi, anh [sẽ trả](confirm_repay_debt)
+    - Mặc dù anh mới [phá sản](economic_situation), nhưng anh vẫn [sẽ thanh toán đầy đủ](confirm_repay_debt), oke chưa?
+    - [Mai](timeframe) anh nhận lương anh [trả](confirm_repay_debt) nha
+    - Rồi rồi, [trả liền](confirm_repay_debt)
+    - Mai mới đến hạn mà em, [mai](timeframe) anh [trả](confirm_repay_debt)
+    - Biết rồi, sao tụi mày nhắc hoài vậy? Tao sẽ [thanh toán đúng hạn](confirm_repay_debt) mà
+    - Chị nhớ còn lâu mới tới hạn mà, nhắc sớm vậy em? Mà chị [sẽ trả đúng hạn](confirm_repay_debt) nha, yên tâm
+    - Em biết rồi,[ ba ngày nữa](timeframe) có lương em [thanh toán](confirm_repay_debt)
+    - [hai ngày](timeframe) nữa [trả](confrim_repay_debt) nha
+    - Biết gì chưa, anh [trả rồi](payment_status) đó
+    - Ngày [mốt](timeframe) em [trả](confirm_repay_debt) nha
+    - [Có thể](confirm_repay_debt), còn gì không em?
+    - [Oke](confirm_repay_debt) em, thanh toán trước thôi, đối với chị không phải vấn đề lớn
+    - Qua nay bạn nhắc tôi hơi bị nhiều rồi đó nha, bị [phiền](negative_emotional_state) á, đã nói là [sẽ trả](confirm_repay_debt) mà sao cứ nhắc hoài vậy
+    - Chị biết rồi, [ngày kia](timeframe) chị [trả](confirm_repay_debt) nhe bé
+    - Ờ, tui [sẽ chuyển trước](confirm_repay_debt) [ngày đó] (timeframe) một chút cho chắc.
+    - Được, mình [sẽ chuyển](confirm_repay_debt) vào [ngày mai] (timeframe) luôn, ok không?
+    - Tớ [định chuyển trước](confirm_repay_debt) đó rồi, có lẽ [ngày kia] (timeframe) tớ sẽ thanh toán.
+    - [Được](confirmation), tao sẽ trả trước hạn. Chắc chắn trước [ne_short_due_date] (timeframe).
+    - [Ok](confirmation), chị [sẽ chuyển tiền](confirm_repay_debt) vào [cuối tuần này] (timeframe).
+    - Anh [sẽ đóng tiền](confirm_repay_debt) trước [ngày hết hạn] (timeframe) một vài ngày.
+    - Không vấn đề gì, tôi [sẽ chuyển](confirm_repay_debt) vào [ngày mai] (timeframe) cho bên em.
+    - [Được](confirmation), tui [sẽ chuyển trước](confirm_repay_debt) cho em, khoảng [một tuần trước hạn] (timeframe).
+    - Anh [sẽ cố gắng chuyển](confirm_repay_debt) vào [tuần tới] (timeframe), trước [ne_short_due_date] (timeframe).
+    - [Ok](confirm_repay_debt), tao [đồng ý](confirm_repay_debt), tao [sẽ chuyển trước](confirm_repay_debt) ngày hạn.
+    - [Được](confirm_repay_debt), mình [sẽ chuyển](confirm_repay_debt) vào [thứ sáu này] (timeframe), trước ngày hết hạn nhé.
+    - Tớ [sẽ chuyển](confirm_repay_debt) trước, có lẽ vào [thứ bảy tới] (timeframe).
+    - Tao [đồng ý trả trước](confirm_repay_debt), nhưng cho tao vài ngày nữa để sắp xếp tiền nhé.
+    - Anh [đồng ý trả trước](confirm_repay_debt), để anh sắp xếp và chuyển trong [tuần này] (timeframe).
+    - Tui sẽ [chuyển sớm](confirm_repay_debt), khoảng [3 ngày trước hạn] (timeframe) cho em.
+    - Chị sẽ cố gắng thanh toán vào [cuối tuần này] (timeframe), trước ngày hết hạn.
+    - [Được](confirm_repay_debt), mình sẽ [chuyển trước](confirm_repay_debt) cho em, khoảng [thứ tư tuần tới] (timeframe).
+    - Tớ sẽ [chuyển trước](confirm_repay_debt), khoảng vài ngày trước hạn.
+    - [Không sao cả](confirm_repay_debt), tao [sẽ chuyển trước](confirm_repay_debt) [ngày hết hạn] (timeframe) một chút.
+    - Anh [sẽ chuyển trước](confirm_repay_debt) [ngày 10/5] (timeframe), khoảng [một tuần trước] (timeframe).
+    - Tui [đồng ý](confirm_repay_debt), tui sẽ chuyển vào [ngày mai] (timeframe) cho em.
+    - Tao [sẽ thanh toán trước](confirm_repay_debt), khoảng [thứ ba tuần tới] (timeframe) cho chắc.
+    - Mình [đồng ý](confirm_repay_debt), mình sẽ trả vào [thứ năm này] (timeframe) nhé.
+    - Tôi sẽ sắp xếp và [chuyển trước](confirm_repay_debt) [ngày hết hạn] (timeframe) cho em.
+    - Tớ sẽ thanh toán trước, vào [thứ sáu tuần tới] (timeframe) cho chắc.
+    - Được, tui sẽ chuyển vào [thứ bảy này] (timeframe) trước hạn.
+    - Tớ [sẽ chuyển trước](confirm_repay_debt), có lẽ vào [thứ bảy tới] (timeframe).
+    - Tao [đồng ý trả trước](confirm_repay_debt), nhưng cho tao vài ngày nữa để sắp xếp tiền nhé.
+    - [Chắc chắn rồi](confirm_repay_debt), tôi [sẽ chuyển trước](confirm_repay_debt) [ngày 2/7] (timeframe).
+    - Anh biết mà, anh đã chuẩn bị sẵn tiền rồi, anh [sẽ thanh toán sớm](confirm_repay_debt).
+    - Anh có nhờ [mẹ](relative) anh [đóng giùm rồi](confirmation) 
+    - [Con gái](relative) chị mới đi [đóng chiều nay rồi] (confirmation)
+    - Em kiểm tra lại đi, [chồng](relative) chị [trả rồi](payment_status) mà 
+    - [Bố](relative) tôi [đã thanh toán](payment_status) ở tgdd và đang cầm biên lai này
+    - Có biên lai rồi em, [con](relative) chị [đóng tiền xong](confirmation) nó đang giữ
+    - Chị nói [bố](relative) đi [đóng hộ rồi](confirmation) á em 
+    - (Em)(relative) tôi (trả xxx triệu)[confirmation] ở [fpt](payment_channel) ngày hôm qua rồi
+    - [Bạn](accquatance) tôi (đóng giùm rồi)(confirmation) 
+    - Rồi em, [con](relative) chị nó đi [đóng tiền rồi](confirmation)
+    - À, [mai](timeframe) [chồng](relative) tôi [sẽ thanh toán](debt_delay)
+    - Chị đưa tiền cho mẹ rồi, [mai mốt](timeframe) [mẹ](relative) chị [sẽ đi đóng](debt_delay) nha
+    - OK, giờ chị nhờ [con](relative) chị [chuyển khoản](payment_method) liền 
+    - Tôi chưa rảnh bây giờ, nhưng có nhờ [bạn](accquatance) đi [đóng hộ rồi](confirmation)
+    - Ừ có biên lai rồi, thanh toán ở [viettel](payment_channel) xxx triệu 
+    - Được rồi, tôi [sẽ thanh toán](payment_status) trước [ngày đó](timeframe).
+    - Ok, tôi [sẽ chuyển tiền](payment_intent) ngay.
+    - Tôi hiểu, [sẽ thanh toán](payment_status) ngay bây giờ.
+    - Đúng, mình [sẽ chuyển tiền](payment_intent) trước hạn.
+    - Được, tôi [sẽ thanh toán](payment_status) ngay.
+    - Tôi [sẽ thanh toán](payment_status) vào [ngày mai](timeframe).
+    - Tôi sẽ kiểm tra và [thanh toán](payment_intent) ngay.
+    - Chắc chắn, [sẽ chuyển tiền](payment_intent) trong hôm nay.
+    - Không vấn đề gì, tôi [sẽ thanh toán](payment_status) ngay.
+    - Ừm, mình [sẽ thanh toán](payment_status) sau khi kiểm tra.
+    - Ổn, tôi [sẽ thanh toán](payment_status) ngay khi nhận được hóa đơn.
+    - Tôi đồng ý, [sẽ thanh toán](payment_status) trong vòng 24 giờ.
+    - Ok, tôi [sẽ thanh toán](payment_status) trước [ngày hết hạn](timeframe).
+    - Được, tôi [sẽ chuyển tiền](payment_intent) trong vài phút nữa.
+    - Tôi nhận được thông tin, [sẽ thanh toán](payment_status) ngay.
+    - Đồng ý, tôi [sẽ thanh toán](payment_status) ngay bây giờ.
+    - Tôi [sẽ thanh toán](payment_status) trước thứ sáu.
+    - Được, tôi [sẽ thanh toán](payment_status) ngay hôm nay.
+    - Tôi [sẽ thanh toán](payment_status) trước [ngày 10](timeframe).
+    - Tôi [sẽ chuyển tiền](payment_intent) trước [ngày hết hạn](timeframe).
+    - Đúng, tôi [sẽ thanh toán](payment_status) vào cuối tuần.
+    - Ok, tôi [sẽ thanh toán](payment_status) vào [ngày kế tiếp](timeframe).
+    - Được, tôi [sẽ thanh toán](payment_status) trước [ngày 15](timeframe).
+    - Chắc chắn, tôi [sẽ thanh toán](payment_status) trước [ngày 20](timeframe).
+    - Tôi đồng ý, [sẽ thanh toán](payment_status) trong vòng một tuần.
+    - Được, tôi [sẽ thanh toán](payment_status) ngay bây giờ.
+    - Tôi [sẽ thanh toán](payment_status) vào thứ hai tới.
+    - Tôi [sẽ chuyển tiền](payment_intent) vào thứ tư.
+    - Ok, tôi [sẽ thanh toán](payment_status) trước 12h đêm.
+    - Tôi đồng ý, [sẽ thanh toán](payment_status) trước [ngày 5](timeframe).
+    - Tôi đang bị [ốm](health_status), còn muốn nói chuyện gì thì sau hẵn nói.
+    - Bệnh tình của tôi như này, còn gì để trả nợ đây?
+    - Anh đau [bệnh](health_status) như thế này, tiền đâu mà trả cho bạn?
+    - Tui đang [ốm](health_status), còn kịp trả nợ đâu!
+    - Anh đang ở [bệnh viện](health_status), trả nợ đâu phải chuyện quan trọng nhất.
+    - Mỗi ngày tôi [đau đớn](health_status) như này, nghĩ đến việc trả nợ làm gì?
+    - Tôi [ốm đau](health_status) thì tôi đâu có thể trả nợ được cho bạn.
+    - Đừng nói chuyện trả nợ với tôi lúc này, tôi đang [ốm](health_status).
+    - Tôi muốn trả nhưng bây giờ tôi đang [ốm](health_status) nhé, có tiếng mà không có miếng đấy.
+    - Tui đang [bệnh](health_status), tiền có thì cũng để trị bệnh chứ không phải trả nợ.
+    - Anh đâu có tiền trả nợ, mả tôi nằm [viện](health_status) kìa.
+    - Anh chả còn sức nào để nghĩ đến chuyện trả nợ cả.
+    - Tao bảo mày rồi, tao đang [ốm](health_status), trả nợ đâu phải là vấn đề lớn nhất bây giờ.
+    - Tôi không có sức để nghĩ đến chuyện trả nợ nữa.
+    - Trả nợ? Tao đang [ốm](health_status) đây này.
+    - Mày có biết tao đang phải chống chọi với [bệnh tật](health_status) không mà cứ đòi nợ mãi thế?
+    - Trả nợ? Tao [bệnh](health_status) thì có cơ hội nào trả nợ cho mày?
+    - Hiện tại tôi đang đau quá, không thể nghĩ đến chuyện trả nợ.
+    - Còn [bệnh tật](health_status) thì đâu có tiền mà trả nợ.
+    - Bây giờ tân tốt bao nhiêu, dành dụm để trị bệnh cũng không đủ, trả nợ thì đợi sau nhé.
+    - Thật sự tôi đang [bệnh](health_status) mà, không có khả năng dành dụm tiền trả nợ dau.
+    - Chỉ nghĩ đến chuyện trả nợ là đau bệnh thêm thôi, bạn ơi.
+    - Có [bệnh tật](health_status) như tôi thì đâu có khả năng trả nợ for mấy bạn.
+    - Tao [ốm](health_status) quá, chả có sức trả nợ.
+    - Lúc này tôi đang cần tiết kiệm từng đồng để trị bệnh, không có khả năng trả nợ đâu bạn à.
+    - Tôi đang trong [bệnh viện](health_status), trả nợ thì có sau, giờ tôi cần điều trị.
+    - [Bệnh](health_status) này kéo dài, không biết khi nào mới trả nợ được.
+    - Dù biết nợ mình phải trả nhưng [bệnh](health_status) như này thì trả sau đi bạn ơi.
+    - Tao [bệnh](health_status) rồi, trả nợ thì chắc phải đợi.
+    - Cần gấp tiền để chữa [bệnh](health_status), trả nợ có sau.
+    - Chả là anh bị [ốm](health_status) hôm qua, thanh toán không nổi em ạ.
+    - Tao đang bị đau bụng, không đọc kịp số atm để thanh toán.
+    - Mình bị thấp huyết mấy hôm nay, không thể thanh toán được. Mình xin lỗi nhé.
+    - Tôi nhớ là đã giao bàn giao lại cho con tôi thanh toán rồi nhưng tôi không biết tại sao giờ vẫn còn nợ. Tôi vẫn đang điều trị tại [bệnh viện](health_status).
+    - Tui đang [bị sốt](health_status), chắc khó mà ra ngân hàng thanh toán.
+    - chị đang [cảm lạnh](health_status), không thể thanh toán được.
+    - Thằng nhỏ của tao vừa nhập [viện](health_status), không thanh toán được ngay đâu nha.
+    - Rất tiếc, mình đang [ốm](health_status) nặng không thể thanh toán.
+    - Tôi bị [đau dạ dày](health_status), khó có thể thanh toán được.
+    - Tao [đang đi viện](health_status), không thanh toán được.
+    - Tui [đang trong viện](health_status) không có điều kiện để thanh toán.
+    - Tao đang bị [ốm](health_status), có thể Không trả được thời gian này.
+    - [Chồng mình](relative) đang bị [bệnh nặng](health_status), Không trả nổi đâu.
+    - Mình bị [viêm gan](health_status) ghé lắm, không nghĩ đến việc trả nợ được.
+    - Tui đang lo cho [bệnh tật](health_status) của [mẹ tui](relative), tiền đâu ra trả nợ giờ.
+    - Anh đang trong [bệnh viện](health_status), không làm gì được, trả nợ xong rồi họ mới cho ra chăng?
+    - Tôi đang [nhập viện](health_status), không lo được việc này.
+    - [Người nhà mình](relative) mất, tiền đâu mà trả nợ bây giờ.
+    - Tui bị [tai biến](health_status) cách đây vài hôm, đang tập đi lại kìa, trả nợ thì sau hết ốm đã.
+    - Mình đang trong tình trạng [nguy kịch](health_status), không thể trả nợ được.
+    - [Con tui](relative) mất do tai nạn giao thông, tôi có thể trả sau được không?
+    - [Bà nhà tui](relative) ra đi bất ngờ, đợi tui lo xong việc tang sẽ trả.
+    - [Ông bà nhà tui](relative) mới mất vì COVID, tui Không trả được việc này.
+    - Tao đang trong quá trình hồi phục từ [cú sốc](health_status), không thể trả được.
+    - Mình đang hồi phục từ [phẫu thuật](health_status), không tự lo được.
+    - [Má tui](relative) mới mất, để tui xong việc rồi trả sau.
+    - [Cha tôi](relative) mất, tôi không thể tập trung vào việc trả nợ được.
+    - [Vợ chồng tui](relative) đều đang nằm viện, đợi vợ tui ổn rồi trả sau.
+    - [Con cháu tui](relative) bị viêm phổi, tui Không trả được giờ.
+    - Mình khó đi lại do tình trạng sức khỏe. Có cách nào giúp mình không?
+    - Tiền thì tao có nhưng tao không tự đi được, giúp tao với!
+    - Sức khỏe của tớ đang không [tốt](health_status), nên tớ không thể thanh toán được, có cách nào làm ơn giúp tớ không?
+    - Tôi đang [bịnh nặng](health_status), tạm thời không có cách thanh toán, nhờ anh tìm cách giải quyết giúp!
+    - Tình hình sức khỏe tao đang rất [tệ](health_status), tao không tự thanh toán được, giúp tao với!
+    - Tôi không thể tự thanh toán nổi vì tôi đang gặp vấn đề về sức khỏe, bạn có thể giúp tôi không?
+    - Mình đang phải điều trị nên không tự thanh toán được, bạn giúp mình nghen!
+    - Nếu không do vấn đề sức khỏe, tại sao tôi lại không thanh toán. Cậu có thể giúp tôi không?
+    - Tình hình sức khỏe không [tốt](health_status), không tự đi đóng nổi, các cậu thông cảm nhé!
+    - Hiện tại tớ đang không [khỏe](health_status) nên không thể tự thanh toán. Có cách khác không cả nhà?
+    - [Bệnh](health_status) đã cản trở việc tự thanh toán của mình rồi, có cách nào giúp mình không?
+    - Chắc em không hiểu, tui đang bị [bệnh nặng](health_status) không tự thanh toán được!
+    - Tôi hiện đang [bịnh nặng](health_status) không tự thanh toán được, lấy lòng giúp đỡ!
+    - Vấn đề sức khỏe không cho phép tôi tự thanh toán, có ai giúp tôi không?
+    - Tôi đang [hấp hối](health_status) mà còn đòi nợ! Có cách nào thanh toán giúp tôi không?
+    - Mình nằm viện cả tháng nay nên không tự thanh toán được. Mong các bạn thông cảm!
+    - Dạo này sức khỏe của tớ sa sút nên không thể tự thanh toán được, giúp tớ với!
+    - Anh dang bị [bệnh](health_status), nên việc trả nợ không thể thực hiện được.
+    - Tôi không thể đóng nợ bây giờ, tôi đang phải [điều trị](health_status).
+    - Tôi đang trong quá trình [hồi phục](health_status) sau phẫu thuật, rất tiếc không thể thanh toán nợ.
+    - Tui đang chịu đựng căn [bệnh quái ác](health_status), không thể nghĩ đến chuyện nợ nữa.
+    - Mình đang phải [điều trị](health_status), nên việc đóng nợ không thể thực hiện được.
+    - Chị đang phải [điều trị bệnh](health_status) nên khó lòng có thể thanh toán được nợ.
+    - Tao không thể nghĩ đến việc trả nợ khi tao đang phải chống chọi với [bệnh tật](health_status).
+    - Chúng ta có thể trì hoãn việc đóng nợ cho tớ, tớ đang [ốm](health_status).
+    - Anh đang bị [bệnh nặng](health_status), vụ đóng nợ chắc phải để sau.
+    - Tôi đang gặp vấn đề về sức khỏe, không thể trả nợ được.
+    - Trả nợ không thể thực hiện được lúc này, tui đang vật lộn với [bệnh tật](health_status).
+    - Mình đang bị [ốm](health_status) đấy, dù muốn cũng không thể trả nợ.
+    - Chị đang phải chống chọi với căn [bệnh](health_status), không thể trả nợ được.
+    - Tao đang [đau đớn](health_status), việc trả nợ không thể thực hiện được.
+    - Tớ đang gặp vấn đề với sức khỏe của mình, không thể nghĩ đến chuyện trả nợ.
+    - Anh đang bị [bệnh nặng](health_status), không thể tập trung vào việc đóng nợ.
+    - Tớ thật sự muốn thanh toán nhưng [sức khoẻ](health_status) tớ không cho phép.
+    - Anh biết mình sai, nhưng [sức khoẻ](health_status) anh không cho phép anh thanh toán.
+    - Tao đang chịu đựng [nỗi đau](health_status), tao không thể thanh toán nợ.
+    - Mình biết mình nợ tiền, nhưng mình cần tập trung vào việc giữ gìn [sức khỏe](health_status).
+    - Tớ biết tớ nợ tiền, nhưng tớ đang cần nghỉ ngơi vì lý do [sức khỏe](health_status).
+    - [Vấn đề sức khỏe](health_status) không cho phép tôi thanh toán trễ.
+    - Chưa, tôi chưa đóng phí nợ, tui không biết mình phải đóng [ở đâu và bao nhiêu tiền](debt_inquiry).
+    - Ồ, tao chưa thanh toán, có nghĩa là tớ phải trả [bao nhiêu tiền và ở đâu](debt_inquiry) vậy?
+    - Chưa, tôi chưa đóng nợ, bạn có thể nói rõ lại là phải đóng [ở đâu và bao nhiêu tiền](debt_inquiry) không?
+    - Tao chưa nhận được biên lai nào cả, tại sao không nghe gì về [số tiền phải trả và nơi thanh toán](debt_inquiry)?
+    - Chưa nhé, tui chưa thanh toán. Biết đâu đóng nợ? [Đóng bao nhiêu tiền](debt_inquiry)?
+    - Chưa, tớ chưa thanh toán. Nói rõ hơn đi là tớ đóng [ở đâu và bao nhiêu tiền](debt_inquiry)?
+    - Chưa, anh chưa đóng nợ nào. Chỉ cho anh [nơi thanh toán với số tiền cụ thể](debt_inquiry) đi?
+    - Tui không nhận được biên lai nào thì làm sao biết phải đóng [ở đâu, đóng bao nhiêu](debt_inquiry) nào?
+    - Chưa, mình chưa thanh toán. Vậy mình đóng [ở đâu và đóng bao nhiêu](debt_inquiry) thì mới hết nợ?
+    - Anh chưa nhận được biên lai thanh toán, vậy anh đóng [ở đâu, đóng bao nhiêu mới đủ](debt_inquiry)?
+    - Ờ, tao chưa thanh toán. Bảo tao biết đóng [ở đâu và bao nhiêu tiền](debt_inquiry) đi?
+    - Chưa, tui chưa thanh toán một xu nào. Biết đâu đóng và [bao nhiêu](debt_inquiry) hả?
+    - Biên lai? mình chưa nhận được gì cả. Cần thanh toán [ở đâu với bao nhiêu tiền](debt_inquiry)?
+    - Đến lúc này, tao chưa nhận được biên lai nào hết, không biết phải trả [bao nhiêu tiền](debt_inquiry) mà trả.
+    - Tôi đã [đồng ý ](confirmation) đứng tên giúp và sẽ [ đảm bảo thanh toán] (confirmation) đầy đủ cho khoản vay này.
+    - Tôi xác nhận rằng tôi [ sẽ trả tiền ](confirmation) cho tất cả các khoản nợ trong danh sách này.
+    - Tôi đã thể hiện ý định rõ ràng rằng tôi sẽ đóng góp tài chính cho hóa đơn này
+    - Đừng lo lắng, tôi đã [chuẩn bị sẵn sàng trả tiền] (confirmation) cho những khoản nợ mà tôi đã đứng tên giúp.
+    - Tôi đã cam kết trả tiền cho khoản vay và sẽ tuân thủ cam kết đó.
+    - Tôi đồng ý chịu trách nhiệm tài chính và [sẽ trả tiền] (confirmation) cho hóa đơn theo thỏa thuận ban đầu.
+    - Tôi đã thể hiện rõ rằng tôi sẽ [đứng ra trả tiền](confirmation) cho hóa đơn này
+    - Tôi [cam kết sẽ thanh toán] (confirmation) toàn bộ số tiền nợ cho khoản vay này.
+    - Hãy tin tưởng, tôi sẽ không từ bỏ và [sẽ trả tiền ](confirmation) cho những khoản nợ mà tôi đã đứng tên giúp.
+    - Tôi đã xác nhận rằng tôi sẽ chịu trách nhiệm và đóng góp tài chính cho hóa đơn này.
+    - Tôi đã [cam kết trả tiền] (confirmation) cho tất cả các khoản vay mà tôi đã đứng tên giúp.
+    - Tôi đồng ý trở thành người trả nợ và sẽ [đảm bảo thanh toán ](confirmation) đúng hạn.
+    - Tôi xác nhận rằng tôi sẽ chịu trách nhiệm tài chính và [sẽ trả tiền]  (confirmation) cho mọi khoản nợ liên quan đến khoản vay này.
+    - Tôi đã thể hiện ý định rõ ràng rằng tôi [sẽ chịu trách nhiệm trả tiền] (confirmation) và không để người mượn gánh chịu.
+    - Tôi cam kết [sẽ thanh toán] (confirmation) toàn bộ số tiền nợ và không để lại bất kỳ khoản nợ nào.
+    - Mình biết rồi. [Sẽ cố gắng để trả nợ ](debt_delay) sớm nhất có thể.
+    - Tớ biết rồi, không cần đề cập vấn đề này nữa. (emotional_state)
+    - Em biết rồi,  [đừng có nhắc mãi](emotional_state) . Anh sẽ giải quyết được mà.
+    - Chị đây, chị nhớ như in. [Đừng nhắc nhở nữa] (emotional_state), ghê quá!
+    - Tôi đã [đồng ý trả tiền[(confirmation) cho hóa đơn này và sẽ tuân thủ cam kết đó.
+    - Tớ [sẽ thanh toán sớm](debt_delay)   nhất có thể, đừng lo.
+    - Tôi xác nhận rằng tôi sẽ chịu trách nhiệm tài chính và [sẽ đóng góp tài chính để trả tiền] (confirmation) cho khoản vay này.
+    - Cứ để dành thời gian cho công việc khác đi, chứ [ đừng nhắc nhở tôi mãi](emotional_state)
+    - Tôi đã thể hiện ý định rõ ràng rằng tôi sẽ [trả tiền](confirm_repay_debt) và không để người mượn gánh chịu.
+    - Tui biết tui đang nợ nên không cần ai nhắc. Tui [sẽ trả ](confirm_repay_debt) khi có khả năng, OK?
+    - Tao [sẽ trả nợ sớm nhất có thể](confirm_repay_debt), [đừng nhắc nhở nữa](negative_emotional_state)!
+    - Cảm ơn em đã nhắc nhở, chị [sẽ cố gắng trả sớm nhất](confirm_repay_debt) có thể.
+    - Anh không cần ai nhắc, anh [sẽ lo trả tiền sớm cho tụi em.](confirm_repay_debt)
+    - Tui đây, tui biết tui phải làm gì. tui sẽ ráng [sắp xếp và gửi lại tiền cho bên mình sớm nhât ạ](confirm_repay_debt). Mình [không cần ai nhắc nhở đâu.](negative_emotional_state)
+    - Tôi cam kết [sẽ thanh toán đúng hạn ](confirm_repay_debt) và không để người mượn phải trả nợ.
+    - Tôi đã đồng ý chịu trách nhiệm tài chính và [sẽ đảm bảo trả tiền](confirm_repay_debt) cho hóa đơn này.
+    - Tôi xác nhận rằng tôi [sẽ trả tiền](confirm_repay_debt) cho mọi khoản nợ và không để lại bất kỳ khoản nợ nào.
+    - Tôi đã thể hiện ý định rõ ràng rằng tôi [sẽ đóng góp tài chính và trả tiền ](confirm_repay_debt) cho hóa đơn này.
+    - Tôi đã [xem xét kỹ và quyết định cam kết trả tiền](confirm_repay_debt) cho hóa đơn này.
+    - Tôi cam kết [sẽ tuân thủ cam kết tài chính và trả tiền](confirm_repay_debt) cho tất cả các khoản nợ liên quan đến khoản vay.
+    - Tôi đã thực hiện một cuộc đánh giá tài chính và nhận thấy rằng [việc trả tiền cho hóa đơn này là điều nên làm](confirm_repay_debt)
+    - Tôi đã xác nhận rằng tôi [sẽ chịu trách nhiệm tài chính và trả tiền](confirm_repay_debt) cho hóa đơn này theo thỏa thuận ban đầu.
+    - Tôi đã thể hiện ý định rõ ràng rằng tôi [sẽ trực tiếp đóng góp tài chính](confirm_repay_debt) và trả tiền cho khoản vay này.
+    - Tôi cam kết [sẽ thanh toán đầy đủ số tiền nợ](confirm_repay_debt) và không để lại bất kỳ khoản nợ nào.
+    - Tôi đã đồng ý trở thành người trả nợ và [sẽ đảm bảo thanh toán đúng hạn](confirm_repay_debt) cho hóa đơn này
+    - Tôi xác nhận rằng tôi [sẽ chịu trách nhiệm tài chính](confirm_repay_debt) và đóng góp tài chính để trả tiền cho mọi khoản nợ liên quan đến khoản vay này.
+    - Tôi đã thể hiện ý định rõ ràng rằng tôi [sẽ chịu trách nhiệm trả tiền](confirm_repay_debt) và không để người mượn gánh chịu.
+    - Tôi [cam kết sẽ thanh toán đúng hạn](confirm_repay_debt) và không để người mượn phải trả nợ.
+    - Tôi đã [đồng ý chịu trách nhiệm tài chính](confirm_repay_debt) và [sẽ đảm bảo trả tiền ](confirm_repay_debt) cho hóa đơn này.
+    - Rõ rồi, tui [sẽ trả tiền](confirm_repay_debt) ngay khi nhận được lương
+    - Đừng có gọi tao nữa, tao biết rồi.
+    - Tôi xác nhận rằng tôi [sẽ trả tiền](confirm_repay_debt) cho mọi khoản nợ và không để lại bất kỳ khoản nợ nào.
+    - Tôi đã thể hiện ý định rõ ràng rằng tôi [sẽ đóng góp tài chính và chịu trách nhiệm trả tiền](confirm_repay_debt) cho hóa đơn này.
+    - Tôi đã thảo luận với người thân và bạn bè và họ khuyên tôi nên chịu trách nhiệm tài chính và trả tiền cho khoản nợ này
+    -  tôi [sẽ đóng tiền sớm.](confirm_repay_debt)
+    - Tôi đã thể hiện ý định rõ ràng rằng tôi [sẽ đóng góp tài chính](confim_repay_debt) và chịu trách nhiệm trả tiền cho hóa đơn này.
+    - Tôi đã xác nhận rằng tôi [sẽ chịu trách nhiệm tài chính và đóng góp tài chính để trả tiền](confim_repay_debt) cho hóa đơn này theo thỏa thuận ban đầu.
+    - Tôi cam kết [sẽ tuân thủ cam kết tài chính và trả tiền cho tất cả các khoản nợ](confim_repay_debt) liên quan đến khoản vay.
+    - Chụp thông tin hợp đồng và nợ rồi gửi wa cho tao xem lại nha.
+    - Tôi đã thể hiện ý định rõ ràng rằng tôi [sẽ trực tiếp đóng góp tài chính và trả tiền](confim_repay_debt) cho khoản vay này.
+    - Tôi đã đồng ý trở thành người trả nợ và [sẽ đảm bảo thanh toán đúng hạn](confim_repay_debt) cho hóa đơn này.
+    - Tôi đã [đồng ý giúp bạn vay tiền](confirmation) và tôi [sẽ chịu trách nhiệm trả tiền](confim_repay_debt) khi đến hạn.
+    - Tôi sẽ không để bạn bị áp lực về tài chính, tôi [sẽ lo trả tiền](confim_repay_debt) cho các hóa đơn này.
+    - Đừng lo, tôi [sẽ đứng ra trả tiền](confim_repay_debt) cho những khoản nợ mà tôi đã đứng tên giúp.
+
+- intent: xác_nhận_sai
+  examples: |
+    - [Không](negation), mình [không biết](negation) người đó.
+    - Tôi [chưa từng nghe] nói đến tên đó.
+    - Bạn chắc đã [nhầm người] rồi. Mình [không biết](negation) [ne_name].
+    - Ai vậy? Mình [không quen biết](negation).
+    - Đúng số này nhưng tôi không quen người bạn nói.
+    - [ne_name]? [Không][negation], tên đó lạ lẫm với mình.
+    - Sao bạn hỏi về người đó? Mình [không biết](negation) gì cả.
+    - Tôi [không quen](negation) bất kỳ ai tên là [ne_name].
+    - Bạn có chắc đang nói về người đúng không? Tôi [không biết](negation).
+    - Mình [không quen](negation) bất kỳ ai tên là [ne_name].
+    - Không, mình [không có quen](negation) người đó.
+    - Sai rồi, mình [không quen](negation) ai tên như thế.
+    - Có thể bạn [đã gọi nhầm](negation). Tôi [không quen biết](negation) người đó.
+    - Người đó [không ở đây](negation) và tôi cũng [không biết](negation).
+    - Bạn nên kiểm tra lại. Mình [không biết](negation) người bạn nói.
+    - Tôi chắc chắn [không quen biết](negation) với [ne_name].
+    - [Không](negation), tôi [không hề biết](negation) hoặc [không quen](negation) người bạn đang nói đến.
+    - Mình nghĩ bạn đã gọi nhầm số. Tôi [không quen biết](negation) [ne_name].
+    - Bạn có thể [đã nhầm lẫn](negation). Mình [không biết](negation) người đó.
+    - Không, tôi [chưa từng gặp](negation) hoặc [chưa nghe nói](negation) về [ne_name].
+    - Mình [không biết](negation) và cũng [không quen biết](negation) với người bạn nói.
+    - Tôi [không có thông tin gì](negation) về người bạn đang hỏi.
+    - Mình [chưa từng nghe nói](negation) hoặc [chưa từng gặp](negation) người tên [ne_name].
+    - Tôi [không quen](negation) và cũng [chưa từng nghe](negation) về tên đó.
+    - [ne_name]? [Lần đầu tiên tôi nghe đến](negation) tên này.
+    - [Không](negation), mình [không quen biết](negation).
+    - [Không hề](negation), tôi [không biết](negation) người bạn đang nói đến.
+    - Bạn có chắc là bạn [đang gọi đúng số không](negation)? Tôi [không quen biết](negation) người đó.
+    - Tôi [không biết](negation), bạn có thể [đã nhầm lẫn](negation).
+    - Mình [chưa bao giờ gặp](negation) hoặc [chưa biết](negation) về người tên [ne_name].
+    - Anh [không phải](negative) à người mà em đang tìm.
+    - Mình [không có] [vụ nợ nào cả], bạn kiểm tra lại thông tin nhé.
+    - Chú là ai vậy? Tôi [không có] (negative) [món nợ] () nào với Finance.
+    - Chị nói [nhầm người] rồi, em [không có] vụ nợ nào.
+    - Tao [không hề có] (negation) [món nợ] (debt) nào, kiểm tra lại đi.
+    - Tớ [không có nợ] (negation) bạn ấy cả, bạn [nhầm người] (negation) rồi.
+    - Mình [không có mượn tiền](negation) bạn ơi.
+    - Em [không có mượn tiền](negation) bên [FE](debt_organization).
+    - Tui [không hề mượn tiền] (negation) từ bất cứ công ty tài chính finance nào cả.
+    - Cô gái, [anh không có nợ] (negation) bạn. Có lẽ đã có sự [nhầm lẫn] (negation).
+    - Tụi mày đừng gọi cho thiếu gia, [thiếu gia không có nợ] (debt) bất kỳ ai.
+    - Tui [không biết](negation) công ty tài chính Finance nào cả, hình như bạn [nhầm] (negation) rồi.
+    - Trời ơi, lại [nhầm người] (negation) rồi! Mình [không phải là khách hàng của HD] (debt_organization).
+    - Tao [không có nợ] (negation) bất cứ ai. Bạn nên rõ ràng hơn khi gọi [nhầm] (negation).
+    - Chị ta đang nói với ai vậy? Tôi  [không không có nợ tiền] (negation).
+    - Cô à, [em không hề mượn tiền] (negation) từ bất kỳ công ty nào cả.
+    - Tớ [không hề có món nợ] (negation) từ Finance.
+    - Tao [không mượn tiền] (negation)  từ công ty nào cả!
+    - Mày đừng nhắc nha, tao không phải khách của Finance đâu!
+    - Mày đừng nhắc nha, tao [không phải khách của Finance] (negation) đâu!
+    - Anh ta nên kiểm tra lại nơi nợ, [tôi không có vụ nợ] (negation) nào.
+    - Bạn ah, [mình không phải](negation) là người bạn đang tìm.
+    - Anh [không có vụ nợ] (negation) nào cả! Hãy kiểm tra lại.
+    - Tôi [không có món nợ] (negation) nào! Hãy kiểm tra lại.
+    - Đừng gọi cho tôi nữa! Mày [nhắc nhầm người] (negation) rồi!
+    - Anh [chưa hề mượn](negation) tiền từ bất cứ công ty tài chính nào.
+    - Kim Thanh ah, em [nhầm người] (negation) rồi.
+    - Nếu tôi là người mà bạn đang tìm thì bạn đã [nhầm] (negation) rồi.
+    - Anh [không mượn tiền](negation) ở [FE](debt_organization), sao họ lại gọi cho tôi vậy?
+    - Đừng mất thời gian của chúng tôi nữa! Tao [không nợ] (negation) ai cả!
+    - Tớ [đéo có nợ] (negation) ở [FE](debt_organization).
+    - Bạn chắc chứ? Mình [không](negation) nhận được thông tin [nợ](debt) nào cả.
+    - Tôi nghĩ có lỗi nào đó, tôi [không](negation) [nợ](debt) tiền bạn.
+    - Mình nghĩ bạn đã nhầm, mình [không](negation) mua hàng gì cả.
+    - Uh, tôi nghĩ bạn nhầm người rồi, tôi [không](negation) có [nợ](debt) này.
+    - Tớ kiểm tra lại rồi, [không](negation) có khoản [nợ](debt) nào cả. Bạn kiểm tra lại nhé!
+    - Hình như có vấn đề rồi, tôi [không](negation) nhận được thông báo [nợ](debt) nào cả.
+    - Mình [không](negation) nhớ mình mua hàng nào mà lại [nợ](debt) bạn, bạn kiểm tra lại được không?
+    - Có thể có lỗi gì đó, tôi [không](negation) nhận biết về khoản [nợ](debt) này.
+    - Mình [không](negation) hiểu, từ bao giờ mình lại [nợ](debt) bạn tiền?
+    - Tớ nghĩ bạn đang nhầm lẫn, tớ [không](negation) mua sản phẩm/service gì từ bạn cả.
+    - Chắc có gì đó [không](negation) đúng, tôi [không](negation) có khoản [nợ](debt) này.
+    - Bạn nên kiểm tra lại, mình [không](negation) hề [nợ](debt) tiền bạn.
+    - Bạn kiểm tra lại đi, mình [đã thanh toán](payment_status) xong từ tuần trước rồi.
+    - Làm sao có thể? Tôi [đã trả tiền](payment_status) từ 2 ngày trước.
+    - Có lẽ bạn nhầm, tôi [đã thanh toán](payment_status) hóa đơn này.
+    - Bạn xem lại đi, tôi [đã trả tiền](payment_status) đầy đủ rồi.
+    - Tôi [chưa](negation) nhận được hóa đơn nào cả, bạn xem lại nhé!
+    - Lạ nhỉ, tôi nhớ là [đã trả](payment_status) rồi mà.
+    - Có lỗi rồi, mình [đã thanh toán](payment_status) trực tuyến sáng nay.
+    - Bạn nên kiểm tra lại hệ thống, tôi [đã trả tiền](payment_status) mất rồi. - Tôi [đã trả](payment_status) hóa đơn này, bạn xem lại hệ thống đi.
+    - Tôi [đã thanh toán](payment_status) qua app ngân hàng, bạn kiểm tra lại nhé.
+    - Tôi [đã trả](payment_status) qua internet banking rồi, bạn kiểm tra đi.
+    - Tôi đã set [autopay](payment_method), sao lại nhận nhắc nhở này?
+    - Hình như thông tin của bạn [không](negation) cập nhật kìa, tôi [đã trả](payment_status) rồi.
+    - Tôi [đã trả](payment_status) hóa đơn này vào thứ hai.
+    - Mình chưa nhận được hóa đơn, làm sao mình [thanh toán](payment_status)?
+    - Mình [đã thanh toán](payment_status) qua app rồi, bạn kiểm tra lại đi.
+    - Tôi [đã chuyển khoản](payment_method) từ tuần trước.
+    - Lạ vậy, tôi nhớ là [đã trả](payment_status) rồi mà.
+    - Hình như có lỗi, tôi [đã trả tiền](payment_status) này rồi.
+    - Mình [đã trả](payment_status) rồi, bạn kiểm tra lại thông tin nhé.
+    - Bạn check lại hệ thống đi, tôi [đã chuyển tiền](payment_status) rồi.
+    - Bạn kiểm tra lại thông tin, tôi [đã trả tiền](payment_status) từ 2 ngày trước.
+    - Tôi đã set lệnh [thanh toán tự động](payment_method), không thể nào bị nợ.
+    - Tôi [đã thanh toán](payment_status) trực tuyến, bạn xem lại nhé.
+    - Tôi [đã trả tiền](payment_status) này, có lẽ bạn chưa cập nhật hệ thống.
+    - Tôi [đã thanh toán](payment_status), tại sao lại nhận được thông báo này?
+    - Mình [đã trả](payment_status) rồi, bạn xem lại hệ thống đi.
+    - Mình [đã thanh toán](payment_status) trực tiếp, bạn xem lại đi.
+    - Tôi [đã trả tiền](payment_status) này, có thể thông tin của bạn chưa cập nhật.
+    - Tôi [đã thanh toán](payment_status) rồi, bạn xem lại hệ thống đi.
+
+- intent: xác_nhận_đúng
+  examples: |
+    - [Ừ](confirmation), mình biết người đó. Sao vậy?
+    - [Đúng](confirmation), tôi [quen biết](accquatance) với [ne_name]. Sao vậy?
+    - À, [ne_name] à? Mình [quen](accquatance).
+    - [Là bạn](accquatance) tôi. Bạn tìm [ne_name] có việc gì không?
+    - [Đúng](confirmation), mình biết người đó. Bạn cần gì?
+    - Có, [ne_name] [là bạn](accquatance) của mình.
+    - [Đúng](confirmation) rồi, tôi biết người bạn đang nói.
+    - Tôi và [ne_name] có [quen](accquatance) nhau. Có chuyện gì không?
+    - [Ừ](confirmation), mình biết [ne_name]. Có việc gì không ạ?
+    - [Đúng](confirmation), tôi [quen biết](accquatance) với [ne_name]. Sao vậy?
+    - [Có](confirmation), mình và [ne_name] [là bạn](accquatance). Bạn hỏi chi vậy?
+    - [ne_name]? [Đúng](confirmation), là [người thân](relative) của mình.
+    - Mình [quen](accquatance) [ne_name] từ hồi còn đi học.
+    - [Đúng] đấy, tôi và [ne_name] là [bạn thân]. Bạn cần gì?
+    - [Ừ](confirmation), [ne_name] là [hàng xóm](accquatance) của tôi. Sao vậy?
+    - Tôi [biết](confirmation) [ne_name]. Bạn muốn gặp [ne_name] à?
+    - [Có](confirmation), [ne_name] là [bạn cùng công ty](accquatance) với mình.
+    - [Có](confirmation), mình [quen](accquatance) [ne_name] từ hồi còn nhỏ.
+    - [Đúng rồi](confirmation), mình và [ne_name] từng [làm việc chung](accquatance).
+    - [ne_name]? [Có](confirmation), tôi [quen](accquatance). Cần giúp gì?
+    - [Đúng](confirmation) đấy, [ne_name] và tôi là [bạn](accquatance) từ hồi cấp 3.
+    - [Có](confirmation), mình biết. Sao bạn muốn biết?
+    - [Đúng](confirmation), mình [quen biết](accquatance). [ne_name] hiện giờ ở đâu vậy?
+    - Tôi [biết](confirmation) người đó. Cần tôi giúp gì không?
+    - [Có](confirmation), tôi và [ne_name] từng [hợp tác](accquatance) làm ăn chung.
+    - [ne_name]? [Có](confirmation), tôi biết người đó. Tôi có thể giúp gì cho bạn?
+    - [Ừ](confirmation), [ne_name] là [bạn gái](accquatance) của tôi. Bạn tìm [ne_name] chi?
+    - [Ừ](confirmation), [ne_name] là cậu [bạn cũ](accquatance) của tôi. Bạn cần gì?
+    - [Đúng](confirmation), mình biết [ne_name]. Bạn tìm người đó à?
+    - [Có](confirmation), tôi biết [ne_name]. Bạn là ai vậy?
+    - [Đúng rồi](confirmation), [ne_name] là [anh](relative) của tôi. Có chuyện gì?
+    - [Đúng rồi](confirmation), [ne_name] là [chị](relative) của tôi. Có chuyện gì?
+    - [Đúng rồi](confirmation), [ne_name] là [em](relative) của tôi. Có chuyện gì?

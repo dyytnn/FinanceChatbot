@@ -1,8 +1,0 @@
-Sentence : Thằng [ne_name] nào thế? Tôi không ngửi thấy mùi nó a. 
-{'name': 'yêu_cầu_và_thắc_mắc', 'confidence': 0.9999988079071045} 
-Sentence : Sao tớ phải biết [ne_name] bạn nhỉ? 
-{'name': 'yêu_cầu_và_thắc_mắc', 'confidence': 0.9998761415481567} 
-Sentence : Ai là [ne_name] cơ? Tớ không quen người đó. 
-{'name': 'yêu_cầu_và_thắc_mắc', 'confidence': 0.9999686479568481} 
-Sentence : Tôi không nhớ mình có người quen nào tên là [ne_name] cả, chắc cô đã nhầm rồi. 
-{'name': 'yêu_cầu_và_thắc_mắc', 'confidence': 0.9999978542327881} 
