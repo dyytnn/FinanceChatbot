@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import * as z from "zod";
@@ -10,7 +11,7 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChatCompletionRequestMessage } from "openai";
 import axios from "axios";
 import Empty from "@/components/empty";
@@ -26,15 +27,17 @@ type Chat = {
 
 const ConversationPage = () => {
   const router = useRouter();
-  const [messages, setMessages] = useState<Chat[]>([]);
+  const [messages, setMessages] = useState<[]>([]);
   const [response1, setResponse1] = useState([]);
+  const [confarray, setConfArray] = useState([]);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { prompt: "" },
   });
 
   const isLoading = form.formState.isSubmitting;
-  let arrayConfidence1: any[] = [];
+  const arrayConfidence1: any[] = [];
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const uuid = uuidv4();
@@ -58,13 +61,14 @@ const ConversationPage = () => {
       let text = "";
       await responseData.intent_ranking.map((intent: any) => {
         text += `- ${intent.name}: ` + "\n";
-        let conf = parseFloat(intent.confidence).toFixed(5);
+        const conf = parseFloat(intent.confidence).toFixed(5);
         arrayConfidence1.push(conf);
       });
 
       const reply = {
         role: "bot",
         content: text,
+        confs: arrayConfidence1,
       };
       // @ts-ignore
       setResponse1(arrayConfidence1);
@@ -72,7 +76,7 @@ const ConversationPage = () => {
       setMessages((current) => [...current, userMessage, reply]);
 
       form.reset();
-      console.log(response1);
+      // console.log(response1);
     } catch (error: any) {
       console.log(error);
       // if (error?.response?.status === 403) {
@@ -124,11 +128,11 @@ const ConversationPage = () => {
                 <div className="flex text-base whitespace-pre-line">
                   {message.content}
                   <div className="flex flex-col justify-center ml-2">
-                    {response1 &&
+                    {message.confs &&
                       message.role !== "user" &&
-                      response1.map((response, index) => (
+                      message.confs.map((conf, index) => (
                         <p key={index} className="text-base">
-                          {response}
+                          {conf}
                         </p>
                       ))}
                   </div>
