@@ -74,6 +74,26 @@ ne_emi = customer.loc["Available"]
 #         # as a user message follows
 #         return [SessionStarted(), ActionExecuted("action_listen")]
 
+class ActionInitStart(Action):
+    def name(self) -> Text:
+        """This is the name to be mentioned in domain.yml and stories.md files
+            for this action."""
+        return "action_session_start"
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker,
+            domain: Dict[Text, Any],
+    ) -> List[EventType]:
+        """This run function will be executed when "action_session_start" is
+            triggered."""
+        # The session should begin with a 'session_started' event
+        events = [SessionStarted()]
+        dispatcher.utter_message(
+            text="Em chào anh/chị ạ? Em là nhân viên của công ty .....Anh/Chị có thể cho em ít thời gian trao đổi được không ạ ?")
+        # events.append(ActionExecuted("action_listen"))
+        return events
 
 class ActionAskStartConversation(Action):
     def name(self) -> Text:
