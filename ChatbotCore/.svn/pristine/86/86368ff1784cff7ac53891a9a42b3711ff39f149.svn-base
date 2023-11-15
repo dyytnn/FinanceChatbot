@@ -1,0 +1,8 @@
+Sentence : Tôi không nhận được bất kỳ sao kê nào từ thẻ của mình 
+{'name': 'thông_tin_hd', 'confidence': 0.9999294281005859} 
+Sentence : Tôi đã trả nợ rồi, sao còn nhắc vậy? 
+{'name': 'thông_tin_hd', 'confidence': 0.9999806880950928} 
+Sentence : Vớ vẩn, tao không mất thẻ nào cả, tao không có nợ 
+{'name': 'thông_tin_hd', 'confidence': 0.986829936504364} 
+Sentence : Có phải là tui nên gọi số tổng đài bạn vừa nói không ? 
+{'name': 'thông_tin_hd', 'confidence': 0.9995071887969971} 

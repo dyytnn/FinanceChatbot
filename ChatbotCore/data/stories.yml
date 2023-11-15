@@ -1,45 +1,31 @@
 version: "3.1"
 
 stories:
-- story: greet - dangban - Bye
-  steps:
-  - intent: greet
-  - action: utter_greeting_and_request
-  - intent: dangban
-  - action: utter_remind_payment_before_due_date
-  - intent: bye
-  - action: utter_saybye
+  - story: flow_confirm_wrong
+    steps:
+      - action: action_session_start
+      - intent: xac_nhan_sai
+      - action: action_confirm_is_customer
+      - or:
+          - intent: xac_nhan_dung
+          - intent: xac_nhan_sai
+      - action: action_confirm_customer_connect_other_customer
 
-- story: greet - kotratien - Bye
-  steps:
-  - intent: greet
-  - action: utter_greeting_and_request
-  - intent: kotratien
-  - action: utter_understand_difficulty
-  - intent: bye
-  - action: utter_saybye
-
-- story: greet - dong y tra tien - hoi ve hop dong - Bye
-  steps:
-  - intent: greet
-  - action: utter_greeting_and_request
-  - intent: dangranh
-  - action: utter_remind_payment_before_due_date
-  - intent: lienquantien
-  - action: utter_payment_method
-  - intent: bye
-  - action: utter_saybye
-
-- story: greet - dong y tra tien - hoi ngay thang - hoi hinh thuc tt - Bye
-  steps:
-  - intent: greet
-  - action: utter_greeting_and_request
-  - intent: dangranh
-  - action: utter_remind_payment_before_due_date
-  - intent: nhaclai
-  - action: utter_remind_payment_before_due_date
-  - intent: hinhthucthanhtoan
-  - action: utter_payment_method
-  - intent: bye
-  - action: utter_saybye
-
+  - story: flow_confirm_right
+    steps:
+      - action: action_session_start
+      - intent: xac_nhan_dung
+      - action: action_confirm_is_customer
+      - or:
+          - intent: xac_nhan_dung
+          - intent: xac_nhan_sai
+          - intent: thac_mac
+      - action: action_confirm_customer_connect_contract
+      - or:
+          - intent: tra
+          - intent: khong_tra
+      - action: action_confirm_to_pay
+      - or:
+          - intent: tra
+          - intent: khong_tra
+      - action: action_convince_to_pay

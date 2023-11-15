@@ -1,0 +1,8 @@
+Sentence : Tao không hề có món nợ nào, kiểm tra lại đi. 
+{'name': 'không_phải_là_khách_hàng', 'confidence': 0.9999310970306396} 
+Sentence : Mình không có vụ nợ nào cả, bạn kiểm tra lại thông tin nhé. 
+{'name': 'không_phải_là_khách_hàng', 'confidence': 0.999882698059082} 
+Sentence : Chú là ai vậy? Tôi không có món nợ nào với Finance. 
+{'name': 'không_phải_là_khách_hàng', 'confidence': 0.9999377727508545} 
+Sentence : Cô à, em không hề mượn tiền từ bất kỳ công ty nào cả. 
+{'name': 'không_phải_là_khách_hàng', 'confidence': 0.9999361038208008} 

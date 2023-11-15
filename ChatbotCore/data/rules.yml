@@ -1,13 +1,11 @@
 version: "3.1"
-
-rules:
-  - rule: Say goodbye anytime the user says goodbye
-    steps:
-      - intent: bye
-      - action: utter_saybye
-
-  # Xảy ra khi người dùng không muon nhan cuoc goi
-  - rule: nguoi dung khong muon nhan cuoc goi
-    steps:
-      - intent: cachchancuocgoi
-      - action: utter_phanhoikonhancuocgoi
+# rules:
+#   - rule: Start conversation first time
+#     conversation_start: true
+#     steps:
+#       - action: action_start_conversation
+# # Xảy ra khi người dùng không muon nhan cuoc goi
+# - rule: nguoi dung khong muon nhan cuoc goi
+#   steps:
+#     - intent: cachchancuocgoi
+#     - action: utter_phanhoikonhancuocgoi

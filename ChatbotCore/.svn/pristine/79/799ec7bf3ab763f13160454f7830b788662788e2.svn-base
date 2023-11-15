@@ -1,0 +1,18 @@
+{
+  "lookup": {
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCc4tTiYjBdklhUUlsbCwBnORYn": "action_start_conversation",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCc4tTiYjBdklhUUkukHpDa+OT8vLLUouJEkFBtbSwAzRwstA==": "action_listen",
+    "eJyNjN0JwCAMhFdxgE7gKqUEkRQCNZYk+iLuXm07gE/3w3e3t765dgtWCNEos3ftM8AhoXd/UFR91YJYX9xMFmLmiqJhVovDi9SQB1sUZTDEI5p34+okSRCLWk4oYFKw9+MBwSFNTw==": "action_confirm_is_customer",
+    "eJyNjUsKwDAIBa+SA/QEuUopEoIFoTFFTTahd2/6XWelT2aeczsm13bBCiEaZfauPQtwSOjdGxRV72lB7Bh0LhZi5oqi4ToNihupIXe2KEpniHs073rVSpIgFrWcUMCk4GDn55L++vCD5QQv4HNV": "action_listen",
+    "eJytjkEOwzAIBL/iB+QF/koVIWQR1VKMK8C5WPl7cdvk7ENPsKsdlkc/l9BfQgdgslw5hv5dgLFQDD+hpPqZhmLnJDOykCofJIrDmgT3rEbs2aYknsns0mLwU1uWAqmp1UICJo0mb15s1hv/b8H0024wJYNqz6Eue8NdvWt9A6mBndY=": "action_confirm_customer_connect_other_customer",
+    "eJytT0EOAjEI/Eof4Av6FWNI07CRZEsN0L00+3epul6t0RPMZGYYzn0/hX4T3CBlo8ox9OcCnArG8AKKqo9pSWyf9Awt5MobiqZBTRpXUkN2bVMU1xA7tBg8aiEpkJtaLShg0nAy8/CSvu3/PTBd2gnGbFDtOtBBL2nVb5/5kPlzmcsd90vWIg==": "action_listen",
+    "eJytjksKwzAMRK/iA+QEvkopwhiVCmK5SHI2JneP3E8gOy+6kmaYp9Gt70voL8ENUjaqHEP/LMCpYAxfoaj6npbE9klmZCFX3lA0DWsSXEkN2bNNUTxD7NJi8FMPkgK5qdWCAiYNJ2/+WNIT/2/B9NNuMGaDas+hrlX3AwyQnYs=": "action_confirm_customer_connect_other_customer",
+    "eJytT1sKwzAMu0oOsBPkKmWYEFxmWJxhO/0JvfucvX4b6L5sCUmWl75fQn8IbpCyUeUY+nsBTgVj+ABF1de0JLZPeoYWcuUNRdOgJo13UkN2bVMU1xA7tBg8aiUpkJtaLShg0nAy8+sl/dn/e2C6tBOM2aDabaATvxxEnu1yfQJcCtWM": "action_listen",
+    "eJyNjN0JgDAMhFfpAE7QVURCKBECNpUk+lK6u606QJ/uh+9urW0J9VS6AZNzkRjqZ0AwUwx/MDJ71VG9TW4GC6nITWo4qsnhweYknb2MtDMsPXoM/WpnzZAu85JJYcfDqLXtAQ3lTZo=": "action_confirm_is_customer",
+    "eJyNjcsJxDAMRFtxAanArSxBCKOAIJYXjZKLSe/r7O/skzTivdGjX0vqT5eTuIQ2y6l/FjKuktM3QID3DPa4Jp2bpdLsFAffp0lxV4TYYA+ID0ZtxMhpVG3qlcqBaFWcNt4hk6U/WfH35z+sLwwVc+s=": "action_listen",
+    "eJytjkEOwzAIBL/iB+QF/koVIWQR1VKMK8C5WPl7cdvk7ENPsKsdlkc/l9BfQgdgslw5hv5dgLFQDD+hpPqZhmLnJDOykCofJIrDmgT3rEbs2aYknsns0mLwU1uWAqmp1UICG+5Kk0cvOOvN/7lh+m03mJJBtedQl23SvGp9Ayd3niE=": "action_confirm_customer_connect_other_customer",
+    "eJytT0EOAjEI/Eof4Av6FWNI07CRZEsN0L00+3epul6t0RPMZGYYzn0/hX4T3CBlo8ox9OcCnArG8AKKqo9pSWyf9Awt5MobiqZBTRpXUkN2bVMU1xA7tBg8aiEpkJtaLSiwpFVxMvQwk779f74wXdsJxmxQ7TrQQZu0b5/5EPlrl8sdyPnWIg==": "action_listen",
+    "eJytjksOwzAIRK/iA/QEvkpVIWQRFSnGFZBsrNy9uL9FVl50BTOax3DtxyX1h9IOWJyb5NTfCwhWyukjjMxe01H9mGRGFkqTndRwWJPgyuYkkd2MNDIsIT2nOLWwViibeauksOBqNHn0C7P9+D83TL8dhlBxaH4f6tR1ewLE/p5s": "action_confirm_customer_connect_other_customer",
+    "eJytT1sKwzAMu0oOsBPkKqOYEFxqaJxhu/0JvfucPfq7QPdlS0iyfG/HLbSH4A4pG1WOob0X4FQwhg9QVH1NS2LHoKdrIVfeUTR1atC4khqyazdFcQ2xQ4vBo2aSAnlTqwUF5rQqDoZ+zaSn/88Xhms7wZgNqi0dXfnmR+blMtMTZXXWuA==": "action_listen"
+  }
+}

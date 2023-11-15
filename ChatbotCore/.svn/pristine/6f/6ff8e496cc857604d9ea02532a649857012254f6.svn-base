@@ -1,0 +1,23 @@
+language: "en"
+
+pipeline:
+- name: "nlp_spacy"                   # loads the spacy language model
+- name: "tokenizer_spacy"             # splits the sentence into tokens
+- name: "ner_crf"                   # uses the pretrained spacy NER model
+- name: "intent_featurizer_spacy"     # transform the sentence into a vector representation
+- name: "intent_classifier_sklearn"   # uses the vector representation to classify using SVM
+- name: "ner_synonyms"                # trains the synonyms
+assistant_id: 20231012-002249-polynomial-pole
+policies:
+# # No configuration for policies was provided. The following default policies were used to train your model.
+# # If you'd like to customize them, uncomment and adjust the policies.
+# # See https://rasa.com/docs/rasa/policies for more information.
+#   - name: MemoizationPolicy
+#   - name: RulePolicy
+#   - name: UnexpecTEDIntentPolicy
+#     max_history: 5
+#     epochs: 100
+#   - name: TEDPolicy
+#     max_history: 5
+#     epochs: 100
+#     constrain_similarities: true

@@ -1,0 +1,200 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os\n",
+    "import openai\n",
+    "from langchain.chat_models import ChatOpenAI\n",
+    "from dotenv import load_dotenv, find_dotenv\n",
+    "import pandas as pd\n",
+    "import re\n",
+    "from langchain.output_parsers import ResponseSchema\n",
+    "from langchain.output_parsers import StructuredOutputParser\n",
+    "from langchain.prompts import ChatPromptTemplate\n",
+    "\n",
+    "os.environ['OPENAI_API_KEY'] = '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'\n",
+    "_ = load_dotenv(find_dotenv())\n",
+    "openai.api_key = os.environ['OPENAI_API_KEY']\n",
+    "chat = ChatOpenAI(model_name=\"gpt-4\", temperature=2, max_tokens = 3000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def split_into_utterance_list(input_lines):\n",
+    "    utterance_list = []\n",
+    "    current_utterance_type = None\n",
+    "    \n",
+    "    for line in input_lines:\n",
+    "        # Detecting the utterance type line\n",
+    "        if line.startswith('* '):\n",
+    "            current_utterance_type = line[2:].strip().strip(':')\n",
+    "        \n",
+    "        # Detecting the text line\n",
+    "        elif line.strip().startswith('- text:'):\n",
+    "            text = line.strip()[8:].strip()\n",
+    "            utterance_list.append({\"utterance_type\": current_utterance_type, \"text\": text})\n",
+    "    \n",
+    "    return utterance_list"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "User_template = \"\"\"\\\n",
+    "    tôi đang làm rasa chat bot về việc nhắc nợ và đòi nợ và tôi đã có các utter-class và\n",
+    "    Tôi sẽ cung cấp cho bạn các class đó cùng với các response nhắc nợ của bot (script)\n",
+    "    {script_utter} \\n\n",
+    "\n",
+    "    đây là các câu response của bot chat bạn có thể giúp tôi tạo ra 10 câu nói từ người dùng trong\n",
+    "    thực tế tương ứng với mỗi class utter của bot không, các câu nên có thái độ giống với thực tế nhất, \n",
+    "    Không trịnh trọng, ví dụ như tục tiễu  \n",
+    "    format dạng json\n",
+    "    utter_name_class1:\n",
+    "        user_script\n",
+    "        user_script\n",
+    "\n",
+    "    utter_name_class2:\n",
+    "        user_script\n",
+    "    \n",
+    "    utter_name_class3:\n",
+    "        user_script\n",
+    "        user_script\n",
+    "        user_script\n",
+    "\n",
+    "    utter_name_class3 là utter tôi cung cấp cho bạn, user_script là script tương ứng từ người dùng bạn sẽ tạo cho tôi hãy tạo cho tôi 20 script\n",
+    "    ví dụ: \n",
+    "        * utter_greeting_and_request:\n",
+    "            - text: Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?\n",
+    "            - user_script: tao không rảnh\n",
+    "            - user_script: được nói đi \n",
+    "            - user_script: anh đang bận em có thể gọi lại được không\n",
+    "            .....\n",
+    "\n",
+    "        * utter_remind_payment_after_due_date:\n",
+    "            - text: Dạ, [ne_title] có khoản vay trước đó và được chuyển đổi thành khoản trả góp trên Thẻ tín dụng, đã trễ hạn 1 ngày. Mình thu xếp đóng số tiền [ne_title] trước 17g hôm nay cho bên em nha?\n",
+    "            - text: Dạ, [ne_title] có hợp đồng Thẻ tín dụng đã trễ hạn 1 ngày với tổng dư nợ trên sao kê là [ne_amount] đồng. Mình thu xếp đóng số tiền tối thiểu [ne_emi] trước 17g hôm nay cho bên em nha?\n",
+    "            - user_script: dạo này anh kẹt quá nên anh mới trễ ngày đóng tiền.\n",
+    "            - user_script: dạo này anh bận quá để tí anh đóng\n",
+    "            - user_script: ok em! tí anh đóng\n",
+    "            ......\n",
+    "\n",
+    "        * utter_understand_difficulty:\n",
+    "            - text: Dạ, em hiểu. Tuy nhiên để không phát sinh chi phí ngoài kế hoạch do thanh toán trễ. [ne_title] cố gắng mượn tiền người thân, để đóng tiền đúng hạn giúp bên em. Cảm ơn và chúc [ne_title] một ngày tốt lành\n",
+    "            - user_script: công ty anh đang làm ăn thua lỗ em đợi thêm được không.\n",
+    "            - user_script: Trong người anh giờ không có tiền đâu em \n",
+    "            - user_script: anh phá sản rồi em đừng đòi nữa   \n",
+    "            ........\n",
+    "\n",
+    "\n",
+    "\"\"\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open('generate.md', 'r') as file:\n",
+    "    utter = file.readlines()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "utterance_list = split_into_utterance_list(utter)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "utter = \"\"\"\n",
+    "* utter_understand_difficulty:\n",
+    "    - text: Dạ, em hiểu. Tuy nhiên hợp đồng của mình trước đó đã nhận được rất nhiều ưu đãi. Để không phát sinh chi phí ngoài kế hoạch do thanh toán trễ. [ne_title] nên cố gắng đóng tiền đúng hạn giúp bên em. Cảm ơn và chúc [ne_title] một ngày tốt lành\n",
+    "    - text: Dạ, em hiểu. Tuy nhiên để không phát sinh chi phí ngoài kế hoạch do thanh toán trễ. [ne_title] cố gắng mượn tiền người thân, để đóng tiền đúng hạn giúp bên em. Cảm ơn và chúc [ne_title] một ngày tốt lành\n",
+    "    - text: Em hiểu vấn đề của [ne_title]. Tuy nhiên hợp đồng đã trễ hạn một ngày, nên em không thể hỗ trợ. Do trước đó mình đã nhận được rất nhiều ưu đãi. Để không phát sinh chi phí ngoài kế hoạch do thanh toán trễ. [ne_title] nên đóng tiền sớm cho bên em. Cảm ơn và chào [ne_title] ạ.\n",
+    "    - text: Dạ, em hiểu. Tuy nhiên, do hợp đồng đã trễ hạn một ngày, em không thể hỗ trợ thêm. Để không phát sinh chi phí ngoài kế hoạch do thanh toán trễ. Vì vậy [ne_title] nên thu xếp đóng tiền sớm cho bên em. Cảm ơn và chào [ne_title] ạ\n",
+    "\n",
+    "* utter_inquiry_info:\n",
+    "    - text: Dạ mình có quen ai tên [ne_name] không ạ?\n",
+    "    - text: Dạ cho em xin phép hỏi, hiện tại mình dùng số điện thoại này bao lâu rồi?. Đã đăng ký sim chính chủ chưa?. Anh chị vui lòng cho em xin thông tin, vì số điện thoại này có trong hợp đồng Thẻ tín dụng bên công ty em ạ.\n",
+    "    - text: Dạ bên em ghi nhận và sẽ kiểm tra lại thông tin của mình, nếu có thắc mắc [ne_title] liên hệ số 1 9 0 0  6 9 3 9 để bên em hỗ trợ thêm. Em cảm ơn và chào [ne_title]\"\"\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "script = f\"\"\"\n",
+    "    {utter}\n",
+    "\"\"\"\n",
+    "prompt_template = ChatPromptTemplate.from_template(template=User_template)\n",
+    "messages = prompt_template.format_messages(\n",
+    "    script_utter=script, \n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "response = chat(messages).content"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "rasaloz",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.15"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

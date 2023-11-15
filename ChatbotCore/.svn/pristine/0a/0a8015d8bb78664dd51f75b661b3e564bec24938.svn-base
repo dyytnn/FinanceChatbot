@@ -1,0 +1,612 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import sys\n",
+    "import openai\n",
+    "import json\n",
+    "import pandas as pd\n",
+    "import re\n",
+    "import spacy\n",
+    "from langchain.output_parsers import ResponseSchema\n",
+    "from langchain.output_parsers import StructuredOutputParser\n",
+    "from langchain.prompts import ChatPromptTemplate"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = pd.read_excel(\"20230904_Athena_Voicebot_Card_Predue_Scenario.xlsx\",2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>#Script</th>\n",
+       "      <th>Intention</th>\n",
+       "      <th>Prompt</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Chào [ne_title][ne_name]. Em là Thanh gọi từ c...</td>\n",
+       "      <td>Agree (là khách hàng)</td>\n",
+       "      <td>Xác nhận lại mình là khách hàng</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Chào [ne_title][ne_name]. Em là Thanh gọi từ c...</td>\n",
+       "      <td>DisAgree (không phải KH)</td>\n",
+       "      <td>Xác nhận lại mình không phải là khách hàng</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Chào [ne_title][ne_name]. Em là Thanh gọi từ c...</td>\n",
+       "      <td>Hang Up</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Chào [ne_title][ne_name]. Em là Thanh gọi từ c...</td>\n",
+       "      <td>Busy (chưa xác định)</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>Chào [ne_title][ne_name]. Em là Thanh gọi từ c...</td>\n",
+       "      <td>Fallback lần 1</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                                             #Script  \\\n",
+       "0  Chào [ne_title][ne_name]. Em là Thanh gọi từ c...   \n",
+       "1  Chào [ne_title][ne_name]. Em là Thanh gọi từ c...   \n",
+       "2  Chào [ne_title][ne_name]. Em là Thanh gọi từ c...   \n",
+       "3  Chào [ne_title][ne_name]. Em là Thanh gọi từ c...   \n",
+       "4  Chào [ne_title][ne_name]. Em là Thanh gọi từ c...   \n",
+       "\n",
+       "                  Intention                                      Prompt  \n",
+       "0     Agree (là khách hàng)             Xác nhận lại mình là khách hàng  \n",
+       "1  DisAgree (không phải KH)  Xác nhận lại mình không phải là khách hàng  \n",
+       "2                   Hang Up                                         NaN  \n",
+       "3      Busy (chưa xác định)                                         NaN  \n",
+       "4            Fallback lần 1                                         NaN  "
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?'"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df[\"#Script\"][0]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array(['Agree (là khách hàng)', 'DisAgree (không phải KH)', 'Hang Up',\n",
+       "       'Busy (chưa xác định)', 'Fallback lần 1', 'Fallback lần 2',\n",
+       "       'Agree/Promise to Pay', 'DisAgree/Refuse to Pay', 'Pay Already',\n",
+       "       'Request termination', 'Busy', nan, ' Check date',\n",
+       "       'Agree (Có quen)', 'DisAgree (không quen)', 'Die', 'Ask Voicebot',\n",
+       "       'Any intention', 'Thuyết phục Khách hàng thanh toán EMI',\n",
+       "       'Đủ thông tin', 'Sai hóa đơn', 'Nhờ người thân',\n",
+       "       'Thanh toán thiếu (Trên 30k)',\n",
+       "       'Người nghe bị bệnh, tai nạn, đi sinh, nằm viện..',\n",
+       "       'Người thân của KH ốm đau, tai nạn', 'Chờ trợ cấp từ người thân',\n",
+       "       'Lương trễ thay đổi ngày nhận lương',\n",
+       "       'Kh đi công tác xa,trong vùng cách li do dịch bệnh',\n",
+       "       'Từ chối đóng trước ngày hạn',\n",
+       "       'Khó khăn về tài chính, kinh tế/ Chi tiêu cho khoản vay khác',\n",
+       "       'Nhà có đám tang/đám cưới…',\n",
+       "       'Mất việc làm, phá sản, làm ăn thua lỗ',\n",
+       "       'KH không muốn thanh toán không có lí do',\n",
+       "       'Các trường hợp liên quan đến khiếu nại về thái độ nhân viên thu hồi nợ trước đó (Chửi, Thách thức, hăm dọa...) dẫn đến người nghe từ chối thanh toán',\n",
+       "       'KH đứng tên giùm',\n",
+       "       'KH thắc mắc thông tin khoản vay khác với nhân viên cung cấp',\n",
+       "       'KH chưa nhận khoản vay/thẻ\\n',\n",
+       "       'Người nghe có thái độ (Chửi, Thách thức...)',\n",
+       "       'KH không đăng ký bảo hiểm', 'Liên quan Ngày đến hạn thanh toán',\n",
+       "       'Liên quan Hợp đồng', 'Liên quan Số tiền & Sản phẩm',\n",
+       "       'Liên quan Quy trình THN', 'Hỏi vu vơ ngày tháng',\n",
+       "       'Thông tin không liên quan cuộc gọi',\n",
+       "       'Từ chối liên quan lãi & phí', 'Hỏi về hình thức thanh toán',\n",
+       "       'KH muốn hỏi thông tin', 'Nghe không rõ muốn nhắc lại thông tin'],\n",
+       "      dtype=object)"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df[\"Intention\"].unique()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os\n",
+    "import openai\n",
+    "from langchain.chat_models import ChatOpenAI\n",
+    "\n",
+    "\n",
+    "os.environ['OPENAI_API_KEY'] = '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'\n",
+    "\n",
+    "from dotenv import load_dotenv, find_dotenv\n",
+    "_ = load_dotenv(find_dotenv())\n",
+    "openai.api_key = os.environ['OPENAI_API_KEY']\n",
+    "chat = ChatOpenAI(model_name=\"gpt-3.5-turbo\", temperature=0.9, max_tokens = 3000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "review_template = \"\"\"\\\n",
+    "    Tôi cần tạo data về một cuộc trò chuyện của một nhân viên nhắc nợ và người nợ. \n",
+    "    Tôi sẽ cung cấp cho bạn câu nói của nhân viên nhắc nợ (script) và intention của câu nói của người nợ.\\n\n",
+    "    \n",
+    "    {script_intention} \\n\n",
+    "    \n",
+    "    Từ hai dữ liệu tôi cung cấp trên hãy giúp tôi tạo ra 20 câu trả lời. Tôi muốn câu trả lời gần với thực tế nhất, \n",
+    "    không cần quá trang trọng, không quá dài, người nợ có thể nói tục. Từ mỗi câu nói của người nợ hãy xác định start, end, value và entity.\n",
+    "        \n",
+    "\n",
+    "    Hãy lưu dưới dạng json:\n",
+    "    \"text\"\n",
+    "    \"intent\"\n",
+    "    \"entities\": \n",
+    "        \"start\"\n",
+    "        \"end\"\n",
+    "        \"value\"\n",
+    "        \"entity\"\n",
+    "        \"response\"\n",
+    "        \n",
+    "    \\n\n",
+    "    Trong đó:\n",
+    "    text là script tôi cung cấp cho bạn\n",
+    "    intent là Intention tôi cung cấp cho bạn \n",
+    "    response: câu nói của người nợ (câu do bạn tạo ra)\n",
+    "    entity: Thực thế được nhắc đến cần trích xuất trong response\n",
+    "    start: Đây là vị trí bắt đầu của một đối tượng entity trong chuỗi văn bản response.\n",
+    "    end: Đây là vị trí kết thúc của một đối tượng entity trong chuỗi văn bản response. \n",
+    "\n",
+    "\"\"\"\n",
+    "\n",
+    "prompt_template = ChatPromptTemplate.from_template(review_template)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "text = ResponseSchema(\n",
+    "    name=\"text\",\n",
+    "    description=\"là script tôi cung cấp cho bạn\"\n",
+    ")\n",
+    "\n",
+    "intent = ResponseSchema(\n",
+    "    name=\"intent\",\n",
+    "    description=\"là Intention tôi cung cấp cho bạn\"\n",
+    ")\n",
+    "\n",
+    "response = ResponseSchema(\n",
+    "    name=\"response\",\n",
+    "    description=\"câu nói của người nợ (câu do bạn tạo ra)\"\n",
+    ")\n",
+    "\n",
+    "start = ResponseSchema(\n",
+    "    name=\"start\",\n",
+    "    description=\" Đây là vị trí bắt đầu của một đối tượng entity trong chuỗi văn bản response. Trả về một con số\"\n",
+    ")\n",
+    "\n",
+    "end = ResponseSchema(\n",
+    "    name=\"end\",\n",
+    "    description=\"Đây là vị trí kết thúc của một đối tượng entity trong chuỗi văn bản response. Trả về một con số\"\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "response_schemas = [\n",
+    "    text, \n",
+    "    intent,\n",
+    "    response, \n",
+    "    start,\n",
+    "    end\n",
+    "]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 70,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[ResponseSchema(name='text', description='là script tôi cung cấp cho bạn', type='string'),\n",
+       " ResponseSchema(name='intent', description='là Intention tôi cung cấp cho bạn', type='string'),\n",
+       " ResponseSchema(name='response', description='câu nói của người nợ (câu do bạn tạo ra)', type='string'),\n",
+       " ResponseSchema(name='start', description=' Đây là vị trí bắt đầu của một đối tượng entity trong chuỗi văn bản response. Trả về một con số', type='string'),\n",
+       " ResponseSchema(name='end', description='Đây là vị trí kết thúc của một đối tượng entity trong chuỗi văn bản response. Trả về một con số', type='string')]"
+      ]
+     },
+     "execution_count": 70,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "response_schemas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "output_parser = StructuredOutputParser.from_response_schemas(response_schemas)\n",
+    "format_instructions = output_parser.get_format_instructions()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "OutputParserException",
+     "evalue": "Got invalid return object. Expected key `text` to be present, but got [{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Cứ nói đi, có gì mà đợi?'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Được, nhưng ngắn gọn thôi nhé!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Ok, mình nghe đi!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Được, bắt đầu đi!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Cứ nói đi, ngại gì!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Ok, giờ nào?'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Được, bắt đầu đi, nhưng nhanh chút!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Được, nói đi, cần gì khẩn cấp không?'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Ok, mình ngồi chờ!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Được, nói đi, không nhớ hơi lâu!'}]",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mOutputParserException\u001b[0m                     Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[72], line 13\u001b[0m\n\u001b[0;32m      7\u001b[0m messages \u001b[39m=\u001b[39m prompt_template\u001b[39m.\u001b[39mformat_messages(\n\u001b[0;32m      8\u001b[0m     script_intention\u001b[39m=\u001b[39mscript_intention, \n\u001b[0;32m      9\u001b[0m     format_instructions\u001b[39m=\u001b[39mformat_instructions\n\u001b[0;32m     10\u001b[0m )\n\u001b[0;32m     12\u001b[0m response \u001b[39m=\u001b[39m chat(messages)\n\u001b[1;32m---> 13\u001b[0m output_dict \u001b[39m=\u001b[39m output_parser\u001b[39m.\u001b[39;49mparse(response\u001b[39m.\u001b[39;49mcontent)\n\u001b[0;32m     15\u001b[0m \u001b[39mprint\u001b[39m(output_dict)\n",
+      "File \u001b[1;32mc:\\Users\\khoatran\\anaconda3\\envs\\project\\lib\\site-packages\\langchain\\output_parsers\\structured.py:95\u001b[0m, in \u001b[0;36mStructuredOutputParser.parse\u001b[1;34m(self, text)\u001b[0m\n\u001b[0;32m     93\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mparse\u001b[39m(\u001b[39mself\u001b[39m, text: \u001b[39mstr\u001b[39m) \u001b[39m-\u001b[39m\u001b[39m>\u001b[39m Any:\n\u001b[0;32m     94\u001b[0m     expected_keys \u001b[39m=\u001b[39m [rs\u001b[39m.\u001b[39mname \u001b[39mfor\u001b[39;00m rs \u001b[39min\u001b[39;00m \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mresponse_schemas]\n\u001b[1;32m---> 95\u001b[0m     \u001b[39mreturn\u001b[39;00m parse_and_check_json_markdown(text, expected_keys)\n",
+      "File \u001b[1;32mc:\\Users\\khoatran\\anaconda3\\envs\\project\\lib\\site-packages\\langchain\\output_parsers\\json.py:91\u001b[0m, in \u001b[0;36mparse_and_check_json_markdown\u001b[1;34m(text, expected_keys)\u001b[0m\n\u001b[0;32m     89\u001b[0m \u001b[39mfor\u001b[39;00m key \u001b[39min\u001b[39;00m expected_keys:\n\u001b[0;32m     90\u001b[0m     \u001b[39mif\u001b[39;00m key \u001b[39mnot\u001b[39;00m \u001b[39min\u001b[39;00m json_obj:\n\u001b[1;32m---> 91\u001b[0m         \u001b[39mraise\u001b[39;00m OutputParserException(\n\u001b[0;32m     92\u001b[0m             \u001b[39mf\u001b[39m\u001b[39m\"\u001b[39m\u001b[39mGot invalid return object. Expected key `\u001b[39m\u001b[39m{\u001b[39;00mkey\u001b[39m}\u001b[39;00m\u001b[39m` \u001b[39m\u001b[39m\"\u001b[39m\n\u001b[0;32m     93\u001b[0m             \u001b[39mf\u001b[39m\u001b[39m\"\u001b[39m\u001b[39mto be present, but got \u001b[39m\u001b[39m{\u001b[39;00mjson_obj\u001b[39m}\u001b[39;00m\u001b[39m\"\u001b[39m\n\u001b[0;32m     94\u001b[0m         )\n\u001b[0;32m     95\u001b[0m \u001b[39mreturn\u001b[39;00m json_obj\n",
+      "\u001b[1;31mOutputParserException\u001b[0m: Got invalid return object. Expected key `text` to be present, but got [{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Cứ nói đi, có gì mà đợi?'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Được, nhưng ngắn gọn thôi nhé!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Ok, mình nghe đi!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Được, bắt đầu đi!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Cứ nói đi, ngại gì!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Ok, giờ nào?'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Được, bắt đầu đi, nhưng nhanh chút!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Được, nói đi, cần gì khẩn cấp không?'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Ok, mình ngồi chờ!'}, {'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree', 'entities': [], 'response': 'Được, nói đi, không nhớ hơi lâu!'}]"
+     ]
+    }
+   ],
+   "source": [
+    "script_intention = f\"\"\"\n",
+    "    script: {df[\"#Script\"][0]} \\n\n",
+    "    Intention: {df[\"Intention\"][0]}\n",
+    "\"\"\"\n",
+    "\n",
+    "prompt_template = ChatPromptTemplate.from_template(template=review_template)\n",
+    "messages = prompt_template.format_messages(\n",
+    "    script_intention=script_intention, \n",
+    "    format_instructions=format_instructions\n",
+    ")\n",
+    "\n",
+    "response = chat(messages)\n",
+    "output_dict = output_parser.parse(response.content)\n",
+    "\n",
+    "print(output_dict)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# review_template = \"\"\"\\\n",
+    "#     I need to create data about a conversation between a debt reminder and a debtor (Vietnamese).\n",
+    "#     I will give you the script of the debt reminder and the intention of the debtor's statement.\n",
+    "#     From the two data I provided above please help me generate 20 answers. I want the answer closest to reality,\n",
+    "#     It doesn't need to be too formal or too long or the debtor can talk profanity.\n",
+    "#     From each statement of the debtor, determine the start, end, value and entity.\\n \n",
+    "\n",
+    "#     script and intention: {script_intention} \\n\n",
+    "\n",
+    "#     Please save as json:    \n",
+    "#         \"text\": None,\n",
+    "#         \"intent\": None,\n",
+    "#         \"entities\": \n",
+    "#             \"start\": None,\n",
+    "#             \"end\": None,\n",
+    "#             \"value\": None,\n",
+    "#             \"entity\": None,\n",
+    "#             \"response\" : None\n",
+    "\n",
+    "#     \\n   \n",
+    "#     In there:\n",
+    "#     text = script\n",
+    "#     intent = Intention\n",
+    "#     response: debtor's statement (Sentences created by you in Vietnamese)\n",
+    "#     entity: The entity mentioned to be extracted in the response\n",
+    "#     start: This is the starting position of an entity in the text string ('response').\n",
+    "#     end: This is the end position of an entity in the text string ('response'). \n",
+    "\n",
+    "\n",
+    "# \"\"\"\n",
+    "\n",
+    "# prompt_template = ChatPromptTemplate.from_template(review_template)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\n",
+      "    \"data\": [\n",
+      "        {\n",
+      "            \"text\": \"Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?\",\n",
+      "            \"intent\": \"Agree\",\n",
+      "            \"entities\": [\n",
+      "                {\n",
+      "                    \"start\": 5,\n",
+      "                    \"end\": 18,\n",
+      "                    \"value\": \"[ne_title]\",\n",
+      "                    \"entity\": \"Title\",\n",
+      "                    \"response\": \"Chị ơi, nhất định đây là một cuộc gọi nhầm.\"\n",
+      "                },\n",
+      "                {\n",
+      "                    \"start\": 19,\n",
+      "                    \"end\": 27,\n",
+      "                    \"value\": \"[ne_name]\",\n",
+      "                    \"entity\": \"Name\",\n",
+      "                    \"response\": \"Xin lỗi, tôi không phải là người mà bạn tìm.\"\n",
+      "                }\n",
+      "            ]\n",
+      "        }\n",
+      "    ]\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "script_intention = f\"\"\"\n",
+    "    script: {df[\"#Script\"][0]} \\n\n",
+    "    Intention: {df[\"Intention\"][0]}\n",
+    "\"\"\"\n",
+    "messages = prompt_template.format_messages(script_intention=script_intention)\n",
+    "response = chat(messages)\n",
+    "print(response.content)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Response 1:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 107, 'end': 124, 'value': '. Cho em xin ít p', 'entity': 'entity_name', 'response': 'Ừ, được thôi.'}]}\n",
+      "\n",
+      "Response 2:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 37, 'end': 151, 'value': ' gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin đ', 'entity': 'entity_name', 'response': 'Được chứ.'}]}\n",
+      "\n",
+      "Response 3:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 86, 'end': 130, 'value': 'ết nối với [ne_title]. Cho em xin ít phút để', 'entity': 'entity_name', 'response': 'Ừ, được thôi.'}]}\n",
+      "\n",
+      "Response 4:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 75, 'end': 85, 'value': ' vui được ', 'entity': 'entity_name', 'response': 'Ừ, được thôi.'}]}\n",
+      "\n",
+      "Response 5:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 4, 'end': 143, 'value': ' [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thô', 'entity': 'entity_name', 'response': 'Được chứ.'}]}\n",
+      "\n",
+      "Response 6:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 125, 'end': 149, 'value': 'út để trao đổi thông tin', 'entity': 'entity_name', 'response': 'Ừ, nghe đi.'}]}\n",
+      "\n",
+      "Response 7:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 4, 'end': 149, 'value': ' [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin', 'entity': 'entity_name', 'response': 'Được chứ.'}]}\n",
+      "\n",
+      "Response 8:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 142, 'end': 157, 'value': 'ông tin được kh', 'entity': 'entity_name', 'response': 'Được chứ.'}]}\n",
+      "\n",
+      "Response 9:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 45, 'end': 122, 'value': 'công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít', 'entity': 'entity_name', 'response': 'Chào em.'}]}\n",
+      "\n",
+      "Response 10:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 72, 'end': 132, 'value': 'rất vui được kết nối với [ne_title]. Cho em xin ít phút để t', 'entity': 'entity_name', 'response': 'Có gì đó?'}]}\n",
+      "\n",
+      "Response 11:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 58, 'end': 91, 'value': 'hính Finance, rất vui được kết nố', 'entity': 'entity_name', 'response': 'Ừ, được thôi.'}]}\n",
+      "\n",
+      "Response 12:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 90, 'end': 129, 'value': 'ối với [ne_title]. Cho em xin ít phút đ', 'entity': 'entity_name', 'response': 'Được lắm.'}]}\n",
+      "\n",
+      "Response 13:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 94, 'end': 105, 'value': 'ới [ne_titl', 'entity': 'entity_name', 'response': 'Chào em.'}]}\n",
+      "\n",
+      "Response 14:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 57, 'end': 84, 'value': 'chính Finance, rất vui được', 'entity': 'entity_name', 'response': 'Ừ, nghe đi.'}]}\n",
+      "\n",
+      "Response 15:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 54, 'end': 83, 'value': 'ài chính Finance, rất vui đượ', 'entity': 'entity_name', 'response': 'Có vẻ hợp lý.'}]}\n",
+      "\n",
+      "Response 16:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 101, 'end': 123, 'value': 'title]. Cho em xin ít ', 'entity': 'entity_name', 'response': 'Có gì đó?'}]}\n",
+      "\n",
+      "Response 17:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 5, 'end': 152, 'value': '[ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin đư', 'entity': 'entity_name', 'response': 'Được chứ.'}]}\n",
+      "\n",
+      "Response 18:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 21, 'end': 32, 'value': 'me]. Em là ', 'entity': 'entity_name', 'response': 'Chào em.'}]}\n",
+      "\n",
+      "Response 19:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 24, 'end': 137, 'value': '. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đ', 'entity': 'entity_name', 'response': 'Được chứ.'}]}\n",
+      "\n",
+      "Response 20:\n",
+      "{'text': 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?', 'intent': 'Agree (là khách hàng)', 'entities': [{'start': 44, 'end': 137, 'value': ' công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đ', 'entity': 'entity_name', 'response': 'Có vẻ hợp lý.'}]}\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "import random\n",
+    "\n",
+    "# Define the script and intention\n",
+    "script = 'Chào [ne_title][ne_name]. Em là Thanh gọi từ công ty tài chính Finance, rất vui được kết nối với [ne_title]. Cho em xin ít phút để trao đổi thông tin được không ạ?'\n",
+    "intention = 'Agree (là khách hàng)'\n",
+    "\n",
+    "# Create a list of 20 random responses\n",
+    "responses = []\n",
+    "\n",
+    "for _ in range(20):\n",
+    "    # Generate a random start and end position for an entity\n",
+    "    start = random.randint(0, len(script) - 1)\n",
+    "    end = random.randint(start, len(script))\n",
+    "    \n",
+    "    # Extract the entity value from the script\n",
+    "    entity_value = script[start:end]\n",
+    "    \n",
+    "    # Create a random response\n",
+    "    response = random.choice([\"Được chứ.\", \"Ừ, nghe đi.\", \"Có gì đó?\", \"Ừ, được thôi.\", \"Chào em.\", \"Được lắm.\", \"Có vẻ hợp lý.\"])\n",
+    "    \n",
+    "    # Create a response JSON object\n",
+    "    response_obj = {\n",
+    "        \"text\": script,\n",
+    "        \"intent\": intention,\n",
+    "        \"entities\": [\n",
+    "            {\n",
+    "                \"start\": start,\n",
+    "                \"end\": end,\n",
+    "                \"value\": entity_value,\n",
+    "                \"entity\": \"entity_name\",  # Replace with the actual entity name\n",
+    "                \"response\": response\n",
+    "            }\n",
+    "        ]\n",
+    "    }\n",
+    "    \n",
+    "    responses.append(response_obj)\n",
+    "\n",
+    "# Print the generated responses\n",
+    "for i, response in enumerate(responses):\n",
+    "    print(f\"Response {i+1}:\")\n",
+    "    print(response)\n",
+    "    print()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "project",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.15"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

@@ -1,0 +1,8 @@
+Sentence : Mình sắp có lương rồi, để rồi trả sau được không? 
+{'name': 'yêu_cầu_từ_khách_hàng', 'confidence': 0.9999997615814209} 
+Sentence : Tôi không có tiền, làm sao để trả bây giờ? 
+{'name': 'yêu_cầu_từ_khách_hàng', 'confidence': 0.9999817609786987} 
+Sentence : Tao sẽ trả sau, bây giờ tao đang bận. 
+{'name': 'yêu_cầu_từ_khách_hàng', 'confidence': 0.9999547004699707} 
+Sentence : Chị ôm đống nợ rồi, cho chị thêm thời gian để trả nợ được không? 
+{'name': 'yêu_cầu_từ_khách_hàng', 'confidence': 0.9999992847442627} 

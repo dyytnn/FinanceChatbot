@@ -1,0 +1,8 @@
+Sentence : Lương chưa nhận, công việc cũng không ổn, tôi thật sự không biết phải trả sao vào [ne_short_due_date]. 
+{'name': 'vấn_đề_tài_chính_và_công_việc', 'confidence': 1.0} 
+Sentence : Tớ cũng không muốn không trả nợ. Nhưng hiện tại, tớ đang vướng mấy chuyện công việc, tài chính. Tớ sẽ trả khi có thể. 
+{'name': 'vấn_đề_tài_chính_và_công_việc', 'confidence': 0.9999896287918091} 
+Sentence : Dạo này tài chính tao thật sự không được tốt lắm, tao sẽ cố gắng trả nợ vào [ne_short_due_date]. 
+{'name': 'vấn_đề_tài_chính_và_công_việc', 'confidence': 0.9999990463256836} 
+Sentence : Lương tôi chưa đến tay, công việc còn lung tung. Thực sự thì tôi không biết trả sao vào [ne_short_due_date]. 
+{'name': 'vấn_đề_tài_chính_và_công_việc', 'confidence': 1.0} 

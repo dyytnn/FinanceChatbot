@@ -1,0 +1,8 @@
+Sentence : Thế à? Hạn đã đến sớm thật, cảm ơn em nhắc nhở 
+{'name': 'nhắc_hạn_thanh_toán', 'confidence': 0.9974523186683655} 
+Sentence : Anh đã nắm thông tin đó rồi nha 
+{'name': 'nhắc_hạn_thanh_toán', 'confidence': 0.9998972415924072} 
+Sentence : Được rồi, tao sẽ gọi trong thời gian tới 
+{'name': 'nhắc_hạn_thanh_toán', 'confidence': 0.9997803568840027} 
+Sentence : Okie dokie, đã nghe rõ 
+{'name': 'nhắc_hạn_thanh_toán', 'confidence': 0.9999257326126099} 

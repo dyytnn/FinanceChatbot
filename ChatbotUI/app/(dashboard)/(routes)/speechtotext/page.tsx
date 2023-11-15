@@ -57,6 +57,7 @@ const STTPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+      console.log(transcript);
       console.log(text);
 
       if (mediaBlobUrl) {
