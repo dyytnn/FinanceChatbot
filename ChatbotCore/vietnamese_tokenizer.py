@@ -30,10 +30,10 @@ class VietnameseTokenizer(Tokenizer):
 
     def __init__(self, component_config: Dict[Text, Any]) -> None:
         super().__init__(component_config)
-        if component_config.get('tokenizer') == 'underthesea':
-            self.tokenizer = 'underthesea'
-        else:
-            self.tokenizer = 'pyvi'
+        # if component_config.get('tokenizer') == 'underthesea':
+        #     self.tokenizer = 'underthesea'
+        # else:
+        self.tokenizer = 'underthesea'
 
     @classmethod
     def create(
@@ -55,5 +55,5 @@ class VietnameseTokenizer(Tokenizer):
             from pyvi import ViTokenizer
             words = ViTokenizer.tokenize(text).split()
         text = ' '.join(words)
-
+        print(self._convert_words_to_tokens(words, text))
         return self._convert_words_to_tokens(words, text)

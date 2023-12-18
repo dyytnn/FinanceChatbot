@@ -1,13 +1,39 @@
 version: '3.1'
 
 intents:
- - không_trả
- - thái_độ
- - thông_tin_khác
- - thăc_mắc
- - trả
- - xác_nhận_sai
- - xác_nhận_đúng
+- không_trả:
+    use_entities:
+        - debt_denial
+        - debt_delay
+        - economic_situation
+- thái_độ:
+    use_entities:
+        - disparaging_language
+        - negative_attitude
+- thăc_mắc:
+    use_entities:
+        - payment_method
+        - negation
+        - inquiry
+        - debt_inquiry
+        - contract
+        - payment_channel
+        - timeframe
+        - debt_details
+- trả:
+    use_entities:
+        - confirmation
+        - payment_method
+        - confirm_repay_debt
+- xác_nhận_sai:
+    use_entities:
+        - negation
+        - debt_denial
+- xác_nhận_đúng:
+    use_entities:
+        - confirmation
+        - debt_detail
+        - relative
 
 responses:
   utter_saybye:
