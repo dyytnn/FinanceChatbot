@@ -11,7 +11,7 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChatCompletionRequestMessage } from "openai";
 import axios from "axios";
 import Empty from "@/components/empty";
@@ -20,59 +20,177 @@ import { cn } from "@/lib/utils";
 import UserAvatar from "@/components/user-avatar";
 import BotAvatar from "@/components/bot-avatar";
 import { v4 as uuidv4 } from "uuid";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+import { faker } from "@faker-js/faker";
+import "chart.js/auto";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 type Chat = {
   content: string;
   role: string;
 };
 
+const options = [
+  {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+      title: {
+        display: true,
+        text: "DIET Model",
+      },
+    },
+  },
+  // {
+  //   responsive: true,
+  //   plugins: {
+  //     legend: {
+  //       position: "top" as const,
+  //     },
+  //     title: {
+  //       display: true,
+  //       text: "Transformer Model",
+  //     },
+  //   },
+  // },
+  // {
+  //   responsive: true,
+  //   plugins: {
+  //     legend: {
+  //       position: "top" as const,
+  //     },
+  //     title: {
+  //       display: true,
+  //       text: "SVM Model",
+  //     },
+  //   },
+  // },
+];
+const uuid = uuidv4();
 const ConversationPage = () => {
+  const messagesEndRef = useRef(null);
   const router = useRouter();
   const [messages, setMessages] = useState<[]>([]);
-  const [response1, setResponse1] = useState([]);
-  const [confarray, setConfArray] = useState([]);
+  const [chartDataArr, setChartDataArr] = useState([]);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { prompt: "" },
   });
 
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
   const isLoading = form.formState.isSubmitting;
-  const arrayConfidence1: any[] = [];
+
+  const getModel = async (url: string, prompt: string, nameModel: string) => {
+    const arrayConfidence: any[] = [];
+    const arrIntentName: any[] = [];
+    const uuid = uuidv4();
+
+    const response = await axios.post(`${url}`, {
+      sender: `${uuid}`,
+      text: prompt,
+    });
+    // @ts-ignore
+
+    const responseData = await response.data;
+    // console.log(responseData);
+    // let text = `text: ${responseData.text} ` + "\n";
+    // let text = `Model: ${nameModel} \n\n`;
+
+    await responseData.intent_ranking.map((intent: any) => {
+      // text += `- ${intent.name ? intent.name : intent.intent}: ` + "\n\n";
+
+      if (nameModel == "TRANSF") {
+        arrIntentName.push(intent.intent);
+      } else {
+        arrIntentName.push(intent.name);
+      }
+      const conf = parseFloat(intent.confidence).toFixed(5);
+      arrayConfidence.push(conf);
+    });
+
+    return {
+      labels: arrIntentName,
+      datasets: [
+        {
+          label: "Confidence",
+          data: arrayConfidence,
+          backgroundColor: "rgba(255, 99, 132, 0.5)",
+        },
+      ],
+    };
+  };
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const uuid = uuidv4();
       const userMessage = {
         role: "user",
-        content: values.prompt,
+        content: [values.prompt],
       };
+      // const response = await axios.post(
+      //   `${process.env.NEXT_PUBLIC_API_RASA_URL_DIET_RESPONSE}`,
+      //   {
+      //     sender: `${uuid}`,
+      //     message: `${values.prompt}`,
+      //   }
+      // );
+      // console.log(response);
 
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_RASA_URL}`,
-        {
-          sender: `${uuid}`,
-          text: values.prompt,
-        }
-      );
-      // @ts-ignore
-
-      const responseData = await response.data;
+      // const responseData = await response.data[0];
       // console.log(responseData);
-      // let text = `text: ${responseData.text} ` + "\n";
-      let text = "";
-      await responseData.intent_ranking.map((intent: any) => {
-        text += `- ${intent.name}: ` + "\n";
-        const conf = parseFloat(intent.confidence).toFixed(5);
-        arrayConfidence1.push(conf);
-      });
+
+      // const responsefromTransformer = await getModel(
+      //   `${process.env.NEXT_PUBLIC_API_RASA_URL_TRANSF}`,
+      //   values.prompt,
+      //   "TRANSF"
+      // );
+
+      const responsefromDIET = await getModel(
+        `${process.env.NEXT_PUBLIC_API_RASA_URL_DIET}`,
+        values.prompt,
+        "DIET"
+      );
+      // console.log(responsefromDIET);
+
+      setChartDataArr([
+        responsefromDIET,
+        // responsefromTransformer,
+        // responsefromSVM,
+      ]);
 
       const reply = {
         role: "bot",
-        content: text,
-        confs: arrayConfidence1,
+        // content: [responseData],
+        content: [responsefromDIET.text],
+        // confs: [responsefromTransformer, responsefromDIET, responsefromSVM],
+        // confs: [responsefromDIET],
+        confs: [...responsefromDIET.datasets[0].data],
+        labels: [...responsefromDIET.labels],
       };
+      // console.log(reply);
       // @ts-ignore
-      setResponse1(arrayConfidence1);
-
+      // setResponse1(arrayConfidence1);
+      // console.log(reply);
+      // setMessages((current) => [...current, userMessage, reply]);
       setMessages((current) => [...current, userMessage, reply]);
 
       form.reset();
@@ -85,7 +203,7 @@ const ConversationPage = () => {
       //   toast.error("Something went wrong.");
       // }
     } finally {
-      router.refresh();
+      // router.refresh();
     }
   };
 
@@ -121,21 +239,63 @@ const ConversationPage = () => {
                 )}
                 key={index}
               >
-                <div className={`${message.role === "user" && "order-2"}`}>
+                <div className={`${message.role === "user" && "order-2"}`} key={index}>
                   {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                 </div>
+                <div
+                  className={`flex w-full text-base whitespace-pre-line flex-row gap-x-20 ${
+                    message.role === "user" && "justify-end"
+                  } `}
+                  key={index}
+                >
+                  {message.content.map((cont, index) => (
+                    <div key={index} className="flex">
+                      {message.role == "user" && <div>{cont}</div>}
 
-                <div className="flex text-base whitespace-pre-line">
-                  {message.content}
-                  <div className="flex flex-col justify-center ml-2">
-                    {message.confs &&
-                      message.role !== "user" &&
-                      message.confs.map((conf, index) => (
-                        <p key={index} className="text-base">
-                          {conf}
-                        </p>
-                      ))}
-                  </div>
+                      <div className="flex flex-row">
+                        {message.labels && message.role !== "user" && (
+                          <div className="flex flex-col justify-center ml-2 pt-6">
+                            {message.labels.map((label, i) => (
+                              <div key={index} className="flex">
+                                <p key={index} className="text-base mt-6 ">
+                                  {label}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {message.confs && message.role !== "user" && (
+                          <div className="flex flex-col justify-center ml-2 pt-6" key={index}>
+                            {message.confs.map((item, i) => (
+                              <div key={index} className="flex">
+                                <p key={index} className="text-base mt-6 ">
+                                  {item}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      {/* <div>
+                        {message.role !== "user" && (
+                          <div className="flex flex-col justify-center ml-2 pt-6">
+                            {cont.text}
+                          </div>
+                        )}
+                      </div> */}
+                      {/* <div>
+                        {message.confs && message.role !== "user" && (
+                          <Bar
+                            options={options[index]}
+                            data={chartDataArr[index]}
+                            height={400}
+                            width={400}
+                          />
+                        )}
+                      </div> */}
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
@@ -172,6 +332,7 @@ const ConversationPage = () => {
           </div>
         </div>
       </div>
+      <div ref={messagesEndRef} />
     </div>
   );
 };

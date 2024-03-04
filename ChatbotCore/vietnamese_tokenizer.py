@@ -1,4 +1,5 @@
 from __future__ import annotations
+import string
 
 from typing import Any, Dict, List, Optional, Text
 from rasa.nlu.tokenizers.tokenizer import Token, Tokenizer
@@ -47,7 +48,11 @@ class VietnameseTokenizer(Tokenizer):
 
     def tokenize(self, message: Message, attribute: Text) -> List[Token]:
         text = message.get(attribute)
+        text = text.translate(str.maketrans('', '', string.punctuation))
         text = text.replace('òa', 'oà').replace('óa', 'oá').replace('ỏa', 'oả').replace('õa', 'oã').replace('ọa', 'oạ').replace('òe', 'oè').replace('óe', 'oé').replace('ỏe', 'oẻ').replace('õe', 'oẽ').replace('ọe', 'oẹ').replace('ùy', 'uỳ').replace('úy', 'uý').replace('ủy', 'uỷ').replace('ũy', 'uỹ').replace('ụy', 'uỵ')
+        
+        # print(f'Using component {self.tokenizer} for the word tokenizer')
+        
         if self.tokenizer == 'underthesea':
             from underthesea import word_tokenize
             words = word_tokenize(text, format="text").split()
@@ -55,5 +60,6 @@ class VietnameseTokenizer(Tokenizer):
             from pyvi import ViTokenizer
             words = ViTokenizer.tokenize(text).split()
         text = ' '.join(words)
-        print(self._convert_words_to_tokens(words, text))
+        # print(self._convert_words_to_tokens(words, text))
+        # print(text)
         return self._convert_words_to_tokens(words, text)

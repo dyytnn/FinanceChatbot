@@ -1,0 +1,34 @@
+recipe: default.v1
+language: vi
+pipeline:
+- name: "vietnamese_tokenizer.VietnameseTokenizer"
+- name: LexicalSyntacticFeaturizer
+  
+  intent_tokenization_flag: true
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+
+- name: diet_classifier.DIETClassifier
+  entity_recognition: True
+  epochs: 100
+  
+- name: ResponseSelector
+  epochs: 800
+  retrieval_intent: faq
+- name: EntitySynonymMapper
+- name: FallbackClassifier
+  threshold: 0.3
+  
+
+policies:
+  - name: MemoizationPolicy
+  - name: RulePolicy
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true
+
+assistant_id: 20231019-082525-isochoric-altitude

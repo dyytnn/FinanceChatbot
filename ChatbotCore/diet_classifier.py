@@ -115,6 +115,19 @@ from rasa.utils.tensorflow.constants import (
     RUN_EAGERLY,
 )
 
+class Color:
+    PURPLE = '\033[95m'
+    CYAN = '\033[96m'
+    DARKCYAN = '\033[36m'
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    END = '\033[0m'
+
+
 logger = logging.getLogger(__name__)
 
 logger.setLevel(logging.INFO)  # Set the logging level (DEBUG, INFO, WARNING, etc.)
@@ -529,6 +542,15 @@ class DIETClassifier(GraphComponent, IntentClassifier, EntityExtractorMixin):
             attribute, self.component_config[FEATURIZERS]
         )
 
+        print(f'{Color.BLUE}sparse_sequence_features:{Color.END} {sparse_sequence_features.features.toarray()}')
+        print('=' * 100) 
+
+        if sparse_sentence_features is not None:
+            print(f'{Color.PURPLE}sparse_sentence_features:{Color.END} {sparse_sentence_features.features.toarray()}')
+            print('=' * 100)
+        else:
+            print("No sparse sentence features found.")
+
         if dense_sequence_features is not None and sparse_sequence_features is not None:
             if (
                 dense_sequence_features.features.shape[0]
@@ -572,6 +594,11 @@ class DIETClassifier(GraphComponent, IntentClassifier, EntityExtractorMixin):
             out[f"{DENSE}_{SENTENCE}"] = dense_sentence_features.features
         if dense_sequence_features is not None:
             out[f"{DENSE}_{SEQUENCE}"] = dense_sequence_features.features
+
+        print(f'{Color.RED}out:{Color.END}')
+        for key, value in out.items():
+            print(f'{key}: {value.toarray() if hasattr(value, "toarray") else value}')
+        print('=' * 100)
 
         return out
 
@@ -1042,13 +1069,22 @@ class DIETClassifier(GraphComponent, IntentClassifier, EntityExtractorMixin):
         self, predict_out: Optional[Dict[Text, tf.Tensor]], message: Message, intent: str
     ) -> List[Dict]:
         
+        # groupEnityByIntent={
+        #     "xác_nhận_đúng": ["confirmation", "debt_details", "relative"],
+        #     "xác_nhận_sai": ["negation", "debt_denial"],
+        #     "trả": ["confirmation", "payment_method", "confirm_repay_debt"],
+        #     "không_trả": ["debt_denial", "debt_delay", "economic_situation", "confirm_repay_debt"],
+        #     "thái_độ": ["disparaging_language", "negative_attitude"],
+        #     "thăc_mắc": ["payment_method", "negation", "inquiry", "debt_inquiry", "contract", "payment_channel", "timeframe", "debt_details"],
+        # }
+
         groupEnityByIntent={
-            "xác_nhận_đúng": ["confirmation", "debt_details", "relative"],
-            "xác_nhận_sai": ["negation", "debt_denial"],
-            "trả": ["confirmation", "payment_method", "confirm_repay_debt"],
-            "không_trả": ["debt_denial", "debt_delay", "economic_situation"],
-            "thái_độ": ["disparaging_language", "negative_attitude"],
-            "thăc_mắc": ["payment_method", "negation", "inquiry", "debt_inquiry", "contract", "payment_channel", "timeframe", "debt_details"],
+            "xác_nhận_đúng": ["accquatance", "debt_organization", "timeframe", "relative"],
+            "xác_nhận_sai": ["debt_organization", "timeframe"],
+            "trả": ["accquatance", "relative",  "debt_organization", "timeframe"],
+            "không_trả": ["accquatance",  "relative",  "debt_organization"],
+            "có_thể_gặp_kh": ["timeframe"],
+            "không_thể_gặp_kh": ["timeframe"],
         }
 
         if predict_out is None:
@@ -1065,39 +1101,27 @@ class DIETClassifier(GraphComponent, IntentClassifier, EntityExtractorMixin):
             self.split_entities_config,
             confidence_values,
         )
-
+        
         entities = self.add_extractor_name(entities)
         entities = message.get(ENTITIES, []) + entities
-        print('-'*50)
-        print(entities)
+
+        print(f'{Color.BLUE}Entity list before filtered{Color.END} {entities}')
+        print('=' * 100)  # Add a separator line
         for item in entities:
             if item['entity'] not in groupEnityByIntent[intent]:
                 entities.remove(item)
-        print('*'*50)
-        print(entities)
+        
+        print(f'{Color.GREEN}Entity list after filtered{Color.END} {entities}')
         return entities 
 
     def process(self, messages: List[Message]) -> List[Message]:
         """Augments the message with intents, entities, and diagnostic data."""
-        
-        # groupEnityByIntent={
-        #     "xác_nhận_đúng": ["confirmation", "debt_details", "relative"],
-        #     "xác_nhận_sai": ["negation", "debt_denial"],
-        #     "trả": ["confirmation", "payment_method", "payment_status", "confirm_repay_debt"],
-        #     "không_trả": ["debt_denial", "debt_delay", "economic_situation"],
-        #     "thái_độ": ["disparaging_language", "negative_attitude", "negative_emotional_state"],
-        #     "thăc_mắc": ["payment_method", "negation", "inquiry", "debt_inquiry", "contract", "payment_channel", "timeframe", "debt_details"],
-        # }
-
         for message in messages:
             out = self._predict(message)
         
             intentPredict=""
             if self.component_config[INTENT_CLASSIFICATION]:
                 label, label_ranking = self._predict_label(out)
-                # print(label.keys())
-                # print(f'intent predict {label["name"]}')
-                # logger.info(f'label variable: {label}, label_ranking {label_ranking}')
                 intentPredict=label["name"]
                 
                 message.set(INTENT, label, add_to_output=True)

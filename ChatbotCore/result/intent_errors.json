@@ -1,0 +1,42 @@
+[
+  {
+    "text": "Chị muốn thanh toán thì phải ra đâu em?",
+    "intent": "thăc_mắc",
+    "intent_prediction": {
+      "name": "không_trả",
+      "confidence": 0.900772213935852
+    }
+  },
+  {
+    "text": "Muốn thanh toán ở quê thì đi ra đâu em?",
+    "intent": "thăc_mắc",
+    "intent_prediction": {
+      "name": "không_trả",
+      "confidence": 0.8105951547622681
+    }
+  },
+  {
+    "text": "Thế mình có thể thanh toán tại bất kỳ cửa hàng điện thoại nào cũng được à?",
+    "intent": "thăc_mắc",
+    "intent_prediction": {
+      "name": "trả",
+      "confidence": 0.994066596031189
+    }
+  },
+  {
+    "text": "Chị chưa hiểu cách thanh toán ở cửa hàng điện thoại, em nói rõ hơn được không?",
+    "intent": "thăc_mắc",
+    "intent_prediction": {
+      "name": "không_trả",
+      "confidence": 0.933315634727478
+    }
+  },
+  {
+    "text": "Không biết gì hết, đừng gọi nữa",
+    "intent": "xác_nhận_sai",
+    "intent_prediction": {
+      "name": "thái_độ",
+      "confidence": 0.599144697189331
+    }
+  }
+]

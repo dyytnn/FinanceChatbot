@@ -23,6 +23,7 @@ import json
 import numpy as np
 
 import torch
+import torch.nn as nn
 from torch.utils.data import Dataset
 
 from transformers import AutoTokenizer
@@ -108,7 +109,7 @@ class TransformerClassifier(IntentClassifier, GraphComponent):
         # We need to use these later when saving the trained component.
         self._model_storage = model_storage
         self._resource = resource
-        print(self)
+        # print(self)
       
         print("\n-------- Done -------\n")
         # return self
@@ -140,7 +141,7 @@ class TransformerClassifier(IntentClassifier, GraphComponent):
         """
         with open('./transformer/label2id.json') as json_file:
             label2id = json.load(json_file)
-        confidences = [float(x) for x in outputs["logits"][0]]
+        confidences = [float(x) for x in nn.functional.softmax(outputs["logits"], dim = -1)[0]]
         intent_names = list(label2id.keys())
         intent_ranking_all = zip(confidences, intent_names)
         intent_ranking_all_sorted = sorted(
@@ -174,12 +175,12 @@ class TransformerClassifier(IntentClassifier, GraphComponent):
     def train(self, training_data: TrainingData) -> Resource:
         # self.tokenizer = AutoTokenizer.from_pretrained("albert-base-v2")
         print("-----------------------------")
-        print(self)
+        # print(self)
         print("-----------------------------")
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         dataset = self.preprocess_data(training_data)
         print("Data Set ")
-        print(dataset)
+        # print(dataset)
         self.model=self._define_model()
 
         self.config = AutoConfig.from_pretrained("albert-base-v2")
@@ -277,10 +278,10 @@ class TransformerClassifier(IntentClassifier, GraphComponent):
         execution_context: ExecutionContext,
     ) -> GraphComponent:
         print("--------------- Load Method Start ---------")
-        print(resource)
-        print(resource.name)
-        print("Model Storage")
-        print(model_storage)
+        # print(resource)
+        # print(resource.name)
+        # print("Model Storage")
+        # print(model_storage)
         model_data_file ="./custom_model/model_albert-base-v2/config.json"
         print("Model Path Loaded "+ model_data_file)
         
@@ -337,7 +338,10 @@ class TransformerClassifier(IntentClassifier, GraphComponent):
         print(" id2Label   ")
         print(id2label)
         print("Result Predicted Started")
-        arr = outputs["logits"]
+        # arr = outputs["logits"]
+        arr = nn.functional.softmax(outputs["logits"], dim = -1)
+        print(arr)
+        # arr = nn.functional.softmax(outputs.logits, dim = -1)
         maxvalue=arr[0].tolist() 
         print(" List $ " )
         print(maxvalue )
@@ -396,7 +400,6 @@ class TransformerClassifier(IntentClassifier, GraphComponent):
             X.append(together)
         return vstack(X)
     
-
 
 
 

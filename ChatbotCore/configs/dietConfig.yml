@@ -10,18 +10,28 @@ pipeline:
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
-# - name: crf_entity_extractor1.CRFEntityExtractor
 
-# - name: DIETClassifier
-- name: diet_classifier.DIETClassifier
+- name: DIETClassifier
+  random_seed: 42
+  intent_classification: True
   entity_recognition: True
-  epochs: 100
+  epochs: 200
+  learning_rate: 0.002
+  embedding_dimension: 60
+  number_of_transformer_layers: 1
+  batch_size: 64
+  hidden_layer_sizes:
+  text: [256, 128]
+
+# - name: CRFEntityExtractor
+#   BILOU_flag: True
+
 - name: ResponseSelector
   epochs: 800
   retrieval_intent: faq
 - name: EntitySynonymMapper
-- name: FallbackClassifier
-  threshold: 0.49
+# - name: FallbackClassifier
+#   threshold: 0.3
 
 policies:
   - name: MemoizationPolicy

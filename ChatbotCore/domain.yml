@@ -1,39 +1,66 @@
 version: '3.1'
 
 intents:
-- không_trả:
-    use_entities:
-        - debt_denial
-        - debt_delay
-        - economic_situation
-- thái_độ:
-    use_entities:
-        - disparaging_language
-        - negative_attitude
-- thăc_mắc:
-    use_entities:
-        - payment_method
-        - negation
-        - inquiry
-        - debt_inquiry
-        - contract
-        - payment_channel
-        - timeframe
-        - debt_details
-- trả:
-    use_entities:
-        - confirmation
-        - payment_method
-        - confirm_repay_debt
-- xác_nhận_sai:
-    use_entities:
-        - negation
-        - debt_denial
-- xác_nhận_đúng:
-    use_entities:
-        - confirmation
-        - debt_detail
-        - relative
+  - Bận_Công tác_Đám cưới_ma
+  - FAQ_Hỏi ngày đến hạn
+  - FAQ_Hỏi thông tin người gọi đến
+  - FAQ_Hỏi thứ_ngày_tháng
+  - FAQ_KH muốn hỏi thông tin
+  - FAQ_Không nghe rõ
+  - FAQ_Kỳ thanh toán
+  - FAQ_Quy trình gọi
+  - FAQ_Số tiền_Sản phẩm
+  - Hết tiền_khó khăn tài chính
+  - Hứa thanh toán có ngày
+  - Khách hàng phản hồi
+  - Thái độ người nghe không tốt
+  - Tất toán khoản vay
+  - Từ chối thanh toán trước hạn
+  - Từ chối vì chưa nhận khoản vay
+  - Từ chối vì thắc mắc thông tin khoản vay
+  - bi_om_benh
+  - default_fallback_intent
+  - faq_chua_nhan_duoc_tin_nhan
+  - faq_hoi_kenh_thanh_toan
+  - faq_lai_suat
+  - faq_yeu_cau_gui_ma_hop_dong
+  - khach_hang_mat
+  - khong_dong_y
+  - mat_viec_that_nghiep_lam_an_thua_lo
+  - nguoi_than_nghe_may
+  - thanh_toan_mot_phan
+  - thanh_toan_tre
+  - tre_luong
+  - tu_choi_khong_ly_do
+  - Đã thanh toán khoản vay
+  - Đồng ý
+  - Đồng ý thanh toán
+  # - greet
+  # - goodbye
+  # - bận
+  # - có_thể_gặp_kh
+  # - kh_đã_mất
+  # - không_thể_gặp_kh
+  # - không_trả
+  # - thái_độ
+  # - thăc_mắc
+  # - trả
+  # - xác_nhận_sai
+  # - xác_nhận_đúng
+  # - đã_thanh_toán
+
+# entities:
+#     - accquatance
+#     - debt_denail
+#     - debt_denial_reason
+#     - debt_organization
+#     - timeframe
+#     - payment_method
+#     - payment_channel
+#     - relative
+#     - emotional_state
+#     - negative_emotinal_state
+    
 
 responses:
   utter_saybye:

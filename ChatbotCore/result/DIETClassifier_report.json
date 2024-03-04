@@ -1,0 +1,149 @@
+{
+  "debt_organization": {
+    "precision": 0.9855072463768116,
+    "recall": 0.6238532110091743,
+    "f1-score": 0.7640449438202247,
+    "support": 109,
+    "confused_with": {}
+  },
+  "debt_value": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {}
+  },
+  "accquatance": {
+    "precision": 1.0,
+    "recall": 0.4166666666666667,
+    "f1-score": 0.5882352941176471,
+    "support": 96,
+    "confused_with": {}
+  },
+  "debt_denial_reason": {
+    "precision": 0.9867256637168141,
+    "recall": 0.34627329192546585,
+    "f1-score": 0.5126436781609196,
+    "support": 644,
+    "confused_with": {}
+  },
+  "negation": {
+    "precision": 1.0,
+    "recall": 0.3548387096774194,
+    "f1-score": 0.5238095238095238,
+    "support": 31,
+    "confused_with": {}
+  },
+  "debt_amount": {
+    "precision": 1.0,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.5,
+    "support": 18,
+    "confused_with": {}
+  },
+  "phone_number": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 11,
+    "confused_with": {}
+  },
+  "name": {
+    "precision": 1.0,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.5,
+    "support": 3,
+    "confused_with": {}
+  },
+  "understanding": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1,
+    "confused_with": {}
+  },
+  "agreement": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {}
+  },
+  "timeframe": {
+    "precision": 0.9453376205787781,
+    "recall": 0.3793548387096774,
+    "f1-score": 0.5414364640883979,
+    "support": 775,
+    "confused_with": {
+      "debt_denial_reason": 2
+    }
+  },
+  "payment_method": {
+    "precision": 1.0,
+    "recall": 0.5538461538461539,
+    "f1-score": 0.712871287128713,
+    "support": 65,
+    "confused_with": {}
+  },
+  "debt_status": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1,
+    "confused_with": {}
+  },
+  "acquaintance": {
+    "precision": 1.0,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.8,
+    "support": 18,
+    "confused_with": {}
+  },
+  "payment_status": {
+    "precision": 0.9946808510638298,
+    "recall": 0.4895287958115183,
+    "f1-score": 0.6561403508771929,
+    "support": 382,
+    "confused_with": {}
+  },
+  "acquatance": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1,
+    "confused_with": {}
+  },
+  "relative": {
+    "precision": 0.9886039886039886,
+    "recall": 0.6390423572744015,
+    "f1-score": 0.7762863534675616,
+    "support": 543,
+    "confused_with": {}
+  },
+  "card_number": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.9794303797468354,
+    "recall": 0.4578402366863905,
+    "f1-score": 0.6239919354838709,
+    "support": 2704
+  },
+  "macro avg": {
+    "precision": 0.772269742796679,
+    "recall": 0.4520409643474339,
+    "f1-score": 0.5486371053038989,
+    "support": 2704
+  },
+  "weighted avg": {
+    "precision": 0.9749586997616875,
+    "recall": 0.4578402366863905,
+    "f1-score": 0.614700853692779,
+    "support": 2704
+  },
+  "accuracy": 0.8768391469664407
+}

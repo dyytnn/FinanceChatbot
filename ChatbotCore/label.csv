@@ -1,0 +1,99 @@
+,sentence,number_of_entities
+0,"Em thông cảm hộ nha,chị [chưa có tiền](debt_denial_reason), chị sẽ cố gắng đóng tiền trong [tuần này](timeframe)",2
+1,"Xin lỗi bạn vì chậm trễ dạo này tôi [chưa có tiền](debt_denial_reason), tôi sẽ cố gắng thu xếp đóng trong [5 ngày](timeframe)",2
+2,"Tôi [đang hơi khó khăn](debt_denial_reason),nhưng yên tâm, tôi sẽ trả đúng hạn",1
+3,"Vài hôm nữa, tôi [mượn được tiền](debt_denial_reason) sẽ trả ngay cho bạn",1
+4,Tôi [chưa có tiền](debt_denial_reason) nhưng tôi hứa sẽ trả trong [vài ngày tới](timeframe),2
+5,"Tôi hiểu rồi, cho tôi thêm [vài ngày để kiếm tiền](debt_denial_reason) rồi sẽ trả cho bạn",1
+6,Tôi sẽ trả cho bạn ngay [khi tôi có tiền](debt_denial_reason),1
+7,"Tôi biết, tôi biết. Tôi [đang cố gắng thu xếp tiền](debt_denial_reason),hứa sẽ trả trong vài ngày tới",1
+8,"Rồi rồi, tôi đảm bảo sẽ trả đúng hạn,hiện tại tôi [đang thiếu tiền](debt_denial_reason)",1
+9,"Ừ chị đang [khó khăn](debt_denial_reason) quá, chị sẽ thanh toán sau  [1 tuần](timeframe) nữa nha",2
+10,"Anh hiểu mà, nhưng [giờ anh hơi kẹt](debt_denial_reason). Anh đang cố gắng giải quyết .",1
+11,Tớ [đang cố gắng giải quyết công việc](debt_denial_reason) ở đây. Cuối tuần tớ sẽ thanh toán sau,1
+12,"Cám ơn đã nhắc,nhưng hiện tại anh [đang thiếu](debt_denial_reason), anh sẽ cố gắng sắp xếp thanh toán.",1
+13,"Mình [đang hơi kẹt](debt_denial_reason),cho mình vài ngày mình sẽ thanh toán sau",1
+14,"Chị [đang gặp một số khó khăn trong công việc](debt_denial_reason) ,cho chị vài ngày nữa sẽ trả cho bên em",1
+15,"Tôi hiểu, nhưng tôi [đang gặp chút rắc rối](debt_denial_reason). tôi sẽ thanh toán sau khi đã giải quyết xong.",1
+16,Cho tôi thêm vài ngày. tôi [đang kẹt tiền](debt_denial_reason),1
+17,"Nhà chị [đang gặp sự cố](debt_denial_reason),cho chị thêm vài ngày nữa chị sẽ trả",1
+18,"OK anh hiểu nhưng nhà anh [giờ không có tiền](debt_denial_reason),anh sẽ trả ngay khi anh có",1
+19,[Tình hình kinh tế dạo này hơi khó](debt_denial_reason) cho anh thêm vài ngày anh hứa sẽ trả,1
+20,"Dạo này [làm ăn hơi khó](debt_denial_reason),anh không có tiền,anh hứa tuần sau anh trả",1
+21,"Bạn ơi, hiện tại [chưa có tiền](debt_denial_reason), nhưng tôi đảm bảo sẽ thanh toán trong thời gian tới.",1
+22,"Chị [vừa phải trả tiền viện phí](debt_denial_reason), cho chị vài ngày chị sẽ trả đủ",1
+23,"Anh biết rồi, vài ngày nữa [lương về](debt_denial_reason) anh sẽ chuyển",1
+24,"Tôi [mới đóng tiền viện phí](debt_denial_reason), hiện tại chưa có tiền, [cuối tuần](timeframe) sẽ trả sau",2
+25,"Ok em nhưng chị [đang không có tiền](debt_denial_reason), cho chị vài ngày chị hứa sẽ trả cho",1
+26,"Hai ngày nữa chị sẽ đóng nha, giờ chị [chưa có tiền](debt_denial_reason)",1
+27,"Biểt rồi, nhưng chị [đang hơi kẹt](debt_denial_reason),chị sẽ trả vào tuần sau",1
+28,"Em thông cảm hộ nha,chị [chưa có tiền](debt_denial_reason), chị sẽ cố gắng đóng tiền trong [tuần này](timeframe)",2
+29,"Xin lỗi bạn vì chậm trễ dạo này tôi [chưa có tiền](debt_denial_reason), tôi sẽ cố gắng thu xếp đóng trong [5 ngày](timeframe)",2
+30,"Tôi [đang hơi khó khăn](debt_denial_reason),nhưng yên tâm, tôi sẽ trả đúng hạn",1
+31,"Vài hôm nữa, tôi [mượn được tiền](debt_denial_reason) sẽ trả ngay cho bạn",1
+32,Tôi [chưa có tiền](debt_denial_reason) nhưng tôi hứa sẽ trả trong [vài ngày tới](timeframe),2
+33,"Tôi hiểu rồi, cho tôi thêm [vài ngày để kiếm tiền](debt_denial_reason) rồi sẽ trả cho bạn",1
+34,"Chị đang nấu ăn, không tiện nói chuyện.",0
+35,"Em đang tắm, không tiện nói chuyện.",0
+36,"Tao đang bận, không tiện nói chuyện",0
+37,"Mình đang gặp gỡ đối tác, không tiện nói chuyện.",0
+38,"Anh đang đi dự đám cưới, không tiện nói chuyện.",0
+39,"Chị đang đi du lịch, không tiện nói chuyện.",0
+40,"Tao đang ốm, không tiện nói chuyện.",0
+41,"Tớ đang gặp vấn đề cá nhân, không tiện nói chuyện.",0
+42,Đéo có thời gian nghe mày nói chuyện đâu.,0
+43,"Tao đang tắm, đéo tiện nói chuyện.",0
+44,"Anh đang gặp gỡ đối tác, đéo tiện nói chuyện.",0
+45,"Tao đang đi du lịch, đéo tiện nói chuyện.",0
+46,"Tao đang ốm, đéo có thời gian nói chuyện.",0
+47,"Mẹ tôi hiện không có nhà, nhưng cô có thể gọi lại vào trưa mai.",0
+48,"Chị tôi đang bận, nhưng sẽ rảnh vào khoảng 8 giờ tối nay.",0
+49,"Anh trai tôi không có ở đây, nhưng anh ấy thường về nhà vào chiều mai.",0
+50,"Bà ngoại tôi không nghe máy bây giờ, nhưng bà ấy thường ở nhà vào hôm khác.",0
+51,"Ông nội tôi đi vắng, nhưng ông sẽ trở lại vào ngày mai.",0
+52,"Cô ấy là bạn tôi, nhưng cô ấy đang bận. Bạn có thể gọi lại vào chiều nay không?",0
+53,"Cháu tôi không ở nhà bây giờ, nhưng cháu sẽ về vào tối nay.",0
+54,"Con gái tôi đang đi học, cô có thể gọi lại sau 3 giờ chiều không?",0
+55,"Anh ấy là bạn thân của tôi, nhưng anh ấy đang làm việc. Hãy thử lại vào buổi tối.",0
+56,"Bác của tôi không ở nhà, nhưng bác sẽ về vào cuối ngày hôm nay.",0
+57,"Chú tôi hiện đang ở ngoài, nhưng chú thường rảnh vào buổi sáng ngày mai.",0
+58,Ba tôi bỏ nhà ra đi từ hồi tôi còn đi học. Đến giờ vẫn chưa rõ ba đang ở đâu.,0
+59,Hàng xóm nhà tôi phá sản rồi ôm con bỏ trốn cách đây 2 năm rồi.,0
+60,Cô em họ ly dị chồng rồi sang Úc định cư cùng con gái năm ngoái.,0
+61,Bà chị hàng xóm mắc bệnh nan y rồi qua đời cách đây vài tháng.,0
+62,Cậu tôi bán nhà đi lao động ở nước ngoài từ nhiều năm rồi. Liên lạc cũng thưa thớt lắm.,0
+63,Chú hàng xóm ly hôn vợ rồi dọn đi đâu mất từ mấy năm trước.,0
+64,"Bố vợ tôi mất sớm, mẹ vợ thì đi tu năm ngoái rồi. Giờ chỉ còn hai vợ chồng tôi.",0
+65,Con trai bác sĩ bên cạnh nhà sang Đức du học từ nhiều năm trước rồi.,0
+66,Bà chị hàng xóm bán nhà chuyển lên Đà Lạt sống cách đây 4-5 năm rồi.,0
+67,"Hàng xóm cũ của tôi phá sản, leo dây trốn nợ cách đây khá lâu rồi.",0
+68,Con rể tôi chia tay vợ rồi đi lấy người khác năm ngoái. Giờ không ai rõ anh ấy đang ở đâu.,0
+69,Bố chồng tôi bị bệnh nặng rồi qua đời cách đây 5 năm.,0
+70,"Cô hàng xóm năm ngoái bán nhà rồi đi đâu mất, không thấy về nhà bao giờ.",0
+71,Phiếu báo có số tiền không chính xác.,0
+72,Giấy biên nhận thanh toán không đúng.,0
+73,Tờ khai hải quan bị kê sai mã hàng.,0
+74,Phiếu thu tiền mặt có sai sót số tiền.,0
+75,Hoá đơn bán hàng bị sai tên khách.,0
+76,Chứng từ chi tiêu có lỗi đơn giá.,0
+77,Phiếu xuất kho hàng ghi nhầm ngày.,0
+78,Bảng thanh toán tiền lương có số liệu sai.,0
+79,Biên bản họp có nội dung cần chỉnh sửa.,0
+80,Giấy biên nhận cọc có sai sót số tiền.,0
+81,Hợp đồng kinh tế kê khai sai thông tin.,0
+82,"Phải ra [cửa hàng](payment_channel) [nộp tiền](payment_method) à, còn [cách khác](payment_method) không bạn?",3
+83,"Tớ không rõ lắm, [thanh toán](payment_method) ở [bưu điện](payment_channel) thì làm sao nhỉ?",2
+84,Mình cần thêm thông tin về [thanh toán online](payment_method)!,1
+85,Muốn thanh toán thì [ra đâu](payment_channel) em?,1
+86,Muốn thanh toán ở quê thì [đi ra đâu](payment_channel) em?,1
+87,"Còn cách nào khác để thanh toán ngoài việc đến [viettel](payment_channel), [bưu điện](payment_channel) không?",2
+88,Thế mình có thể thanh toán tại bất kỳ [cửa hàng điện thoại](payment_channel) nào cũng được à?,1
+89,"Tao không biết [thanh toán online](payment_method), mày nói rõ hơn được không?",1
+90,"Giờ tôi không có 4g, không [thanh toán online](payment_method) được, có [cách thanh toán khác](payment_method) không?",2
+91,"Bác già cả rồi, không biết [vụ online này](payment_method). Con có thể giải thích rõ hơn được không?",1
+92,Có thể hướng dẫn tôi [cách thanh toán](payment_method) tại [cửa hàng điện thoại](payment_channel) không?,2
+93,"Anh không có tiền mặt, [thanh toán online](payment_method) được không em?",1
+94,[Thanh toán online](payment_method) sao em? Chỉ chị đi,1
+95,Tớ cần biết thêm về việc thanh toán ở [viettel](payment_channel)!,1
+96,Giải thích rõ [cách thanh toán](payment_method) đi rồi anh trả tiền,1
+97,"Chị chưa hiểu [cách thanh toán](payment_method) ở [cửa hàng điện thoại](payment_channel), em nói rõ hơn được không?",2

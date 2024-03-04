@@ -1,5 +1,6 @@
 /env
 /intentDIETcls
+/rasa-3.x-component-examples
 /.rasa
 *.txt
 *.ipynb
@@ -156,7 +157,17 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
+*.xlsx
+/models
+/rasa-3.x-component-examples
+/logging
+/custom_model
+/data
+/Data30K
+/env
+/intentDIETcls
+/tests
+/transformer
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
